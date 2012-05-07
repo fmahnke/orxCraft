@@ -75,7 +75,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\..\include;..\..\..\scroll\include\Scroll;..\..\orx\code\include;..\..\..\CEGUI-0.7.6\cegui\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\include;..\..\..\Ackscroll\include\Scroll;..\..\orx\code\include;..\..\..\CEGUI-0.7.6\cegui\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>__orxDEBUG__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -143,24 +143,33 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\ListBox.cpp" />
     <ClCompile Include="..\..\src\orxcraft.cpp" />
-    <None Include="..\..\src\InfoWindow.inl">
-      <FileType>CppCode</FileType>
+    <None Include="..\..\..\AckScroll\include\Scroll\Scroll.inl" />
+    <None Include="..\..\..\AckScroll\include\Scroll\ScrollBase.inl" />
+    <None Include="..\..\..\AckScroll\include\Scroll\ScrollEd.inl" />
+    <None Include="..\..\..\AckScroll\include\Scroll\ScrollObject.inl" />
+    <None Include="..\..\data\orxCraft.ini">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </None>
+    <ClCompile Include="..\..\src\InfoWindow.cpp" />
+    <ClCompile Include="..\..\src\ObjectEditor.cpp">
+      <FileType>Document</FileType>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ScrollGUI.cpp">
+      <FileType>Document</FileType>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\scroll\include\Scroll\Scroll.h" />
-    <ClInclude Include="..\..\..\scroll\include\Scroll\ScrollBase.h" />
-    <ClInclude Include="..\..\..\scroll\include\Scroll\ScrollEd.h" />
-    <ClInclude Include="..\..\..\scroll\include\Scroll\ScrollObject.h" />
+    <ClInclude Include="..\..\..\AckScroll\include\Scroll\Scroll.h" />
+    <ClInclude Include="..\..\..\AckScroll\include\Scroll\ScrollBase.h" />
+    <ClInclude Include="..\..\..\AckScroll\include\Scroll\ScrollEd.h" />
+    <ClInclude Include="..\..\..\AckScroll\include\Scroll\ScrollObject.h" />
+    <ClInclude Include="..\..\include\ListBox.h" />
+    <ClInclude Include="..\..\include\ObjectEditor.h" />
     <ClInclude Include="..\..\include\orxCraft.h" />
     <ClInclude Include="..\..\include\InfoWindow.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\..\scroll\include\Scroll\Scroll.inl" />
-    <None Include="..\..\..\scroll\include\Scroll\ScrollBase.inl" />
-    <None Include="..\..\..\scroll\include\Scroll\ScrollEd.inl" />
-    <None Include="..\..\..\scroll\include\Scroll\ScrollObject.inl" />
+    <ClInclude Include="..\..\include\ScrollGUI.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

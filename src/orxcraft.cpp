@@ -2,36 +2,51 @@
 #include "orxcraft.h"
 #undef  __SCROLL_IMPL__
 
-#include <gl\gl.h>                                // Header File For The OpenGL32 Library
-#include <gl\glu.h>                               // Header File For The GLu32 Library
-#include "CEGUI.h"
-#include "RendererModules/OpenGL/CEGUIOpenGLRenderer.h"
+//#include <gl\gl.h>                                // Header File For The OpenGL32 Library
+//#include <gl\glu.h>                               // Header File For The GLu32 Library
+//#include "RendererModules/OpenGL/CEGUIOpenGLRenderer.h"
 //#include <windows.h>                              // Header File For Windows
 //#include <gl\glaux.h> 
 
-#include "InfoWindow.inl"
-
-// Inputs
-static const orxSTRING inputQuit       = "Quit";
-static const orxSTRING inputLeftArrow  = "LeftArrow";
-static const orxSTRING inputRightArrow = "RightArrow";
-static const orxSTRING inputUpArrow    = "UpArrow";
-static const orxSTRING inputDownArrow  = "DownArrow";
+#include "ObjectEditor.h"
 
 // Widgets
 static const orxSTRING infoWindow = "O-InfoWindow";
+static const orxSTRING scrollGUI  = "ScrollGUI";
+static const orxSTRING objectEditor = "ObjectEditor";
 
 // Settings
 static orxFLOAT coarseUnit = 5.0;
-
-ScrollObject *m_widget;
-CEGUI::OpenGLRenderer *myRenderer = NULL;
+static const orxSTRING configFileName = "sampleconfig.ini";
 
 OrxCraft::OrxCraft () :
-  m_selectedObject (NULL)
+    m_selectedObject (NULL),
+    m_objectEditor (NULL),
+    m_scrollGUI (NULL)
 {
-    orxMemory_Zero (&m_objectList, sizeof (orxLINKLIST));
-    orxMemory_Zero (&m_graphicList, sizeof (orxLINKLIST));
+}
+
+void OrxCraft::SetSelectedObject (const orxSTRING name)
+{
+    m_selectedObject = GetObjectByName (name);
+    m_objectEditor->SetObject (m_selectedObject);
+}
+
+ScrollObject * OrxCraft::GetObjectByName (const orxSTRING name) const
+{
+    ScrollObject *foundObject = NULL;
+
+    for (ScrollObject *obj = GetNextObject (orxNULL);
+	 obj != orxNULL;
+	 obj = GetNextObject (obj))
+    {
+	if (orxString_Compare (name, obj->GetModelName ()) == 0)
+	{
+	    foundObject = obj;
+	    break;
+	}
+    }
+    return foundObject;
 }
 
 orxSTATUS OrxCraft::Init ()
@@ -40,19 +55,23 @@ orxSTATUS OrxCraft::Init ()
 
     SetupConfig ();
 
-    CreateObject ("O-InfoWindow");
-    m_selectedObject = CreateObject ("O-Soldier");
+    //CreateObject ("O-InfoWindow");
+    //m_selectedObject = CreateObject ("O-Soldier");
 
-    myRenderer = & CEGUI::OpenGLRenderer::bootstrapSystem();
+    // Init Crazy Eddie
+    m_scrollGUI = (ScrollGUI *) CreateObject (scrollGUI);
+    CreateObject (infoWindow);
+    m_objectEditor = (ObjectEditor *) CreateObject (objectEditor);
+    m_objectEditor->SetObject (m_selectedObject);
 
-    CEGUI::SchemeManager::getSingleton().create( "TaharezLook.scheme" );
-    CEGUI::Window* myRoot = CEGUI::WindowManager::getSingleton().loadWindowLayout( "test.layout" );
-    CEGUI::System::getSingleton().setGUISheet( myRoot );
+    orxViewport_CreateFromConfig ("Viewport1");
+    //orxCamera_CreateFromConfig ("Camera1");
 
+    orxEvent_AddHandler (orxEVENT_TYPE_INPUT, EventHandler);
     return eResult;
 }
 
-orxSTATUS OrxCraft::Run()
+orxSTATUS OrxCraft::Run ()
 {
   orxSTATUS eResult = orxSTATUS_SUCCESS;
 
@@ -69,77 +88,142 @@ orxSTATUS OrxCraft::Run()
 
 void OrxCraft::Exit()
 {
-  // Removes event handler
 }
 
 void OrxCraft::BindObjects ()
 {
     ScrollBindObject<InfoWindow> (infoWindow);
+    ScrollBindObject<ScrollGUI>  (scrollGUI);
+    ScrollBindObject<ObjectEditor> (objectEditor);
 }
 
 void OrxCraft::Update(const orxCLOCK_INFO &_rstInfo)
 {
-    orxVECTOR selObjPosition;
-    m_selectedObject->GetPosition (selObjPosition, true);
+    orxVECTOR mousePos;
+    orxMouse_GetPosition (&mousePos);
 
-    if (orxInput_IsActive (inputLeftArrow) &&
-	orxInput_HasNewStatus (inputLeftArrow))
+    orxVECTOR worldPos;
+    orxRender_GetWorldPosition (&mousePos, &worldPos);
+
+    // Nothing picked
+    if (orxObject_Pick (&worldPos) == orxNULL)
     {
-	selObjPosition.fX -= coarseUnit;
-    }
-    if (orxInput_IsActive (inputRightArrow) &&
-	     orxInput_HasNewStatus (inputRightArrow))
-    {
-	selObjPosition.fX += coarseUnit;
-    }
-    if (orxInput_IsActive (inputUpArrow) &&
-	     orxInput_HasNewStatus (inputUpArrow))
-    {
-	selObjPosition.fY -= coarseUnit;
-    }
-    else if (orxInput_IsActive (inputDownArrow) &&
-	     orxInput_HasNewStatus (inputDownArrow))
-    {
-	selObjPosition.fY += coarseUnit;
+	m_scrollGUI->Input ();
     }
 
-    m_selectedObject->SetPosition (selObjPosition, true);
+    if (m_selectedObject != orxNULL)
+    {
+	orxVECTOR selObjPosition;
+	m_selectedObject->GetPosition (selObjPosition, true);
+
+	if (orxInput_IsActive (inputLeftArrow) &&
+	    orxInput_HasNewStatus (inputLeftArrow))
+	{
+	    selObjPosition.fX -= coarseUnit;
+	}
+	if (orxInput_IsActive (inputRightArrow) &&
+	    orxInput_HasNewStatus (inputRightArrow))
+	{
+	    selObjPosition.fX += coarseUnit;
+	}
+	if (orxInput_IsActive (inputUpArrow) &&
+	    orxInput_HasNewStatus (inputUpArrow))
+	{
+	    selObjPosition.fY -= coarseUnit;
+	}
+	if (orxInput_IsActive (inputDownArrow) &&
+	    orxInput_HasNewStatus (inputDownArrow))
+	{
+	    selObjPosition.fY += coarseUnit;
+	}
+
+	m_selectedObject->SetPosition (selObjPosition, true);
+    }
 }
 
 void OrxCraft::SetupConfig ()
 {
+    orxConfig_Load (configFileName);
+
     for (int i = 0, sectionCounter = orxConfig_GetSectionCounter ();
 	 i < sectionCounter;
 	 i++)
     {
 	const orxSTRING sectionName = orxConfig_GetSection (i);
-	orxOBJECT *getObj = orxObject_CreateFromConfig (sectionName);
-
-	if (getObj != orxNULL)
+	orxConfig_PushSection (sectionName);
+	if (orxConfig_GetBool ("NoEdit") != orxTRUE)
 	{
-	    orxBANK *bank = orxBank_Create (10, sizeof (configObject),
-		orxBANK_KU32_FLAG_NONE, orxMEMORY_TYPE_MAIN);
-	    configObject *pstNode = (configObject *) orxBank_Allocate (bank);
-	    pstNode->orxObject = getObj;
-
-	    
-	    orxLinkList_AddEnd (&m_objectList, (orxLINKLIST_NODE *)pstNode);
-	    continue;
+	    const orxSTRING graphic = orxConfig_GetString ("Graphic");
+	    // Does it have a Graphic property?
+	    if (orxString_Compare (graphic, "") != 0)
+	    {
+		// It's an object
+		m_objectList.push_back (sectionName);
+		CreateObject (sectionName);
+		continue;
+	    }
+	    // Does it have a Texture property?
+	    const orxSTRING texture = orxConfig_GetString ("Texture");
+	    if (orxString_Compare (texture, "") != 0)
+	    {
+		// It's a graphic
+		m_graphicList.push_back (sectionName);
+		CreateObject (sectionName);
+		continue;
+	    }
 	}
-	
-	orxGRAPHIC *getGraphic = orxGraphic_CreateFromConfig (sectionName);
+	orxConfig_PopSection ();
+    }
+}
 
-	if (getGraphic != orxNULL)
+void OrxCraft::OnMouseDown ()
+{
+    m_scrollGUI->InputMouseDown ();
+}
+
+void OrxCraft::OnMouseUp ()
+{
+    m_scrollGUI->InputMouseUp ();
+}
+
+void OrxCraft::OnKeyPress (const orxSTRING key)
+{
+    m_scrollGUI->InputKeyPress (key);
+}
+
+orxSTATUS orxFASTCALL OrxCraft::EventHandler(const orxEVENT *_pstEvent)
+{
+    orxSTATUS result = orxSTATUS_SUCCESS;
+
+    // Key pressed?
+    if (_pstEvent->eType == orxEVENT_TYPE_INPUT)
+    {
+	if(_pstEvent->eID == orxINPUT_EVENT_ON)
 	{
-	    orxBANK *bank = orxBank_Create (10, sizeof (configGraphic),
-		orxBANK_KU32_FLAG_NONE, orxMEMORY_TYPE_MAIN);
-	    configGraphic *pstNode = (configGraphic *) orxBank_Allocate (bank);
-	    pstNode->orxGraphic = getGraphic;
-
-	    orxLinkList_AddEnd (&m_graphicList, (orxLINKLIST_NODE *)pstNode);
-	    continue;
+	    orxINPUT_EVENT_PAYLOAD *pstPayload;
+	    pstPayload = (orxINPUT_EVENT_PAYLOAD *) _pstEvent->pstPayload;
+	    switch (pstPayload->aeType[0])
+	    {
+	    case orxINPUT_TYPE_KEYBOARD_KEY:
+		OrxCraft::GetInstance ().OnKeyPress (pstPayload->zInputName);
+		break;
+	    case orxINPUT_TYPE_MOUSE_BUTTON:
+		OrxCraft::GetInstance ().OnMouseDown ();
+		break;
+	    }
+	}
+	if(_pstEvent->eID == orxINPUT_EVENT_OFF)
+	{
+	    orxINPUT_EVENT_PAYLOAD *pstPayload;
+	    pstPayload = (orxINPUT_EVENT_PAYLOAD *) _pstEvent->pstPayload;
+	    if (orxString_Compare (inputLeftMB, pstPayload->zInputName) == 0)
+	    {
+		OrxCraft::GetInstance ().OnMouseUp ();
+	    }
 	}
     }
+
+    return result;
 }
 
 int main(int argc, char **argv)

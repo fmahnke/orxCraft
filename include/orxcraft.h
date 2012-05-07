@@ -5,27 +5,34 @@
 #define __NO_SCROLLED__ // Uncomment this define to prevent the embedded editor (ScrollEd) from being compiled
 #include "Scroll.h"
 
+#include <vector>
+
+#include "ScrollGUI.h"
 #include "InfoWindow.h"
 
-typedef struct
-{
-    orxLINKLIST_NODE orxLinkListNode;
-    orxOBJECT *orxObject;
-} configObject;
+class ObjectEditor;
 
-typedef struct
-{
-    orxLINKLIST_NODE orxLinkListNode;
-    orxGRAPHIC *orxGraphic;
-} configGraphic;
+// Inputs
+static const orxSTRING inputQuit       = "Quit";
+static const orxSTRING inputLeftMB     = "LeftClick";
+static const orxSTRING inputLeftArrow  = "LeftArrow";
+static const orxSTRING inputRightArrow = "RightArrow";
+static const orxSTRING inputUpArrow    = "UpArrow";
+static const orxSTRING inputDownArrow  = "DownArrow";
+
+using std::vector;
 
 //! OrxCraft class
 class OrxCraft : public Scroll<OrxCraft>
 {
 public:
-    inline ScrollObject * GetSelectedObject () { return m_selectedObject; }
- 
     OrxCraft ();
+
+    inline vector<const orxSTRING> & GetObjectList () { return m_objectList; }
+    inline ScrollObject * GetSelectedObject () { return m_selectedObject; }
+    void SetSelectedObject (const orxSTRING name); 
+
+    ScrollObject * GetObjectByName (const orxSTRING name) const;
 
 private:
   virtual orxSTATUS Init ();
@@ -34,10 +41,16 @@ private:
   virtual void      BindObjects ();
   virtual void      Update(const orxCLOCK_INFO &_rstInfo);
 
+  void OnMouseDown ();
+  void OnMouseUp ();
+  void OnKeyPress (const orxSTRING key);
+  static orxSTATUS orxFASTCALL EventHandler(const orxEVENT *_pstEvent);
   void SetupConfig ();
 
-  ScrollObject *m_selectedObject;
-  orxLINKLIST   m_objectList;
-  orxLINKLIST   m_graphicList;
+  ScrollGUI                *m_scrollGUI;
+  ObjectEditor           *m_objectEditor;
+  ScrollObject             *m_selectedObject;
+  vector<const orxSTRING>  m_objectList;
+  vector<const orxSTRING>  m_graphicList;
 };
 #endif // __OrxCraft_H_
