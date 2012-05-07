@@ -1,0 +1,75 @@
+<?xml version="1.0" ?>
+<GUILayout>
+<Window Type="DefaultWindow" Name="root">
+        <Window Type="TaharezLook/FrameWindow" Name="InfoWindow">
+			<Property Name="Alpha" Value = "0.7" />
+            <Property Name="UnifiedPosition" Value="{ {0.03, 0}, {0.03, 0} }" />
+            <Property Name="UnifiedSize" Value="{ {0.2, 0}, {0.9, 0} }" />
+            <Property Name="Text" Value="Hello World!" />
+		<Window Type="TaharezLook/Editbox" Name="X">
+		    <Property Name="UnifiedPosition" Value="{ {0.03, 0}, {0.03, 0} }" />
+		    <Property Name="UnifiedSize" Value="{ {0.25, 0}, {0.03, 0} }" />
+		</Window>
+		<Window Type="TaharezLook/Editbox" Name="Y">
+		    <Property Name="UnifiedPosition" Value="{ {0.33, 0}, {0.03, 0} }" />
+		    <Property Name="UnifiedSize" Value="{ {0.25, 0}, {0.03, 0} }" />
+		</Window>
+		<Window Type="TaharezLook/Editbox" Name="Z">
+		    <Property Name="UnifiedPosition" Value="{ {0.69, 0}, {0.03, 0} }" />
+		    <Property Name="UnifiedSize" Value="{ {0.25, 0}, {0.03, 0} }" />
+		</Window>
+		<Window Type="TaharezLook/Editbox" Name="SectionName">
+		    <Property Name="UnifiedPosition" Value="{ {0.03, 0}, {0.07, 0} }" />
+		    <Property Name="UnifiedSize" Value="{ {0.90, 0}, {0.05, 0} }" />
+		</Window>
+		<Window Type="TaharezLook/Listbox" Name="SectionList">
+		    <Property Name="Text">List Box</Property>
+		    <Property Name="UnifiedPosition" Value="{ {0.03, 0}, {0.15, 0} }" />
+		    <Property Name="UnifiedSize" Value="{ {0.90, 0}, {0.25, 0} }" />
+		</Window>
+		<Window Type="TaharezLook/Button" Name="Save">
+		    <Property Name="Text">Save</Property>
+		    <Property Name="UnifiedPosition" Value="{ {0.03, 0}, {0.95, 0} }" />
+		    <Property Name="UnifiedSize" Value="{ {0.50, 0}, {0.05, 0} }" />
+		</Window>
+	</Window>
+	<Window Type="TaharezLook/FrameWindow" Name="ObjectEditor">
+		<Property Name="Font" Value="DejaVuSans-8" />
+		<Property Name="Alpha" Value = "0.7" />
+		<Property Name="UnifiedPosition" Value="{ {0.23, 0}, {0.03, 0} }" />
+		<Property Name="UnifiedSize" Value="{ {0.2, 0}, {0.9, 0} }" />
+		<Property Name="Text" Value="Object Editor" />
+		<Window Type="TaharezLook/Editbox" Name="ObjectConfigName">
+			<Property Name="Text" Value="No Object Selected" />
+			<Property Name="UnifiedPosition" Value="{ {0.1, 0}, {0.1, 0} }" />
+			<Property Name="UnifiedSize" Value="{ {0.9, 0}, {0.1, 0} }" />	
+		</Window>
+		<Window Type="TaharezLook/Editbox" Name="ObjPosX">
+		    <Property Name="UnifiedPosition" Value="{ {0.03, 0}, {0.03, 0} }" />
+		    <Property Name="UnifiedSize" Value="{ {0.25, 0}, {0.03, 0} }" />
+		</Window>
+		<Window Type="TaharezLook/Editbox" Name="ObjPosY">
+		    <Property Name="UnifiedPosition" Value="{ {0.33, 0}, {0.03, 0} }" />
+		    <Property Name="UnifiedSize" Value="{ {0.25, 0}, {0.03, 0} }" />
+		</Window>
+		<Window Type="TaharezLook/Editbox" Name="ObjPosZ">
+		    <Property Name="UnifiedPosition" Value="{ {0.69, 0}, {0.03, 0} }" />
+		    <Property Name="UnifiedSize" Value="{ {0.25, 0}, {0.03, 0} }" />
+		</Window>
+		<Window Type="TaharezLook/StaticText" Name="LabelFXs">
+			<Property Name="Text" Value="FXList" />
+			<Property Name="UnifiedPosition" Value="{ {0.1, 0}, {0.2, 0} }" />
+			<Property Name="UnifiedSize" Value="{ {0.75, 0}, {0.05, 0} }" />
+		</Window>
+		<Window Type="TaharezLook/Editbox" Name="FXList">
+			<Property Name="UnifiedPosition" Value="{ {0.1, 0}, {0.25, 0} }" />
+			<Property Name="UnifiedSize" Value="{ {0.9, 0}, {0.05, 0} }" />
+		</Window>
+		<Window Type="TaharezLook/Listbox" Name="ChildList">
+			<Property Name="UnifiedPosition" Value="{ {0.1, 0}, {0.75, 0} }" />
+			<Property Name="UnifiedSize" Value="{ {0.9, 0}, {0.5, 0} }" />
+		</Window>
+	</Window>
+</Window>
+</GUILayout>
+
