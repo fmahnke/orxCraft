@@ -1,6 +1,6 @@
 /**
  * @file ObjectEditor.h
- * @date 2012-06-04
+ * @date 2012-05-04
  * @author fritz@fritzmahnke.com
  *
  */
@@ -11,6 +11,10 @@
 
 #include "CEGUI.h"
 
+using std::vector;
+
+class ScrollWidget;
+
 class ObjectEditor : public ScrollObject
 {
 public:
@@ -20,6 +24,8 @@ public:
     virtual void     OnCreate ();
     virtual void     OnDelete ();
     void             Update(const orxCLOCK_INFO &_rstInfo);
+
+    void ObjectEditor::HandleTextAccepted (const orxSTRING widgetName);
 
     // CEGUI events
     bool ObjectEditor::OnTextAccepted (const CEGUI::EventArgs &e);
@@ -50,6 +56,7 @@ public:
 
 private:
     CEGUI::Window *m_window;
+    vector<ScrollWidget *> m_widgetList;
     ScrollObject *m_object;
 };
 

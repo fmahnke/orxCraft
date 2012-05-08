@@ -8,6 +8,9 @@
 
 #include "OrxCraft.h"
 
+#include "CEGUICheckbox.h"
+#include "CEGUIEditbox.h"
+
 ObjectEditor::ObjectEditor () :
     m_object (NULL)
 {
@@ -18,16 +21,149 @@ void ObjectEditor::OnCreate ()
     CEGUI::Window *rootWindow = CEGUI::System::getSingleton ().getGUISheet ();
     m_window = rootWindow->getChild ("ObjectEditor");
     
+    int counter = m_window->getChildCount ();
+    for (int i = 0; i < counter; i++)
+    {
+	const orxSTRING type = m_window->getChildAtIdx (i)->getType ().c_str ();
+	const orxSTRING name = m_window->getChildAtIdx (i)->getName ().c_str ();
+	if (orxString_Compare (type, "TaharezLook/Checkbox") == 0)
+	{
+	    CEGUICheckbox *checkbox = new CEGUICheckbox (this);
+	    checkbox->Init (name);
+	    m_widgetList.push_back (checkbox);
+	}
+	else if (orxString_Compare (type, "TaharezLook/Editbox") == 0)
+	{
+	    CEGUIEditbox *editbox = new CEGUIEditbox (this);
+	    editbox->Init (name);
+	    m_widgetList.push_back (editbox);
+	}
+    }
+
+    /*
     CEGUI::Editbox *editbox = (CEGUI::Editbox *) m_window->getChild ("ObjPosX");
     editbox->subscribeEvent (CEGUI::Editbox::EventTextAccepted,
 	CEGUI::Event::Subscriber (&ObjectEditor::OnTextAccepted, this));
     editbox = (CEGUI::Editbox *) m_window->getChild ("ObjAlpha");
     editbox->subscribeEvent (CEGUI::Editbox::EventTextAccepted,
 	CEGUI::Event::Subscriber (&ObjectEditor::OnTextAccepted, this));
+	*/
 }
 
 void ObjectEditor::OnDelete ()
 {
+}
+
+void ObjectEditor::HandleTextAccepted (const orxSTRING widgetName)
+{
+    orxASSERT (widgetName != orxNULL);
+    orxASSERT (m_object != orxNULL);
+
+    // Push config section of edited object
+    orxConfig_PushSection (m_object->GetModelName ());
+
+    // Update config
+    if (orxString_Compare (widgetName, "ObjAlpha") == 0)
+    {
+	const orxSTRING alpha = GetText ("ObjAlpha");
+	orxConfig_SetString ("Alpha", alpha);
+    }
+    else if (orxString_Compare (widgetName, "ObjAngularVelocity") == 0)
+    {
+	orxASSERT (false);
+    }
+    else if (orxString_Compare (widgetName, "ObjAnimFreq") == 0)
+    {
+	orxASSERT (false);
+    }
+    else if (orxString_Compare (widgetName, "ObjAnimSet") == 0)
+    {
+	orxASSERT (false);
+    }
+    else if (orxString_Compare (widgetName, "ObjAutoScroll") == 0)
+    {
+	orxASSERT (false);
+    }
+    else if (orxString_Compare (widgetName, "ObjBlendMode") == 0)
+    {
+	orxASSERT (false);
+    }
+    else if (orxString_Compare (widgetName, "ObjBody") == 0)
+    {
+	orxASSERT (false);
+    }
+    else if (orxString_Compare (widgetName, "ObjClock") == 0)
+    {
+	orxASSERT (false);
+    }
+    else if (orxString_Compare (widgetName, "ObjColorR") == 0)
+    {
+	orxASSERT (false);
+    }
+    else if (orxString_Compare (widgetName, "ObjColorG") == 0)
+    {
+	orxASSERT (false);
+    }
+    else if (orxString_Compare (widgetName, "ObjColorB") == 0)
+    {
+	orxASSERT (false);
+    }
+    else if (orxString_Compare (widgetName, "ObjGraphic") == 0)
+    {
+	orxASSERT (false);
+    }
+    else if (orxString_Compare (widgetName, "ObjFXList") == 0)
+    {
+	orxASSERT (false);
+    }
+    else if (orxString_Compare (widgetName, "ObjLifeTime") == 0)
+    {
+	orxASSERT (false);
+    }
+    else if (orxString_Compare (widgetName, "ObjParentCam") == 0)
+    {
+	orxASSERT (false);
+    }
+    else if (orxString_Compare (widgetName, "ObjPosX") == 0)
+    {
+	const orxSTRING newX = GetText ("ObjPosX");
+	orxFLOAT newXFloat;
+	orxString_ToFloat (newX,  &newXFloat, orxNULL);
+	orxVECTOR oldPosition;
+	m_object->GetPosition (oldPosition, true);
+	oldPosition.fX = newXFloat;
+	//m_object->SetPosition (oldPosition, true);
+	orxConfig_SetVector ("Position", &oldPosition);
+    }
+    else if (orxString_Compare (widgetName, "ObjRepeatX") == 0)
+    {
+	orxASSERT (false);
+    }
+    else if (orxString_Compare (widgetName, "ObjRotation") == 0)
+    {
+	orxASSERT (false);
+    }
+    else if (orxString_Compare (widgetName, "ObjSpeedX") == 0)
+    {
+	orxASSERT (false);
+    }
+    else if (orxString_Compare (widgetName, "ObjShaderList") == 0)
+    {
+	orxASSERT (false);
+    }
+    else if (orxString_Compare (widgetName, "ObjSoundList") == 0)
+    {
+	orxASSERT (false);
+    }
+    else if (orxString_Compare (widgetName, "ObjSpawner") == 0)
+    {
+	orxASSERT (false);
+    }
+   
+    orxConfig_PopSection ();
+
+    // Update object in editor
+    UpdateObject ();
 }
 
 bool ObjectEditor::OnTextAccepted (const CEGUI::EventArgs &e)

@@ -143,6 +143,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\CEGUICheckbox.cpp" />
+    <ClCompile Include="..\..\src\CEGUIEditbox.cpp" />
     <ClCompile Include="..\..\src\ListBox.cpp" />
     <ClCompile Include="..\..\src\orxcraft.cpp" />
     <None Include="..\..\..\AckScroll\include\Scroll\Scroll.inl" />
@@ -156,6 +158,7 @@
     <ClCompile Include="..\..\src\ObjectEditor.cpp">
       <FileType>Document</FileType>
     </ClCompile>
+    <ClCompile Include="..\..\src\ScrollCheckbox.cpp" />
     <ClCompile Include="..\..\src\ScrollGUI.cpp">
       <FileType>Document</FileType>
     </ClCompile>
@@ -170,6 +173,11 @@
     <ClInclude Include="..\..\include\orxCraft.h" />
     <ClInclude Include="..\..\include\InfoWindow.h" />
     <ClInclude Include="..\..\include\ScrollGUI.h" />
+    <ClInclude Include="..\..\src\CEGUICheckbox.h" />
+    <ClInclude Include="..\..\src\CEGUIEditbox.h" />
+    <ClInclude Include="..\..\src\ScrollCheckbox.h" />
+    <ClInclude Include="..\..\src\ScrollEditbox.h" />
+    <ClInclude Include="..\..\src\ScrollWidget.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
