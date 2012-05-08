@@ -1,3 +1,9 @@
+/**
+ * @file ScrollGUI.cpp
+ * @date 2012-06-04
+ * @author fritz@fritzmahnke.com
+ *
+ */
 #include "ScrollGUI.h"
 
 #include "OrxCraft.h"
@@ -129,6 +135,17 @@ void ScrollGUI::InputKeyPress (const orxSTRING orxKey)
 	key = Key::Subtract;
 	inputChar = '-';
     }
+    if (orxString_Compare (orxKey, "Period") == 0)
+    {
+	key = Key::Period;
+	inputChar = '.';
+    }
+    if (orxString_Compare (orxKey, "Dash") == 0)
+    {
+	key = Key::Minus;
+	inputChar = '-';
+    }
+
     CEGUI::System::getSingleton ().injectKeyDown (key);
     if (inputChar != '\0')
     {

@@ -1,3 +1,9 @@
+/**
+ * @file OrxCraft.cpp
+ * @date 2012-06-04
+ * @author fritz@fritzmahnke.com
+ *
+ */
 #define __SCROLL_IMPL__
 #include "orxcraft.h"
 #undef  __SCROLL_IMPL__

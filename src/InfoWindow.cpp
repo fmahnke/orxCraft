@@ -1,3 +1,9 @@
+/**
+ * @file InfoWindow.cpp
+ * @date 2012-06-04
+ * @author fritz@fritzmahnke.com
+ *
+ */
 #include "InfoWindow.h"
 
 #include "OrxCraft.h"

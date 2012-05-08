@@ -1,3 +1,9 @@
+/**
+ * @file ScrollGUI.h
+ * @date 2012-06-04
+ * @author fritz@fritzmahnke.com
+ *
+ */
 #ifndef __SCROLLGUI_H__
 #define __SCROLLGUI_H__
 

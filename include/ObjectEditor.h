@@ -1,3 +1,9 @@
+/**
+ * @file ObjectEditor.h
+ * @date 2012-06-04
+ * @author fritz@fritzmahnke.com
+ *
+ */
 #ifndef __ObjectEditor_H__
 #define __ObjectEditor_H__
 
@@ -24,8 +30,15 @@ public:
     void ObjectEditor::SetText (const orxSTRING widgetName,
 	                        const orxSTRING text);
 
+    void ObjectEditor::SetTextFromConfigFloat (const orxSTRING widgetName,
+	                                       const orxSTRING prop);
+    void ObjectEditor::SetTextFromConfigStringList (const orxSTRING widgetName,
+						    const orxSTRING prop);
+    void ObjectEditor::SetTextFromConfigVector (const orxSTRING widgetName,
+					        const orxSTRING prop,
+						orxU32 elementNum);
     void SetObject (ScrollObject *object);
-    void Draw ();
+    void UpdateFields ();
 
 private:
     CEGUI::Window *m_window;

@@ -1,3 +1,9 @@
+/**
+ * @file InfoWindow.h
+ * @date 2012-06-04
+ * @author fritz@fritzmahnke.com
+ *
+ */
 #ifndef __InfoWindow_H__
 #define __InfoWindow_H__
 

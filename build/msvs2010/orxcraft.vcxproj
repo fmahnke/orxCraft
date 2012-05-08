@@ -143,7 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\ListBox.cpp" />
+    <ClCompile Include="..\..\src\ListBox.cpp" />
     <ClCompile Include="..\..\src\orxcraft.cpp" />
     <None Include="..\..\..\AckScroll\include\Scroll\Scroll.inl" />
     <None Include="..\..\..\AckScroll\include\Scroll\ScrollBase.inl" />
