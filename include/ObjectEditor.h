@@ -27,18 +27,26 @@ public:
     void ObjectEditor::UpdateObject ();
 
     const orxSTRING ObjectEditor::GetText (const orxSTRING widgetName) const;
-    void ObjectEditor::SetText (const orxSTRING widgetName,
-	                        const orxSTRING text);
 
+    /// Update widget text explicitly
+    void ObjectEditor::SetText (const orxSTRING widgetName,
+	                        const orxSTRING text) const;
+
+    /// Update widget text from an Orx config float
     void ObjectEditor::SetTextFromConfigFloat (const orxSTRING widgetName,
-	                                       const orxSTRING prop);
+	                                       const orxSTRING prop) const;
+    /// Update widget text from an Orx config string
     void ObjectEditor::SetTextFromConfigStringList (const orxSTRING widgetName,
-						    const orxSTRING prop);
+						    const orxSTRING prop) const;
+    /// Update widget text from an Orx config vector
     void ObjectEditor::SetTextFromConfigVector (const orxSTRING widgetName,
 					        const orxSTRING prop,
-						orxU32 elementNum);
+						orxU32 elementNum) const;
+    /// Set the ScrollObject used by this instance
     void SetObject (ScrollObject *object);
-    void UpdateFields ();
+
+    /// Update all widgets to show current ScrollObject config values
+    void UpdateFields () const;
 
 private:
     CEGUI::Window *m_window;

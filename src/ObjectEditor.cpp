@@ -46,6 +46,7 @@ bool ObjectEditor::OnTextAccepted (const CEGUI::EventArgs &e)
     }
     else if (orxString_Compare (name, "ObjAngularVelocity") == 0)
     {
+	orxASSERT (false);
     }
     else if (orxString_Compare (name, "ObjAnimFreq") == 0)
     {
@@ -135,7 +136,6 @@ bool ObjectEditor::OnTextAccepted (const CEGUI::EventArgs &e)
 	orxASSERT (false);
     }
    
-
     orxConfig_PopSection ();
 
     // Update object in editor
@@ -169,14 +169,14 @@ const orxSTRING ObjectEditor::GetText (const orxSTRING widgetName) const
 }
 
 void ObjectEditor::SetText (const orxSTRING widgetName,
-			    const orxSTRING text)
+			    const orxSTRING text) const
 {
     CEGUI::Window *window    = m_window->getChild (widgetName);
     window->setText (text);
 }
 
 void ObjectEditor::SetTextFromConfigFloat (const orxSTRING widgetName,
-					   const orxSTRING prop)
+					   const orxSTRING prop) const
 {
     orxConfig_PushSection (m_object->GetModelName ());
 
@@ -190,7 +190,7 @@ void ObjectEditor::SetTextFromConfigFloat (const orxSTRING widgetName,
 }
 
 void ObjectEditor::SetTextFromConfigStringList (const orxSTRING widgetName,
-					        const orxSTRING prop)
+					        const orxSTRING prop) const
 {
     char newBuffer[2048];
     char buffer[2048];
@@ -219,7 +219,7 @@ void ObjectEditor::SetTextFromConfigStringList (const orxSTRING widgetName,
 
 void ObjectEditor::SetTextFromConfigVector (const orxSTRING widgetName,
 					    const orxSTRING prop,
-					    orxU32 elementNum)
+					    orxU32 elementNum) const
 {
     orxASSERT (elementNum < 3);
 
@@ -256,7 +256,7 @@ void ObjectEditor::SetObject (ScrollObject *object)
 /**
  *  Update all fields on this window using the current values from config
  */
-void ObjectEditor::UpdateFields ()
+void ObjectEditor::UpdateFields () const
 {
     if (m_object != orxNULL)
     {
