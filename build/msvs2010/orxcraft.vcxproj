@@ -92,6 +92,14 @@
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>copy ..\..\cegui\FXSlotWindow.layout ..\..\bin\windows
+copy ..\..\cegui\test.layout ..\..\bin\windows</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -162,6 +170,7 @@
     <ClCompile Include="..\..\src\ScrollGUI.cpp">
       <FileType>Document</FileType>
     </ClCompile>
+    <None Include="..\..\README.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\AckScroll\include\Scroll\Scroll.h" />
@@ -178,6 +187,7 @@
     <ClInclude Include="..\..\src\ScrollCheckbox.h" />
     <ClInclude Include="..\..\src\ScrollEditbox.h" />
     <ClInclude Include="..\..\src\ScrollWidget.h" />
+    <ClInclude Include="..\..\src\ScrollWindow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

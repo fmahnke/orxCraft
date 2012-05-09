@@ -27,9 +27,6 @@ public:
 
     void ObjectEditor::HandleTextAccepted (const orxSTRING widgetName);
 
-    // CEGUI events
-    bool ObjectEditor::OnTextAccepted (const CEGUI::EventArgs &e);
-
     void ObjectEditor::UpdateObject ();
 
     const orxSTRING ObjectEditor::GetText (const orxSTRING widgetName) const;

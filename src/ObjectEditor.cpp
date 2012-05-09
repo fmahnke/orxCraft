@@ -1,6 +1,6 @@
 /**
  * @file ObjectEditor.cpp
- * @date 2012-06-04
+ * @date 2012-05-04
  * @author fritz@fritzmahnke.com
  *
  */
@@ -39,15 +39,6 @@ void ObjectEditor::OnCreate ()
 	    m_widgetList.push_back (editbox);
 	}
     }
-
-    /*
-    CEGUI::Editbox *editbox = (CEGUI::Editbox *) m_window->getChild ("ObjPosX");
-    editbox->subscribeEvent (CEGUI::Editbox::EventTextAccepted,
-	CEGUI::Event::Subscriber (&ObjectEditor::OnTextAccepted, this));
-    editbox = (CEGUI::Editbox *) m_window->getChild ("ObjAlpha");
-    editbox->subscribeEvent (CEGUI::Editbox::EventTextAccepted,
-	CEGUI::Event::Subscriber (&ObjectEditor::OnTextAccepted, this));
-	*/
 }
 
 void ObjectEditor::OnDelete ()
@@ -70,7 +61,8 @@ void ObjectEditor::HandleTextAccepted (const orxSTRING widgetName)
     }
     else if (orxString_Compare (widgetName, "ObjAngularVelocity") == 0)
     {
-	orxASSERT (false);
+	const orxSTRING angularVelocity = GetText ("ObjAngularVelocity");
+	orxConfig_SetString ("AngularVelocity", angularVelocity);
     }
     else if (orxString_Compare (widgetName, "ObjAnimFreq") == 0)
     {
@@ -124,16 +116,21 @@ void ObjectEditor::HandleTextAccepted (const orxSTRING widgetName)
     {
 	orxASSERT (false);
     }
-    else if (orxString_Compare (widgetName, "ObjPosX") == 0)
+    else if (orxString_Compare (widgetName, "ObjPosX") == 0 ||
+	     orxString_Compare (widgetName, "ObjPosY") == 0 ||
+	     orxString_Compare (widgetName, "ObjPosZ") == 0)
     {
 	const orxSTRING newX = GetText ("ObjPosX");
+	const orxSTRING newY = GetText ("ObjPosY");
+	const orxSTRING newZ = GetText ("ObjPosZ");
 	orxFLOAT newXFloat;
+	orxFLOAT newYFloat;
+	orxFLOAT newZFloat;
 	orxString_ToFloat (newX,  &newXFloat, orxNULL);
-	orxVECTOR oldPosition;
-	m_object->GetPosition (oldPosition, true);
-	oldPosition.fX = newXFloat;
-	//m_object->SetPosition (oldPosition, true);
-	orxConfig_SetVector ("Position", &oldPosition);
+	orxString_ToFloat (newY,  &newYFloat, orxNULL);
+	orxString_ToFloat (newZ,  &newZFloat, orxNULL);
+	orxVECTOR newPosition = { newXFloat, newYFloat, newZFloat };
+	orxConfig_SetVector ("Position", &newPosition);
     }
     else if (orxString_Compare (widgetName, "ObjRepeatX") == 0)
     {
@@ -141,7 +138,8 @@ void ObjectEditor::HandleTextAccepted (const orxSTRING widgetName)
     }
     else if (orxString_Compare (widgetName, "ObjRotation") == 0)
     {
-	orxASSERT (false);
+	const orxSTRING rotation = GetText ("ObjRotation");
+	orxConfig_SetString ("Rotation", rotation);
     }
     else if (orxString_Compare (widgetName, "ObjSpeedX") == 0)
     {
@@ -166,120 +164,6 @@ void ObjectEditor::HandleTextAccepted (const orxSTRING widgetName)
     UpdateObject ();
 }
 
-bool ObjectEditor::OnTextAccepted (const CEGUI::EventArgs &e)
-{
-    CEGUI::WindowEventArgs *args = (CEGUI::WindowEventArgs *) &e;
-    const orxSTRING name = args->window->getName ().c_str ();
-
-    // Push config section of edited object
-    orxConfig_PushSection (m_object->GetModelName ());
-
-    // Update config
-    if (orxString_Compare (name, "ObjAlpha") == 0)
-    {
-	const orxSTRING alpha = GetText ("ObjAlpha");
-	orxConfig_SetString ("Alpha", alpha);
-    }
-    else if (orxString_Compare (name, "ObjAngularVelocity") == 0)
-    {
-	orxASSERT (false);
-    }
-    else if (orxString_Compare (name, "ObjAnimFreq") == 0)
-    {
-	orxASSERT (false);
-    }
-    else if (orxString_Compare (name, "ObjAnimSet") == 0)
-    {
-	orxASSERT (false);
-    }
-    else if (orxString_Compare (name, "ObjAutoScroll") == 0)
-    {
-	orxASSERT (false);
-    }
-    else if (orxString_Compare (name, "ObjBlendMode") == 0)
-    {
-	orxASSERT (false);
-    }
-    else if (orxString_Compare (name, "ObjBody") == 0)
-    {
-	orxASSERT (false);
-    }
-    else if (orxString_Compare (name, "ObjClock") == 0)
-    {
-	orxASSERT (false);
-    }
-    else if (orxString_Compare (name, "ObjColorR") == 0)
-    {
-	orxASSERT (false);
-    }
-    else if (orxString_Compare (name, "ObjColorG") == 0)
-    {
-	orxASSERT (false);
-    }
-    else if (orxString_Compare (name, "ObjColorB") == 0)
-    {
-	orxASSERT (false);
-    }
-    else if (orxString_Compare (name, "ObjGraphic") == 0)
-    {
-	orxASSERT (false);
-    }
-    else if (orxString_Compare (name, "ObjFXList") == 0)
-    {
-	orxASSERT (false);
-    }
-    else if (orxString_Compare (name, "ObjLifeTime") == 0)
-    {
-	orxASSERT (false);
-    }
-    else if (orxString_Compare (name, "ObjParentCam") == 0)
-    {
-	orxASSERT (false);
-    }
-    else if (orxString_Compare (name, "ObjPosX") == 0)
-    {
-	const orxSTRING newX = GetText ("ObjPosX");
-	orxFLOAT newXFloat;
-	orxString_ToFloat (newX,  &newXFloat, orxNULL);
-	orxVECTOR oldPosition;
-	m_object->GetPosition (oldPosition, true);
-	oldPosition.fX = newXFloat;
-	//m_object->SetPosition (oldPosition, true);
-	orxConfig_SetVector ("Position", &oldPosition);
-    }
-    else if (orxString_Compare (name, "ObjRepeatX") == 0)
-    {
-	orxASSERT (false);
-    }
-    else if (orxString_Compare (name, "ObjRotation") == 0)
-    {
-	orxASSERT (false);
-    }
-    else if (orxString_Compare (name, "ObjSpeedX") == 0)
-    {
-	orxASSERT (false);
-    }
-    else if (orxString_Compare (name, "ObjShaderList") == 0)
-    {
-	orxASSERT (false);
-    }
-    else if (orxString_Compare (name, "ObjSoundList") == 0)
-    {
-	orxASSERT (false);
-    }
-    else if (orxString_Compare (name, "ObjSpawner") == 0)
-    {
-	orxASSERT (false);
-    }
-   
-    orxConfig_PopSection ();
-
-    // Update object in editor
-    UpdateObject ();
-
-    return true;
-}
-
 void ObjectEditor::UpdateObject ()
 {
     orxConfig_PushSection (m_object->GetModelName ());
@@ -294,6 +178,12 @@ void ObjectEditor::UpdateObject ()
     orxFLOAT alpha = orxConfig_GetFloat ("Alpha");
     color.fAlpha = alpha;
     m_object->SetColor (color);
+
+    // Angular velocity
+    orxASSERT (false);
+    
+    // Rotation
+    m_object->SetRotation (orxConfig_GetFloat ("Rotation"));
 
     orxConfig_PopSection ();
 }
