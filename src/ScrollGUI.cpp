@@ -20,7 +20,7 @@ void ScrollGUI::OnCreate ()
     CEGUI::Window* myRoot = CEGUI::WindowManager::getSingleton().loadWindowLayout( "test.layout" );
     CEGUI::Window* FXSlotWindowRoot = CEGUI::WindowManager::getSingleton().loadWindowLayout( "FXSlotWindow.layout" );
     CEGUI::Window* FXSlotWindow = FXSlotWindowRoot->getChildAtIdx (0); 
-    myRoot->addChildWindow (FXSlotWindowRoot);   
+    myRoot->addChildWindow (FXSlotWindow);   
     CEGUI::System::getSingleton().setGUISheet( myRoot );
 }
 

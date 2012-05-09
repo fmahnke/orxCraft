@@ -15,6 +15,7 @@
 //#include <gl\glaux.h> 
 
 #include "ObjectEditor.h"
+#include "FXSlotEditorWindow.h"
 
 // Widgets
 static const orxSTRING infoWindow = "O-InfoWindow";
@@ -67,8 +68,13 @@ orxSTATUS OrxCraft::Init ()
     // Init Crazy Eddie
     m_scrollGUI = (ScrollGUI *) CreateObject (scrollGUI);
     CreateObject (infoWindow);
-    m_objectEditor = (ObjectEditor *) CreateObject (objectEditor);
+    m_objectEditor = new ObjectEditor ();
+    m_objectEditor->Init ("ObjectEditor");
     m_objectEditor->SetObject (m_selectedObject);
+    m_fxSlotEditorWindow = new FXSlotEditorWindow ();
+    m_fxSlotEditorWindow->Init ("FXSlotWindow");
+    m_fxSlotEditorWindow->SetContext ("FXS-Darken");
+
 
     orxViewport_CreateFromConfig ("Viewport1");
     //orxCamera_CreateFromConfig ("Camera1");
@@ -94,13 +100,14 @@ orxSTATUS OrxCraft::Run ()
 
 void OrxCraft::Exit()
 {
+    delete m_objectEditor;
+    delete m_fxSlotEditorWindow;
 }
 
 void OrxCraft::BindObjects ()
 {
     ScrollBindObject<InfoWindow> (infoWindow);
     ScrollBindObject<ScrollGUI>  (scrollGUI);
-    ScrollBindObject<ObjectEditor> (objectEditor);
 }
 
 void OrxCraft::Update(const orxCLOCK_INFO &_rstInfo)

@@ -17,6 +17,7 @@
 #include "InfoWindow.h"
 
 class ObjectEditor;
+class FXSlotEditorWindow;
 
 // Inputs
 static const orxSTRING inputQuit       = "Quit";
@@ -55,6 +56,7 @@ private:
 
   ScrollGUI                *m_scrollGUI;
   ObjectEditor           *m_objectEditor;
+  FXSlotEditorWindow	   *m_fxSlotEditorWindow;
   ScrollObject             *m_selectedObject;
   vector<const orxSTRING>  m_objectList;
   vector<const orxSTRING>  m_graphicList;

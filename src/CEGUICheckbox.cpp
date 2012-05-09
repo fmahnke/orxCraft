@@ -7,20 +7,20 @@
 
 #include "CEGUICheckbox.h"
 
-#include "ObjectEditor.h"
+#include "ScrollFrameWindow.h"
 
 using CEGUI::Checkbox;
 using CEGUI::Event;
 using CEGUI::Window;
 
-CEGUICheckbox::CEGUICheckbox (ObjectEditor *manager) :
+CEGUICheckbox::CEGUICheckbox (ScrollFrameWindow *manager) :
     ScrollCheckbox (manager)
 {
 }
 
 void CEGUICheckbox::Init (const orxSTRING widgetName) 
 {
-    const orxSTRING name = m_manager->GetModelName ();
+    const orxSTRING name = m_manager->GetName ();
     Window *rootWindow = CEGUI::System::getSingleton ().getGUISheet ();
     Window *window = rootWindow->getChild (name);
 

@@ -12,14 +12,15 @@
 #include "CEGUIEditbox.h"
 
 ObjectEditor::ObjectEditor () :
-    m_object (NULL)
+    m_object (NULL),
+    m_window (NULL)
 {
 }
 
-void ObjectEditor::OnCreate ()
+void ObjectEditor::Init (const orxSTRING widgetName)
 {
     CEGUI::Window *rootWindow = CEGUI::System::getSingleton ().getGUISheet ();
-    m_window = rootWindow->getChild ("ObjectEditor");
+    m_window = rootWindow->getChild (widgetName);
     
     int counter = m_window->getChildCount ();
     for (int i = 0; i < counter; i++)
@@ -41,8 +42,9 @@ void ObjectEditor::OnCreate ()
     }
 }
 
-void ObjectEditor::OnDelete ()
+const orxSTRING ObjectEditor::GetName ()
 {
+    return m_window->getName ().c_str ();
 }
 
 void ObjectEditor::HandleTextAccepted (const orxSTRING widgetName)
@@ -364,8 +366,4 @@ void ObjectEditor::UpdateFields () const
 
 	orxConfig_PopSection ();
     }
-}
-
-void ObjectEditor::Update(const orxCLOCK_INFO &_rstInfo)
-{
 }

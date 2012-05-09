@@ -7,42 +7,39 @@
 #ifndef __ObjectEditor_H__
 #define __ObjectEditor_H__
 
-#include "Scroll.h"
+#include "ScrollFrameWindow.h"
 
 #include "CEGUI.h"
 
-using std::vector;
+class ScrollObject;
 
-class ScrollWidget;
-
-class ObjectEditor : public ScrollObject
+class ObjectEditor : public ScrollFrameWindow
 {
 public:
     ObjectEditor ();
 
     // Scroll events
-    virtual void     OnCreate ();
-    virtual void     OnDelete ();
-    void             Update(const orxCLOCK_INFO &_rstInfo);
+    virtual void Init (const orxSTRING widgetName);
 
-    void ObjectEditor::HandleTextAccepted (const orxSTRING widgetName);
+    virtual void HandleTextAccepted (const orxSTRING widgetName);
 
-    void ObjectEditor::UpdateObject ();
+    virtual const orxSTRING GetName ();
 
-    const orxSTRING ObjectEditor::GetText (const orxSTRING widgetName) const;
+    void UpdateObject ();
+    const orxSTRING GetText (const orxSTRING widgetName) const;
 
     /// Update widget text explicitly
-    void ObjectEditor::SetText (const orxSTRING widgetName,
+    void SetText (const orxSTRING widgetName,
 	                        const orxSTRING text) const;
 
     /// Update widget text from an Orx config float
-    void ObjectEditor::SetTextFromConfigFloat (const orxSTRING widgetName,
+    void SetTextFromConfigFloat (const orxSTRING widgetName,
 	                                       const orxSTRING prop) const;
     /// Update widget text from an Orx config string
-    void ObjectEditor::SetTextFromConfigStringList (const orxSTRING widgetName,
+    void SetTextFromConfigStringList (const orxSTRING widgetName,
 						    const orxSTRING prop) const;
     /// Update widget text from an Orx config vector
-    void ObjectEditor::SetTextFromConfigVector (const orxSTRING widgetName,
+    void SetTextFromConfigVector (const orxSTRING widgetName,
 					        const orxSTRING prop,
 						orxU32 elementNum) const;
     /// Set the ScrollObject used by this instance
@@ -53,7 +50,6 @@ public:
 
 private:
     CEGUI::Window *m_window;
-    vector<ScrollWidget *> m_widgetList;
     ScrollObject *m_object;
 };
 

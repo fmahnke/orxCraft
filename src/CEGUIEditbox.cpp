@@ -7,27 +7,26 @@
 
 #include "CEGUIEditbox.h"
 
-#include "ObjectEditor.h"
+#include "ScrollFrameWindow.h"
 
 using CEGUI::Editbox;
 using CEGUI::Event;
 using CEGUI::Window;
 
-CEGUIEditbox::CEGUIEditbox (ObjectEditor *manager) :
+CEGUIEditbox::CEGUIEditbox (ScrollFrameWindow *manager) :
     ScrollEditbox (manager)
 {
 }
 
 void CEGUIEditbox::Init (const orxSTRING widgetName)
 {
-    const orxSTRING name = m_manager->GetModelName ();
+    const orxSTRING name = m_manager->GetName ();
     Window *rootWindow = CEGUI::System::getSingleton ().getGUISheet ();
     Window *window = rootWindow->getChild (name);
 
     Editbox *editbox = (Editbox *) window->getChild (widgetName);
     editbox->subscribeEvent (Editbox::EventTextAccepted,
 	Event::Subscriber (&CEGUIEditbox::OnTextAccepted, this));
-    m_ceEditbox = editbox;
 }
 
 bool CEGUIEditbox::OnTextAccepted (const CEGUI::EventArgs &e)
@@ -37,4 +36,12 @@ bool CEGUIEditbox::OnTextAccepted (const CEGUI::EventArgs &e)
     m_manager->HandleTextAccepted (widgetName);
 
     return true;
+}
+
+void CEGUIEditbox::SetText (const orxSTRING windowName,
+			    const orxSTRING widgetName, const orxSTRING text)
+{
+    Window *rootWindow = CEGUI::System::getSingleton ().getGUISheet ();
+    Window *window = rootWindow->getChild (windowName);
+
 }

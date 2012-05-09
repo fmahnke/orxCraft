@@ -153,8 +153,10 @@ copy ..\..\cegui\test.layout ..\..\bin\windows</Command>
   <ItemGroup>
     <ClCompile Include="..\..\src\CEGUICheckbox.cpp" />
     <ClCompile Include="..\..\src\CEGUIEditbox.cpp" />
+    <ClCompile Include="..\..\src\FXSlotEditorWindow.cpp" />
     <ClCompile Include="..\..\src\ListBox.cpp" />
     <ClCompile Include="..\..\src\orxcraft.cpp" />
+    <ClCompile Include="..\..\src\WidgetManager.cpp" />
     <None Include="..\..\..\AckScroll\include\Scroll\Scroll.inl" />
     <None Include="..\..\..\AckScroll\include\Scroll\ScrollBase.inl" />
     <None Include="..\..\..\AckScroll\include\Scroll\ScrollEd.inl" />
@@ -166,7 +168,6 @@ copy ..\..\cegui\test.layout ..\..\bin\windows</Command>
     <ClCompile Include="..\..\src\ObjectEditor.cpp">
       <FileType>Document</FileType>
     </ClCompile>
-    <ClCompile Include="..\..\src\ScrollCheckbox.cpp" />
     <ClCompile Include="..\..\src\ScrollGUI.cpp">
       <FileType>Document</FileType>
     </ClCompile>
@@ -177,17 +178,19 @@ copy ..\..\cegui\test.layout ..\..\bin\windows</Command>
     <ClInclude Include="..\..\..\AckScroll\include\Scroll\ScrollBase.h" />
     <ClInclude Include="..\..\..\AckScroll\include\Scroll\ScrollEd.h" />
     <ClInclude Include="..\..\..\AckScroll\include\Scroll\ScrollObject.h" />
+    <ClInclude Include="..\..\include\CEGUICheckbox.h" />
+    <ClInclude Include="..\..\include\CEGUIEditbox.h" />
+    <ClInclude Include="..\..\include\FXSlotEditorWindow.h" />
     <ClInclude Include="..\..\include\ListBox.h" />
     <ClInclude Include="..\..\include\ObjectEditor.h" />
     <ClInclude Include="..\..\include\orxCraft.h" />
     <ClInclude Include="..\..\include\InfoWindow.h" />
+    <ClInclude Include="..\..\include\ScrollEditbox.h" />
+    <ClInclude Include="..\..\include\ScrollFrameWindow.h" />
     <ClInclude Include="..\..\include\ScrollGUI.h" />
-    <ClInclude Include="..\..\src\CEGUICheckbox.h" />
-    <ClInclude Include="..\..\src\CEGUIEditbox.h" />
+    <ClInclude Include="..\..\include\WidgetManager.h" />
     <ClInclude Include="..\..\src\ScrollCheckbox.h" />
-    <ClInclude Include="..\..\src\ScrollEditbox.h" />
     <ClInclude Include="..\..\src\ScrollWidget.h" />
-    <ClInclude Include="..\..\src\ScrollWindow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
