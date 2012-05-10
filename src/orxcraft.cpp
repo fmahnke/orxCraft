@@ -8,14 +8,9 @@
 #include "orxcraft.h"
 #undef  __SCROLL_IMPL__
 
-//#include <gl\gl.h>                                // Header File For The OpenGL32 Library
-//#include <gl\glu.h>                               // Header File For The GLu32 Library
-//#include "RendererModules/OpenGL/CEGUIOpenGLRenderer.h"
-//#include <windows.h>                              // Header File For Windows
-//#include <gl\glaux.h> 
-
 #include "ObjectEditor.h"
 #include "FXSlotEditorWindow.h"
+#include "InfoWindow.h"
 
 // Widgets
 static const orxSTRING infoWindow = "O-InfoWindow";
@@ -27,6 +22,7 @@ static orxFLOAT coarseUnit = 5.0;
 static const orxSTRING configFileName = "sampleconfig.ini";
 
 OrxCraft::OrxCraft () :
+    m_infoWindow (NULL),
     m_selectedObject (NULL),
     m_objectEditor (NULL),
     m_scrollGUI (NULL)
@@ -60,21 +56,26 @@ orxSTATUS OrxCraft::Init ()
 {
     orxSTATUS eResult = orxSTATUS_SUCCESS;
 
+    InitConfig ();
     SetupConfig ();
-
-    //CreateObject ("O-InfoWindow");
-    //m_selectedObject = CreateObject ("O-Soldier");
 
     // Init Crazy Eddie
     m_scrollGUI = (ScrollGUI *) CreateObject (scrollGUI);
     CreateObject (infoWindow);
+
+    // Init object editor
     m_objectEditor = new ObjectEditor ();
     m_objectEditor->Init ("ObjectEditor");
     m_objectEditor->SetObject (m_selectedObject);
+
+    // Init FX slot editor
     m_fxSlotEditorWindow = new FXSlotEditorWindow ();
     m_fxSlotEditorWindow->Init ("FXSlotWindow");
     m_fxSlotEditorWindow->SetContext ("FXS-Darken");
 
+    // Init info window
+    m_infoWindow = new InfoWindow ();
+    m_infoWindow->Init ("InfoWindow");
 
     orxViewport_CreateFromConfig ("Viewport1");
     //orxCamera_CreateFromConfig ("Camera1");
@@ -102,16 +103,23 @@ void OrxCraft::Exit()
 {
     delete m_objectEditor;
     delete m_fxSlotEditorWindow;
+    delete m_infoWindow;
 }
 
 void OrxCraft::BindObjects ()
 {
-    ScrollBindObject<InfoWindow> (infoWindow);
     ScrollBindObject<ScrollGUI>  (scrollGUI);
 }
 
 void OrxCraft::Update(const orxCLOCK_INFO &_rstInfo)
 {
+    // Update objects on screen if necessary
+    if (m_dirty)
+    {
+	m_dirty = false;
+	SetupConfig ();
+    }
+
     orxVECTOR mousePos;
     orxMouse_GetPosition (&mousePos);
 
@@ -154,9 +162,27 @@ void OrxCraft::Update(const orxCLOCK_INFO &_rstInfo)
     }
 }
 
-void OrxCraft::SetupConfig ()
+void OrxCraft::NeedObjectUpdate ()
+{
+    m_dirty = true;
+}
+
+void OrxCraft::InitConfig ()
 {
     orxConfig_Load (configFileName);
+}
+
+void OrxCraft::SetupConfig ()
+{
+    for (unsigned int i = 0; i < m_objectList.size (); i++)
+    {
+	ScrollObject *obj = GetObjectByName (m_objectList.at (i));
+	if (obj != orxNULL)
+	{
+	    DeleteObject (obj);
+	}
+    }
+    m_objectList.clear ();
 
     for (int i = 0, sectionCounter = orxConfig_GetSectionCounter ();
 	 i < sectionCounter;

@@ -12,11 +12,11 @@
 class FXSlotEditorWindow : public ScrollFrameWindow
 {
 public:
-    FXSlotEditorWindow () { };
     virtual void Init (const orxSTRING widgetName);
     virtual void HandleTextAccepted (const orxSTRING widgetName);
     virtual const orxSTRING GetName ();
     void UpdateFields () const;
+    const orxSTRING GetText (const orxSTRING widgetName) const;
     void SetContext (const orxSTRING sectionName);
 private:
     char m_context[255];

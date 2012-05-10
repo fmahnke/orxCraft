@@ -32,16 +32,6 @@ public:
     void SetText (const orxSTRING widgetName,
 	                        const orxSTRING text) const;
 
-    /// Update widget text from an Orx config float
-    void SetTextFromConfigFloat (const orxSTRING widgetName,
-	                                       const orxSTRING prop) const;
-    /// Update widget text from an Orx config string
-    void SetTextFromConfigStringList (const orxSTRING widgetName,
-						    const orxSTRING prop) const;
-    /// Update widget text from an Orx config vector
-    void SetTextFromConfigVector (const orxSTRING widgetName,
-					        const orxSTRING prop,
-						orxU32 elementNum) const;
     /// Set the ScrollObject used by this instance
     void SetObject (ScrollObject *object);
 

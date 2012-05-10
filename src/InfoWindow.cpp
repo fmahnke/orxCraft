@@ -1,6 +1,6 @@
 /**
  * @file InfoWindow.cpp
- * @date 2012-06-04
+ * @date 2012-05-04
  * @author fritz@fritzmahnke.com
  *
  */
@@ -8,42 +8,19 @@
 
 #include "OrxCraft.h"
 
-InfoWindow::InfoWindow () :
-    m_infoWindow (NULL),
-    m_listBox (NULL)
+void InfoWindow::Init (const orxSTRING widgetName)
 {
+    m_widgetManager = new WidgetManager ();
+    m_widgetManager->Init (widgetName, this);
 }
 
-void InfoWindow::OnCreate ()
+const orxSTRING InfoWindow::GetName ()
 {
-    CEGUI::Window *rootWindow = CEGUI::System::getSingleton ().getGUISheet ();
-    m_infoWindow = rootWindow->getChild ("InfoWindow");
-    m_listBox = new ListBox
-	((CEGUI::Listbox *) m_infoWindow->getChild ("SectionList"));
-    m_infoWindow->subscribeEvent (CEGUI::Window::EventMouseClick,
-	CEGUI::Event::Subscriber (&InfoWindow::OnMouseClick, this));
-    //m_listBox->box->subscribeEvent (CEGUI::Listbox::EventSelectionChanged,
-	//CEGUI::Event::Subscriber (&InfoWindow::OnSelectionChanged, this));
-    m_listBox->Fill (OrxCraft::GetInstance ().GetObjectList ());
+    orxASSERT (false);
+    return orxNULL;
 }
 
-bool InfoWindow::OnMouseClick (const CEGUI::EventArgs &e)
+void InfoWindow::HandleTextAccepted (const orxSTRING widgetName)
 {
-    return true;
+    orxASSERT (false);
 }
-
-bool InfoWindow::OnSelectionChanged (const CEGUI::EventArgs &e)
-{
-    return true;
-}
-
-void InfoWindow::OnDelete ()
-{
-    delete m_listBox;
-    m_listBox = NULL;
-}
-
-void InfoWindow::Update(const orxCLOCK_INFO &_rstInfo)
-{
-}
-

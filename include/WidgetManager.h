@@ -11,25 +11,34 @@
 
 #include "CEGUI.h"
 
+class ScrollFrameWindow;
+class ScrollWidget;
+
+using std::vector;
+
 class WidgetManager
 {
 public:
-    static CEGUI::Window * FindWidget (const orxSTRING windowName,
-				       const orxSTRING widgetName);
-    static const orxSTRING GetText (const orxSTRING widgetName);
+    WidgetManager () :
+        m_scrollWindow (NULL),
+	m_window (NULL)
+    {
+    };
+    void Init (const orxSTRING widgetName, ScrollFrameWindow *scrollWindow);
+    CEGUI::Window * FindWidget (const orxSTRING widgetName);
+    const orxSTRING GetText (const orxSTRING widgetName);
 
+    const orxSTRING GetWindowName ();
     /// Update widget text explicitly
-    static void SetText (const orxSTRING windowName, const orxSTRING widgetName,
-	                 const orxSTRING text);
+    void SetText (const orxSTRING widgetName, const orxSTRING text);
 
+    void OnTextAccepted (const orxSTRING widgetName);
 
-    /// Update widget text from an Orx config string
-    static void SetTextFromConfigStringList (const orxSTRING widgetName,
-						    const orxSTRING prop);
-    /// Update widget text from an Orx config vector
-    static void SetTextFromConfigVector (const orxSTRING widgetName,
-					        const orxSTRING prop,
-						orxU32 elementNum);
+private:
+    ScrollFrameWindow *m_scrollWindow;
+    char m_windowName[255];
+    CEGUI::Window *m_window;
+    vector<ScrollWidget *> m_widgetList;
 };
 
 #endif  // __SCROLL_WINDOW_H__

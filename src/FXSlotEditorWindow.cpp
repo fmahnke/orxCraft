@@ -5,47 +5,57 @@
  *
  */
 
+#include "OrxCraft.h"
+
 #include "FXSlotEditorWindow.h"
-
-#include "CEGUI.h"
-
-#include "CEGUICheckbox.h"
-#include "CEGUIEditbox.h"
 
 #include "WidgetManager.h"
 
-using CEGUI::Window;
-using CEGUI::Checkbox;
-using CEGUI::Editbox;
+#include "orxConfigTypeHelper.h"
 
 void FXSlotEditorWindow::Init (const orxSTRING widgetName)
 {
+    m_widgetManager = new WidgetManager ();
+    m_widgetManager->Init (widgetName, this);
     strcpy (m_windowName, widgetName);
-    CEGUI::Window *rootWindow = CEGUI::System::getSingleton ().getGUISheet ();
-    CEGUI::Window *window = rootWindow->getChild (widgetName);
-    
-    int counter = window->getChildCount ();
-    for (int i = 0; i < counter; i++)
-    {
-	const orxSTRING type = window->getChildAtIdx (i)->getType ().c_str ();
-	const orxSTRING name = window->getChildAtIdx (i)->getName ().c_str ();
-	if (orxString_Compare (type, "TaharezLook/Checkbox") == 0)
-	{
-	    CEGUICheckbox *checkbox = new CEGUICheckbox (this);
-	    checkbox->Init (name);
-	    m_widgetList.push_back (checkbox);
-	}
-	else if (orxString_Compare (type, "TaharezLook/Editbox") == 0)
-	{
-	    CEGUIEditbox *editbox = new CEGUIEditbox (this);
-	    editbox->Init (name);
-	    m_widgetList.push_back (editbox);
-	}
-    }
 }
+/*
+bool SaveFunction (const orxSTRING _zSectionName, const orxSTRING _zKeyName, const orxSTRING _zFileName, orxBOOL _bUseEncryption)
+{
+}
+*/
 
 void FXSlotEditorWindow::HandleTextAccepted (const orxSTRING widgetName)
 {
+    orxASSERT (widgetName != orxNULL);
+    orxASSERT (m_context != orxNULL);
+
+    // Push config section of edited object
+    orxConfig_PushSection (m_context);
+
+    // Update config
+    if (orxString_Compare (widgetName, "FXSlotEndValue0") == 0 ||
+	orxString_Compare (widgetName, "FXSlotEndValue1") == 0 ||
+	orxString_Compare (widgetName, "FXSlotEndValue2") == 0)
+    {
+	const orxSTRING newX = GetText ("FXSlotEndValue0");
+	const orxSTRING newY = GetText ("FXSlotEndValue1");
+	const orxSTRING newZ = GetText ("FXSlotEndValue2");
+	orxFLOAT newXFloat;
+	orxFLOAT newYFloat;
+	orxFLOAT newZFloat;
+	orxString_ToFloat (newX,  &newXFloat, orxNULL);
+	orxString_ToFloat (newY,  &newYFloat, orxNULL);
+	orxString_ToFloat (newZ,  &newZFloat, orxNULL);
+	orxVECTOR newPosition = { newXFloat, newYFloat, newZFloat };
+	orxConfig_SetVector ("EndValue", &newPosition);
+    }
+
+    orxConfig_PopSection ();
+
+    orxConfig_Save ("sampleconfig.ini", false, orxNULL);
+
+    OrxCraft::GetInstance ().NeedObjectUpdate ();
 }
 
 const orxSTRING FXSlotEditorWindow::GetName ()
@@ -61,13 +71,25 @@ void FXSlotEditorWindow::UpdateFields () const
     char buffer[255];
 
     // Config name
-    WidgetManager::SetText (m_windowName, "FXSlotConfigName", m_windowName);
+    m_widgetManager->SetText ("FXSlotConfigName", m_windowName);
 
-    orxConfig_PushSection (m_windowName);
+    orxConfig_PushSection (m_context);
 
+    // Type
+    // Curve
     // StartTime
-    const orxSTRING startTime = orxConfig_GetString ("StartTime");
-    WidgetManager::SetText (m_windowName, "FXSlotStartTime", startTime);
+
+    OrxConfigTypeHelper::FloatToString (orxConfig_GetFloat ("StartTime"), buffer);
+    m_widgetManager->SetText ("FXSlotStartTime", buffer);
+
+    // StartValue
+
+    OrxConfigTypeHelper::VectorToString ("EndValue", 0, buffer);
+    m_widgetManager->SetText ("FXSlotEndValue0", buffer);
+    OrxConfigTypeHelper::VectorToString ("EndValue", 1, buffer);
+    m_widgetManager->SetText ("FXSlotEndValue1", buffer);
+    OrxConfigTypeHelper::VectorToString ("EndValue", 2, buffer);
+    m_widgetManager->SetText ("FXSlotEndValue2", buffer);
 #if 0
     // AngularVelocity
     SetTextFromConfigFloat ("ObjAngularVelocity", "AngularVelocity");
@@ -135,6 +157,11 @@ void FXSlotEditorWindow::UpdateFields () const
     /** @todo UseRelativeSpeed */
 #endif
     orxConfig_PopSection ();
+}
+
+const orxSTRING FXSlotEditorWindow::GetText (const orxSTRING widgetName) const
+{
+    return m_widgetManager->GetText (widgetName);
 }
 
 void FXSlotEditorWindow::SetContext (const orxSTRING sectionName)

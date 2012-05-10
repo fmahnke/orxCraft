@@ -41,6 +41,9 @@ public:
 
     ScrollObject * GetObjectByName (const orxSTRING name) const;
 
+    void SetupConfig ();
+    void NeedObjectUpdate ();
+
 private:
   virtual orxSTATUS Init ();
   virtual orxSTATUS Run ();
@@ -48,17 +51,22 @@ private:
   virtual void      BindObjects ();
   virtual void      Update(const orxCLOCK_INFO &_rstInfo);
 
+
+    void InitConfig ();
+
   void OnMouseDown ();
   void OnMouseUp ();
   void OnKeyPress (const orxSTRING key);
   static orxSTATUS orxFASTCALL EventHandler(const orxEVENT *_pstEvent);
-  void SetupConfig ();
 
   ScrollGUI                *m_scrollGUI;
-  ObjectEditor           *m_objectEditor;
+  InfoWindow               *m_infoWindow;
+  ObjectEditor             *m_objectEditor;
   FXSlotEditorWindow	   *m_fxSlotEditorWindow;
   ScrollObject             *m_selectedObject;
   vector<const orxSTRING>  m_objectList;
   vector<const orxSTRING>  m_graphicList;
+
+  bool m_dirty;
 };
 #endif // __OrxCraft_H_

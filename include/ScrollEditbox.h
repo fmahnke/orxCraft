@@ -9,7 +9,7 @@
 
 #include "ScrollWidget.h"
 
-class ScrollFrameWindow;
+class WidgetManager;
 
 /**
  *  Base class for an Editbox widget.
@@ -17,12 +17,12 @@ class ScrollFrameWindow;
 class ScrollEditbox : public ScrollWidget
 {
 public:
-    explicit ScrollEditbox (ScrollFrameWindow *manager) :
+    explicit ScrollEditbox (WidgetManager *manager) :
 	m_manager (manager)
     {
     };
 protected:
-    ScrollFrameWindow *m_manager;
+    WidgetManager *m_manager;
 };
 
 #endif  // __SCROLL_EDITBOX_H__

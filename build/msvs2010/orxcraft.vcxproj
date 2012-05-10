@@ -151,10 +151,14 @@ copy ..\..\cegui\test.layout ..\..\bin\windows</Command>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\CEGUICheckbox.cpp" />
+    <ClCompile Include="..\..\src\CEGUICheckbox.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\src\CEGUIEditbox.cpp" />
+    <ClCompile Include="..\..\src\CEGUIListbox.cpp" />
     <ClCompile Include="..\..\src\FXSlotEditorWindow.cpp" />
     <ClCompile Include="..\..\src\ListBox.cpp" />
+    <ClCompile Include="..\..\src\orxConfigTypeHelper.cpp" />
     <ClCompile Include="..\..\src\orxcraft.cpp" />
     <ClCompile Include="..\..\src\WidgetManager.cpp" />
     <None Include="..\..\..\AckScroll\include\Scroll\Scroll.inl" />
@@ -180,14 +184,17 @@ copy ..\..\cegui\test.layout ..\..\bin\windows</Command>
     <ClInclude Include="..\..\..\AckScroll\include\Scroll\ScrollObject.h" />
     <ClInclude Include="..\..\include\CEGUICheckbox.h" />
     <ClInclude Include="..\..\include\CEGUIEditbox.h" />
+    <ClInclude Include="..\..\include\CEGUIListbox.h" />
     <ClInclude Include="..\..\include\FXSlotEditorWindow.h" />
     <ClInclude Include="..\..\include\ListBox.h" />
     <ClInclude Include="..\..\include\ObjectEditor.h" />
+    <ClInclude Include="..\..\include\orxConfigTypeHelper.h" />
     <ClInclude Include="..\..\include\orxCraft.h" />
     <ClInclude Include="..\..\include\InfoWindow.h" />
     <ClInclude Include="..\..\include\ScrollEditbox.h" />
     <ClInclude Include="..\..\include\ScrollFrameWindow.h" />
     <ClInclude Include="..\..\include\ScrollGUI.h" />
+    <ClInclude Include="..\..\include\ScrollListbox.h" />
     <ClInclude Include="..\..\include\WidgetManager.h" />
     <ClInclude Include="..\..\src\ScrollCheckbox.h" />
     <ClInclude Include="..\..\src\ScrollWidget.h" />

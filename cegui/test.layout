@@ -8,10 +8,13 @@
             <Property Name="Alpha" Value="0.7" />
             <Property Name="TitlebarFont" Value="DejaVuSans-8" />
             <Property Name="TitlebarEnabled" Value="True" />
-            <Property Name="UnifiedAreaRect" Value="{{0.0309058,0},{0.0275,0},{0.230906,0},{0.269999,0}}" />
+            <Property Name="UnifiedAreaRect" Value="{{0.0309058,0},{0.0275,0},{0.230906,0},{0.5,0}}" />
             <Window Type="TaharezLook/Listbox" Name="SectionList" >
                 <Property Name="Text" Value="List Box" />
-                <Property Name="UnifiedAreaRect" Value="{{0.0571739,0},{0.0347221,0},{0.957174,0},{0.815652,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0.0571739,0},{0.0347221,0},{0.957174,0},{0.45,0}}" />
+            </Window>
+            <Window Type="TaharezLook/Listbox" Name="FXSlotSectionList" >
+                <Property Name="UnifiedAreaRect" Value="{{0.06,0},{0.5,0},{0.957174,0},{0.815652,0}}" />
             </Window>
             <Window Type="TaharezLook/Button" Name="Save" >
                 <Property Name="Text" Value="Save" />

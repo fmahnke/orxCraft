@@ -6,17 +6,19 @@
  * @author fritz@fritzmahnke.com
  *
  */
-#endif // __ORXCONFIGTYPEHELPER_H__
+
+#include "orx/orx.h"
 
 class OrxConfigTypeHelper
 {
-void SetTextFromConfigFloat (const orxSTRING widgetName,
-					   const orxSTRING prop) const
+public:
+    static void FloatToString (orxFLOAT inFloat
+					  , orxSTRING outString);
 
-void SetTextFromConfigStringList (const orxSTRING widgetName,
-					        const orxSTRING prop) const
+    static const orxSTRING ListToString (
+					        const orxSTRING prop);
 
-void SetTextFromConfigVector (const orxSTRING widgetName,
-					    const orxSTRING prop,
-					    orxU32 elementNum) const
+    static void VectorToString (const orxSTRING prop,
+					             orxU32 elementNum, orxSTRING outString);
 };
+#endif // __ORXCONFIGTYPEHELPER_H__

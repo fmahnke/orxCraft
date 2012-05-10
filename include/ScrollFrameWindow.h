@@ -9,9 +9,9 @@
 
 #include "ScrollWidget.h"
 
-#include <vector>
+#include "WidgetManager.h"
 
-class WidgetManager;
+#include <vector>
 
 using std::vector;
 
@@ -21,10 +21,16 @@ using std::vector;
 class ScrollFrameWindow : public ScrollWidget
 {
 public:
+    ScrollFrameWindow () :
+	m_widgetManager (NULL)
+    {
+    };
     virtual const orxSTRING GetName () = 0;
     virtual void HandleTextAccepted (const orxSTRING widgetName) = 0;
 protected:
     vector<ScrollWidget *> m_widgetList;
+    WidgetManager *m_widgetManager;
+    virtual ~ScrollFrameWindow () { delete m_widgetManager; };
 };
 
 #endif  // __SCROLL_WINDOW_H__

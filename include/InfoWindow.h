@@ -9,25 +9,15 @@
 
 #include "Scroll.h"
 
-#include "CEGUI.h"
-#include "ListBox.h"
+#include "ScrollFrameWindow.h"
 
-class InfoWindow : public ScrollObject
+class InfoWindow : public ScrollFrameWindow
 {
 public:
-    InfoWindow ();
+    virtual void Init (const orxSTRING widgetName);
+    virtual const orxSTRING GetName ();
+    virtual void HandleTextAccepted (const orxSTRING widgetName);
 private:
-    // Scroll events
-    virtual void     OnCreate ();
-    virtual void     OnDelete ();
-    virtual void     Update(const orxCLOCK_INFO &_rstInfo);
-
-    // Other events
-    bool OnMouseClick       (const CEGUI::EventArgs &e);
-    bool OnSelectionChanged (const CEGUI::EventArgs &e);
-
-    CEGUI::Window    *m_infoWindow;
-    ListBox          *m_listBox;
 };
 
 #endif	// __InfoWindow_H__

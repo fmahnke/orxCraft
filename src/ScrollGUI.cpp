@@ -71,6 +71,22 @@ void ScrollGUI::InputKeyPress (const orxSTRING orxKey)
     int key = 0;
     char inputChar = '\0';
 
+    if (orxString_Compare (orxKey, "LeftArrow") == 0)
+    {
+	key = Key::ArrowLeft;
+    }
+    if (orxString_Compare (orxKey, "RightArrow") == 0)
+    {
+	key = Key::ArrowRight;
+    }
+    if (orxString_Compare (orxKey, "UpArrow") == 0)
+    {
+	key = Key::ArrowUp;
+    }
+    if (orxString_Compare (orxKey, "DownArrow") == 0)
+    {
+	key = Key::ArrowDown;
+    }
     if (orxString_Compare (orxKey, "Char0") == 0)
     {
 	key = Key::Zero;
