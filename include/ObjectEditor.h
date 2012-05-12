@@ -9,8 +9,6 @@
 
 #include "ScrollFrameWindow.h"
 
-#include "CEGUI.h"
-
 class ScrollObject;
 
 class ObjectEditor : public ScrollFrameWindow
@@ -20,9 +18,6 @@ public:
 
     // Scroll events
     virtual void Init (const orxSTRING widgetName);
-
-    virtual void HandleMouseClick   (const orxSTRING widgetName) { orxASSERT (false); };
-    virtual void HandleTextAccepted (const orxSTRING widgetName);
 
     virtual const orxSTRING GetName ();
 
@@ -39,8 +34,10 @@ public:
     /// Update all widgets to show current ScrollObject config values
     void UpdateFields () const;
 
+    virtual void HandleMouseClick   (const orxSTRING widgetName);
+    virtual void HandleTextAccepted (const orxSTRING widgetName);
+
 private:
-    CEGUI::Window *m_window;
     ScrollObject *m_object;
 };
 

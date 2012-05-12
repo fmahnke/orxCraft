@@ -5,7 +5,7 @@
         <Property Name="UnifiedAreaRect" Value="{{0,0},{0,0},{1,0},{1,0}}" />
         <Window Type="TaharezLook/FrameWindow" Name="FXSlotWindow" >
             <Property Name="Text" Value="FXSlot" />
-			<Property Name="Alpha" Value="0.7" /
+			<Property Name="Alpha" Value="0.7" />
             <Property Name="TitlebarFont" Value="DejaVuSans-8" />
             <Property Name="TitlebarEnabled" Value="True" />
             <Property Name="UnifiedAreaRect" Value="{{0.00117189,0},{0.00963542,0},{0.530469,0},{0.863801,0}}" />
