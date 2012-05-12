@@ -21,10 +21,14 @@ public:
     void InputMouseDown ();
     void InputMouseUp ();
     void InputKeyPress (const orxSTRING orxKey);
+
 private:
     virtual void    OnCreate ();
     virtual void    OnDelete ();
     virtual orxBOOL OnRender ();
+
+    /** Calculate and render the editor grid */
+    void DrawGrid ();
 
     CEGUI::OpenGLRenderer *m_glRenderer;
 };

@@ -1,19 +1,19 @@
 /**
- * @file orxConfigTypeHelper.cpp
+ * @file ConfigType.cpp
  * @date 2012-05-10
  * @author fritz@fritzmahnke.com
  *
  */
 
-#include "orxConfigTypeHelper.h"
+#include "ConfigType.h"
 
-void OrxConfigTypeHelper::FloatToString (const orxFLOAT inFloat,
+void ConfigType::FloatToString (const orxFLOAT inFloat,
 					   orxSTRING outString)
 {
     sprintf (outString, "%f", inFloat);
 }
 
-const orxSTRING OrxConfigTypeHelper::ListToString (const orxSTRING prop)
+const orxSTRING ConfigType::ListToString (const orxSTRING prop)
 {
     char newBuffer[2048];
     char buffer[2048];
@@ -36,7 +36,7 @@ const orxSTRING OrxConfigTypeHelper::ListToString (const orxSTRING prop)
     return buffer;
 }
 
-void OrxConfigTypeHelper::VectorToString (const orxSTRING prop,
+void ConfigType::VectorToString (const orxSTRING prop,
 					             orxU32 elementNum, orxSTRING outString)
 {
     orxASSERT (elementNum < 3);

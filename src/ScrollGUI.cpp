@@ -174,6 +174,35 @@ void ScrollGUI::InputKeyPress (const orxSTRING orxKey)
 
 orxBOOL ScrollGUI::OnRender ()
 {
+    DrawGrid ();
     CEGUI::System::getSingleton().renderGUI();
     return false; 
+}
+
+void ScrollGUI::DrawGrid ()
+{
+    orxConfig_PushSection ("MainCamera");
+    float frustumWidth = orxConfig_GetFloat ("FrustumWidth");
+    float frustumHeight = orxConfig_GetFloat ("FrustumHeight");
+    orxConfig_PopSection ();
+
+    int gridRes = 100;
+    int columns = frustumWidth / gridRes;
+    int rows = frustumHeight / gridRes;
+
+    orxRGBA gridColor = orx2RGBA (200, 0, 0, 255);
+
+    for (int i = 1; i <= columns; i++)
+    {
+	orxVECTOR start = {i * gridRes, 0, 0};
+	orxVECTOR end   = {i * gridRes, frustumHeight, 0};
+	orxDisplay_DrawLine (&start, &end, gridColor);
+    }
+
+    for (int i = 1; i <= rows; i++)
+    {
+	orxVECTOR start = {0, i * gridRes, 0};
+	orxVECTOR end   = {frustumWidth, i * gridRes, 0};
+	orxDisplay_DrawLine (&start, &end, gridColor);
+    }
 }

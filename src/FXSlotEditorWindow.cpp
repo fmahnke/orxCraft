@@ -6,56 +6,47 @@
  */
 
 #include "OrxCraft.h"
-
 #include "FXSlotEditorWindow.h"
-
 #include "WidgetManager.h"
-
-#include "orxConfigTypeHelper.h"
+#include "ConfigType.h"
 
 void FXSlotEditorWindow::Init (const orxSTRING widgetName)
 {
     m_widgetManager = new WidgetManager ();
     m_widgetManager->Init (widgetName, this);
     strcpy (m_windowName, widgetName);
+
+    SetupFields ();
 }
-/*
-bool SaveFunction (const orxSTRING _zSectionName, const orxSTRING _zKeyName, const orxSTRING _zFileName, orxBOOL _bUseEncryption)
+
+void FXSlotEditorWindow::SetupFields ()
 {
-}
-*/
+    orxConfig_PushSection ("FXSlotEditorWindow");
 
-void FXSlotEditorWindow::HandleTextAccepted (const orxSTRING widgetName)
-{
-    orxASSERT (widgetName != orxNULL);
-    orxASSERT (m_context != orxNULL);
-
-    // Push config section of edited object
-    orxConfig_PushSection (m_context);
-
-    // Update config
-    if (orxString_Compare (widgetName, "FXSlotEndValue0") == 0 ||
-	orxString_Compare (widgetName, "FXSlotEndValue1") == 0 ||
-	orxString_Compare (widgetName, "FXSlotEndValue2") == 0)
+    vector<const orxSTRING> propList;
+    int counter = orxConfig_GetListCounter ("Type");
+    for (int i = 0; i < counter; i++)
     {
-	const orxSTRING newX = GetText ("FXSlotEndValue0");
-	const orxSTRING newY = GetText ("FXSlotEndValue1");
-	const orxSTRING newZ = GetText ("FXSlotEndValue2");
-	orxFLOAT newXFloat;
-	orxFLOAT newYFloat;
-	orxFLOAT newZFloat;
-	orxString_ToFloat (newX,  &newXFloat, orxNULL);
-	orxString_ToFloat (newY,  &newYFloat, orxNULL);
-	orxString_ToFloat (newZ,  &newZFloat, orxNULL);
-	orxVECTOR newPosition = { newXFloat, newYFloat, newZFloat };
-	orxConfig_SetVector ("EndValue", &newPosition);
+	// Get and store next property
+	const orxSTRING property = orxConfig_GetListString ("Type", i);
+	propList.push_back (property);
     }
+    // Fill field with list of properties
+    m_widgetManager->FillList ("FXSlotType", propList);
+    propList.clear ();
+
+    counter = orxConfig_GetListCounter ("Curve");
+    for (int i = 0; i < counter; i++)
+    {
+	// Get and store next property
+	const orxSTRING property = orxConfig_GetListString ("Curve", i);
+	propList.push_back (property);
+    }
+    // Fill field with list of properties
+    m_widgetManager->FillList ("FXSlotCurve", propList);
+    propList.clear ();
 
     orxConfig_PopSection ();
-
-    orxConfig_Save ("sampleconfig.ini", false, orxNULL);
-
-    OrxCraft::GetInstance ().NeedObjectUpdate ();
 }
 
 const orxSTRING FXSlotEditorWindow::GetName ()
@@ -63,99 +54,61 @@ const orxSTRING FXSlotEditorWindow::GetName ()
     return m_windowName;
 }
 
-/**
- *  Update all fields on this window using the current values from config
- */
 void FXSlotEditorWindow::UpdateFields () const
 {
     char buffer[255];
 
     // Config name
-    m_widgetManager->SetText ("FXSlotConfigName", m_windowName);
+    m_widgetManager->SetText ("FXSlotConfigName", m_context);
 
     orxConfig_PushSection (m_context);
 
     // Type
+    const orxSTRING type = ConfigType::ListToString ("Type");
+    m_widgetManager->SetText ("FXSlotType", type);
     // Curve
+    const orxSTRING curve = ConfigType::ListToString ("Curve");
+    m_widgetManager->SetText ("FXSlotCurve", curve);
     // StartTime
-
-    OrxConfigTypeHelper::FloatToString (orxConfig_GetFloat ("StartTime"), buffer);
+    ConfigType::FloatToString (orxConfig_GetFloat ("StartTime"), buffer);
     m_widgetManager->SetText ("FXSlotStartTime", buffer);
-
+    // EndTime
+    /** @todo EndTime control */
     // StartValue
-
-    OrxConfigTypeHelper::VectorToString ("EndValue", 0, buffer);
+    ConfigType::VectorToString ("StartValue", 0, buffer);
+    m_widgetManager->SetText ("FXSlotStartValue0", buffer);
+    ConfigType::VectorToString ("StartValue", 1, buffer);
+    m_widgetManager->SetText ("FXSlotStartValue1", buffer);
+    ConfigType::VectorToString ("StartValue", 2, buffer);
+    m_widgetManager->SetText ("FXSlotStartValue2", buffer);
+    // EndValue
+    ConfigType::VectorToString ("EndValue", 0, buffer);
     m_widgetManager->SetText ("FXSlotEndValue0", buffer);
-    OrxConfigTypeHelper::VectorToString ("EndValue", 1, buffer);
+    ConfigType::VectorToString ("EndValue", 1, buffer);
     m_widgetManager->SetText ("FXSlotEndValue1", buffer);
-    OrxConfigTypeHelper::VectorToString ("EndValue", 2, buffer);
+    ConfigType::VectorToString ("EndValue", 2, buffer);
     m_widgetManager->SetText ("FXSlotEndValue2", buffer);
-#if 0
-    // AngularVelocity
-    SetTextFromConfigFloat ("ObjAngularVelocity", "AngularVelocity");
-    // AnimationFrequency
-    SetTextFromConfigFloat ("ObjAnimFreq", "AnimationFrequency");
-    // AnimationSet
-    SetTextFromConfigStringList ("ObjAnimSet", "AnimationSet");
-    // AutoScroll
-    SetTextFromConfigStringList ("ObjAutoScroll", "AutoScroll");
-    // BlendMode
-    SetTextFromConfigStringList ("ObjBlendMode", "BlendMode");
-    // Body
-    SetTextFromConfigStringList ("ObjBody", "Body");
-    // ChildList
-    /** @todo ChildList */
-    // ChildJointList
-    /** @todo ChildJointList */
-    // Clock
-    SetTextFromConfigStringList ("ObjClock", "Clock");
-    // Color
-    SetTextFromConfigVector ("ObjColorR", "Color", 0);
-    SetTextFromConfigVector ("ObjColorG", "Color", 1);
-    SetTextFromConfigVector ("ObjColorB", "Color", 2);
-    // DepthScale
-    /** @todo DepthScale */
-    // Graphic
-    SetTextFromConfigStringList ("ObjGraphic", "Graphic");
-    // Flip
-    /** @todo Flip */
-    // FXList
-    SetTextFromConfigStringList ("ObjFXList", "FXList");
-    // LifeTime
-    SetTextFromConfigFloat ("ObjLifeTime", "LifeTime");
-    // ParentCamera
-    SetTextFromConfigStringList ("ObjParentCam", "ParentCamera");
-    // Position
-    SetTextFromConfigVector ("ObjPosX", "Position", 0);
-    SetTextFromConfigVector ("ObjPosY", "Position", 1);
-    SetTextFromConfigVector ("ObjPosZ", "Position", 2);
-    // Repeat
-    SetTextFromConfigVector ("ObjRepeatX", "Repeat", 0);
-    SetTextFromConfigVector ("ObjRepeatY", "Repeat", 1);
-    SetTextFromConfigVector ("ObjRepeatZ", "Repeat", 2);
-    // Rotation
-    SetTextFromConfigFloat ("ObjRotation", "Rotation");
-    // Speed
-    SetTextFromConfigVector ("ObjSpeedX", "Speed", 0);
-    SetTextFromConfigVector ("ObjSpeedY", "Speed", 1);
-    SetTextFromConfigVector ("ObjSpeedZ", "Speed", 2);
-    // Scale
-    SetTextFromConfigVector ("ObjScaleX", "Scale", 0);
-    SetTextFromConfigVector ("ObjScaleY", "Scale", 1);
-    SetTextFromConfigVector ("ObjScaleZ", "Scale", 2);
-    // ShaderList
-    SetTextFromConfigStringList ("ObjShaderList", "ShaderList");
-    // SoundList
-    SetTextFromConfigStringList ("ObjSoundList", "SoundList");
-    // Spawner
-    SetTextFromConfigStringList ("ObjSpawner", "Spawner");
-    // Smoothing
-    /** @todo Smoothing */
-    // UseParentSpace
-    /** @todo UseParentSpace */
-    // UseRelativeSpeed
-    /** @todo UseRelativeSpeed */
-#endif
+    // Phase
+    ConfigType::FloatToString (orxConfig_GetFloat ("Phase"), buffer);
+    m_widgetManager->SetText  ("FXSlotPhase", buffer);
+    // Period
+    ConfigType::FloatToString (orxConfig_GetFloat ("Period"), buffer);
+    m_widgetManager->SetText ("FXSlotPeriod", buffer);
+    // Absolute
+    /** @todo Absolute */
+    // Acceleration
+    ConfigType::FloatToString (orxConfig_GetFloat ("Acceleration"), buffer);
+    m_widgetManager->SetText  ("FXSlotAcceleration", buffer);
+    // Amplification
+    ConfigType::FloatToString (orxConfig_GetFloat ("Amplification"), buffer);
+    m_widgetManager->SetText ("FXSlotAmplification", buffer);
+    // Pow
+    ConfigType::FloatToString (orxConfig_GetFloat ("Pow"), buffer);
+    m_widgetManager->SetText ("FXSlotPow", buffer);
+    // UseRotation
+    /** @todo UseRotation */
+    // UseScale
+    /** @todo UseScale */
     orxConfig_PopSection ();
 }
 
@@ -170,3 +123,37 @@ void FXSlotEditorWindow::SetContext (const orxSTRING sectionName)
     UpdateFields ();
 }
 
+void FXSlotEditorWindow::HandleMouseClick (const orxSTRING widgetName)
+{
+    orxASSERT (false);
+}
+
+void FXSlotEditorWindow::HandleTextAccepted (const orxSTRING widgetName)
+{
+    orxASSERT (widgetName != orxNULL);
+    orxASSERT (m_context != orxNULL);
+
+    // Push config section of edited object
+    orxConfig_PushSection (m_context);
+
+    // Update config
+    if (orxString_Compare (widgetName, "FXSlotEndValue0") == 0 ||
+	orxString_Compare (widgetName, "FXSlotEndValue1") == 0 ||
+	orxString_Compare (widgetName, "FXSlotEndValue2") == 0)
+    {
+	orxFLOAT newXFloat;
+	orxFLOAT newYFloat;
+	orxFLOAT newZFloat;
+	orxString_ToFloat (GetText ("FXSlotEndValue0"), &newXFloat, orxNULL);
+	orxString_ToFloat (GetText ("FXSlotEndValue1"), &newYFloat, orxNULL);
+	orxString_ToFloat (GetText ("FXSlotEndValue2"), &newZFloat, orxNULL);
+	orxVECTOR newPosition = { newXFloat, newYFloat, newZFloat };
+	orxConfig_SetVector ("EndValue", &newPosition);
+    }
+
+    orxConfig_PopSection ();
+
+    orxConfig_Save ("sampleconfig.ini", false, orxNULL);
+
+    OrxCraft::GetInstance ().NeedObjectUpdate ();
+}

@@ -8,9 +8,11 @@
 #include "orxcraft.h"
 #undef  __SCROLL_IMPL__
 
+#include "InfoWindow.h"
 #include "ObjectEditor.h"
 #include "FXSlotEditorWindow.h"
-#include "InfoWindow.h"
+
+#include "ScrollGUI.h"
 
 // Widgets
 static const orxSTRING infoWindow = "O-InfoWindow";
@@ -22,10 +24,11 @@ static orxFLOAT coarseUnit = 5.0;
 static const orxSTRING configFileName = "sampleconfig.ini";
 
 OrxCraft::OrxCraft () :
-    m_infoWindow (NULL),
-    m_selectedObject (NULL),
-    m_objectEditor (NULL),
-    m_scrollGUI (NULL)
+    m_infoWindow         (NULL),
+    m_selectedObject     (NULL),
+    m_objectEditor       (NULL),
+    m_fxSlotEditorWindow (NULL),
+    m_scrollGUI          (NULL)
 {
 }
 
@@ -33,6 +36,11 @@ void OrxCraft::SetSelectedObject (const orxSTRING name)
 {
     m_selectedObject = GetObjectByName (name);
     m_objectEditor->SetObject (m_selectedObject);
+}
+
+void OrxCraft::SetSelectedFXSlot (const orxSTRING name)
+{
+    m_fxSlotEditorWindow->SetContext (name);
 }
 
 ScrollObject * OrxCraft::GetObjectByName (const orxSTRING name) const
@@ -113,10 +121,11 @@ void OrxCraft::BindObjects ()
 
 void OrxCraft::Update (const orxCLOCK_INFO &_rstInfo)
 {
-    // Update objects on screen if necessary
+    // Want to update the objects' state?
     if (m_dirty)
     {
 	m_dirty = false;
+	// Do setup again
 	SetupConfig ();
     }
 
@@ -129,6 +138,7 @@ void OrxCraft::Update (const orxCLOCK_INFO &_rstInfo)
     // Nothing picked
     if (orxObject_Pick (&worldPos) == orxNULL)
     {
+	// Pass input to GUI
 	m_scrollGUI->Input ();
     }
 
@@ -208,6 +218,14 @@ void OrxCraft::SetupConfig ()
 		// It's a graphic
 		m_graphicList.push_back (sectionName);
 		CreateObject (sectionName);
+		continue;
+	    }
+	    // Does it have a Curve property?
+	    const orxSTRING curve = orxConfig_GetString ("Curve");
+	    if (orxString_Compare (curve, "") != 0)
+	    {
+		// It's an FXSlot
+		m_fxSlotList.push_back (sectionName);
 		continue;
 	    }
 	}

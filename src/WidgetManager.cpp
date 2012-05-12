@@ -7,11 +7,13 @@
 
 #include "WidgetManager.h"
 #include "ScrollFrameWindow.h"
+#include "CEGUICombobox.h"
 #include "CEGUIEditbox.h"
 #include "CEGUIListbox.h"
 
-using CEGUI::Window;
+using CEGUI::Combobox;
 using CEGUI::Listbox;
+using CEGUI::Window;
 
 void WidgetManager::Init (const orxSTRING widgetName, ScrollFrameWindow *scrollWindow)
 {
@@ -27,11 +29,18 @@ void WidgetManager::Init (const orxSTRING widgetName, ScrollFrameWindow *scrollW
 	const orxSTRING name = window->getChildAtIdx (i)->getName ().c_str ();
 	if (orxString_Compare (type, "TaharezLook/Checkbox") == 0)
 	{
+	    orxASSERT (false);
 	    /*
 	    CEGUICheckbox *checkbox = new CEGUICheckbox (this);
 	    checkbox->Init (name);
 	    m_widgetList.push_back (checkbox);
 	    */
+	}
+	else if (orxString_Compare (type, "TaharezLook/Combobox") == 0)
+	{
+	    CEGUICombobox *combobox = new CEGUICombobox (this);
+	    combobox->Init (name);
+	    m_widgetList.push_back (combobox);
 	}
 	else if (orxString_Compare (type, "TaharezLook/Editbox") == 0)
 	{
@@ -105,8 +114,21 @@ void WidgetManager::SetText (const orxSTRING widgetName, const orxSTRING text)
 void WidgetManager::FillList (const orxSTRING widgetName,
 			      const vector<const orxSTRING> &listItems)
 {
-    CEGUIListbox *listbox = (CEGUIListbox *) FindWidget (widgetName);
-    listbox->Fill (listItems);
+    CEGUI::Window *rootWindow = CEGUI::System::getSingleton ().getGUISheet ();
+    CEGUI::Window *window = rootWindow->getChild (m_windowName);
+    CEGUI::Window *widget = window->getChild (widgetName);
+    const orxSTRING widgetType = widget->getType ().c_str ();
+
+    if (orxString_Compare (widgetType, "TaharezLook/Combobox") == 0)
+    {
+	CEGUICombobox *combobox = (CEGUICombobox *) FindWidget (widgetName);
+	combobox->Fill (listItems);
+    }
+    else if (orxString_Compare (widgetType, "TaharezLook/Listbox") == 0)
+    {
+	CEGUIListbox *listbox = (CEGUIListbox *) FindWidget (widgetName);
+	listbox->Fill (listItems);
+    }
 }
 
 void WidgetManager::OnMouseClick (const orxSTRING widgetName)

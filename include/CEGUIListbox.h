@@ -1,5 +1,5 @@
-#ifndef __SCROLL_CEGUILISTBOX_H__
-#define __SCROLL_CEGUILISTBOX_H__
+#ifndef __CEGUILISTBOX_H__
+#define __CEGUILISTBOX_H__
 /**
  * @file CEGUIListbox.h
  * @date 2012-05-10
@@ -29,4 +29,4 @@ private:
     CEGUI::Listbox *m_ceListbox;
     vector<CEGUI::ListboxTextItem *> m_items;
 };
-#endif  // __SCROLL_CEGUILISTBOX_H__
+#endif  // __CEGUILISTBOX_H__

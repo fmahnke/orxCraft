@@ -17,22 +17,28 @@ class WidgetManager;
 class ScrollWidget
 {
 public:    
+    /** Widget C-tor */
     ScrollWidget (WidgetManager *manager) :
 	m_widgetName (NULL),
-	m_manager (manager)
+	m_manager    (manager)
     {
     };
+
+    /** Initialize the widget */
     virtual void Init (const orxSTRING widgetName) = 0;
 
+    /** Get the name of the widget */
     inline const orxSTRING GetName () { return m_widgetName; }
+
 protected:
+    /** Widget D-tor */
     virtual ~ScrollWidget ()
     {
 	delete [] m_widgetName;
     };
 
+    char          *m_widgetName;
     WidgetManager *m_manager;
-    char *m_widgetName;
 };
 
-#endif  // __SCROLL_CHECKBOX_H__
+#endif  // __SCROLLWIDGET_H__
