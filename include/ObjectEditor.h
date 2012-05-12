@@ -21,6 +21,7 @@ public:
     // Scroll events
     virtual void Init (const orxSTRING widgetName);
 
+    virtual void HandleMouseClick   (const orxSTRING widgetName) { orxASSERT (false); };
     virtual void HandleTextAccepted (const orxSTRING widgetName);
 
     virtual const orxSTRING GetName ();

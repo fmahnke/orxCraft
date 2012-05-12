@@ -13,7 +13,10 @@ class FXSlotEditorWindow : public ScrollFrameWindow
 {
 public:
     virtual void Init (const orxSTRING widgetName);
+
+    virtual void HandleMouseClick   (const orxSTRING widgetName) { orxASSERT (false); };
     virtual void HandleTextAccepted (const orxSTRING widgetName);
+
     virtual const orxSTRING GetName ();
     void UpdateFields () const;
     const orxSTRING GetText (const orxSTRING widgetName) const;

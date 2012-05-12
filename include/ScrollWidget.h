@@ -9,15 +9,30 @@
 
 #include "orx/orx.h"
 
+class WidgetManager;
+
 /**
  *  Interface for a widget.
  */
 class ScrollWidget
 {
-public:
+public:    
+    ScrollWidget (WidgetManager *manager) :
+	m_widgetName (NULL),
+	m_manager (manager)
+    {
+    };
     virtual void Init (const orxSTRING widgetName) = 0;
+
+    inline const orxSTRING GetName () { return m_widgetName; }
 protected:
-    virtual ~ScrollWidget () { };
+    virtual ~ScrollWidget ()
+    {
+	delete [] m_widgetName;
+    };
+
+    WidgetManager *m_manager;
+    char *m_widgetName;
 };
 
 #endif  // __SCROLL_CHECKBOX_H__

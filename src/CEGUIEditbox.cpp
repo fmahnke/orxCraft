@@ -27,6 +27,9 @@ void CEGUIEditbox::Init (const orxSTRING widgetName)
     Editbox *editbox = (Editbox *) window->getChild (widgetName);
     editbox->subscribeEvent (Editbox::EventTextAccepted,
 	Event::Subscriber (&CEGUIEditbox::OnTextAccepted, this));
+
+    m_widgetName = new char[strlen (widgetName) + 1];
+    strcpy (m_widgetName, widgetName);
 }
 
 bool CEGUIEditbox::OnTextAccepted (const CEGUI::EventArgs &e)

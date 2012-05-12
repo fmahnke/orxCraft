@@ -22,10 +22,12 @@ class ScrollFrameWindow : public ScrollWidget
 {
 public:
     ScrollFrameWindow () :
+        ScrollWidget (m_manager),
 	m_widgetManager (NULL)
     {
     };
     virtual const orxSTRING GetName () = 0;
+    virtual void HandleMouseClick   (const orxSTRING widgetName) = 0;
     virtual void HandleTextAccepted (const orxSTRING widgetName) = 0;
 protected:
     vector<ScrollWidget *> m_widgetList;

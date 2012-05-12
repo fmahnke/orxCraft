@@ -18,11 +18,9 @@ class ScrollEditbox : public ScrollWidget
 {
 public:
     explicit ScrollEditbox (WidgetManager *manager) :
-	m_manager (manager)
+	ScrollWidget (manager)
     {
     };
-protected:
-    WidgetManager *m_manager;
 };
 
 #endif  // __SCROLL_EDITBOX_H__

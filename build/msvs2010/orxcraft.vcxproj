@@ -157,7 +157,9 @@ copy ..\..\cegui\test.layout ..\..\bin\windows</Command>
     <ClCompile Include="..\..\src\CEGUIEditbox.cpp" />
     <ClCompile Include="..\..\src\CEGUIListbox.cpp" />
     <ClCompile Include="..\..\src\FXSlotEditorWindow.cpp" />
-    <ClCompile Include="..\..\src\ListBox.cpp" />
+    <ClCompile Include="..\..\src\ListBox.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\src\orxConfigTypeHelper.cpp" />
     <ClCompile Include="..\..\src\orxcraft.cpp" />
     <ClCompile Include="..\..\src\WidgetManager.cpp" />

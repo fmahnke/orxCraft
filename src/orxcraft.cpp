@@ -99,7 +99,7 @@ orxSTATUS OrxCraft::Run ()
   return eResult;
 }
 
-void OrxCraft::Exit()
+void OrxCraft::Exit ()
 {
     delete m_objectEditor;
     delete m_fxSlotEditorWindow;
@@ -111,7 +111,7 @@ void OrxCraft::BindObjects ()
     ScrollBindObject<ScrollGUI>  (scrollGUI);
 }
 
-void OrxCraft::Update(const orxCLOCK_INFO &_rstInfo)
+void OrxCraft::Update (const orxCLOCK_INFO &_rstInfo)
 {
     // Update objects on screen if necessary
     if (m_dirty)

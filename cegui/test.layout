@@ -9,7 +9,7 @@
             <Property Name="TitlebarFont" Value="DejaVuSans-8" />
             <Property Name="TitlebarEnabled" Value="True" />
             <Property Name="UnifiedAreaRect" Value="{{0.0309058,0},{0.0275,0},{0.230906,0},{0.5,0}}" />
-            <Window Type="TaharezLook/Listbox" Name="SectionList" >
+            <Window Type="TaharezLook/Listbox" Name="ObjectSectionList" >
                 <Property Name="Text" Value="List Box" />
                 <Property Name="UnifiedAreaRect" Value="{{0.0571739,0},{0.0347221,0},{0.957174,0},{0.45,0}}" />
             </Window>

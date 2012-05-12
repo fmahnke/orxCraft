@@ -10,6 +10,9 @@
 #include "CEGUIEditbox.h"
 #include "CEGUIListbox.h"
 
+using CEGUI::Window;
+using CEGUI::Listbox;
+
 void WidgetManager::Init (const orxSTRING widgetName, ScrollFrameWindow *scrollWindow)
 {
     m_scrollWindow = scrollWindow;
@@ -45,12 +48,21 @@ void WidgetManager::Init (const orxSTRING widgetName, ScrollFrameWindow *scrollW
     }
 }
 
-CEGUI::Window * WidgetManager::FindWidget (const orxSTRING widgetName)
+ScrollWidget * WidgetManager::FindWidget (const orxSTRING widgetName)
 {
-    CEGUI::Window *rootWindow = CEGUI::System::getSingleton ().getGUISheet ();
-    CEGUI::Window *window = rootWindow->getChild (m_windowName);
-    CEGUI::Window *widget = window->getChild (widgetName);
-    return widget;
+    ScrollWidget *theWidget = NULL;
+    vector<ScrollWidget *>::iterator widgIter;
+    for (widgIter = m_widgetList.begin (); widgIter != m_widgetList.end ();
+	 ++widgIter)
+    {
+	if (orxString_Compare ((*widgIter)->GetName (), widgetName) == 0)
+	{
+	    theWidget = *widgIter;
+	    break;
+	}
+    }
+	 
+    return theWidget;
 }
 
 const orxSTRING WidgetManager::GetText (const orxSTRING widgetName)
@@ -67,6 +79,20 @@ const orxSTRING WidgetManager::GetWindowName ()
     return m_windowName;
 }
 
+const orxSTRING WidgetManager::GetSelectedItem (const orxSTRING widgetName)
+{
+    orxASSERT (widgetName != orxNULL);
+
+    CEGUI::Window *rootWindow = CEGUI::System::getSingleton ().getGUISheet ();
+    CEGUI::Window *window = rootWindow->getChild (m_windowName);
+    CEGUI::Listbox *listbox = (CEGUI::Listbox *) window->getChild (widgetName);
+
+    CEGUI::ListboxItem *item = listbox->getFirstSelectedItem ();
+    const orxSTRING itemName = item->getText ().c_str ();
+
+    return itemName;
+}
+
 void WidgetManager::SetText (const orxSTRING widgetName, const orxSTRING text)
 {
     CEGUI::Window *rootWindow = CEGUI::System::getSingleton ().getGUISheet ();
@@ -74,6 +100,18 @@ void WidgetManager::SetText (const orxSTRING widgetName, const orxSTRING text)
     CEGUI::Window *widget = window->getChild (widgetName);
 
     widget->setText (text);
+}
+
+void WidgetManager::FillList (const orxSTRING widgetName,
+			      const vector<const orxSTRING> &listItems)
+{
+    CEGUIListbox *listbox = (CEGUIListbox *) FindWidget (widgetName);
+    listbox->Fill (listItems);
+}
+
+void WidgetManager::OnMouseClick (const orxSTRING widgetName)
+{
+    m_scrollWindow->HandleMouseClick (widgetName);
 }
 
 void WidgetManager::OnTextAccepted (const orxSTRING widgetName)

@@ -13,13 +13,20 @@
 
 class WidgetManager;
 
+using std::vector;
+
 class CEGUIListbox : public ScrollListbox
 {
 public:
     explicit CEGUIListbox (WidgetManager *manager);
     virtual void Init (const orxSTRING widgetName);
+    void Fill (const vector<const orxSTRING> &listItems);
 
+     //bool OnSelectionChanged (const CEGUI::EventArgs &e);
 private:
     bool OnMouseClick (const CEGUI::EventArgs &e);
+
+    CEGUI::Listbox *m_ceListbox;
+    vector<CEGUI::ListboxTextItem *> m_items;
 };
 #endif  // __SCROLL_CEGUILISTBOX_H__

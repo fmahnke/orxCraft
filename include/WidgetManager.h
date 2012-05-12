@@ -25,13 +25,21 @@ public:
     {
     };
     void Init (const orxSTRING widgetName, ScrollFrameWindow *scrollWindow);
-    CEGUI::Window * FindWidget (const orxSTRING widgetName);
-    const orxSTRING GetText (const orxSTRING widgetName);
+    ScrollWidget * FindWidget (const orxSTRING widgetName);
 
     const orxSTRING GetWindowName ();
+
+    const orxSTRING GetSelectedItem (const orxSTRING widgetName);
+
+    const orxSTRING GetText (const orxSTRING widgetName);
     /// Update widget text explicitly
     void SetText (const orxSTRING widgetName, const orxSTRING text);
 
+
+    void FillList (const orxSTRING widgetName,
+	           const vector<const orxSTRING> &listItems);
+
+    void OnMouseClick   (const orxSTRING widgetName);
     void OnTextAccepted (const orxSTRING widgetName);
 
 private:
