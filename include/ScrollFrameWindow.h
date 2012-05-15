@@ -6,33 +6,37 @@
  * @author fritz@fritzmahnke.com
  *
  */
-
-#include "ScrollWidget.h"
-
-#include "WidgetManager.h"
-
 #include <vector>
-
 using std::vector;
 
+#include "Scroll.h"
+#include "WidgetManager.h"
+
 /**
- *  Base class for a Window widget.
+ *  Interface for a Window.
  */
-class ScrollFrameWindow : public ScrollWidget
+class ScrollFrameWindow
 {
 public:
+    //! C-tor
     ScrollFrameWindow () :
-        ScrollWidget (m_manager),
-	m_widgetManager (NULL)
-    {
-    };
+	m_widgetManager (NULL) { };
+    /** Initialize the window */
+    virtual void Init (const orxSTRING widgetName) = 0;
+    /** Get the window's name */
     virtual const orxSTRING GetName () = 0;
+    /** Left mouse click event handler */
     virtual void HandleMouseClick   (const orxSTRING widgetName) = 0;
+    /** Text accepted (pressed Enter key) event handler */
     virtual void HandleTextAccepted (const orxSTRING widgetName) = 0;
 protected:
-    vector<ScrollWidget *> m_widgetList;
+    //! D-tor
+    virtual ~ScrollFrameWindow ()
+    {
+	delete m_widgetManager;
+    };
+
     WidgetManager *m_widgetManager;
-    virtual ~ScrollFrameWindow () { delete m_widgetManager; };
 };
 
 #endif  // __SCROLL_WINDOW_H__

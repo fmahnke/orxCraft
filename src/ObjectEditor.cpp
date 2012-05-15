@@ -5,9 +5,8 @@
  *
  */
 #include "ObjectEditor.h"
-
+#include "WidgetManager.h"
 #include "OrxCraft.h"
-
 #include "ConfigType.h"
 
 ObjectEditor::ObjectEditor () :
@@ -24,6 +23,7 @@ void ObjectEditor::Init (const orxSTRING widgetName)
 const orxSTRING ObjectEditor::GetName ()
 {
     orxASSERT (false);
+    return orxNULL;
 }
 
 void ObjectEditor::UpdateObject ()
@@ -42,7 +42,7 @@ void ObjectEditor::UpdateObject ()
     m_object->SetColor (color);
 
     // Angular velocity
-    orxASSERT (false);
+    //orxASSERT (false);
     
     // Rotation
     m_object->SetRotation (orxConfig_GetFloat ("Rotation"));

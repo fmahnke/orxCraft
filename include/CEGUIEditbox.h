@@ -13,6 +13,7 @@
 
 class WidgetManager;
 
+/** CEGUI Implementation of an Editbox */
 class CEGUIEditbox : public ScrollEditbox
 {
 public:

@@ -6,6 +6,8 @@
  */
 #include "InfoWindow.h"
 
+#include "WidgetManager.h"
+
 #include "OrxCraft.h"
 
 void InfoWindow::Init (const orxSTRING widgetName)

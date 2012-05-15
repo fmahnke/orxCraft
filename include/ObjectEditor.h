@@ -15,7 +15,6 @@ class ObjectEditor : public ScrollFrameWindow
 {
 public:
     ObjectEditor ();
-
     // Scroll events
     virtual void Init (const orxSTRING widgetName);
 
@@ -26,7 +25,7 @@ public:
 
     /// Update widget text explicitly
     void SetText (const orxSTRING widgetName,
-	                        const orxSTRING text) const;
+	          const orxSTRING text) const;
 
     /// Set the ScrollObject used by this instance
     void SetObject (ScrollObject *object);

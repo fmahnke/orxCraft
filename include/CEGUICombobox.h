@@ -14,6 +14,7 @@ class WidgetManager;
 
 using std::vector;
 
+/** CEGUI implementation of a Combobox */
 class CEGUICombobox : public ScrollCombobox
 {
 public:

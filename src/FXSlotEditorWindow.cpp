@@ -5,9 +5,9 @@
  *
  */
 
-#include "OrxCraft.h"
 #include "FXSlotEditorWindow.h"
 #include "WidgetManager.h"
+#include "OrxCraft.h"
 #include "ConfigType.h"
 
 void FXSlotEditorWindow::Init (const orxSTRING widgetName)
@@ -190,7 +190,7 @@ void FXSlotEditorWindow::HandleTextAccepted (const orxSTRING widgetName)
 
     orxConfig_PopSection ();
 
-    orxConfig_Save ("sampleconfig.ini", false, orxNULL);
+    //orxConfig_Save ("sampleconfig.ini", false, orxNULL);
 
     OrxCraft::GetInstance ().NeedObjectUpdate ();
 }

@@ -12,6 +12,7 @@
 #include "CEGUI.h"
 #include "RendererModules/OpenGL/CEGUIOpenGLRenderer.h"
 
+/** Renders and sends input to the GUI widgets */
 class ScrollGUI : public ScrollObject
 {
 public:

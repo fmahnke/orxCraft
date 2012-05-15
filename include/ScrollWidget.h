@@ -7,12 +7,12 @@
  *
  */
 
-#include "orx/orx.h"
+#include "Scroll.h"
 
 class WidgetManager;
 
 /**
- *  Interface for a widget.
+ *  Base class for any type of user interface widget
  */
 class ScrollWidget
 {

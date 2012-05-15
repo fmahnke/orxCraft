@@ -7,8 +7,6 @@
 #ifndef __InfoWindow_H__
 #define __InfoWindow_H__
 
-#include "Scroll.h"
-
 #include "ScrollFrameWindow.h"
 
 class InfoWindow : public ScrollFrameWindow
@@ -18,7 +16,6 @@ public:
     virtual const orxSTRING GetName ();
     virtual void HandleMouseClick   (const orxSTRING widgetName);
     virtual void HandleTextAccepted (const orxSTRING widgetName);
-private:
 };
 
 #endif	// __InfoWindow_H__

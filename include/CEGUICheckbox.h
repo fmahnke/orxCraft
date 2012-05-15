@@ -13,6 +13,7 @@
 
 class ScrollFrameWindow;
 
+//! CEGUI implementation of a Checkbox
 class CEGUICheckbox : public ScrollCheckbox
 {
 public:

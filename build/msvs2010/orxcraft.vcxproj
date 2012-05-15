@@ -75,7 +75,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\..\include;..\..\..\Ackscroll\include\Scroll;..\..\orx\code\include;..\..\..\CEGUI-0.7.6\cegui\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\include;..\..\..\iarScroll\include\Scroll;..\..\orx\code\include;..\..\..\CEGUI-0.7.6\cegui\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>__orxDEBUG__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -161,10 +161,10 @@ copy ..\..\cegui\test.layout ..\..\bin\windows</Command>
     <ClCompile Include="..\..\src\FXSlotEditorWindow.cpp" />
     <ClCompile Include="..\..\src\orxcraft.cpp" />
     <ClCompile Include="..\..\src\WidgetManager.cpp" />
-    <None Include="..\..\..\AckScroll\include\Scroll\Scroll.inl" />
-    <None Include="..\..\..\AckScroll\include\Scroll\ScrollBase.inl" />
-    <None Include="..\..\..\AckScroll\include\Scroll\ScrollEd.inl" />
-    <None Include="..\..\..\AckScroll\include\Scroll\ScrollObject.inl" />
+    <None Include="..\..\..\iarScroll\include\Scroll\Scroll.inl" />
+    <None Include="..\..\..\iarScroll\include\Scroll\ScrollBase.inl" />
+    <None Include="..\..\..\iarScroll\include\Scroll\ScrollEd.inl" />
+    <None Include="..\..\..\iarScroll\include\Scroll\ScrollObject.inl" />
     <None Include="..\..\data\orxCraft.ini">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </None>
@@ -178,17 +178,17 @@ copy ..\..\cegui\test.layout ..\..\bin\windows</Command>
     <None Include="..\..\README.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\AckScroll\include\Scroll\Scroll.h" />
-    <ClInclude Include="..\..\..\AckScroll\include\Scroll\ScrollBase.h" />
-    <ClInclude Include="..\..\..\AckScroll\include\Scroll\ScrollEd.h" />
-    <ClInclude Include="..\..\..\AckScroll\include\Scroll\ScrollObject.h" />
+    <ClInclude Include="..\..\..\iarScroll\include\Scroll\Scroll.h" />
+    <ClInclude Include="..\..\..\iarScroll\include\Scroll\ScrollBase.h" />
+    <ClInclude Include="..\..\..\iarScroll\include\Scroll\ScrollEd.h" />
+    <ClInclude Include="..\..\..\iarScroll\include\Scroll\ScrollObject.h" />
     <ClInclude Include="..\..\include\CEGUICheckbox.h" />
     <ClInclude Include="..\..\include\CEGUICombobox.h" />
     <ClInclude Include="..\..\include\CEGUIEditbox.h" />
     <ClInclude Include="..\..\include\CEGUIListbox.h" />
+    <ClInclude Include="..\..\include\ConfigType.h" />
     <ClInclude Include="..\..\include\FXSlotEditorWindow.h" />
     <ClInclude Include="..\..\include\ObjectEditor.h" />
-    <ClInclude Include="..\..\include\orxConfigTypeHelper.h" />
     <ClInclude Include="..\..\include\orxCraft.h" />
     <ClInclude Include="..\..\include\InfoWindow.h" />
     <ClInclude Include="..\..\include\ScrollCombobox.h" />
@@ -196,9 +196,8 @@ copy ..\..\cegui\test.layout ..\..\bin\windows</Command>
     <ClInclude Include="..\..\include\ScrollFrameWindow.h" />
     <ClInclude Include="..\..\include\ScrollGUI.h" />
     <ClInclude Include="..\..\include\ScrollListbox.h" />
+    <ClInclude Include="..\..\include\ScrollWidget.h" />
     <ClInclude Include="..\..\include\WidgetManager.h" />
-    <ClInclude Include="..\..\src\ScrollCheckbox.h" />
-    <ClInclude Include="..\..\src\ScrollWidget.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

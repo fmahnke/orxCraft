@@ -15,6 +15,7 @@ class WidgetManager;
 
 using std::vector;
 
+/** CEGUI Implementation of a Listbox */
 class CEGUIListbox : public ScrollListbox
 {
 public:
