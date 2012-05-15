@@ -1,0 +1,21 @@
+[Map]
+CameraPosition = (0, 0, -1)
+CameraZoom = 0.99998
+Differential = true
+LayerNumber = 1
+ObjectNumber = 1
+
+[ScrollEd]
+EncryptSave = false
+LayerIndex = 0
+
+[SObj0000]
+Name = O-Soldier
+Position = (50, 32, 0)
+Scale = (4, 4, 1)
+Rotation = 0
+Color = (1, 1, 1)
+Alpha = 1
+Smoothing = false
+Tiling = false
+
