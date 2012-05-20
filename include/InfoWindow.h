@@ -1,11 +1,11 @@
 /**
  * @file InfoWindow.h
- * @date 2012-06-04
+ * @date 2012-05-04
  * @author fritz@fritzmahnke.com
  *
  */
-#ifndef __InfoWindow_H__
-#define __InfoWindow_H__
+#ifndef __INFOWINDOW_H__
+#define __INFOWINDOW_H__
 
 #include "ScrollFrameWindow.h"
 
@@ -18,4 +18,4 @@ public:
     virtual void HandleTextAccepted (const orxSTRING widgetName);
 };
 
-#endif	// __InfoWindow_H__
+#endif	// __INFOWINDOW_H__

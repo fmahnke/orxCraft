@@ -1,6 +1,6 @@
 /**
  * @file OrxCraft.cpp
- * @date 2012-06-04
+ * @date 2012-05-04
  * @author fritz@fritzmahnke.com
  *
  */
@@ -64,16 +64,17 @@ orxSTATUS OrxCraft::Init ()
 {
     orxSTATUS eResult = orxSTATUS_SUCCESS;
 
+    // Load things we want to edit from config
     InitConfig ();
     SetupConfig ();
 
-    // Init Crazy Eddie
+    // Init GUI system
     m_scrollGUI = (ScrollGUI *) CreateObject (scrollGUI);
     CreateObject (infoWindow);
 
     // Init object editor
     m_objectEditor = new ObjectEditor ();
-    m_objectEditor->Init ("ObjectEditor");
+    m_objectEditor->Init (objectEditor);
     m_objectEditor->SetObject (m_selectedObject);
 
     // Init FX slot editor
@@ -85,10 +86,8 @@ orxSTATUS OrxCraft::Init ()
     m_infoWindow = new InfoWindow ();
     m_infoWindow->Init ("InfoWindow");
 
-    orxViewport_CreateFromConfig ("Viewport1");
-    //orxCamera_CreateFromConfig ("Camera1");
-
     orxEvent_AddHandler (orxEVENT_TYPE_INPUT, EventHandler);
+
     return eResult;
 }
 
@@ -116,7 +115,7 @@ void OrxCraft::Exit ()
 
 void OrxCraft::BindObjects ()
 {
-    ScrollBindObject<ScrollGUI>  (scrollGUI);
+    ScrollBindObject<ScrollGUI> (scrollGUI);
 }
 
 void OrxCraft::Update (const orxCLOCK_INFO &_rstInfo)
@@ -140,35 +139,6 @@ void OrxCraft::Update (const orxCLOCK_INFO &_rstInfo)
     {
 	// Pass input to GUI
 	m_scrollGUI->Input ();
-    }
-
-    if (m_selectedObject != orxNULL)
-    {
-	orxVECTOR selObjPosition;
-	m_selectedObject->GetPosition (selObjPosition, true);
-
-	if (orxInput_IsActive (inputLeftArrow) &&
-	    orxInput_HasNewStatus (inputLeftArrow))
-	{
-	    selObjPosition.fX -= coarseUnit;
-	}
-	if (orxInput_IsActive (inputRightArrow) &&
-	    orxInput_HasNewStatus (inputRightArrow))
-	{
-	    selObjPosition.fX += coarseUnit;
-	}
-	if (orxInput_IsActive (inputUpArrow) &&
-	    orxInput_HasNewStatus (inputUpArrow))
-	{
-	    selObjPosition.fY -= coarseUnit;
-	}
-	if (orxInput_IsActive (inputDownArrow) &&
-	    orxInput_HasNewStatus (inputDownArrow))
-	{
-	    selObjPosition.fY += coarseUnit;
-	}
-
-	m_selectedObject->SetPosition (selObjPosition, true);
     }
 }
 

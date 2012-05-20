@@ -1,6 +1,6 @@
 /**
  * @file OrxCraft.h
- * @date 2012-06-04
+ * @date 2012-05-04
  * @author fritz@fritzmahnke.com
  *
  */
@@ -28,7 +28,7 @@ static const orxSTRING inputDownArrow  = "DownArrow";
 
 using std::vector;
 
-//! OrxCraft class
+//! Main OrxCraft program class
 class OrxCraft : public Scroll<OrxCraft>
 {
 public:

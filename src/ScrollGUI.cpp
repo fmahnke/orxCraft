@@ -5,7 +5,6 @@
  *
  */
 #include "ScrollGUI.h"
-
 #include "OrxCraft.h"
 
 ScrollGUI::ScrollGUI () :

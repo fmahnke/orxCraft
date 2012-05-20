@@ -190,7 +190,5 @@ void FXSlotEditorWindow::HandleTextAccepted (const orxSTRING widgetName)
 
     orxConfig_PopSection ();
 
-    //orxConfig_Save ("sampleconfig.ini", false, orxNULL);
-
     OrxCraft::GetInstance ().NeedObjectUpdate ();
 }
