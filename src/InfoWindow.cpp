@@ -5,9 +5,7 @@
  *
  */
 #include "InfoWindow.h"
-
 #include "WidgetManager.h"
-
 #include "OrxCraft.h"
 
 void InfoWindow::Init (const orxSTRING widgetName)
@@ -40,7 +38,7 @@ void InfoWindow::HandleMouseClick (const orxSTRING widgetName)
     }
     else if (orxString_Compare (widgetName, "SaveConfig") == 0)
     {
-	orxASSERT (false);
+	OrxCraft::GetInstance ().SaveEditorConfig ();
     }
 }
 

@@ -34,23 +34,27 @@ class OrxCraft : public Scroll<OrxCraft>
 public:
     OrxCraft ();
 
-    /** Get names of currently loaded objects */
+    //! Get names of currently loaded objects
     inline vector<const orxSTRING> & GetObjectList () { return m_objectList; }
-    /** Get selected object in Object Editor */
+    //! Get selected object in Object Editor
     inline ScrollObject * GetSelectedObject () { return m_selectedObject; }
-    /** Set selected object in Object Editor */
+    //! Set selected object in Object Editor
     void SetSelectedObject (const orxSTRING name); 
 
-    /** Get names of currently loaded FXSlots */
+    //! Get names of currently loaded FXSlots
     inline vector<const orxSTRING> & GetFXSlotList () { return m_fxSlotList; }
-    /** Set selected FXSlot in FXSlot Editor */
+    //! Set selected FXSlot in FXSlot Editor
     void SetSelectedFXSlot (const orxSTRING name);
 
     ScrollObject * GetObjectByName (const orxSTRING name) const;
 
-    /** Setup loaded config section lists and create objects */
+    //! Setup loaded config section lists and create objects
     void SetupConfig ();
-    /** Indicate properties have been changed and objects need to be updated
+    //! Save the editor configuration to a file
+    void SaveEditorConfig ();
+
+    /** 
+     *  Indicate properties have been changed and objects need to be updated
      *  to reflect that change.
      */
     void NeedObjectUpdate ();
@@ -69,6 +73,12 @@ private:
     void OnMouseUp ();
     void OnKeyPress (const orxSTRING key);
     static orxSTATUS orxFASTCALL EventHandler (const orxEVENT *_pstEvent);
+
+    static orxBOOL orxFASTCALL SaveConfigFunction
+	(const orxSTRING _zSectionName,
+         const orxSTRING _zKeyName,
+	 const orxSTRING _zFileName,
+	 orxBOOL _bUseEncryption);
 
     ScrollGUI               *m_scrollGUI;
     InfoWindow              *m_infoWindow;

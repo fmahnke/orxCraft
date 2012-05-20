@@ -200,7 +200,7 @@ void OrxCraft::SetupConfig ()
     {
 	const orxSTRING sectionName = orxConfig_GetSection (i);
 	orxConfig_PushSection (sectionName);
-	if (orxConfig_GetBool ("NoEdit") != orxTRUE)
+	if (orxConfig_GetBool ("OrxCraftSection") != orxTRUE)
 	{
 	    const orxSTRING graphic = orxConfig_GetString ("Graphic");
 	    // Does it have a Graphic property?
@@ -231,6 +231,11 @@ void OrxCraft::SetupConfig ()
 	}
 	orxConfig_PopSection ();
     }
+}
+
+void OrxCraft::SaveEditorConfig ()
+{
+    orxConfig_Save (configFileName, false, &SaveConfigFunction);
 }
 
 void OrxCraft::OnMouseDown ()
@@ -281,6 +286,27 @@ orxSTATUS orxFASTCALL OrxCraft::EventHandler(const orxEVENT *_pstEvent)
     }
 
     return result;
+}
+
+orxBOOL orxFASTCALL OrxCraft::SaveConfigFunction
+    (const orxSTRING _zSectionName,
+     const orxSTRING _zKeyName,
+     const orxSTRING _zFileName,
+     orxBOOL _bUseEncryption)
+{
+    orxBOOL saveIt = orxFALSE;
+
+    orxConfig_PushSection (_zSectionName);
+    orxBOOL isOrxCraftSection = orxConfig_GetBool ("OrxCraftSection");
+    orxConfig_PopSection ();
+
+    // NOT one of our editor's sections?
+    if (!isOrxCraftSection)
+    {
+	saveIt = orxTRUE;
+    }
+
+    return saveIt;
 }
 
 int main(int argc, char **argv)
