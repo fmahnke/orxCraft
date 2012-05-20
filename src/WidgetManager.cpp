@@ -10,6 +10,7 @@
 #include "CEGUICombobox.h"
 #include "CEGUIEditbox.h"
 #include "CEGUIListbox.h"
+#include "CEGUIPushButton.h"
 
 using CEGUI::Combobox;
 using CEGUI::Listbox;
@@ -53,6 +54,12 @@ void WidgetManager::Init (const orxSTRING widgetName, ScrollFrameWindow *scrollW
 	    CEGUIListbox *listbox = new CEGUIListbox (this);
 	    listbox->Init (name);
 	    m_widgetList.push_back (listbox);
+	}
+	else if (orxString_Compare (type, "TaharezLook/Button") == 0)
+	{
+	    CEGUIPushButton *pushbutton = new CEGUIPushButton (this);
+	    pushbutton->Init (name);
+	    m_widgetList.push_back (pushbutton);
 	}
     }
 }

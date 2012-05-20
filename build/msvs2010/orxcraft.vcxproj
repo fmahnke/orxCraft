@@ -97,8 +97,8 @@
       </Command>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>copy ..\..\cegui\FXSlotWindow.layout ..\..\bin\windows
-copy ..\..\cegui\test.layout ..\..\bin\windows</Command>
+      <Command>copy ..\..\cegui\*.layout ..\..\bin\windows
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -151,6 +151,7 @@ copy ..\..\cegui\test.layout ..\..\bin\windows</Command>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\CEGUIPushButton.cpp" />
     <ClCompile Include="..\..\src\CEGUICheckbox.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -182,6 +183,7 @@ copy ..\..\cegui\test.layout ..\..\bin\windows</Command>
     <ClInclude Include="..\..\..\iarScroll\include\Scroll\ScrollBase.h" />
     <ClInclude Include="..\..\..\iarScroll\include\Scroll\ScrollEd.h" />
     <ClInclude Include="..\..\..\iarScroll\include\Scroll\ScrollObject.h" />
+    <ClInclude Include="..\..\include\CEGUIPushButton.h" />
     <ClInclude Include="..\..\include\CEGUICheckbox.h" />
     <ClInclude Include="..\..\include\CEGUICombobox.h" />
     <ClInclude Include="..\..\include\CEGUIEditbox.h" />
@@ -191,6 +193,7 @@ copy ..\..\cegui\test.layout ..\..\bin\windows</Command>
     <ClInclude Include="..\..\include\ObjectEditor.h" />
     <ClInclude Include="..\..\include\orxCraft.h" />
     <ClInclude Include="..\..\include\InfoWindow.h" />
+    <ClInclude Include="..\..\include\ScrollPushButton.h" />
     <ClInclude Include="..\..\include\ScrollCombobox.h" />
     <ClInclude Include="..\..\include\ScrollEditbox.h" />
     <ClInclude Include="..\..\include\ScrollFrameWindow.h" />

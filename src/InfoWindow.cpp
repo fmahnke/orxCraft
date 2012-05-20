@@ -38,6 +38,10 @@ void InfoWindow::HandleMouseClick (const orxSTRING widgetName)
 	const orxSTRING itemName = m_widgetManager->GetSelectedItem (widgetName);
 	OrxCraft::GetInstance ().SetSelectedFXSlot (itemName);
     }
+    else if (orxString_Compare (widgetName, "SaveConfig") == 0)
+    {
+	orxASSERT (false);
+    }
 }
 
 void InfoWindow::HandleTextAccepted (const orxSTRING widgetName)
