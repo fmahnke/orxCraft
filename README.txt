@@ -1,11 +1,6 @@
-When designing
+The following needs to be in the executable directory:
 
-Tahareza
-8 pt font
-
-EditBoxes must be
-
-To hold a float:
-w 0.126 h 0.034
-
-To hold text:
+* All the stuff from the cegui folder 
+* All the TaharezLook.* files from your own CEGUI build
+* CEGUI .dll dependencies from your CEGUI build
+* sampleconfig.ini from the data directory
