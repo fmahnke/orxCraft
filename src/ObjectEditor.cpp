@@ -18,6 +18,16 @@ void ObjectEditor::Init (const orxSTRING widgetName)
 {
     m_widgetManager = new WidgetManager ();
     m_widgetManager->Init (widgetName, this);
+
+    SetupFields ();
+}
+
+void ObjectEditor::SetupFields ()
+{
+    vector<const orxSTRING> propList =
+	OrxCraft::GetInstance ().GetGraphicList ();
+
+    m_widgetManager->FillList ("ObjGraphic", propList);
 }
 
 const orxSTRING ObjectEditor::GetName ()
@@ -26,39 +36,9 @@ const orxSTRING ObjectEditor::GetName ()
     return orxNULL;
 }
 
-void ObjectEditor::UpdateObject ()
-{
-    orxConfig_PushSection (m_object->GetModelName ());
-
-    // Position
-    m_object->SetPosition (*orxConfig_GetVector ("Position", &orxVECTOR ()),
-	                   true);
-
-    // Alpha
-    orxCOLOR color;
-    m_object->GetColor (color);
-    orxFLOAT alpha = orxConfig_GetFloat ("Alpha");
-    color.fAlpha = alpha;
-    m_object->SetColor (color);
-
-    // Angular velocity
-    //orxASSERT (false);
-    
-    // Rotation
-    m_object->SetRotation (orxConfig_GetFloat ("Rotation"));
-
-    orxConfig_PopSection ();
-}
-
 const orxSTRING ObjectEditor::GetText (const orxSTRING widgetName) const
 {
     return m_widgetManager->GetText (widgetName);
-}
-
-void ObjectEditor::SetText (const orxSTRING widgetName,
-			    const orxSTRING text) const
-{
-    m_widgetManager->SetText (widgetName, text);
 }
 
 void ObjectEditor::SetObject (ScrollObject *object)
@@ -76,97 +56,98 @@ void ObjectEditor::UpdateFields () const
 	const orxSTRING name = m_object->GetModelName ();
 
 	// Config name
-	SetText ("ObjectConfigName", name);
+	m_widgetManager->SetText ("ObjectConfigName", name);
 
 	orxConfig_PushSection (name);
 
 	// Alpha
 	ConfigType::FloatToString (orxConfig_GetFloat ("Alpha"), buffer);
-	SetText ("ObjAlpha", buffer);
+	m_widgetManager->SetText ("ObjAlpha", buffer);
 	// AngularVelocity
 	ConfigType::FloatToString (orxConfig_GetFloat ("AngularVelocity"), buffer);
-	SetText ("ObjAngularVelocity", buffer);
+	m_widgetManager->SetText ("ObjAngularVelocity", buffer);
 	// AnimationFrequency
 	ConfigType::FloatToString (orxConfig_GetFloat ("AnimationFrequency"), buffer);
-	SetText ("ObjAnimFreq", buffer);
+	m_widgetManager->SetText ("ObjAnimFreq", buffer);
 	// AnimationSet
 	const orxSTRING aS = ConfigType::ListToString ("AnimationSet");
-	SetText ("ObjAnimSet", aS);
+	m_widgetManager->SetText ("ObjAnimSet", aS);
 	// AutoScroll
 	const orxSTRING aSc = ConfigType::ListToString ("AutoScroll");
-	SetText ("ObjAutoScroll", aS);
+	m_widgetManager->SetText ("ObjAutoScroll", aS);
 	// BlendMode
 	const orxSTRING bl = ConfigType::ListToString ("BlendMode");
-	SetText ("ObjBlendMode", aS);
+	m_widgetManager->SetText ("ObjBlendMode", aS);
 	// Body
 	const orxSTRING body = ConfigType::ListToString ("Body");
-	SetText ("ObjBody", aS);
+	m_widgetManager->SetText ("ObjBody", aS);
 	// ChildList
 	/** @todo ChildList */
 	// ChildJointList
 	/** @todo ChildJointList */
 	// Clock
 	const orxSTRING clock = ConfigType::ListToString ("Clock");
-	SetText ("ObjClock", clock);
+	m_widgetManager->SetText ("ObjClock", clock);
 	// Color
 	ConfigType::VectorToString ("Color", 0, buffer);
-	SetText ("ObjColorR", buffer);
+	m_widgetManager->SetText ("ObjColorR", buffer);
 	ConfigType::VectorToString ("Color", 1, buffer);
-	SetText ("ObjColorG", buffer);
+	m_widgetManager->SetText ("ObjColorG", buffer);
 	ConfigType::VectorToString ("Color", 2, buffer);
-	SetText ("ObjColorB", buffer);
+	m_widgetManager->SetText ("ObjColorB", buffer);
 	// DepthScale
 	/** @todo DepthScale */
 	// Graphic
-	//SetTextFromConfigStringList ("ObjGraphic", "Graphic");
+	const orxSTRING graphic = ConfigType::ListToString ("Graphic");
+	m_widgetManager->SetText ("ObjGraphic", graphic);
 	// Flip
 	/** @todo Flip */
 	// FXList
 	const orxSTRING fxList = ConfigType::ListToString ("FXList");
-	SetText ("ObjFXList", fxList);
+	m_widgetManager->SetText ("ObjFXList", fxList);
 	// LifeTime
 	ConfigType::FloatToString (orxConfig_GetFloat ("LifeTime"), buffer);
-	SetText ("ObjLifeTime", buffer);
+	m_widgetManager->SetText ("ObjLifeTime", buffer);
 	// ParentCamera
 	const orxSTRING parentCam = ConfigType::ListToString ("ParentCamera");
-	SetText ("ObjParentCam", parentCam);
+	m_widgetManager->SetText ("ObjParentCam", parentCam);
 	// Position
 	ConfigType::VectorToString ("Position", 0, buffer);
-	SetText ("ObjPosX", buffer);
+	m_widgetManager->SetText ("ObjPosX", buffer);
 	ConfigType::VectorToString ("Position", 1, buffer);
-	SetText ("ObjPosY", buffer);
+	m_widgetManager->SetText ("ObjPosY", buffer);
 	ConfigType::VectorToString ("Position", 2, buffer);
-	SetText ("ObjPosZ", buffer);
+	m_widgetManager->SetText ("ObjPosZ", buffer);
 	// Repeat
 	ConfigType::VectorToString ("Repeat", 0, buffer);
-	SetText ("ObjRepeatX", buffer);
+	m_widgetManager->SetText ("ObjRepeatX", buffer);
 	ConfigType::VectorToString ("Repeat", 1, buffer);
-	SetText ("ObjRepeatY", buffer);
+	m_widgetManager->SetText ("ObjRepeatY", buffer);
 	ConfigType::VectorToString ("Repeat", 2, buffer);
-	SetText ("ObjRepeatZ", buffer);
+	m_widgetManager->SetText ("ObjRepeatZ", buffer);
 	// Rotation
 	ConfigType::FloatToString (orxConfig_GetFloat ("Rotation"), buffer);
-	SetText ("ObjRotation", buffer);
+	m_widgetManager->SetText ("ObjRotation", buffer);
 	// Speed
 	ConfigType::VectorToString ("Speed", 0, buffer);
-	SetText ("ObjSpeedX", buffer);
+	m_widgetManager->SetText ("ObjSpeedX", buffer);
 	ConfigType::VectorToString ("Speed", 1, buffer);
-	SetText ("ObjSpeedX", buffer);
+	m_widgetManager->SetText ("ObjSpeedX", buffer);
 	ConfigType::VectorToString ("Speed", 2, buffer);
-	SetText ("ObjSpeedX", buffer);
+	m_widgetManager->SetText ("ObjSpeedX", buffer);
 	// Scale
 	ConfigType::VectorToString ("Scale", 0, buffer);
-	SetText ("ObjScaleX", buffer);
+	m_widgetManager->SetText ("ObjScaleX", buffer);
 	ConfigType::VectorToString ("Scale", 1, buffer);
-	SetText ("ObjScaleY", buffer);
+	m_widgetManager->SetText ("ObjScaleY", buffer);
 	ConfigType::VectorToString ("Scale", 2, buffer);
-	SetText ("ObjScaleZ", buffer);
+	m_widgetManager->SetText ("ObjScaleZ", buffer);
 	// ShaderList
-	//SetTextFromConfigStringList ("ObjShaderList", "ShaderList");
+	//! @todo ShaderList
 	// SoundList
-	//SetTextFromConfigStringList ("ObjSoundList", "SoundList");
+	//! @todo SoundList
 	// Spawner
-	//SetTextFromConfigStringList ("ObjSpawner", "Spawner");
+	//! @todo Spawner
 	// Smoothing
 	/** @todo Smoothing */
 	// UseParentSpace
@@ -240,7 +221,8 @@ void ObjectEditor::HandleTextAccepted (const orxSTRING widgetName)
     }
     else if (orxString_Compare (widgetName, "ObjGraphic") == 0)
     {
-	orxASSERT (false);
+	const orxSTRING graphic = GetText ("ObjGraphic");
+	orxConfig_SetString ("Graphic", graphic);
     }
     else if (orxString_Compare (widgetName, "ObjFXList") == 0)
     {
@@ -299,5 +281,5 @@ void ObjectEditor::HandleTextAccepted (const orxSTRING widgetName)
     orxConfig_PopSection ();
 
     // Update object in editor
-    UpdateObject ();
+    OrxCraft::GetInstance ().NeedObjectUpdate ();
 }

@@ -14,15 +14,15 @@ class FXSlotEditorWindow : public ScrollFrameWindow
 public:
     virtual void Init (const orxSTRING widgetName);
 
-    /** Initialize control items */
+    //! Initialize control items 
     void SetupFields  ();
-    /** Update all fields on the window using current values from config */
+    //! Update all fields on the window using current values from config 
     void UpdateFields () const;
 
     virtual const orxSTRING GetName ();
-    /** Get the text of a widget */
+    //! Get the text of a widget
     const orxSTRING GetText (const orxSTRING widgetName) const;
-    /** Set the FXSlot in use by this window */
+    //! Set the FXSlot being edited
     void SetContext (const orxSTRING sectionName);
 
     virtual void HandleMouseClick   (const orxSTRING widgetName);

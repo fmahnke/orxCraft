@@ -1,5 +1,5 @@
-#ifndef __SCROLL_WINDOW_H__
-#define __SCROLL_WINDOW_H__
+#ifndef __SCROLLFRAMEWINDOW_H__
+#define __SCROLLFRAMEWINDOW_H__
 /**
  * @file ScrollFrameWindow.h
  * @date 2012-05-08
@@ -39,4 +39,4 @@ protected:
     WidgetManager *m_widgetManager;
 };
 
-#endif  // __SCROLL_WINDOW_H__
+#endif  // __SCROLLFRAMEWINDOW_H__

@@ -26,7 +26,7 @@ public:
     void Fill (const vector<const orxSTRING> &listItems);
 
 private:
-    bool OnMouseClick (const CEGUI::EventArgs &e);
+    bool OnSelectionAccepted (const CEGUI::EventArgs &e);
 
     CEGUI::Combobox *m_ceCombobox;
     vector<CEGUI::ListboxTextItem *> m_items;

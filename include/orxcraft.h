@@ -35,16 +35,19 @@ public:
     OrxCraft ();
 
     //! Get names of currently loaded objects
-    inline vector<const orxSTRING> & GetObjectList () { return m_objectList; }
+    inline vector<const orxSTRING>& GetObjectList () { return m_objectList; }
     //! Get selected object in Object Editor
     inline ScrollObject * GetSelectedObject () { return m_selectedObject; }
     //! Set selected object in Object Editor
     void SetSelectedObject (const orxSTRING name); 
 
     //! Get names of currently loaded FXSlots
-    inline vector<const orxSTRING> & GetFXSlotList () { return m_fxSlotList; }
+    inline vector<const orxSTRING>& GetFXSlotList () { return m_fxSlotList; }
     //! Set selected FXSlot in FXSlot Editor
     void SetSelectedFXSlot (const orxSTRING name);
+
+    //! Get names of currently loaded Graphics
+    inline vector<const orxSTRING>& GetGraphicList () { return m_graphicList; }
 
     ScrollObject * GetObjectByName (const orxSTRING name) const;
 

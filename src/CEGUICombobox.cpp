@@ -25,8 +25,8 @@ void CEGUICombobox::Init (const orxSTRING widgetName)
     Window *window = rootWindow->getChild (windowName);
 
     Combobox *combobox = (Combobox *) window->getChild (widgetName);
-    combobox->subscribeEvent (Window::EventMouseClick,
-	Event::Subscriber (&CEGUICombobox::OnMouseClick, this));
+    combobox->subscribeEvent (Combobox::EventListSelectionAccepted,
+	Event::Subscriber (&CEGUICombobox::OnSelectionAccepted, this));
 
     m_ceCombobox = combobox;
     m_widgetName = new char[strlen (widgetName) + 1];
@@ -42,11 +42,11 @@ void CEGUICombobox::Fill (const vector<const orxSTRING> &listItems)
     }
 }
 
-bool CEGUICombobox::OnMouseClick (const CEGUI::EventArgs &e)
+bool CEGUICombobox::OnSelectionAccepted (const CEGUI::EventArgs &e)
 {
     CEGUI::WindowEventArgs *args = (CEGUI::WindowEventArgs *) &e;
     const orxSTRING widgetName = args->window->getName ().c_str ();
-    m_manager->OnMouseClick (widgetName);
+    m_manager->OnTextAccepted (widgetName);
 
     return true;
 }

@@ -233,10 +233,11 @@ true</Property>
                 <Property Name="UnifiedAreaRect" Value="{{0.763524,0},{0.4142,0},{0.939165,0},{0.460034,0}}" />
                 <Property Name="MaxEditTextLength" Value="1073741823" />
             </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjGraphic" >
+            <Window Type="TaharezLook/Combobox" Name="ObjGraphic" >
                 <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.175376,0},{0.0817417,0},{0.425375,0},{0.115528,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0.0,60},{0.0,40},{0.0,150},{0.0,110}}" />
                 <Property Name="TextParsingEnabled" Value="False" />
+                <Property Name="ReadOnly" Value="True" />
             </Window>
             <Window Type="TaharezLook/Combobox" Name="ObjFlip" >
                 <Property Name="UnifiedAreaRect" Value="{{0.281384,0},{0.134591,0},{0.411923,0},{0.180425,0}}" />
