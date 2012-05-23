@@ -211,7 +211,7 @@
             </Window>
             <Window Type="TaharezLook/Combobox" Name="ObjBlendMode" >
                 <Property Name="Text" Value="multiply" />
-                <Property Name="UnifiedAreaRect" Value="{{0.740306,0},{0.07995,0},{0.974554,0},{0.12075,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0.740306,0},{0.07995,0},{0.974554,0},{0.12075,100}}" />
                 <Property Name="MaxEditTextLength" Value="1073741823" />
             </Window>
             <Window Type="TaharezLook/Editbox" Name="ObjBody" >
@@ -240,7 +240,7 @@ true</Property>
                 <Property Name="ReadOnly" Value="True" />
             </Window>
             <Window Type="TaharezLook/Combobox" Name="ObjFlip" >
-                <Property Name="UnifiedAreaRect" Value="{{0.281384,0},{0.134591,0},{0.411923,0},{0.180425,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0.281384,0},{0.134591,0},{0.411923,0},{0.180425,75}}" />
                 <Property Name="MaxEditTextLength" Value="1073741823" />
             </Window>
             <Window Type="TaharezLook/Editbox" Name="ObjLifeTime" >

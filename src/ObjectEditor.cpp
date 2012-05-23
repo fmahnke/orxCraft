@@ -28,6 +28,21 @@ void ObjectEditor::SetupFields ()
 	OrxCraft::GetInstance ().GetGraphicList ();
 
     m_widgetManager->FillList ("ObjGraphic", propList);
+    propList.clear ();
+
+    orxConfig_PushSection ("ObjectEditor");
+
+    int counter = orxConfig_GetListCounter ("BlendMode");
+    for (int i = 0; i < counter; i++)
+    {
+	// Get and store next property
+	const orxSTRING property = orxConfig_GetListString ("BlendMode", i);
+	propList.push_back (property);
+    }
+    // Fill field with list of properties
+    m_widgetManager->FillList ("ObjBlendMode", propList);
+
+    orxConfig_PopSection ();
 }
 
 const orxSTRING ObjectEditor::GetName ()
