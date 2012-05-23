@@ -90,18 +90,19 @@ void ObjectEditor::UpdateFields () const
 	m_widgetManager->SetText ("ObjClock", clock);
 	// Color
 	ConfigType::VectorToString ("Color", 0, buffer);
-	m_widgetManager->SetText ("ObjColorR", buffer);
+	m_widgetManager->SetText ("ObjColor0", buffer);
 	ConfigType::VectorToString ("Color", 1, buffer);
-	m_widgetManager->SetText ("ObjColorG", buffer);
+	m_widgetManager->SetText ("ObjColor1", buffer);
 	ConfigType::VectorToString ("Color", 2, buffer);
-	m_widgetManager->SetText ("ObjColorB", buffer);
+	m_widgetManager->SetText ("ObjColor2", buffer);
 	// DepthScale
 	/** @todo DepthScale */
 	// Graphic
 	const orxSTRING graphic = ConfigType::ListToString ("Graphic");
 	m_widgetManager->SetText ("ObjGraphic", graphic);
 	// Flip
-	/** @todo Flip */
+	const orxSTRING flip = ConfigType::ListToString ("Flip");
+	m_widgetManager->SetText ("ObjFlip", flip);
 	// FXList
 	const orxSTRING fxList = ConfigType::ListToString ("FXList");
 	m_widgetManager->SetText ("ObjFXList", fxList);
@@ -113,11 +114,11 @@ void ObjectEditor::UpdateFields () const
 	m_widgetManager->SetText ("ObjParentCam", parentCam);
 	// Position
 	ConfigType::VectorToString ("Position", 0, buffer);
-	m_widgetManager->SetText ("ObjPosX", buffer);
+	m_widgetManager->SetText ("ObjPos0", buffer);
 	ConfigType::VectorToString ("Position", 1, buffer);
-	m_widgetManager->SetText ("ObjPosY", buffer);
+	m_widgetManager->SetText ("ObjPos1", buffer);
 	ConfigType::VectorToString ("Position", 2, buffer);
-	m_widgetManager->SetText ("ObjPosZ", buffer);
+	m_widgetManager->SetText ("ObjPos2", buffer);
 	// Repeat
 	ConfigType::VectorToString ("Repeat", 0, buffer);
 	m_widgetManager->SetText ("ObjRepeatX", buffer);
@@ -132,9 +133,9 @@ void ObjectEditor::UpdateFields () const
 	ConfigType::VectorToString ("Speed", 0, buffer);
 	m_widgetManager->SetText ("ObjSpeedX", buffer);
 	ConfigType::VectorToString ("Speed", 1, buffer);
-	m_widgetManager->SetText ("ObjSpeedX", buffer);
+	m_widgetManager->SetText ("ObjSpeedY", buffer);
 	ConfigType::VectorToString ("Speed", 2, buffer);
-	m_widgetManager->SetText ("ObjSpeedX", buffer);
+	m_widgetManager->SetText ("ObjSpeedZ", buffer);
 	// Scale
 	ConfigType::VectorToString ("Scale", 0, buffer);
 	m_widgetManager->SetText ("ObjScaleX", buffer);
@@ -147,13 +148,19 @@ void ObjectEditor::UpdateFields () const
 	// SoundList
 	//! @todo SoundList
 	// Spawner
-	//! @todo Spawner
+	const orxSTRING spawner = ConfigType::ListToString ("Spawner");
+	m_widgetManager->SetText ("ObjSpawner", spawner);
 	// Smoothing
-	/** @todo Smoothing */
+	orxBOOL smoothing = orxConfig_GetBool ("Smoothing");
+	m_widgetManager->SetText ("ObjSmoothing", smoothing ? "true" : "false");
 	// UseParentSpace
-	/** @todo UseParentSpace */
+	orxBOOL useParentSpace = orxConfig_GetBool ("UseParentSpace");
+	m_widgetManager->SetText ("ObjUseParentSpace",
+	                          useParentSpace ? "true" : "false");
 	// UseRelativeSpeed
-	/** @todo UseRelativeSpeed */
+	orxBOOL useRelativeSpeed = orxConfig_GetBool ("UseRelativeSpeed");
+	m_widgetManager->SetText ("ObjUseRelativeSpeed",
+				  useRelativeSpeed ? "true" : "false");
 
 	orxConfig_PopSection ();
     }
@@ -197,7 +204,8 @@ void ObjectEditor::HandleTextAccepted (const orxSTRING widgetName)
     }
     else if (orxString_Compare (widgetName, "ObjBlendMode") == 0)
     {
-	orxASSERT (false);
+	const orxSTRING blendMode = GetText ("ObjBlendMode");
+	orxConfig_SetString ("BlendMode", blendMode);
     }
     else if (orxString_Compare (widgetName, "ObjBody") == 0)
     {
@@ -207,17 +215,16 @@ void ObjectEditor::HandleTextAccepted (const orxSTRING widgetName)
     {
 	orxASSERT (false);
     }
-    else if (orxString_Compare (widgetName, "ObjColorR") == 0)
+    else if (orxString_SearchString (widgetName, "ObjColor") > 0)
     {
-	orxASSERT (false);
-    }
-    else if (orxString_Compare (widgetName, "ObjColorG") == 0)
-    {
-	orxASSERT (false);
-    }
-    else if (orxString_Compare (widgetName, "ObjColorB") == 0)
-    {
-	orxASSERT (false);
+	orxFLOAT newRFloat;
+	orxFLOAT newGFloat;
+	orxFLOAT newBFloat;
+	orxString_ToFloat (GetText ("ObjColor0"), &newRFloat, orxNULL);
+	orxString_ToFloat (GetText ("ObjColor1"), &newGFloat, orxNULL);
+	orxString_ToFloat (GetText ("ObjColor2"), &newBFloat, orxNULL);
+	orxVECTOR newColor = { newRFloat, newGFloat, newBFloat };
+	orxConfig_SetVector ("Color", &newColor);
     }
     else if (orxString_Compare (widgetName, "ObjGraphic") == 0)
     {
@@ -236,23 +243,18 @@ void ObjectEditor::HandleTextAccepted (const orxSTRING widgetName)
     {
 	orxASSERT (false);
     }
-    else if (orxString_Compare (widgetName, "ObjPosX") == 0 ||
-	     orxString_Compare (widgetName, "ObjPosY") == 0 ||
-	     orxString_Compare (widgetName, "ObjPosZ") == 0)
+    else if (orxString_SearchString (widgetName, "ObjPos") > 0)
     {
-	const orxSTRING newX = GetText ("ObjPosX");
-	const orxSTRING newY = GetText ("ObjPosY");
-	const orxSTRING newZ = GetText ("ObjPosZ");
 	orxFLOAT newXFloat;
 	orxFLOAT newYFloat;
 	orxFLOAT newZFloat;
-	orxString_ToFloat (newX,  &newXFloat, orxNULL);
-	orxString_ToFloat (newY,  &newYFloat, orxNULL);
-	orxString_ToFloat (newZ,  &newZFloat, orxNULL);
+	orxString_ToFloat (GetText ("ObjPos0"), &newXFloat, orxNULL);
+	orxString_ToFloat (GetText ("ObjPos1"), &newYFloat, orxNULL);
+	orxString_ToFloat (GetText ("ObjPos2"), &newZFloat, orxNULL);
 	orxVECTOR newPosition = { newXFloat, newYFloat, newZFloat };
 	orxConfig_SetVector ("Position", &newPosition);
     }
-    else if (orxString_Compare (widgetName, "ObjRepeatX") == 0)
+    else if (orxString_SearchString (widgetName, "ObjRepeat") > 0)
     {
 	orxASSERT (false);
     }
@@ -261,9 +263,16 @@ void ObjectEditor::HandleTextAccepted (const orxSTRING widgetName)
 	const orxSTRING rotation = GetText ("ObjRotation");
 	orxConfig_SetString ("Rotation", rotation);
     }
-    else if (orxString_Compare (widgetName, "ObjSpeedX") == 0)
+    else if (orxString_SearchString (widgetName, "ObjSpeed") > 0)
     {
-	orxASSERT (false);
+	orxFLOAT newXFloat;
+	orxFLOAT newYFloat;
+	orxFLOAT newZFloat;
+	orxString_ToFloat (GetText ("ObjSpeedX"), &newXFloat, orxNULL);
+	orxString_ToFloat (GetText ("ObjSpeedY"), &newYFloat, orxNULL);
+	orxString_ToFloat (GetText ("ObjSpeedZ"), &newZFloat, orxNULL);
+	orxVECTOR newSpeed = { newXFloat, newYFloat, newZFloat };
+	orxConfig_SetVector ("Speed", &newSpeed);
     }
     else if (orxString_Compare (widgetName, "ObjShaderList") == 0)
     {

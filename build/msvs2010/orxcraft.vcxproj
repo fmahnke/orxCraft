@@ -75,7 +75,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\..\include;..\..\..\iarScroll\include\Scroll;..\..\orx\code\include;..\..\..\CEGUI-0.7.6\cegui\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\include;..\..\..\Scroll\include\Scroll;..\..\orx\code\include;..\..\..\CEGUI-0.7.6\cegui\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>__orxDEBUG__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -162,10 +162,10 @@
     <ClCompile Include="..\..\src\FXSlotEditorWindow.cpp" />
     <ClCompile Include="..\..\src\orxcraft.cpp" />
     <ClCompile Include="..\..\src\WidgetManager.cpp" />
-    <None Include="..\..\..\iarScroll\include\Scroll\Scroll.inl" />
-    <None Include="..\..\..\iarScroll\include\Scroll\ScrollBase.inl" />
-    <None Include="..\..\..\iarScroll\include\Scroll\ScrollEd.inl" />
-    <None Include="..\..\..\iarScroll\include\Scroll\ScrollObject.inl" />
+    <None Include="..\..\..\Scroll\include\Scroll\Scroll.inl" />
+    <None Include="..\..\..\Scroll\include\Scroll\ScrollBase.inl" />
+    <None Include="..\..\..\Scroll\include\Scroll\ScrollEd.inl" />
+    <None Include="..\..\..\Scroll\include\Scroll\ScrollObject.inl" />
     <None Include="..\..\data\orxCraft.ini">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </None>
@@ -179,10 +179,10 @@
     <None Include="..\..\README.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\iarScroll\include\Scroll\Scroll.h" />
-    <ClInclude Include="..\..\..\iarScroll\include\Scroll\ScrollBase.h" />
-    <ClInclude Include="..\..\..\iarScroll\include\Scroll\ScrollEd.h" />
-    <ClInclude Include="..\..\..\iarScroll\include\Scroll\ScrollObject.h" />
+    <ClInclude Include="..\..\..\Scroll\include\Scroll\Scroll.h" />
+    <ClInclude Include="..\..\..\Scroll\include\Scroll\ScrollBase.h" />
+    <ClInclude Include="..\..\..\Scroll\include\Scroll\ScrollEd.h" />
+    <ClInclude Include="..\..\..\Scroll\include\Scroll\ScrollObject.h" />
     <ClInclude Include="..\..\include\CEGUIPushButton.h" />
     <ClInclude Include="..\..\include\CEGUICheckbox.h" />
     <ClInclude Include="..\..\include\CEGUICombobox.h" />

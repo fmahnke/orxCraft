@@ -67,17 +67,17 @@
                 <Property Name="UnifiedAreaRect" Value="{{0.275498,0},{0.266951,0},{0.404224,0},{0.301362,0}}" />
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjPosX" >
+            <Window Type="TaharezLook/Editbox" Name="ObjPos0" >
                 <Property Name="MaxTextLength" Value="1073741823" />
                 <Property Name="UnifiedAreaRect" Value="{{0.583743,0},{0.136377,0},{0.709735,0},{0.170227,0}}" />
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjPosY" >
+            <Window Type="TaharezLook/Editbox" Name="ObjPos1" >
                 <Property Name="MaxTextLength" Value="1073741823" />
                 <Property Name="UnifiedAreaRect" Value="{{0.715495,0},{0.136377,0},{0.841822,0},{0.170228,0}}" />
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjPosZ" >
+            <Window Type="TaharezLook/Editbox" Name="ObjPos2" >
                 <Property Name="Text" Value="999.9" />
                 <Property Name="MaxTextLength" Value="1073741823" />
                 <Property Name="UnifiedAreaRect" Value="{{0.847247,0},{0.136377,0},{0.972711,0},{0.169923,0}}" />
@@ -380,17 +380,17 @@ true</Property>
                 <Property Name="UnifiedAreaRect" Value="{{0.365155,0},{0.366834,0},{0.564314,0},{0.412668,0}}" />
                 <Property Name="MaxEditTextLength" Value="1073741823" />
             </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjColorR" >
+            <Window Type="TaharezLook/Editbox" Name="ObjColor0" >
                 <Property Name="MaxTextLength" Value="1073741823" />
                 <Property Name="UnifiedAreaRect" Value="{{0.648539,0},{0.33623,0},{0.774531,0},{0.37008,0}}" />
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjColorG" >
+            <Window Type="TaharezLook/Editbox" Name="ObjColor1" >
                 <Property Name="MaxTextLength" Value="1073741823" />
                 <Property Name="UnifiedAreaRect" Value="{{0.792436,0},{0.333745,0},{0.918763,0},{0.367596,0}}" />
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjColorB" >
+            <Window Type="TaharezLook/Editbox" Name="ObjColor2" >
                 <Property Name="MaxTextLength" Value="1073741823" />
                 <Property Name="UnifiedAreaRect" Value="{{0.823573,0},{0.368467,0},{0.949037,0},{0.402013,0}}" />
                 <Property Name="TextParsingEnabled" Value="False" />
