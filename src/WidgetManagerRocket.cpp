@@ -13,16 +13,35 @@
 
 using Rocket::Core::Context;
 using Rocket::Core::Element;
+using Rocket::Core::EventListener;
+
+namespace WidgetManagerRocketHelp
+{
+
+void AddListenerRecursive (EventListener *listener, Element *root)
+{
+    for (Element *element = root->GetFirstChild ();
+	 element != NULL;
+	 element = element->GetNextSibling ())
+    {
+	element->AddEventListener ("keydown", listener);
+	AddListenerRecursive (listener, element);
+    }
+}
+
+}   // namespace WidgetManagerRocketHelp
 
 void WidgetManagerRocket::Init (const orxSTRING widgetName, ScrollFrameWindow *scrollWindow)
 {
     m_scrollWindow = scrollWindow;
     strcpy (m_windowName, widgetName);
-#if 0
+
     Context *context = ScrollGUIRocket::GetContext ();
     Element *root = context->GetRootElement ();
-    Element *test = root->GetElementById ("testfield");
-#endif
+
+    EventListener *listener =
+	reinterpret_cast<EventListener *> (ScrollGUIRocket::GetListener ());
+    WidgetManagerRocketHelp::AddListenerRecursive (listener, root);
 }
 
 ScrollWidget * WidgetManagerRocket::FindWidget (const orxSTRING widgetName)

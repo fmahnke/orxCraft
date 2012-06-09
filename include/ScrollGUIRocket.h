@@ -11,6 +11,8 @@
 #include "Scroll.h"
 #include "Rocket/Core.h"
 
+class RocketListener;
+
 /**
  *  Renders GUI items and sends input from Scroll to them.
  */
@@ -35,6 +37,10 @@ public:
     {
 	return m_context;
     }
+    static inline RocketListener *GetListener ()
+    {
+	return &m_rocketListener;
+    }
     void Input ();
     void InputMouseDown ();
     void InputMouseUp ();
@@ -49,7 +55,8 @@ private:
     Rocket::Core::RenderInterface *m_renderInterface;
     Rocket::Core::SystemInterface *m_sysInterface;
     Rocket::Core::ElementDocument *m_document;
-    static Rocket::Core::Context *m_context;
+    static Rocket::Core::Context  *m_context;
+    static RocketListener          m_rocketListener;
 };
 
 #endif  // __SCROLLGUIROCKET_H__

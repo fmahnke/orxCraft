@@ -12,8 +12,11 @@
 #include "RocketRenderInterfaceOrx.h"
 #include "RocketFileInterface.h"
 
+#include "RocketListener.h"
+
 static RocketFileInterface* file_interface = NULL;
 Rocket::Core::Context *ScrollGUIRocket::m_context = NULL;
+RocketListener ScrollGUIRocket::m_rocketListener = RocketListener ();
 
 ScrollGUIRocket::ScrollGUIRocket () :
     m_renderInterface (NULL),
