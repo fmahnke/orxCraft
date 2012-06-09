@@ -1,14 +1,12 @@
 /**
- * @file ScrollGUI.h
- * @date 2012-05-04
+ * @file ScrollGUICEGUI.h
+ * @date 2012-06-08
  * @author fritz@fritzmahnke.com
  *
- * @todo As of now, ScrollGUI is specific to a CEGUI representation of
- * the user interface. This class should be abstracted so the code does
- * not depend on a CEGUI implementation of user interface.
+ * The CEGUI implementation of a Scroll GUI
  */
-#ifndef __SCROLLGUI_H__
-#define __SCROLLGUI_H__
+#ifndef __SCROLLGUICEGUI_H__
+#define __SCROLLGUICEGUI_H__
 
 #include "Scroll.h"
 
@@ -18,10 +16,10 @@
 /**
  *  Renders GUI items and sends input from Scroll to them.
  */
-class ScrollGUI : public ScrollObject
+class ScrollGUICEGUI : public ScrollObject
 {
 public:
-    ScrollGUI ();
+    ScrollGUICEGUI ();
 
     void Input ();
     void InputMouseDown ();
@@ -39,4 +37,4 @@ private:
     CEGUI::OpenGLRenderer *m_glRenderer;
 };
 
-#endif  // __SCROLLGUI_H__
+#endif  // __SCROLLGUICEGUI_H__

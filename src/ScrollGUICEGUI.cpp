@@ -1,18 +1,18 @@
 /**
- * @file ScrollGUI.cpp
- * @date 2012-06-04
+ * @file ScrollGUICEGUI.cpp
+ * @date 2012-06-08
  * @author fritz@fritzmahnke.com
  *
  */
-#include "ScrollGUI.h"
+#include "ScrollGUICEGUI.h"
 #include "OrxCraft.h"
 
-ScrollGUI::ScrollGUI () :
+ScrollGUICEGUI::ScrollGUICEGUI () :
     m_glRenderer (orxNULL)
 {
 }
 
-void ScrollGUI::OnCreate ()
+void ScrollGUICEGUI::OnCreate ()
 {
     m_glRenderer = & CEGUI::OpenGLRenderer::bootstrapSystem();
     CEGUI::SchemeManager::getSingleton().create( "TaharezLook.scheme" );
@@ -23,13 +23,13 @@ void ScrollGUI::OnCreate ()
     CEGUI::System::getSingleton().setGUISheet( myRoot );
 }
 
-void ScrollGUI::OnDelete ()
+void ScrollGUICEGUI::OnDelete ()
 {
     //m_glRenderer->destroySystem ();
     m_glRenderer = orxNULL;
 }
 
-void ScrollGUI::Input ()
+void ScrollGUICEGUI::Input ()
 {
     orxVECTOR mousePos;
     orxMouse_GetPosition (&mousePos);
@@ -40,7 +40,7 @@ void ScrollGUI::Input ()
     CEGUI::System::getSingleton ().injectMousePosition (worldPos.fX, worldPos.fY);
 }
 
-void ScrollGUI::InputMouseDown ()
+void ScrollGUICEGUI::InputMouseDown ()
 {
     orxVECTOR mousePos;
     orxMouse_GetPosition (&mousePos);
@@ -52,7 +52,7 @@ void ScrollGUI::InputMouseDown ()
     CEGUI::System::getSingleton ().injectMouseButtonDown (CEGUI::LeftButton);
 }
 
-void ScrollGUI::InputMouseUp ()
+void ScrollGUICEGUI::InputMouseUp ()
 {
     orxVECTOR mousePos;
     orxMouse_GetPosition (&mousePos);
@@ -64,7 +64,7 @@ void ScrollGUI::InputMouseUp ()
     CEGUI::System::getSingleton ().injectMouseButtonUp (CEGUI::LeftButton);
 }
 
-void ScrollGUI::InputKeyPress (const orxSTRING orxKey)
+void ScrollGUICEGUI::InputKeyPress (const orxSTRING orxKey)
 {
     using CEGUI::Key;
     int key = 0;
@@ -171,14 +171,14 @@ void ScrollGUI::InputKeyPress (const orxSTRING orxKey)
     }
 }
 
-orxBOOL ScrollGUI::OnRender ()
+orxBOOL ScrollGUICEGUI::OnRender ()
 {
     DrawGrid ();
     CEGUI::System::getSingleton().renderGUI();
     return false; 
 }
 
-void ScrollGUI::DrawGrid ()
+void ScrollGUICEGUI::DrawGrid ()
 {
     orxConfig_PushSection ("MainCamera");
     float frustumWidth = orxConfig_GetFloat ("FrustumWidth");
@@ -186,22 +186,22 @@ void ScrollGUI::DrawGrid ()
     orxConfig_PopSection ();
 
     int gridRes = 100;
-    int columns = frustumWidth / gridRes;
-    int rows = frustumHeight / gridRes;
+    int columns = (int) frustumWidth / gridRes;
+    int rows = (int) frustumHeight / gridRes;
 
     orxRGBA gridColor = orx2RGBA (200, 0, 0, 255);
 
     for (int i = 1; i <= columns; i++)
     {
-	orxVECTOR start = {i * gridRes, 0, 0};
-	orxVECTOR end   = {i * gridRes, frustumHeight, 0};
+	orxVECTOR start = { (float) i * gridRes, 0, 0};
+	orxVECTOR end   = { (float) i * gridRes, frustumHeight, 0};
 	orxDisplay_DrawLine (&start, &end, gridColor);
     }
 
     for (int i = 1; i <= rows; i++)
     {
-	orxVECTOR start = {0, i * gridRes, 0};
-	orxVECTOR end   = {frustumWidth, i * gridRes, 0};
+	orxVECTOR start = {0, (float) i * gridRes, 0};
+	orxVECTOR end   = {frustumWidth, (float) i * gridRes, 0};
 	orxDisplay_DrawLine (&start, &end, gridColor);
     }
 }

@@ -16,7 +16,8 @@
 class InfoWindow;
 class ObjectEditor;
 class FXSlotEditorWindow;
-class ScrollGUI;
+class ScrollGUICEGUI;
+class ScrollGUIRocket;
 
 // Inputs
 static const orxSTRING inputQuit       = "Quit";
@@ -83,7 +84,11 @@ private:
 	 const orxSTRING _zFileName,
 	 orxBOOL _bUseEncryption);
 
-    ScrollGUI               *m_scrollGUI;
+#if USE_LIBROCKET
+    ScrollGUIRocket         *m_scrollGUI;
+#else
+    ScrollGUICEGUI	    *m_scrollGUI;
+#endif
     InfoWindow              *m_infoWindow;
     ObjectEditor            *m_objectEditor;
     FXSlotEditorWindow      *m_fxSlotEditorWindow;

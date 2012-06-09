@@ -12,7 +12,11 @@
 #include "ObjectEditor.h"
 #include "FXSlotEditorWindow.h"
 
-#include "ScrollGUI.h"
+#ifdef USE_LIBROCKET
+#include "ScrollGUIRocket.h"
+#else
+#include "ScrollGUICEGUI.h"
+#endif
 
 // Widgets
 static const orxSTRING infoWindow = "O-InfoWindow";
@@ -69,7 +73,11 @@ orxSTATUS OrxCraft::Init ()
     SetupConfig ();
 
     // Init GUI system
-    m_scrollGUI = (ScrollGUI *) CreateObject (scrollGUI);
+#ifdef USE_LIBROCKET
+    m_scrollGUI = (ScrollGUIRocket *) CreateObject (scrollGUI);
+#else
+    m_scrollGUI = (ScrollGUICEGUI *) CreateObject (scrollGUI);
+#endif
     CreateObject (infoWindow);
 
     // Init object editor
@@ -115,7 +123,11 @@ void OrxCraft::Exit ()
 
 void OrxCraft::BindObjects ()
 {
-    ScrollBindObject<ScrollGUI> (scrollGUI);
+#ifdef USE_LIBROCKET
+    ScrollBindObject<ScrollGUIRocket> (scrollGUI);
+#else
+    ScrollBindObject<ScrollGUICEGUI> (scrollGUI);
+#endif
 }
 
 void OrxCraft::Update (const orxCLOCK_INFO &_rstInfo)
