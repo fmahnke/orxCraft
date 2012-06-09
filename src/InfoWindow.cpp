@@ -5,12 +5,20 @@
  *
  */
 #include "InfoWindow.h"
-#include "WidgetManager.h"
+#ifdef USE_LIBROCKET
+#include "WidgetManagerRocket.h"
+#else
+#include "WidgetManagerCEGUI.h"
+#endif
 #include "OrxCraft.h"
 
 void InfoWindow::Init (const orxSTRING widgetName)
 {
-    m_widgetManager = new WidgetManager ();
+#ifdef USE_LIBROCKET
+    m_widgetManager = new WidgetManagerRocket ();
+#else
+    m_widgetManager = new WidgetManagerCEGUI ();
+#endif
     m_widgetManager->Init (widgetName, this);
     vector<const orxSTRING> objList = OrxCraft::GetInstance ().GetObjectList ();
     m_widgetManager->FillList ("ObjectSectionList", objList);

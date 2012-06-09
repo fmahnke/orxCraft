@@ -31,6 +31,10 @@ public:
 
     ScrollGUIRocket ();
 
+    static inline Rocket::Core::Context *GetContext ()
+    {
+	return m_context;
+    }
     void Input ();
     void InputMouseDown ();
     void InputMouseUp ();
@@ -44,8 +48,8 @@ private:
 
     Rocket::Core::RenderInterface *m_renderInterface;
     Rocket::Core::SystemInterface *m_sysInterface;
-    Rocket::Core::Context *m_context;
     Rocket::Core::ElementDocument *m_document;
+    static Rocket::Core::Context *m_context;
 };
 
 #endif  // __SCROLLGUIROCKET_H__

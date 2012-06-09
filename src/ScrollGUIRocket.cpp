@@ -13,11 +13,11 @@
 #include "RocketFileInterface.h"
 
 static RocketFileInterface* file_interface = NULL;
+Rocket::Core::Context *ScrollGUIRocket::m_context = NULL;
 
 ScrollGUIRocket::ScrollGUIRocket () :
     m_renderInterface (NULL),
     m_sysInterface (NULL),
-    m_context (NULL),
     m_document (NULL)
 {
 }

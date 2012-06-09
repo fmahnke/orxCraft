@@ -1,11 +1,11 @@
 /**
- * @file WidgetManager.cpp
+ * @file WidgetManagerCEGUI.cpp
  * @date 2012-05-08
  * @author fritz@fritzmahnke.com
  *
  */
 
-#include "WidgetManager.h"
+#include "WidgetManagerCEGUI.h"
 #include "ScrollFrameWindow.h"
 #include "CEGUICombobox.h"
 #include "CEGUIEditbox.h"
@@ -16,7 +16,7 @@ using CEGUI::Combobox;
 using CEGUI::Listbox;
 using CEGUI::Window;
 
-void WidgetManager::Init (const orxSTRING widgetName, ScrollFrameWindow *scrollWindow)
+void WidgetManagerCEGUI::Init (const orxSTRING widgetName, ScrollFrameWindow *scrollWindow)
 {
     m_scrollWindow = scrollWindow;
     strcpy (m_windowName, widgetName);
@@ -64,7 +64,7 @@ void WidgetManager::Init (const orxSTRING widgetName, ScrollFrameWindow *scrollW
     }
 }
 
-ScrollWidget * WidgetManager::FindWidget (const orxSTRING widgetName)
+ScrollWidget * WidgetManagerCEGUI::FindWidget (const orxSTRING widgetName)
 {
     ScrollWidget *theWidget = NULL;
     vector<ScrollWidget *>::iterator widgIter;
@@ -81,7 +81,7 @@ ScrollWidget * WidgetManager::FindWidget (const orxSTRING widgetName)
     return theWidget;
 }
 
-const orxSTRING WidgetManager::GetText (const orxSTRING widgetName)
+const orxSTRING WidgetManagerCEGUI::GetText (const orxSTRING widgetName)
 {
     CEGUI::Window *rootWindow = CEGUI::System::getSingleton ().getGUISheet ();
     CEGUI::Window *window = rootWindow->getChild (m_windowName);
@@ -90,12 +90,12 @@ const orxSTRING WidgetManager::GetText (const orxSTRING widgetName)
     return widget->getText ().c_str ();
 }
 
-const orxSTRING WidgetManager::GetWindowName ()
+const orxSTRING WidgetManagerCEGUI::GetWindowName ()
 {
     return m_windowName;
 }
 
-const orxSTRING WidgetManager::GetSelectedItem (const orxSTRING widgetName)
+const orxSTRING WidgetManagerCEGUI::GetSelectedItem (const orxSTRING widgetName)
 {
     orxASSERT (widgetName != orxNULL);
 
@@ -109,7 +109,7 @@ const orxSTRING WidgetManager::GetSelectedItem (const orxSTRING widgetName)
     return itemName;
 }
 
-void WidgetManager::SetText (const orxSTRING widgetName, const orxSTRING text)
+void WidgetManagerCEGUI::SetText (const orxSTRING widgetName, const orxSTRING text)
 {
     CEGUI::Window *rootWindow = CEGUI::System::getSingleton ().getGUISheet ();
     CEGUI::Window *window = rootWindow->getChild (m_windowName);
@@ -118,7 +118,7 @@ void WidgetManager::SetText (const orxSTRING widgetName, const orxSTRING text)
     widget->setText (text);
 }
 
-void WidgetManager::FillList (const orxSTRING widgetName,
+void WidgetManagerCEGUI::FillList (const orxSTRING widgetName,
 			      const vector<const orxSTRING> &listItems)
 {
     CEGUI::Window *rootWindow = CEGUI::System::getSingleton ().getGUISheet ();
@@ -138,12 +138,12 @@ void WidgetManager::FillList (const orxSTRING widgetName,
     }
 }
 
-void WidgetManager::OnMouseClick (const orxSTRING widgetName)
+void WidgetManagerCEGUI::OnMouseClick (const orxSTRING widgetName)
 {
     m_scrollWindow->HandleMouseClick (widgetName);
 }
 
-void WidgetManager::OnTextAccepted (const orxSTRING widgetName)
+void WidgetManagerCEGUI::OnTextAccepted (const orxSTRING widgetName)
 {
     m_scrollWindow->HandleTextAccepted (widgetName);
 }

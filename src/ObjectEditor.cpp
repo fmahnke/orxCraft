@@ -5,7 +5,11 @@
  *
  */
 #include "ObjectEditor.h"
-#include "WidgetManager.h"
+#ifdef USE_LIBROCKET
+#include "WidgetManagerRocket.h"
+#else
+#include "WidgetManagerCEGUI.h"
+#endif
 #include "OrxCraft.h"
 #include "ConfigType.h"
 
@@ -16,7 +20,11 @@ ObjectEditor::ObjectEditor () :
 
 void ObjectEditor::Init (const orxSTRING widgetName)
 {
-    m_widgetManager = new WidgetManager ();
+#ifdef USE_LIBROCKET
+    m_widgetManager = new WidgetManagerRocket ();
+#else
+    m_widgetManager = new WidgetManagerCEGUI ();
+#endif
     m_widgetManager->Init (widgetName, this);
 
     SetupFields ();

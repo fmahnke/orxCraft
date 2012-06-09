@@ -2,21 +2,17 @@
 #define __WIDGETMANAGER_H__
 /**
  * @file WidgetManager.h
- * @date 2012-05-08
+ * @date 2012-06-09
  * @author fritz@fritzmahnke.com
  *
- * @todo As of now, the WidgetManager is specific to CEGUI widgets. This
- * class should be decoupled from CEGUI so interacting with widgets does not
- * depend on a particular implementation of the widgets.
  */
 
 #include "orx/orx.h"
 
-#include "CEGUI.h"
-
 class ScrollFrameWindow;
 class ScrollWidget;
 
+#include <vector>
 using std::vector;
 
 /**
@@ -31,35 +27,36 @@ class WidgetManager
 {
 public:
     WidgetManager () :
-        m_scrollWindow (NULL),
-	m_window (NULL)
+        m_scrollWindow (NULL)
     {
     };
-    void Init (const orxSTRING widgetName, ScrollFrameWindow *scrollWindow);
-    ScrollWidget * FindWidget (const orxSTRING widgetName);
+    virtual void Init (const orxSTRING widgetName,
+		       ScrollFrameWindow *scrollWindow) = 0;
+    virtual ScrollWidget * FindWidget (const orxSTRING widgetName) = 0;
 
-    const orxSTRING GetWindowName ();
+    virtual const orxSTRING GetWindowName () = 0;
 
-    const orxSTRING GetSelectedItem (const orxSTRING widgetName);
+    virtual const orxSTRING GetSelectedItem (const orxSTRING widgetName) = 0;
 
-    const orxSTRING GetText (const orxSTRING widgetName);
+    virtual const orxSTRING GetText (const orxSTRING widgetName) = 0;
     /// Update widget text explicitly
-    void SetText (const orxSTRING widgetName, const orxSTRING text);
+    virtual void SetText (const orxSTRING widgetName, const orxSTRING text) = 0;
 
     //! Fill a list box
-    void FillList (const orxSTRING widgetName,
-	           const vector<const orxSTRING> &listItems);
+    virtual void FillList (const orxSTRING widgetName,
+	                   const vector<const orxSTRING> &listItems) = 0;
 
     //! Handle a mouse click event from a widget
-    void OnMouseClick   (const orxSTRING widgetName);
+    virtual void OnMouseClick   (const orxSTRING widgetName) = 0;
     //! Handle a text accepted event from a widget
-    void OnTextAccepted (const orxSTRING widgetName);
+    virtual void OnTextAccepted (const orxSTRING widgetName) = 0;
+
+protected:
+    vector<ScrollWidget *> m_widgetList;
 
 private:
     ScrollFrameWindow *m_scrollWindow;
     char m_windowName[255];
-    CEGUI::Window *m_window;
-    vector<ScrollWidget *> m_widgetList;
 };
 
-#endif  // __SCROLL_WINDOW_H__
+#endif  // __WIDGETMANAGER_H__

@@ -6,13 +6,21 @@
  */
 
 #include "FXSlotEditorWindow.h"
-#include "WidgetManager.h"
+#ifdef USE_LIBROCKET
+#include "WidgetManagerRocket.h"
+#else
+#include "WidgetManagerCEGUI.h"
+#endif
 #include "OrxCraft.h"
 #include "ConfigType.h"
 
 void FXSlotEditorWindow::Init (const orxSTRING widgetName)
 {
-    m_widgetManager = new WidgetManager ();
+#ifdef USE_LIBROCKET
+    m_widgetManager = new WidgetManagerRocket ();
+#else
+    m_widgetManager = new WidgetManagerCEGUI ();
+#endif
     m_widgetManager->Init (widgetName, this);
     strcpy (m_windowName, widgetName);
 
