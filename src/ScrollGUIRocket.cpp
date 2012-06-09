@@ -69,12 +69,9 @@ void ScrollGUIRocket::OnDelete ()
     // Rocket
 
     m_context->RemoveReference ();
-
-    delete m_sysInterface;
-    m_sysInterface = NULL;
-
-    delete m_renderInterface;
-    m_renderInterface = NULL;
+    file_interface->RemoveReference ();
+    m_sysInterface->RemoveReference ();
+    m_renderInterface->RemoveReference ();
 }
 
 void ScrollGUIRocket::Input ()
