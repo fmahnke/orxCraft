@@ -85,7 +85,10 @@ void ScrollGUIRocket::Input ()
     orxVECTOR worldPos;
     orxRender_GetWorldPosition (&mousePos, &worldPos);
 
-    m_context->ProcessMouseMove (worldPos.fX, worldPos.fY, 0);
+    m_context->ProcessMouseMove (
+	static_cast<int> (worldPos.fX),
+	static_cast<int> (worldPos.fY),
+	0);
 }
 
 void ScrollGUIRocket::InputMouseDown ()
@@ -100,101 +103,101 @@ void ScrollGUIRocket::InputMouseUp ()
 
 void ScrollGUIRocket::InputKeyPress (const orxSTRING orxKey)
 {
-    using Rocket::Core::Input::KeyIdentifier;
-    KeyIdentifier key = KeyIdentifier::KI_UNKNOWN;
+    using namespace Rocket::Core::Input;
+    KeyIdentifier key = KI_UNKNOWN;
     char inputChar = '\0';
 
     if (orxString_Compare (orxKey, "LeftArrow") == 0)
     {
-	key = KeyIdentifier::KI_LEFT;
+	key = KI_LEFT;
     }
     if (orxString_Compare (orxKey, "RightArrow") == 0)
     {
-	key = KeyIdentifier::KI_RIGHT;
+	key = KI_RIGHT;
     }
     if (orxString_Compare (orxKey, "UpArrow") == 0)
     {
-	key = KeyIdentifier::KI_UP;
+	key = KI_UP;
     }
     if (orxString_Compare (orxKey, "DownArrow") == 0)
     {
-	key = KeyIdentifier::KI_DOWN;
+	key = KI_DOWN;
     }
     if (orxString_Compare (orxKey, "Char0") == 0)
     {
-	key = KeyIdentifier::KI_0;
+	key = KI_0;
 	inputChar = '0';
     }
     if (orxString_Compare (orxKey, "Char1") == 0)
     {
-	key = KeyIdentifier::KI_1;
+	key = KI_1;
 	inputChar = '1';
     }
     if (orxString_Compare (orxKey, "Char2") == 0)
     {
-	key = KeyIdentifier::KI_2;
+	key = KI_2;
 	inputChar = '2';
     }
     if (orxString_Compare (orxKey, "Char3") == 0)
     {
-	key = KeyIdentifier::KI_3;
+	key = KI_3;
 	inputChar = '3';
     }
     if (orxString_Compare (orxKey, "Char4") == 0)
     {
-	key = KeyIdentifier::KI_4;
+	key = KI_4;
 	inputChar = '4';
     }
     if (orxString_Compare (orxKey, "Char5") == 0)
     {
-	key = KeyIdentifier::KI_5;
+	key = KI_5;
 	inputChar = '5';
     }
     if (orxString_Compare (orxKey, "Char6") == 0)
     {
-	key = KeyIdentifier::KI_6;
+	key = KI_6;
 	inputChar = '6';
     }
     if (orxString_Compare (orxKey, "Char7") == 0)
     {
-	key = KeyIdentifier::KI_7;
+	key = KI_7;
 	inputChar = '7';
     }
     if (orxString_Compare (orxKey, "Char8") == 0)
     {
-	key = KeyIdentifier::KI_8;
+	key = KI_8;
 	inputChar = '8';
     }
     if (orxString_Compare (orxKey, "Char9") == 0)
     {
-	key = KeyIdentifier::KI_9;
+	key = KI_9;
 	inputChar = '9';
     }
     if (orxString_Compare (orxKey, "Delete") == 0)
     {
-	key = KeyIdentifier::KI_DELETE;
+	key = KI_DELETE;
     }
     if (orxString_Compare (orxKey, "Backspace") == 0)
     {
-	key = KeyIdentifier::KI_BACK;
+	key = KI_BACK;
     }
     if (orxString_Compare (orxKey, "Return") == 0)
     {
-	key = KeyIdentifier::KI_RETURN;
+	key = KI_RETURN;
     }
     if (orxString_Compare (orxKey, "Subtract") == 0)
     {
-	key = KeyIdentifier::KI_SUBTRACT;
+	key = KI_SUBTRACT;
 	inputChar = '-';
     }
     if (orxString_Compare (orxKey, "Period") == 0)
     {
-	key = KeyIdentifier::KI_OEM_PERIOD;
+	key = KI_OEM_PERIOD;
 	inputChar = '.';
     }
     if (orxString_Compare (orxKey, "Dash") == 0)
     {
-	key = KeyIdentifier::KI_SUBTRACT;
+	key = KI_SUBTRACT;
 	inputChar = '-';
     }
 
