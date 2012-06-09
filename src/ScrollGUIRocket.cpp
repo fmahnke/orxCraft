@@ -8,6 +8,7 @@
 #include "OrxCraft.h"
 
 #include "Rocket/Core.h"
+#include "Rocket/Controls.h"
 #include "RocketRenderInterfaceOrx.h"
 #include "RocketFileInterface.h"
 
@@ -40,6 +41,7 @@ void ScrollGUIRocket::OnCreate ()
     font_names[3] = "Delicious-BoldItalic.otf";
 
     Rocket::Core::Initialise ();
+    Rocket::Controls::Initialise ();
 
     for (int i = 0; i < sizeof(font_names) / sizeof(Rocket::Core::String); i++)
     {
@@ -77,14 +79,23 @@ void ScrollGUIRocket::OnDelete ()
 
 void ScrollGUIRocket::Input ()
 {
+    orxVECTOR mousePos;
+    orxMouse_GetPosition (&mousePos);
+
+    orxVECTOR worldPos;
+    orxRender_GetWorldPosition (&mousePos, &worldPos);
+
+    m_context->ProcessMouseMove (worldPos.fX, worldPos.fY, 0);
 }
 
 void ScrollGUIRocket::InputMouseDown ()
 {
+    m_context->ProcessMouseButtonDown (0, 0);
 }
 
 void ScrollGUIRocket::InputMouseUp ()
 {
+    m_context->ProcessMouseButtonUp (0, 0);
 }
 
 void ScrollGUIRocket::InputKeyPress (const orxSTRING orxKey)
