@@ -80,6 +80,11 @@ const orxSTRING WidgetManagerRocket::GetSelectedItem (const orxSTRING widgetName
 
 void WidgetManagerRocket::SetText (const orxSTRING widgetName, const orxSTRING text)
 {
+    Context *context = ScrollGUIRocket::GetContext ();
+    Element *root = context->GetRootElement ();
+
+    Element *element = root->GetElementById (widgetName);
+    element->SetAttribute ("value", "mytext");
 }
 
 void WidgetManagerRocket::FillList (const orxSTRING widgetName,

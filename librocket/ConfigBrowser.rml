@@ -1,0 +1,32 @@
+<rml>
+	<head>
+		<title>Config Browser</title>
+		<link type="text/template" href="window.rml" />
+		<style>
+			body
+			{
+				width: 600px;
+				height: 525px;
+				
+			}
+			
+			div#title_bar div#icon
+			{
+				display: none;
+			}
+			
+			div#content
+			{
+				text-align: left;
+			}
+		</style>
+	</head>
+	<body template="window">
+<div>
+
+<!--<datagrid id="ConfigObject" source="ConfigObjects.objects">
+	<col fields="name" width="100%">Name:</col>
+</datagrid>-->
+</div>
+</body>
+</rml>

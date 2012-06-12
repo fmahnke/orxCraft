@@ -11,6 +11,15 @@
 #include "Scroll.h"
 #include "Rocket/Core.h"
 
+#include <vector>
+
+using Rocket::Core::RenderInterface;
+using Rocket::Core::SystemInterface; 
+using Rocket::Core::ElementDocument; 
+using Rocket::Core::Context;
+
+using std::vector;
+
 class RocketListener;
 
 /**
@@ -52,11 +61,11 @@ private:
     virtual orxBOOL OnRender ();
     virtual void    Update(const orxCLOCK_INFO &_rstInfo);
 
-    Rocket::Core::RenderInterface *m_renderInterface;
-    Rocket::Core::SystemInterface *m_sysInterface;
-    Rocket::Core::ElementDocument *m_document;
-    static Rocket::Core::Context  *m_context;
-    static RocketListener          m_rocketListener;
+    RenderInterface           *m_renderInterface;
+    SystemInterface           *m_sysInterface;
+    vector<ElementDocument *>  m_documents;
+    static Context            *m_context;
+    static RocketListener      m_rocketListener;
 };
 
 #endif  // __SCROLLGUIROCKET_H__

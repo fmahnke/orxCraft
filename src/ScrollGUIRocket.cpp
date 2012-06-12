@@ -21,7 +21,7 @@ RocketListener ScrollGUIRocket::m_rocketListener = RocketListener ();
 ScrollGUIRocket::ScrollGUIRocket () :
     m_renderInterface (NULL),
     m_sysInterface (NULL),
-    m_document (NULL)
+    m_documents (NULL)
 {
 }
 
@@ -59,12 +59,14 @@ void ScrollGUIRocket::OnCreate ()
     {
 	Rocket::Core::Shutdown();
     }
-    m_document = m_context->LoadDocument ("demo.rml");
 
-    if (m_document != NULL)
-    {
-	m_document->Show ();
-    }
+    ElementDocument *document = m_context->LoadDocument ("ObjectEditor.rml");
+    document->Show ();
+    m_documents.push_back (document);
+
+    document = m_context->LoadDocument ("ConfigBrowser.rml");
+    document->Show ();
+    m_documents.push_back (document);
 }
 
 void ScrollGUIRocket::OnDelete ()
