@@ -9,6 +9,9 @@
  */
 
 #include "ScrollListbox.h"
+#include "RocketListDataSource.h"
+
+#include <vector>
 
 class WidgetManager;
 
@@ -23,6 +26,6 @@ public:
     void Fill (const vector<const orxSTRING> &listItems);
 
 private:
-    bool OnMouseClick (const CEGUI::EventArgs &e);
+    RocketListDataSource m_dataSource;
 };
 #endif  // ROCKETLISTBOX_H__
