@@ -9,11 +9,11 @@
  */
 
 #include "ScrollListbox.h"
-#include "RocketListDataSource.h"
 
 #include <vector>
 
 class WidgetManager;
+class RocketListDataSource;
 
 using std::vector;
 
@@ -26,6 +26,9 @@ public:
     void Fill (const vector<const orxSTRING> &listItems);
 
 private:
-    RocketListDataSource m_dataSource;
+    RocketListDataSource *m_dataSource;
+
+protected:
+    virtual ~RocketListbox ();
 };
 #endif  // ROCKETLISTBOX_H__

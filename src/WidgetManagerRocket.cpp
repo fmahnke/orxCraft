@@ -10,12 +10,13 @@
 #include "ScrollFrameWindow.h"
 #include "ScrollWidget.h"
 #include "ScrollGUIRocket.h"
+#include "RocketListbox.h"
 
 using Rocket::Core::Context;
 using Rocket::Core::Element;
 using Rocket::Core::EventListener;
 
-namespace WidgetManagerRocketHelp
+namespace widget_manager_rocket
 {
 
 void AddListenerRecursive (EventListener *listener, Element *root)
@@ -29,9 +30,10 @@ void AddListenerRecursive (EventListener *listener, Element *root)
     }
 }
 
-}   // namespace WidgetManagerRocketHelp
+}   // namespace widget_manager_rocket
 
-void WidgetManagerRocket::Init (const orxSTRING widgetName, ScrollFrameWindow *scrollWindow)
+void WidgetManagerRocket::Init (const orxSTRING widgetName,
+				ScrollFrameWindow *scrollWindow)
 {
     m_scrollWindow = scrollWindow;
     strcpy (m_windowName, widgetName);
@@ -41,17 +43,40 @@ void WidgetManagerRocket::Init (const orxSTRING widgetName, ScrollFrameWindow *s
 
     EventListener *listener =
 	reinterpret_cast<EventListener *> (ScrollGUIRocket::GetListener ());
-    WidgetManagerRocketHelp::AddListenerRecursive (listener, root);
+    widget_manager_rocket::AddListenerRecursive (listener, root);
+    AddWidgetRecursive (root);
+}
+
+void WidgetManagerRocket::AddWidgetRecursive (const Element *root)
+{
+    orxASSERT (root != orxNULL);
+
+    for (Element *element = root->GetFirstChild ();
+	 element != NULL;
+	 element = element->GetNextSibling ())
+    {
+	const orxSTRING tagName = element->GetTagName ().CString ();
+	if (orxString_ICompare (tagName, "datagrid") == 0)
+	{
+	    RocketListbox *listbox = new RocketListbox (this);
+	    const orxSTRING name = element->GetId ().CString ();
+	    listbox->Init (name);
+	    m_widgetList.push_back (listbox);
+	}
+	AddWidgetRecursive (element);
+    }
 }
 
 ScrollWidget * WidgetManagerRocket::FindWidget (const orxSTRING widgetName)
 {
+    orxASSERT (widgetName != orxNULL);
+
     ScrollWidget *theWidget = NULL;
     vector<ScrollWidget *>::iterator widgIter;
     for (widgIter = m_widgetList.begin (); widgIter != m_widgetList.end ();
 	 ++widgIter)
     {
-	if (orxString_Compare ((*widgIter)->GetName (), widgetName) == 0)
+	if (orxString_ICompare ((*widgIter)->GetName (), widgetName) == 0)
 	{
 	    theWidget = *widgIter;
 	    break;
@@ -90,6 +115,15 @@ void WidgetManagerRocket::SetText (const orxSTRING widgetName, const orxSTRING t
 void WidgetManagerRocket::FillList (const orxSTRING widgetName,
 			      const vector<const orxSTRING> &listItems)
 {
+    RocketListbox *listbox = (RocketListbox *) FindWidget (widgetName);
+    if (listbox != orxNULL)
+    {
+	listbox->Fill (listItems);
+    }
+    else
+    {
+	orxASSERT (false);
+    }
 }
 
 void WidgetManagerRocket::OnMouseClick (const orxSTRING widgetName)

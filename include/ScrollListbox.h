@@ -19,6 +19,9 @@ public:
 	 ScrollWidget (manager)
     {
     };
+
+protected:
+    virtual ~ScrollListbox () { };
 };
 
 #endif  // __SCROLL_LISTBOX_H__

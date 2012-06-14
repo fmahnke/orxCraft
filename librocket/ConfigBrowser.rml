@@ -22,11 +22,8 @@
 		</style>
 	</head>
 	<body template="window">
-<div>
-
-<!--<datagrid id="ConfigObject" source="ConfigObjects.objects">
-	<col fields="name" width="100%">Name:</col>
-</datagrid>-->
-</div>
+<datagrid id="ObjectSectionList" source="objectsectionlist.sections">
+	<col fields="entry"></col>
+</datagrid>
 </body>
 </rml>

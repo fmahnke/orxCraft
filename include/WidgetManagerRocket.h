@@ -15,6 +15,16 @@
 class ScrollFrameWindow;
 class ScrollWidget;
 
+namespace Rocket
+{
+namespace Core
+{
+
+class Element;
+
+}   // namespace Rocket
+}   // namespace Core
+
 using std::vector;
 
 /**
@@ -33,6 +43,9 @@ public:
     {
     };
     void Init (const orxSTRING widgetName, ScrollFrameWindow *scrollWindow);
+    //! Add all child widgets of a root widget to the widget list
+    void AddWidgetRecursive (const Rocket::Core::Element *root);
+
     ScrollWidget * FindWidget (const orxSTRING widgetName);
 
     const orxSTRING GetWindowName ();

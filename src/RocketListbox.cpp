@@ -6,11 +6,12 @@
  */
 
 #include "RocketListbox.h"
-
+#include "RocketListDataSource.h"
 #include "WidgetManager.h"
 
 RocketListbox::RocketListbox (WidgetManager *manager) :
-    ScrollListbox (manager)
+    ScrollListbox (manager),
+    m_dataSource (NULL)
 {
 }
 
@@ -21,13 +22,16 @@ void RocketListbox::Init (const orxSTRING widgetName)
     m_widgetName = new char[strlen (widgetName) + 1];
     strcpy (m_widgetName, widgetName);
 
-    orxASSERT (false);
+    //m_dataSource = new RocketListDataSource (widgetName);
+    m_dataSource = new RocketListDataSource ("objectsectionlist");
 }
 
 void RocketListbox::Fill (const vector<const orxSTRING> &listItems)
 {
-    orxASSERT (false);
-    for (unsigned int i = 0; i < listItems.size (); i++)
-    {
-    }
+    m_dataSource->Init (listItems);
+}
+
+RocketListbox::~RocketListbox ()
+{
+    delete m_dataSource;
 }

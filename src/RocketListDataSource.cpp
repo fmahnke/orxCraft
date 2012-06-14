@@ -7,12 +7,18 @@
 
 #include "RocketListDataSource.h"
 
-void RocketListDataSource::Init (const vector<orxSTRING> &items)
+RocketListDataSource::RocketListDataSource (const orxSTRING name) :
+    Rocket::Controls::DataSource (name)
+{
+}
+
+void RocketListDataSource::Init (const vector<const orxSTRING> &items)
 {
     for (unsigned int i = 0; i < items.size (); i++)
     {
 	m_items.push_back (items.at (i));
     }
+    //NotifyRowAdd ("", 0, items.size ());
 }
 
 void RocketListDataSource::GetRow(Rocket::Core::StringList& row,
