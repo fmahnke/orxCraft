@@ -22,13 +22,14 @@ void RocketListbox::Init (const orxSTRING widgetName)
     m_widgetName = new char[strlen (widgetName) + 1];
     strcpy (m_widgetName, widgetName);
 
-    //m_dataSource = new RocketListDataSource (widgetName);
-    m_dataSource = new RocketListDataSource ("objectsectionlist");
+    m_dataSource = new RocketListDataSource (widgetName);
+    //m_dataSource = new RocketListDataSource ("objectsectionlist");
 }
 
-void RocketListbox::Fill (const vector<const orxSTRING> &listItems)
+void RocketListbox::Fill (const orxSTRING colName,
+			  const vector<const orxSTRING> &listItems)
 {
-    m_dataSource->Init (listItems);
+    m_dataSource->Init (colName, listItems);
 }
 
 RocketListbox::~RocketListbox ()

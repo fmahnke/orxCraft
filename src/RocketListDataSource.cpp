@@ -12,25 +12,26 @@ RocketListDataSource::RocketListDataSource (const orxSTRING name) :
 {
 }
 
-void RocketListDataSource::Init (const vector<const orxSTRING> &items)
+void RocketListDataSource::Init (const orxSTRING colName,
+				 const vector<const orxSTRING> &items)
 {
     for (unsigned int i = 0; i < items.size (); i++)
     {
 	m_items.push_back (items.at (i));
+	NotifyRowAdd (colName, i, 1);
     }
-    //NotifyRowAdd ("", 0, items.size ());
 }
+
 
 void RocketListDataSource::GetRow(Rocket::Core::StringList& row,
                                   const Rocket::Core::String& table,
 				  int row_index,
 				  const Rocket::Core::StringList& columns)
 {
-    orxASSERT (false);
+    row.push_back (m_items.at (row_index));
 }
 
 int RocketListDataSource::GetNumRows(const Rocket::Core::String& table)
 {
-    orxASSERT (false);
-    return 0;
+    return m_items.size ();
 }

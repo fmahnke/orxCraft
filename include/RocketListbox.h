@@ -23,7 +23,8 @@ class RocketListbox : public ScrollListbox
 public:
     explicit RocketListbox (WidgetManager *manager);
     virtual void Init (const orxSTRING widgetName);
-    void Fill (const vector<const orxSTRING> &listItems);
+    void Fill (const orxSTRING colName,
+	       const vector<const orxSTRING> &listItems);
 
 private:
     RocketListDataSource *m_dataSource;

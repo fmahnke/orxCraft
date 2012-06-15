@@ -19,6 +19,14 @@ using Rocket::Core::EventListener;
 namespace widget_manager_rocket
 {
 
+Element * GetRootElement ()
+{
+    Context *context = ScrollGUIRocket::GetContext ();
+    Element *root = context->GetRootElement ();
+
+    return root;
+}
+
 void AddListenerRecursive (EventListener *listener, Element *root)
 {
     for (Element *element = root->GetFirstChild ();
@@ -38,8 +46,7 @@ void WidgetManagerRocket::Init (const orxSTRING widgetName,
     m_scrollWindow = scrollWindow;
     strcpy (m_windowName, widgetName);
 
-    Context *context = ScrollGUIRocket::GetContext ();
-    Element *root = context->GetRootElement ();
+    Element *root = widget_manager_rocket::GetRootElement ();
 
     EventListener *listener =
 	reinterpret_cast<EventListener *> (ScrollGUIRocket::GetListener ());
@@ -58,8 +65,10 @@ void WidgetManagerRocket::AddWidgetRecursive (const Element *root)
 	const orxSTRING tagName = element->GetTagName ().CString ();
 	if (orxString_ICompare (tagName, "datagrid") == 0)
 	{
+	    // As of now, only a single column list box is supported.
 	    RocketListbox *listbox = new RocketListbox (this);
 	    const orxSTRING name = element->GetId ().CString ();
+
 	    listbox->Init (name);
 	    m_widgetList.push_back (listbox);
 	}
@@ -105,8 +114,7 @@ const orxSTRING WidgetManagerRocket::GetSelectedItem (const orxSTRING widgetName
 
 void WidgetManagerRocket::SetText (const orxSTRING widgetName, const orxSTRING text)
 {
-    Context *context = ScrollGUIRocket::GetContext ();
-    Element *root = context->GetRootElement ();
+    Element *root = widget_manager_rocket::GetRootElement ();
 
     Element *element = root->GetElementById (widgetName);
     element->SetAttribute ("value", "mytext");
@@ -115,14 +123,26 @@ void WidgetManagerRocket::SetText (const orxSTRING widgetName, const orxSTRING t
 void WidgetManagerRocket::FillList (const orxSTRING widgetName,
 			      const vector<const orxSTRING> &listItems)
 {
-    RocketListbox *listbox = (RocketListbox *) FindWidget (widgetName);
-    if (listbox != orxNULL)
+    orxASSERT (widgetName != orxNULL);
+    orxASSERT (! listItems.empty ());
+
+    Element *root = widget_manager_rocket::GetRootElement ();
+    if (root != orxNULL)
     {
-	listbox->Fill (listItems);
-    }
-    else
-    {
-	orxASSERT (false);
+	Element *widget = root->GetElementById (widgetName);
+	if (widget != orxNULL)
+	{
+	    RocketListbox *listbox =
+		(RocketListbox *) FindWidget (widgetName);
+	    if (listbox != orxNULL)
+	    {
+		listbox->Fill ("sections", listItems);
+	    }
+	    else
+	    {
+		//orxASSERT (false);
+	    }
+	}
     }
 }
 

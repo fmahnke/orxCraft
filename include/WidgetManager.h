@@ -8,9 +8,9 @@
  */
 
 #include "orx/orx.h"
+#include "ScrollWidget.h"
 
 class ScrollFrameWindow;
-class ScrollWidget;
 
 #include <vector>
 using std::vector;
@@ -50,6 +50,17 @@ public:
     virtual void OnMouseClick   (const orxSTRING widgetName) = 0;
     //! Handle a text accepted event from a widget
     virtual void OnTextAccepted (const orxSTRING widgetName) = 0;
+
+    virtual ~WidgetManager ()
+    {
+	vector<ScrollWidget *>::iterator iter;
+	for (iter = m_widgetList.begin ();
+	    iter != m_widgetList.end ();
+	    ++iter)
+	{
+	    delete *iter;
+	}
+    };
 
 protected:
     vector<ScrollWidget *> m_widgetList;

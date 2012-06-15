@@ -30,13 +30,13 @@ public:
     /** Get the name of the widget */
     inline const orxSTRING GetName () { return m_widgetName; }
 
-protected:
     /** Widget D-tor */
     virtual ~ScrollWidget ()
     {
 	delete [] m_widgetName;
     };
 
+protected:
     char          *m_widgetName;
     WidgetManager *m_manager;
 };

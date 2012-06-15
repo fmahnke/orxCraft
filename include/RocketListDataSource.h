@@ -21,7 +21,8 @@ public:
     //! Construct data source and initialize data source name
     RocketListDataSource (const orxSTRING name);
     //! Initialize control with a list of items
-    void         Init (const vector<const orxSTRING> &items);
+    void         Init (const orxSTRING colName,
+		       const vector<const orxSTRING> &items);
     virtual void GetRow(Rocket::Core::StringList& row,
 			const Rocket::Core::String& table,
 			int row_index,
