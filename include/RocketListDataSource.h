@@ -20,9 +20,10 @@ class RocketListDataSource : public Rocket::Controls::DataSource
 public:
     //! Construct data source and initialize data source name
     RocketListDataSource (const orxSTRING name);
-    //! Initialize control with a list of items
-    void         Init (const orxSTRING colName,
-		       const vector<const orxSTRING> &items);
+    //! Set the items in a column
+    void         SetColumn (const orxSTRING tableName,
+			    const orxSTRING colName,
+			    const vector<const orxSTRING> &items);
     virtual void GetRow(Rocket::Core::StringList& row,
 			const Rocket::Core::String& table,
 			int row_index,
@@ -30,7 +31,17 @@ public:
     virtual int  GetNumRows(const Rocket::Core::String& table);
 
 private:
-    vector<const orxSTRING> m_items;
+    //! Add a new table to the data source
+    int          AddTable       (const orxSTRING tableName);
+    //! Add a new column to the data source
+    int          AddColumn      (const orxSTRING tableName,
+				 const orxSTRING columnName);
+    int          GetTableIndex  (const orxSTRING tableName);
+    int          GetColumnIndex (const orxSTRING tableName,
+				 const orxSTRING columnName);
+    vector<const orxSTRING> m_tableNames;
+    vector<vector<const orxSTRING>> m_columnNames;
+    vector<vector<vector<const orxSTRING>>> m_items;
 };
 
 #endif  // ROCKETLISTDATASOURCE_H__

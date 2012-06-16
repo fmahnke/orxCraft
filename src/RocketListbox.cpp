@@ -6,33 +6,39 @@
  */
 
 #include "RocketListbox.h"
-#include "RocketListDataSource.h"
 #include "WidgetManager.h"
 
 RocketListbox::RocketListbox (WidgetManager *manager) :
-    ScrollListbox (manager),
-    m_dataSource (NULL)
+    ScrollListbox   (manager),
+    m_dataTableName (NULL)
 {
 }
 
 void RocketListbox::Init (const orxSTRING widgetName)
 {
+    orxASSERT (widgetName != orxNULL);
+
     const orxSTRING windowName = m_manager->GetWindowName ();
     
     m_widgetName = new char[strlen (widgetName) + 1];
     strcpy (m_widgetName, widgetName);
+}
 
-    m_dataSource = new RocketListDataSource (widgetName);
-    //m_dataSource = new RocketListDataSource ("objectsectionlist");
+void RocketListbox::SetDataTableName (const orxSTRING tableName)
+{
+    orxASSERT (tableName != orxNULL);
+
+    int length = orxString_GetLength (tableName);
+    m_dataTableName = new orxCHAR [length + 1];
+    orxString_Copy (m_dataTableName, tableName);
 }
 
 void RocketListbox::Fill (const orxSTRING colName,
 			  const vector<const orxSTRING> &listItems)
 {
-    m_dataSource->Init (colName, listItems);
 }
 
 RocketListbox::~RocketListbox ()
 {
-    delete m_dataSource;
+    delete [] m_dataTableName;
 }

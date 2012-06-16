@@ -13,23 +13,23 @@
 #include <vector>
 
 class WidgetManager;
-class RocketListDataSource;
 
 using std::vector;
 
-/** libRocket Implementation of a Listbox */
+//! libRocket Implementation of a Listbox
 class RocketListbox : public ScrollListbox
 {
 public:
     explicit RocketListbox (WidgetManager *manager);
     virtual void Init (const orxSTRING widgetName);
+    void SetDataTableName (const orxSTRING tableName);
     void Fill (const orxSTRING colName,
 	       const vector<const orxSTRING> &listItems);
 
-private:
-    RocketListDataSource *m_dataSource;
-
 protected:
     virtual ~RocketListbox ();
+
+private:
+    orxSTRING m_dataTableName;
 };
 #endif  // ROCKETLISTBOX_H__
