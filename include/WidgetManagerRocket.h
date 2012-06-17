@@ -12,6 +12,7 @@
 
 #include "WidgetManager.h"
 
+class RocketDataSource;
 class ScrollFrameWindow;
 class ScrollWidget;
 
@@ -38,21 +39,22 @@ using std::vector;
 class WidgetManagerRocket : public WidgetManager
 {
 public:
-    WidgetManagerRocket () :
-        m_scrollWindow (NULL)
-    {
-    };
+    //! C-tor
+    WidgetManagerRocket ();
+    //! D-tor
+    ~WidgetManagerRocket ();
+
     void Init (const orxSTRING widgetName, ScrollFrameWindow *scrollWindow);
     //! Add all child widgets of a root widget to the widget list
     void AddWidgetRecursive (const Rocket::Core::Element *root);
 
-    ScrollWidget * FindWidget (const orxSTRING widgetName);
+    ScrollWidget * FindWidget (const orxSTRING widgetName) const;
 
-    const orxSTRING GetWindowName ();
+    const orxSTRING GetWindowName () const;
 
-    const orxSTRING GetSelectedItem (const orxSTRING widgetName);
+    const orxSTRING GetSelectedItem (const orxSTRING widgetName) const;
 
-    const orxSTRING GetText (const orxSTRING widgetName);
+    const orxSTRING GetText (const orxSTRING widgetName) const;
     /// Update widget text explicitly
     void SetText (const orxSTRING widgetName, const orxSTRING text);
 
@@ -68,6 +70,8 @@ public:
 private:
     ScrollFrameWindow *m_scrollWindow;
     char m_windowName[255];
+    //! Data source for all widgets
+    RocketDataSource  *m_dataSource;
 };
 
 #endif  // __WIDGETMANAGERROCKET_H__

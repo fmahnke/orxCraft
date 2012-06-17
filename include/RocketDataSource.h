@@ -1,7 +1,7 @@
-#ifndef ROCKETLISTDATASOURCE_H__
-#define ROCKETLISTDATASOURCE_H__
+#ifndef ROCKETDATASOURCE_H__
+#define ROCKETDATASOURCE_H__
 /**
- * @file RocketListDataSource.h
+ * @file RocketDataSource.h
  * @date 2012-06-11
  * @author fritz@fritzmahnke.com
  *
@@ -15,11 +15,11 @@
 
 using std::vector;
 
-class RocketListDataSource : public Rocket::Controls::DataSource
+class RocketDataSource : public Rocket::Controls::DataSource
 {
 public:
     //! Construct data source and initialize data source name
-    RocketListDataSource (const orxSTRING name);
+    RocketDataSource (const orxSTRING name);
     //! Set the items in a column
     void         SetColumn (const orxSTRING tableName,
 			    const orxSTRING colName,
@@ -36,12 +36,12 @@ private:
     //! Add a new column to the data source
     int          AddColumn      (const orxSTRING tableName,
 				 const orxSTRING columnName);
-    int          GetTableIndex  (const orxSTRING tableName);
+    int          GetTableIndex  (const orxSTRING tableName) const;
     int          GetColumnIndex (const orxSTRING tableName,
-				 const orxSTRING columnName);
+				 const orxSTRING columnName) const;
     vector<const orxSTRING> m_tableNames;
     vector<vector<const orxSTRING>> m_columnNames;
     vector<vector<vector<const orxSTRING>>> m_items;
 };
 
-#endif  // ROCKETLISTDATASOURCE_H__
+#endif  // ROCKETDATASOURCE_H__

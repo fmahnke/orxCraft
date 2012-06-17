@@ -64,10 +64,11 @@ void WidgetManagerCEGUI::Init (const orxSTRING widgetName, ScrollFrameWindow *sc
     }
 }
 
-ScrollWidget * WidgetManagerCEGUI::FindWidget (const orxSTRING widgetName)
+ScrollWidget * WidgetManagerCEGUI::FindWidget
+    (const orxSTRING widgetName) const
 {
     ScrollWidget *theWidget = NULL;
-    vector<ScrollWidget *>::iterator widgIter;
+    vector<ScrollWidget *>::const_iterator widgIter;
     for (widgIter = m_widgetList.begin (); widgIter != m_widgetList.end ();
 	 ++widgIter)
     {
@@ -81,21 +82,13 @@ ScrollWidget * WidgetManagerCEGUI::FindWidget (const orxSTRING widgetName)
     return theWidget;
 }
 
-const orxSTRING WidgetManagerCEGUI::GetText (const orxSTRING widgetName)
-{
-    CEGUI::Window *rootWindow = CEGUI::System::getSingleton ().getGUISheet ();
-    CEGUI::Window *window = rootWindow->getChild (m_windowName);
-    CEGUI::Window *widget = window->getChild (widgetName);
-
-    return widget->getText ().c_str ();
-}
-
-const orxSTRING WidgetManagerCEGUI::GetWindowName ()
+const orxSTRING WidgetManagerCEGUI::GetWindowName () const
 {
     return m_windowName;
 }
 
-const orxSTRING WidgetManagerCEGUI::GetSelectedItem (const orxSTRING widgetName)
+const orxSTRING WidgetManagerCEGUI::GetSelectedItem
+    (const orxSTRING widgetName) const
 {
     orxASSERT (widgetName != orxNULL);
 
@@ -107,6 +100,15 @@ const orxSTRING WidgetManagerCEGUI::GetSelectedItem (const orxSTRING widgetName)
     const orxSTRING itemName = item->getText ().c_str ();
 
     return itemName;
+}
+
+const orxSTRING WidgetManagerCEGUI::GetText (const orxSTRING widgetName) const
+{
+    CEGUI::Window *rootWindow = CEGUI::System::getSingleton ().getGUISheet ();
+    CEGUI::Window *window = rootWindow->getChild (m_windowName);
+    CEGUI::Window *widget = window->getChild (widgetName);
+
+    return widget->getText ().c_str ();
 }
 
 void WidgetManagerCEGUI::SetText (const orxSTRING widgetName, const orxSTRING text)

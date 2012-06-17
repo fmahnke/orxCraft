@@ -1,18 +1,18 @@
 /**
- * @file RocketListDataSource.cpp
+ * @file RocketDataSource.cpp
  * @date 2012-06-11
  * @author fritz@fritzmahnke.com
  *
  */
 
-#include "RocketListDataSource.h"
+#include "RocketDataSource.h"
 
-RocketListDataSource::RocketListDataSource (const orxSTRING name) :
+RocketDataSource::RocketDataSource (const orxSTRING name) :
     Rocket::Controls::DataSource (name)
 {
 }
 
-void RocketListDataSource::SetColumn (const orxSTRING tableName,
+void RocketDataSource::SetColumn (const orxSTRING tableName,
 				      const orxSTRING colName,
 				      const vector<const orxSTRING> &items)
 {
@@ -34,18 +34,30 @@ void RocketListDataSource::SetColumn (const orxSTRING tableName,
 	columnIndex = AddColumn (tableName, colName);
     }
 
+    if (m_items.size () < m_tableNames.size ())
+    {
+	m_items.resize (m_tableNames.size ());
+    }
+    if (m_items.at (tableIndex).size () < m_columnNames.size ())
+    {
+	m_items.at (tableIndex).resize (m_columnNames.size ());
+    }
     m_items.at (tableIndex).at (columnIndex).clear ();
     m_items.at (tableIndex).at (columnIndex) = items;
     NotifyRowAdd (tableName, 0, items.size ());
 }
 
-void RocketListDataSource::GetRow(Rocket::Core::StringList& row,
+void RocketDataSource::GetRow(Rocket::Core::StringList& row,
                                   const Rocket::Core::String& table,
 				  int row_index,
 				  const Rocket::Core::StringList& columns)
 {
     int tableIndex = GetTableIndex (table.CString ());
-    for (int i = 0; i < columns.size (); i++)
+    /*
+     *  Haven't figured out why, but Rocket wants results for some
+     *  #child_data_source column that isn't in our database.
+     */
+    for (int i = 0; i < columns.size () - 1; i++)
     {
 	int columnIndex = GetColumnIndex (table.CString (),
 					  columns.at (i).CString ());
@@ -53,7 +65,7 @@ void RocketListDataSource::GetRow(Rocket::Core::StringList& row,
     }
 }
 
-int RocketListDataSource::GetNumRows(const Rocket::Core::String& table)
+int RocketDataSource::GetNumRows(const Rocket::Core::String& table)
 {
     int maxRowsInAnyColumn = 0;
     int tableIndex = GetTableIndex (table.CString ());
@@ -68,7 +80,7 @@ int RocketListDataSource::GetNumRows(const Rocket::Core::String& table)
     return maxRowsInAnyColumn;
 }
 
-int RocketListDataSource::AddTable (const orxSTRING tableName)
+int RocketDataSource::AddTable (const orxSTRING tableName)
 {
     orxASSERT (tableName != orxNULL);
 
@@ -81,13 +93,15 @@ int RocketListDataSource::AddTable (const orxSTRING tableName)
     }
     else
     {
+	// Index will be end of vector
 	tableIndex = m_tableNames.size ();
+	// Add to list of names
 	m_tableNames.push_back (tableName);
     }
     return tableIndex;
 }
 
-int RocketListDataSource::AddColumn (const orxSTRING tableName,
+int RocketDataSource::AddColumn (const orxSTRING tableName,
 				     const orxSTRING columnName)
 {
     orxASSERT (tableName != orxNULL);
@@ -102,13 +116,24 @@ int RocketListDataSource::AddColumn (const orxSTRING tableName,
     }
     else
     {
-	columnIndex = m_columnNames.size ();
+	// Have more tables than size in the column list?
+	if (m_tableNames.size () > m_columnNames.size ())
+	{
+	    orxASSERT (m_tableNames.size () == m_columnNames.size () + 1);
+	    // Expand the column list to match the table list
+	    m_columnNames.resize (m_tableNames.size ());
+	    columnIndex = m_columnNames.size () - 1;
+	}
+	else
+	{
+	    columnIndex = m_columnNames.size ();
+	}
 	m_columnNames.at (columnIndex).push_back (columnName);
     }
     return columnIndex;
 }
 
-int RocketListDataSource::GetTableIndex (const orxSTRING tableName)
+int RocketDataSource::GetTableIndex (const orxSTRING tableName) const
 {
     orxASSERT (tableName != orxNULL);
 
@@ -125,8 +150,8 @@ int RocketListDataSource::GetTableIndex (const orxSTRING tableName)
     return tableIndex;
 }
 
-int RocketListDataSource::GetColumnIndex (const orxSTRING tableName,
-					  const orxSTRING columnName)
+int RocketDataSource::GetColumnIndex (const orxSTRING tableName,
+					  const orxSTRING columnName) const
 {
     orxASSERT (tableName  != orxNULL);
     orxASSERT (columnName != orxNULL);
@@ -136,14 +161,18 @@ int RocketListDataSource::GetColumnIndex (const orxSTRING tableName,
     // Table exists?
     if (tableIndex != -1)
     {
-	vector<const orxSTRING> columnNames = m_columnNames.at (tableIndex);
-	for (unsigned int i = 0; i < columnNames.size (); i++)
+	// Enough column names in the list to reach the tableIndex?
+	if (m_columnNames.size () > tableIndex)
 	{
-	    // Found desired column?
-	    if (orxString_Compare (columnNames.at (i), columnName) == 0)
+	    vector<const orxSTRING> columnNames = m_columnNames.at (tableIndex);
+	    for (unsigned int i = 0; i < columnNames.size (); i++)
 	    {
-		columnIndex = i;
-		break;
+		// Found desired column?
+		if (orxString_Compare (columnNames.at (i), columnName) == 0)
+		{
+		    columnIndex = i;
+		    break;
+		}
 	    }
 	}
     }

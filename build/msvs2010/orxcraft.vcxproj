@@ -161,8 +161,8 @@ xcopy /y ..\..\librocket\*.* ..\..\bin\windows</Command>
     <ClCompile Include="..\..\src\ConfigType.cpp" />
     <ClCompile Include="..\..\src\FXSlotEditorWindow.cpp" />
     <ClCompile Include="..\..\src\orxcraft.cpp" />
+    <ClCompile Include="..\..\src\RocketDataSource.cpp" />
     <ClCompile Include="..\..\src\RocketListbox.cpp" />
-    <ClCompile Include="..\..\src\RocketListDataSource.cpp" />
     <ClCompile Include="..\..\src\RocketListener.cpp" />
     <ClCompile Include="..\..\src\ScrollGUICEGUI.cpp" />
     <ClCompile Include="..\..\src\ScrollGUIRocket.cpp" />

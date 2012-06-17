@@ -1,5 +1,5 @@
-#ifndef __WIDGETMANAGERCEGUI_H__
-#define __WIDGETMANAGERCEGUI_H__
+#ifndef WIDGETMANAGERCEGUI_H_
+#define WIDGETMANAGERCEGUI_H_
 /**
  * @file WidgetManagerCEGUI.h
  * @date 2012-05-08
@@ -36,13 +36,13 @@ public:
     {
     };
     void Init (const orxSTRING widgetName, ScrollFrameWindow *scrollWindow);
-    ScrollWidget * FindWidget (const orxSTRING widgetName);
+    ScrollWidget * FindWidget (const orxSTRING widgetName) const;
 
-    const orxSTRING GetWindowName ();
+    const orxSTRING GetWindowName () const;
 
-    const orxSTRING GetSelectedItem (const orxSTRING widgetName);
+    const orxSTRING GetSelectedItem (const orxSTRING widgetName) const;
 
-    const orxSTRING GetText (const orxSTRING widgetName);
+    const orxSTRING GetText (const orxSTRING widgetName) const;
     /// Update widget text explicitly
     void SetText (const orxSTRING widgetName, const orxSTRING text);
 
@@ -61,4 +61,4 @@ private:
     CEGUI::Window *m_window;
 };
 
-#endif  // __WIDGETMANAGERCEGUI_H__
+#endif  // WIDGETMANAGERCEGUI_H_

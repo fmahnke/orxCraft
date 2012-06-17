@@ -1,5 +1,5 @@
-#ifndef ROCKETLISTBOX_H__
-#define ROCKETLISTBOX_H__
+#ifndef ROCKETLISTBOX_H_
+#define ROCKETLISTBOX_H_
 /**
  * @file RocketListbox.h
  * @date 2012-06-11
@@ -12,6 +12,7 @@
 
 #include <vector>
 
+class RocketDataSource;
 class WidgetManager;
 
 using std::vector;
@@ -22,7 +23,11 @@ class RocketListbox : public ScrollListbox
 public:
     explicit RocketListbox (WidgetManager *manager);
     virtual void Init (const orxSTRING widgetName);
+    //! Set the data source used by this list box
+    void SetDataSource (RocketDataSource *dataSource);
+    //! Set the name of the data table used by this list box
     void SetDataTableName (const orxSTRING tableName);
+    //! Fill the specified column with a list of items
     void Fill (const orxSTRING colName,
 	       const vector<const orxSTRING> &listItems);
 
@@ -30,6 +35,7 @@ protected:
     virtual ~RocketListbox ();
 
 private:
-    orxSTRING m_dataTableName;
+    orxSTRING             m_dataTableName;
+    RocketDataSource     *m_dataSource;
 };
-#endif  // ROCKETLISTBOX_H__
+#endif  // ROCKETLISTBOX_H_

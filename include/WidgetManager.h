@@ -1,5 +1,5 @@
-#ifndef __WIDGETMANAGER_H__
-#define __WIDGETMANAGER_H__
+#ifndef WIDGETMANAGER_H_
+#define WIDGETMANAGER_H_
 /**
  * @file WidgetManager.h
  * @date 2012-06-09
@@ -32,13 +32,13 @@ public:
     };
     virtual void Init (const orxSTRING widgetName,
 		       ScrollFrameWindow *scrollWindow) = 0;
-    virtual ScrollWidget * FindWidget (const orxSTRING widgetName) = 0;
+    virtual ScrollWidget * FindWidget (const orxSTRING widgetName) const = 0;
 
-    virtual const orxSTRING GetWindowName () = 0;
+    virtual const orxSTRING GetWindowName () const = 0;
 
-    virtual const orxSTRING GetSelectedItem (const orxSTRING widgetName) = 0;
+    virtual const orxSTRING GetSelectedItem (const orxSTRING widgetName) const = 0;
 
-    virtual const orxSTRING GetText (const orxSTRING widgetName) = 0;
+    virtual const orxSTRING GetText (const orxSTRING widgetName) const = 0;
     /// Update widget text explicitly
     virtual void SetText (const orxSTRING widgetName, const orxSTRING text) = 0;
 
@@ -70,4 +70,4 @@ private:
     char m_windowName[255];
 };
 
-#endif  // __WIDGETMANAGER_H__
+#endif  // WIDGETMANAGER_H_
