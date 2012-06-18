@@ -38,6 +38,9 @@ OrxCraft::OrxCraft () :
 
 void OrxCraft::SetSelectedObject (const orxSTRING name)
 {
+    orxASSERT (name != orxNULL);
+    orxASSERT (m_objectEditor != orxNULL);
+
     m_selectedObject = GetObjectByName (name);
     m_objectEditor->SetObject (m_selectedObject);
 }
@@ -47,6 +50,7 @@ void OrxCraft::SetSelectedFXSlot (const orxSTRING name)
     m_fxSlotEditorWindow->SetContext (name);
 }
 
+//! @todo Make a Scroll utility functions class
 ScrollObject * OrxCraft::GetObjectByName (const orxSTRING name) const
 {
     ScrollObject *foundObject = NULL;
@@ -150,7 +154,7 @@ void OrxCraft::Update (const orxCLOCK_INFO &_rstInfo)
     if (orxObject_Pick (&worldPos) == orxNULL)
     {
 	// Pass input to GUI
-	m_scrollGUI->Input ();
+	m_scrollGUI->InputMouseMove ();
     }
 }
 

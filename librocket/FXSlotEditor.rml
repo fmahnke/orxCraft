@@ -1,0 +1,43 @@
+<rml>
+	<head>
+		<title>FX Slot Editor</title>
+		<link type="text/template" href="window.rml" />
+		<style>
+			body
+			{
+				width: 600px;
+				height: 525px;
+				
+			}
+			
+			div#title_bar div#icon
+			{
+				display: none;
+			}
+			
+			div#content
+			{
+				text-align: left;
+			}
+		</style>
+	</head>
+<body template="window">
+<form>
+	Name<input id="fxslotconfigname" type="text" size="10" /><br />
+	Type<select id="fxslottype" /><br />
+	Curve<select id="fxslotcurve" /><br />
+	StartTime<input id="fxslotstarttime" type="text" size="6" />EndTime<input id="fxslotendtime" type="text" size="6" /><br />
+	StartValue<input id="fxslotstartvalue0" type="text" size="6" />
+		<input id="fxslotstartvalue1" type="text" size="6" />
+		<input id="fxslotstartvalue2" type="text" size="6" /><br />
+	EndValue<input id="fxslotendvalue0" type="text" size="6" />
+		<input id="fxslotendvalue1" type="text" size="6" />
+		<input id="fxslotendvalue2" type="text" size="6" /><br />
+	Phase<input id="fxslotphase" type="text" size="6" />Period<input id="fxslotperiod" type="text" size="6" /><br />
+	Absolute<select id="fxslotabsolute" />Acceleration<select id="fxslotacceleration" /><br />
+	Amplification<input id="fxslotamplification" type="text" size="6" />Pow<input id="fxslotpow" type="text" size="6" /><br />
+	UseRotation<select id="fxslotuserotation" />UseScale<select id="fxslotusescale" />
+</form>
+</body>
+</rml>
+

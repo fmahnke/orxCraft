@@ -61,6 +61,10 @@ void ScrollGUIRocket::OnCreate ()
     document->Show ();
     m_documents.push_back (document);
 
+    document = m_context->LoadDocument ("FXSlotEditor.rml");
+    document->Show ();
+    m_documents.push_back (document);
+
     document = m_context->LoadDocument ("ConfigBrowser.rml");
     document->Show ();
     m_documents.push_back (document);
