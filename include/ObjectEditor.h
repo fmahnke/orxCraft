@@ -4,8 +4,8 @@
  * @author fritz@fritzmahnke.com
  *
  */
-#ifndef __OBJECTEDITOR_H__
-#define __OBJECTEDITOR_H__
+#ifndef OBJECTEDITOR_H_
+#define OBJECTEDITOR_H_
 
 #include "ScrollFrameWindow.h"
 
@@ -14,7 +14,9 @@ class ScrollObject;
 class ObjectEditor : public ScrollFrameWindow
 {
 public:
+    //! C-tor
     ObjectEditor ();
+
     virtual void Init (const orxSTRING widgetName);
 
     //! Initialize control items
@@ -35,4 +37,4 @@ private:
     ScrollObject *m_object;
 };
 
-#endif  // __OBJECTEDITOR_H__
+#endif  // OBJECTEDITOR_H_

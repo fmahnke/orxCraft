@@ -30,6 +30,8 @@ public:
     //! Fill the specified column with a list of items
     void Fill (const orxSTRING colName,
 	       const vector<const orxSTRING> &listItems);
+    const orxSTRING GetSelectedItems () const;
+    void            SetSelectedItems (const orxSTRING text);
 
 protected:
     virtual ~RocketListbox ();
@@ -37,5 +39,6 @@ protected:
 private:
     orxSTRING             m_dataTableName;
     RocketDataSource     *m_dataSource;
+    orxSTRING             m_selection;
 };
 #endif  // ROCKETLISTBOX_H_

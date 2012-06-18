@@ -29,7 +29,7 @@ void ScrollGUICEGUI::OnDelete ()
     m_glRenderer = orxNULL;
 }
 
-void ScrollGUICEGUI::Input ()
+void ScrollGUICEGUI::InputMouseMove ()
 {
     orxVECTOR mousePos;
     orxMouse_GetPosition (&mousePos);
@@ -37,7 +37,8 @@ void ScrollGUICEGUI::Input ()
     orxVECTOR worldPos;
     orxRender_GetWorldPosition (&mousePos, &worldPos);
 
-    CEGUI::System::getSingleton ().injectMousePosition (worldPos.fX, worldPos.fY);
+    CEGUI::System::getSingleton ().injectMousePosition (worldPos.fX,
+							worldPos.fY);
 }
 
 void ScrollGUICEGUI::InputMouseDown ()

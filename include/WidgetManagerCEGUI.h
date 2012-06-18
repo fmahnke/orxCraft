@@ -38,13 +38,15 @@ public:
     void Init (const orxSTRING widgetName, ScrollFrameWindow *scrollWindow);
     ScrollWidget * FindWidget (const orxSTRING widgetName) const;
 
-    const orxSTRING GetWindowName () const;
+    virtual const orxSTRING GetWindowName () const;
 
-    const orxSTRING GetSelectedItem (const orxSTRING widgetName) const;
+    virtual const orxSTRING GetSelectedItem (const orxSTRING widgetName) const;
+    virtual void            SetSelectedItem (const orxSTRING widgetName,
+					     const orxSTRING selectedItem);
 
-    const orxSTRING GetText (const orxSTRING widgetName) const;
+    virtual const orxSTRING GetText (const orxSTRING widgetName) const;
     /// Update widget text explicitly
-    void SetText (const orxSTRING widgetName, const orxSTRING text);
+    virtual int SetText (const orxSTRING widgetName, const orxSTRING text);
 
     //! Fill a list box
     void FillList (const orxSTRING widgetName,

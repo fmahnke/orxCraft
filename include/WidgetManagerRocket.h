@@ -13,6 +13,7 @@
 #include "WidgetManager.h"
 
 class RocketDataSource;
+class RocketListener;
 class ScrollFrameWindow;
 class ScrollWidget;
 
@@ -44,34 +45,38 @@ public:
     //! D-tor
     ~WidgetManagerRocket ();
 
-    void Init (const orxSTRING widgetName, ScrollFrameWindow *scrollWindow);
+    virtual void Init (const orxSTRING widgetName,
+		       ScrollFrameWindow *scrollWindow);
     //! Add all child widgets of a root widget to the widget list
     void AddWidgetRecursive (const Rocket::Core::Element *root);
 
-    ScrollWidget * FindWidget (const orxSTRING widgetName) const;
+    virtual ScrollWidget * FindWidget (const orxSTRING widgetName) const;
 
-    const orxSTRING GetWindowName () const;
+    virtual const orxSTRING GetWindowName () const;
 
-    const orxSTRING GetSelectedItem (const orxSTRING widgetName) const;
+    virtual const orxSTRING GetSelectedItem (const orxSTRING widgetName) const;
+    virtual void            SetSelectedItem (const orxSTRING widgetName,
+					     const orxSTRING selectedItem);
 
-    const orxSTRING GetText (const orxSTRING widgetName) const;
+    virtual const orxSTRING GetText (const orxSTRING widgetName) const;
     /// Update widget text explicitly
-    void SetText (const orxSTRING widgetName, const orxSTRING text);
+    virtual int   SetText (const orxSTRING widgetName, const orxSTRING text);
 
     //! Fill a list box
-    void FillList (const orxSTRING widgetName,
+    virtual void FillList (const orxSTRING widgetName,
 	           const vector<const orxSTRING> &listItems);
 
     //! Handle a mouse click event from a widget
-    void OnMouseClick   (const orxSTRING widgetName);
+    virtual void OnMouseClick   (const orxSTRING widgetName);
     //! Handle a text accepted event from a widget
-    void OnTextAccepted (const orxSTRING widgetName);
+    virtual void OnTextAccepted (const orxSTRING widgetName);
 
 private:
     ScrollFrameWindow *m_scrollWindow;
     char m_windowName[255];
     //! Data source for all widgets
     RocketDataSource  *m_dataSource;
+    RocketListener    *m_listener;
 };
 
 #endif  // __WIDGETMANAGERROCKET_H__

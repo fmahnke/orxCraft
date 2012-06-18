@@ -16,7 +16,8 @@ using CEGUI::Combobox;
 using CEGUI::Listbox;
 using CEGUI::Window;
 
-void WidgetManagerCEGUI::Init (const orxSTRING widgetName, ScrollFrameWindow *scrollWindow)
+void WidgetManagerCEGUI::Init (const orxSTRING widgetName,
+			       ScrollFrameWindow *scrollWindow)
 {
     m_scrollWindow = scrollWindow;
     strcpy (m_windowName, widgetName);
@@ -102,6 +103,12 @@ const orxSTRING WidgetManagerCEGUI::GetSelectedItem
     return itemName;
 }
 
+void WidgetManagerCEGUI::SetSelectedItem (const orxSTRING widgetName,
+			                  const orxSTRING selectedItem)
+{
+    orxASSERT (false);
+}
+
 const orxSTRING WidgetManagerCEGUI::GetText (const orxSTRING widgetName) const
 {
     CEGUI::Window *rootWindow = CEGUI::System::getSingleton ().getGUISheet ();
@@ -111,13 +118,16 @@ const orxSTRING WidgetManagerCEGUI::GetText (const orxSTRING widgetName) const
     return widget->getText ().c_str ();
 }
 
-void WidgetManagerCEGUI::SetText (const orxSTRING widgetName, const orxSTRING text)
+int WidgetManagerCEGUI::SetText (const orxSTRING widgetName, const orxSTRING text)
 {
+    int status = 1;
+
     CEGUI::Window *rootWindow = CEGUI::System::getSingleton ().getGUISheet ();
     CEGUI::Window *window = rootWindow->getChild (m_windowName);
     CEGUI::Window *widget = window->getChild (widgetName);
 
     widget->setText (text);
+    return status;
 }
 
 void WidgetManagerCEGUI::FillList (const orxSTRING widgetName,

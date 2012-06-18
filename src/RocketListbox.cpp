@@ -12,7 +12,8 @@
 RocketListbox::RocketListbox (WidgetManager *manager) :
     ScrollListbox   (manager),
     m_dataTableName (NULL),
-    m_dataSource    (NULL)
+    m_dataSource    (NULL),
+    m_selection     (NULL)
 {
 }
 
@@ -52,6 +53,25 @@ void RocketListbox::Fill (const orxSTRING colName,
 
     // Update the associated data source
     m_dataSource->SetColumn (m_dataTableName, colName, listItems);
+}
+
+const orxSTRING RocketListbox::GetSelectedItems () const
+{
+    return m_selection;
+}
+
+void RocketListbox::SetSelectedItems (const orxSTRING text)
+{
+    orxASSERT (text != orxNULL);
+
+    int length = orxString_GetLength (text);
+
+    if (m_selection != orxNULL)
+    {
+	delete [] m_selection;
+    }
+    m_selection = new orxCHAR [length + 1];
+    orxString_NCopy (m_selection, text, 10);
 }
 
 RocketListbox::~RocketListbox ()

@@ -5,8 +5,8 @@
  *
  * The libRocket implementation of a Scroll GUI.
  */
-#ifndef __SCROLLGUIROCKET_H__
-#define __SCROLLGUIROCKET_H__
+#ifndef SCROLLGUIROCKET_H_
+#define SCROLLGUIROCKET_H_
 
 #include "Scroll.h"
 #include "Rocket/Core.h"
@@ -19,8 +19,6 @@ using Rocket::Core::ElementDocument;
 using Rocket::Core::Context;
 
 using std::vector;
-
-class RocketListener;
 
 /**
  *  Renders GUI items and sends input from Scroll to them.
@@ -46,11 +44,7 @@ public:
     {
 	return m_context;
     }
-    static inline RocketListener *GetListener ()
-    {
-	return &m_rocketListener;
-    }
-    void Input ();
+    void InputMouseMove ();
     void InputMouseDown ();
     void InputMouseUp ();
     void InputKeyPress (const orxSTRING orxKey);
@@ -65,7 +59,6 @@ private:
     SystemInterface           *m_sysInterface;
     vector<ElementDocument *>  m_documents;
     static Context            *m_context;
-    static RocketListener      m_rocketListener;
 };
 
-#endif  // __SCROLLGUIROCKET_H__
+#endif  // SCROLLGUIROCKET_H_

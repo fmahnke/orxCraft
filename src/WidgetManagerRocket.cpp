@@ -13,6 +13,7 @@
 #include "ScrollGUIRocket.h"
 #include "RocketListbox.h"
 #include "RocketDataSource.h"
+#include "RocketListener.h"
 
 using Rocket::Core::Context;
 using Rocket::Core::Element;
@@ -39,7 +40,20 @@ void AddListenerRecursive (EventListener *listener, Element *root)
 	 element = element->GetNextSibling ())
     {
 	element->AddEventListener ("keydown", listener);
+	element->AddEventListener ("mousedown", listener);
 	AddListenerRecursive (listener, element);
+    }
+}
+
+void RemoveListenerRecursive (EventListener *listener, Element *root)
+{
+    for (Element *element = root->GetFirstChild ();
+	 element != NULL;
+	 element = element->GetNextSibling ())
+    {
+	element->RemoveEventListener ("keydown", listener);
+	element->RemoveEventListener ("mousedown", listener);
+	RemoveListenerRecursive (listener, element);
     }
 }
 
@@ -47,29 +61,35 @@ void AddListenerRecursive (EventListener *listener, Element *root)
 
 WidgetManagerRocket::WidgetManagerRocket () :
     m_scrollWindow (NULL),
-    m_dataSource   (NULL)
+    m_dataSource   (NULL),
+    m_listener     (NULL)
 {
 };
 
 WidgetManagerRocket::~WidgetManagerRocket ()
 {
     delete m_dataSource;
+    widget_manager_rocket::RemoveListenerRecursive (
+	m_listener,
+	widget_manager_rocket::GetRootElement ());
+    delete m_listener;
 }
 
 void WidgetManagerRocket::Init (const orxSTRING widgetName,
 				ScrollFrameWindow *scrollWindow)
 {
     m_scrollWindow = scrollWindow;
+    // Setup window name
     strcpy (m_windowName, widgetName);
+    // Create event listener
+    m_listener     = new RocketListener (this);
 
     //! @todo Each window will need to pass a unique data source name
     m_dataSource = new RocketDataSource ("objectsectionlist");
 
     Element *root = widget_manager_rocket::GetRootElement ();
 
-    EventListener *listener =
-	reinterpret_cast<EventListener *> (ScrollGUIRocket::GetListener ());
-    widget_manager_rocket::AddListenerRecursive (listener, root);
+    widget_manager_rocket::AddListenerRecursive (m_listener, root);
     AddWidgetRecursive (root);
 }
 
@@ -146,15 +166,41 @@ const orxSTRING WidgetManagerRocket::GetSelectedItem
 {
     orxASSERT (widgetName != orxNULL);
 
-    return NULL;
+    RocketListbox *listbox =
+	reinterpret_cast<RocketListbox *> (FindWidget (widgetName));
+    return listbox->GetSelectedItems ();
 }
 
-void WidgetManagerRocket::SetText (const orxSTRING widgetName, const orxSTRING text)
+void WidgetManagerRocket::SetSelectedItem (const orxSTRING widgetName,
+                                           const orxSTRING selectedItem)
 {
-    Element *root = widget_manager_rocket::GetRootElement ();
+    orxASSERT (widgetName != orxNULL);
+    orxASSERT (selectedItem != orxNULL);
 
-    Element *element = root->GetElementById (widgetName);
-    element->SetAttribute ("value", "mytext");
+    RocketListbox *listbox =
+	reinterpret_cast<RocketListbox *> (FindWidget (widgetName));
+
+    listbox->SetSelectedItems (selectedItem);
+}
+
+int WidgetManagerRocket::SetText (const orxSTRING widgetName, const orxSTRING text)
+{
+    orxASSERT (widgetName != orxNULL);
+    orxASSERT (text       != orxNULL);
+
+    int status = 0;
+
+    Element *root = widget_manager_rocket::GetRootElement ();
+    if (root != orxNULL)
+    {
+	Element *element = root->GetElementById (widgetName);
+	if (element != orxNULL)
+	{
+	    element->SetAttribute ("value", text);
+	    status = 1;
+	}
+    }
+    return status;
 }
 
 void WidgetManagerRocket::FillList (const orxSTRING widgetName,
@@ -169,24 +215,30 @@ void WidgetManagerRocket::FillList (const orxSTRING widgetName,
 	Element *widget = root->GetElementById (widgetName);
 	if (widget != orxNULL)
 	{
-	    ElementDataGrid *datagrid =
-		reinterpret_cast<ElementDataGrid *> (widget);
-	    /*
-	     *  This wouldn't work if more than one field is shown in a Rocket
-	     *  DataGrid column.
-	     */
-	    const ElementDataGrid::Column *firstColumn = datagrid->GetColumn (0);
-	    const orxSTRING fieldName = firstColumn->fields.at (0).CString ();
+	    const orxSTRING tag = widget->GetTagName ().CString ();
+	    if (orxString_ICompare (tag, "datagrid") == 0)
+	    {
+		ElementDataGrid *datagrid =
+		    reinterpret_cast<ElementDataGrid *> (widget);
+		/*
+		 *  This wouldn't work if more than one field is shown in a Rocket
+		 *  DataGrid column.
+		 */
+		const ElementDataGrid::Column *firstColumn =
+		    datagrid->GetColumn (0);
+		if (firstColumn != orxNULL)
+		{
+		    const orxSTRING fieldName =
+			firstColumn->fields.at (0).CString ();
 
-	    RocketListbox *listbox =
-		(RocketListbox *) FindWidget (widgetName);
-	    if (listbox != orxNULL)
-	    {
-		listbox->Fill (fieldName, listItems);
-	    }
-	    else
-	    {
-		//orxASSERT (false);
+		    RocketListbox *listbox =
+			(RocketListbox *) FindWidget (widgetName);
+		    orxASSERT (listbox != orxNULL);
+		    if (listbox != orxNULL)
+		    {
+			listbox->Fill (fieldName, listItems);
+		    }
+		}
 	    }
 	}
     }

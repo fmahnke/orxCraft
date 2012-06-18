@@ -5,8 +5,8 @@
 		<style>
 			body
 			{
-				width: 600px;
-				height: 525px;
+				width: 200px;
+				height: 400px;
 				
 			}
 			
@@ -27,3 +27,4 @@
 </datagrid>
 </body>
 </rml>
+

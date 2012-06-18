@@ -12,11 +12,8 @@
 #include "RocketRenderInterfaceOrx.h"
 #include "RocketFileInterface.h"
 
-#include "RocketListener.h"
-
 static RocketFileInterface* file_interface = NULL;
 Rocket::Core::Context *ScrollGUIRocket::m_context = NULL;
-RocketListener ScrollGUIRocket::m_rocketListener = RocketListener ();
 
 ScrollGUIRocket::ScrollGUIRocket () :
     m_renderInterface (NULL),
@@ -34,8 +31,8 @@ void ScrollGUIRocket::OnCreate ()
     m_sysInterface    = new OrxSystemInterface ();
     Rocket::Core::SetSystemInterface (m_sysInterface);
 
-	file_interface = new RocketFileInterface("");
-	Rocket::Core::SetFileInterface(file_interface);
+    file_interface = new RocketFileInterface("");
+    Rocket::Core::SetFileInterface(file_interface);
 
     Rocket::Core::String font_names[4];
     font_names[0] = "Delicious-Roman.otf";
@@ -79,7 +76,7 @@ void ScrollGUIRocket::OnDelete ()
     m_renderInterface->RemoveReference ();
 }
 
-void ScrollGUIRocket::Input ()
+void ScrollGUIRocket::InputMouseMove ()
 {
     orxVECTOR mousePos;
     orxMouse_GetPosition (&mousePos);

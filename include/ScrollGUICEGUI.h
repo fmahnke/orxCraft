@@ -1,3 +1,5 @@
+#ifndef SCROLLGUICEGUI_H_
+#define SCROLLGUICEGUI_H_
 /**
  * @file ScrollGUICEGUI.h
  * @date 2012-06-08
@@ -5,9 +7,6 @@
  *
  * The CEGUI implementation of a Scroll GUI
  */
-#ifndef __SCROLLGUICEGUI_H__
-#define __SCROLLGUICEGUI_H__
-
 #include "Scroll.h"
 
 #include "CEGUI.h"
@@ -21,7 +20,7 @@ class ScrollGUICEGUI : public ScrollObject
 public:
     ScrollGUICEGUI ();
 
-    void Input ();
+    void InputMouseMove ();
     void InputMouseDown ();
     void InputMouseUp ();
     void InputKeyPress (const orxSTRING orxKey);
@@ -37,4 +36,4 @@ private:
     CEGUI::OpenGLRenderer *m_glRenderer;
 };
 
-#endif  // __SCROLLGUICEGUI_H__
+#endif  // SCROLLGUICEGUI_H_

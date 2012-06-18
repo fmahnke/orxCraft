@@ -37,10 +37,12 @@ public:
     virtual const orxSTRING GetWindowName () const = 0;
 
     virtual const orxSTRING GetSelectedItem (const orxSTRING widgetName) const = 0;
+    virtual void            SetSelectedItem (const orxSTRING widgetName,
+					     const orxSTRING selectedItem) = 0;
 
     virtual const orxSTRING GetText (const orxSTRING widgetName) const = 0;
     /// Update widget text explicitly
-    virtual void SetText (const orxSTRING widgetName, const orxSTRING text) = 0;
+    virtual int   SetText (const orxSTRING widgetName, const orxSTRING text) = 0;
 
     //! Fill a list box
     virtual void FillList (const orxSTRING widgetName,
