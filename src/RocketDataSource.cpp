@@ -57,7 +57,7 @@ void RocketDataSource::GetRow(Rocket::Core::StringList& row,
      *  Haven't figured out why, but Rocket wants results for some
      *  #child_data_source column that isn't in our database.
      */
-    for (int i = 0; i < columns.size () - 1; i++)
+    for (unsigned int i = 0; i < columns.size () - 1; i++)
     {
 	int columnIndex = GetColumnIndex (table.CString (),
 					  columns.at (i).CString ());
@@ -69,7 +69,7 @@ int RocketDataSource::GetNumRows(const Rocket::Core::String& table)
 {
     int maxRowsInAnyColumn = 0;
     int tableIndex = GetTableIndex (table.CString ());
-    for (int i = 0; i < m_columnNames.at (tableIndex).size (); i++)
+    for (unsigned int i = 0; i < m_columnNames.at (tableIndex).size (); i++)
     {
 	int rowsInColumn = m_items.at (tableIndex).at (i).size ();
 	if (rowsInColumn > maxRowsInAnyColumn)
@@ -157,7 +157,7 @@ int RocketDataSource::GetColumnIndex (const orxSTRING tableName,
     orxASSERT (columnName != orxNULL);
 
     int columnIndex = -1;
-    int tableIndex = GetTableIndex (tableName);
+    unsigned int tableIndex = GetTableIndex (tableName);
     // Table exists?
     if (tableIndex != -1)
     {
