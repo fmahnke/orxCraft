@@ -31,7 +31,7 @@
 	Repeat<input id="ObjRepeatX" type="text" size="3" />
 		<input id="ObjRepeatY" type="text" size="3" />
 		<input id="ObjRepeatZ" type="text" size="3" /><br /> 
-	Alpha<input id="ObjAlpha" type="text" size="3" maxlength="3" />
+	Alpha<input id="ObjAlpha" type="text" size="4" maxlength="3" />
 	Scale<input id="ObjScaleX" type="text" size="3" />
 		<input id="ObjScaleY" type="text" size="3" />
 		<input id="ObjScaleZ" type="text" size="3" /><br />

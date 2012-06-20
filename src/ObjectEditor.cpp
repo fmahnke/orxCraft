@@ -144,11 +144,11 @@ void ObjectEditor::UpdateFields () const
 	m_widgetManager->SetText ("ObjPos2", buffer);
 	// Repeat
 	ConfigType::VectorToString ("Repeat", 0, buffer);
-	m_widgetManager->SetText ("ObjRepeatX", buffer);
+	m_widgetManager->SetText ("ObjRepeat0", buffer);
 	ConfigType::VectorToString ("Repeat", 1, buffer);
-	m_widgetManager->SetText ("ObjRepeatY", buffer);
+	m_widgetManager->SetText ("ObjRepeat1", buffer);
 	ConfigType::VectorToString ("Repeat", 2, buffer);
-	m_widgetManager->SetText ("ObjRepeatZ", buffer);
+	m_widgetManager->SetText ("ObjRepeat2", buffer);
 	// Rotation
 	ConfigType::FloatToString (orxConfig_GetFloat ("Rotation"), buffer);
 	m_widgetManager->SetText ("ObjRotation", buffer);
@@ -161,11 +161,11 @@ void ObjectEditor::UpdateFields () const
 	m_widgetManager->SetText ("ObjSpeedZ", buffer);
 	// Scale
 	ConfigType::VectorToString ("Scale", 0, buffer);
-	m_widgetManager->SetText ("ObjScaleX", buffer);
+	m_widgetManager->SetText ("ObjScale0", buffer);
 	ConfigType::VectorToString ("Scale", 1, buffer);
-	m_widgetManager->SetText ("ObjScaleY", buffer);
+	m_widgetManager->SetText ("ObjScale1", buffer);
 	ConfigType::VectorToString ("Scale", 2, buffer);
-	m_widgetManager->SetText ("ObjScaleZ", buffer);
+	m_widgetManager->SetText ("ObjScale2", buffer);
 	// ShaderList
 	//! @todo ShaderList
 	// SoundList
@@ -215,7 +215,9 @@ void ObjectEditor::HandleTextAccepted (const orxSTRING widgetName)
     }
     else if (orxString_Compare (widgetName, "ObjAnimFreq") == 0)
     {
-	orxASSERT (false);
+	orxFLOAT animFreq;
+	orxString_ToFloat (GetText ("ObjAnimFreq"), &animFreq, orxNULL);
+	orxConfig_SetFloat ("AnimationFrequency", animFreq);
     }
     else if (orxString_Compare (widgetName, "ObjAnimSet") == 0)
     {
@@ -260,7 +262,9 @@ void ObjectEditor::HandleTextAccepted (const orxSTRING widgetName)
     }
     else if (orxString_Compare (widgetName, "ObjLifeTime") == 0)
     {
-	orxASSERT (false);
+	orxFLOAT lifeTime;
+	orxString_ToFloat (GetText ("ObjLifeTime"), &lifeTime, orxNULL);
+	orxConfig_SetFloat ("LifeTime", lifeTime);
     }
     else if (orxString_Compare (widgetName, "ObjParentCam") == 0)
     {
@@ -279,7 +283,14 @@ void ObjectEditor::HandleTextAccepted (const orxSTRING widgetName)
     }
     else if (orxString_SearchString (widgetName, "ObjRepeat") > 0)
     {
-	orxASSERT (false);
+	orxFLOAT XFloat;
+	orxFLOAT YFloat;
+	orxFLOAT ZFloat;
+	orxString_ToFloat (GetText ("ObjRepeat0"), &XFloat, orxNULL);
+	orxString_ToFloat (GetText ("ObjRepeat1"), &YFloat, orxNULL);
+	orxString_ToFloat (GetText ("ObjRepeat2"), &ZFloat, orxNULL);
+	orxVECTOR repeat = { XFloat, YFloat, ZFloat };
+	orxConfig_SetVector ("Repeat", &repeat);
     }
     else if (orxString_Compare (widgetName, "ObjRotation") == 0)
     {
@@ -296,6 +307,17 @@ void ObjectEditor::HandleTextAccepted (const orxSTRING widgetName)
 	orxString_ToFloat (GetText ("ObjSpeedZ"), &newZFloat, orxNULL);
 	orxVECTOR newSpeed = { newXFloat, newYFloat, newZFloat };
 	orxConfig_SetVector ("Speed", &newSpeed);
+    }
+    else if (orxString_SearchString (widgetName, "ObjScale") > 0)
+    {
+	orxFLOAT XFloat;
+	orxFLOAT YFloat;
+	orxFLOAT ZFloat;
+	orxString_ToFloat (GetText ("ObjScale0"), &XFloat, orxNULL);
+	orxString_ToFloat (GetText ("ObjScale1"), &YFloat, orxNULL);
+	orxString_ToFloat (GetText ("ObjScale2"), &ZFloat, orxNULL);
+	orxVECTOR scale = { XFloat, YFloat, ZFloat };
+	orxConfig_SetVector ("Scale", &scale);
     }
     else if (orxString_Compare (widgetName, "ObjShaderList") == 0)
     {

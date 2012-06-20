@@ -81,7 +81,8 @@ void FXSlotEditorWindow::UpdateFields () const
     ConfigType::FloatToString (orxConfig_GetFloat ("StartTime"), buffer);
     m_widgetManager->SetText ("FXSlotStartTime", buffer);
     // EndTime
-    /** @todo EndTime control */
+    ConfigType::FloatToString (orxConfig_GetFloat ("EndTime"), buffer);
+    m_widgetManager->SetText ("FXSlotEndTime", buffer);
     // StartValue
     ConfigType::VectorToString ("StartValue", 0, buffer);
     m_widgetManager->SetText ("FXSlotStartValue0", buffer);
@@ -144,50 +145,81 @@ void FXSlotEditorWindow::HandleTextAccepted (const orxSTRING widgetName)
     // Push config section of edited object
     orxConfig_PushSection (m_context);
 
-    // Update config
+    // Update Orx config in memory from value entered in control
     if (orxString_Compare (widgetName, "FXSlotType") == 0)
     {
+	orxConfig_SetString ("Type", GetText ("FXSlotType"));
     }
     else if (orxString_Compare (widgetName, "FXSlotCurve") == 0)
     {
+	orxConfig_SetString ("Curve", GetText ("FXSlotCurve"));
     }
     else if (orxString_Compare (widgetName, "FXSlotStartTime") == 0)
     {
+	orxFLOAT startTime;
+	orxString_ToFloat (GetText ("FXSlotStartTime"), &startTime, orxNULL);
+	orxConfig_SetFloat ("StartTime", startTime);
     }
     else if (orxString_Compare (widgetName, "FXSlotEndTime") == 0)
     {
+	orxFLOAT endTime;
+	orxString_ToFloat (GetText ("FXSlotEndTime"), &endTime, orxNULL);
+	orxConfig_SetFloat ("EndTime", endTime);
     }
     else if (orxString_Compare (widgetName, "FXSlotStartValue") > 0)
     {
+	orxFLOAT XFloat;
+	orxFLOAT YFloat;
+	orxFLOAT ZFloat;
+	orxString_ToFloat (GetText ("FXSlotStartValue0"), &XFloat, orxNULL);
+	orxString_ToFloat (GetText ("FXSlotStartValue1"), &YFloat, orxNULL);
+	orxString_ToFloat (GetText ("FXSlotStartValue2"), &ZFloat, orxNULL);
+	orxVECTOR startValue = { XFloat, YFloat, ZFloat };
+	orxConfig_SetVector ("StartValue", &startValue);
     }
     else if (orxString_Compare (widgetName, "FXSlotEndValue") > 0) 
     {
-	orxFLOAT newXFloat;
-	orxFLOAT newYFloat;
-	orxFLOAT newZFloat;
-	orxString_ToFloat (GetText ("FXSlotEndValue0"), &newXFloat, orxNULL);
-	orxString_ToFloat (GetText ("FXSlotEndValue1"), &newYFloat, orxNULL);
-	orxString_ToFloat (GetText ("FXSlotEndValue2"), &newZFloat, orxNULL);
-	orxVECTOR newPosition = { newXFloat, newYFloat, newZFloat };
-	orxConfig_SetVector ("EndValue", &newPosition);
+	orxFLOAT XFloat;
+	orxFLOAT YFloat;
+	orxFLOAT ZFloat;
+	orxString_ToFloat (GetText ("FXSlotEndValue0"), &XFloat, orxNULL);
+	orxString_ToFloat (GetText ("FXSlotEndValue1"), &YFloat, orxNULL);
+	orxString_ToFloat (GetText ("FXSlotEndValue2"), &ZFloat, orxNULL);
+	orxVECTOR endValue = { XFloat, YFloat, ZFloat };
+	orxConfig_SetVector ("EndValue", &endValue);
     }
     else if (orxString_Compare (widgetName, "FXSlotPhase") == 0)
     {
+	orxFLOAT phase;
+	orxString_ToFloat (GetText ("FXSlotPhase"), &phase, orxNULL);
+	orxConfig_SetFloat ("Phase", phase);
     }
     else if (orxString_Compare (widgetName, "FXSlotPeriod") == 0)
     {
+	orxFLOAT period;
+	orxString_ToFloat (GetText ("FXSlotPeriod"), &period, orxNULL);
+	orxConfig_SetFloat ("Period", period);
     }
     else if (orxString_Compare (widgetName, "FXSlotAbsolute") == 0)
     {
     }
     else if (orxString_Compare (widgetName, "FXSlotAcceleration") == 0)
     {
+	orxFLOAT accel;
+	orxString_ToFloat (GetText ("FXSlotAcceleration"), &accel, orxNULL);
+	orxConfig_SetFloat ("Acceleration", accel);
     }
     else if (orxString_Compare (widgetName, "FXSlotAmplification") == 0)
     {
+	orxFLOAT ampli;
+	orxString_ToFloat (GetText ("FXSlotAmplification"), &ampli, orxNULL);
+	orxConfig_SetFloat ("Amplification", ampli);
     }
     else if (orxString_Compare (widgetName, "FXSlotPow") == 0)
     {
+	orxFLOAT pow;
+	orxString_ToFloat (GetText ("FXSlotPow"), &pow, orxNULL);
+	orxConfig_SetFloat ("Pow", pow);
     }
     else if (orxString_Compare (widgetName, "FXSlotUseRotation") == 0)
     {

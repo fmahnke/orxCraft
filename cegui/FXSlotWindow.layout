@@ -35,6 +35,12 @@
                 <Property Name="VertExtent" Value="12.4227" />
                 <Property Name="UnifiedAreaRect" Value="{{0.347047,0},{0.128049,0},{0.456826,0},{0.175305,0}}" />
             </Window>
+            <Window Type="TaharezLook/Editbox" Name="FXSlotEndTime" >
+                <Property Name="Text" Value="999.99" />
+                <Property Name="MaxTextLength" Value="1073741823" />
+                <Property Name="UnifiedAreaRect" Value="{{0,250},{0,85},{0,310},{0,105}}" />
+                <Property Name="TextParsingEnabled" Value="False" />
+            </Window>
             <Window Type="TaharezLook/StaticText" Name="LabelStartValue" >
                 <Property Name="Text" Value="StartValue" />
                 <Property Name="HorzExtent" Value="56" />

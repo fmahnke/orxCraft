@@ -253,17 +253,17 @@ true</Property>
                 <Property Name="UnifiedAreaRect" Value="{{0.32046,0},{0.701038,0},{0.57046,0},{0.731038,0}}" />
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjRepeatX" >
+            <Window Type="TaharezLook/Editbox" Name="ObjRepeat0" >
                 <Property Name="MaxTextLength" Value="1073741823" />
                 <Property Name="UnifiedAreaRect" Value="{{0.583742,0},{0.171988,0},{0.709193,0},{0.201987,0}}" />
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjRepeatY" >
+            <Window Type="TaharezLook/Editbox" Name="ObjRepeat1" >
                 <Property Name="MaxTextLength" Value="1073741823" />
                 <Property Name="UnifiedAreaRect" Value="{{0.715495,0},{0.171988,0},{0.841193,0},{0.201988,0}}" />
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjRepeatZ" >
+            <Window Type="TaharezLook/Editbox" Name="ObjRepeat2" >
                 <Property Name="MaxTextLength" Value="1073741823" />
                 <Property Name="UnifiedAreaRect" Value="{{0.847247,0},{0.171434,0},{0.973193,0},{0.201434,0}}" />
                 <Property Name="TextParsingEnabled" Value="False" />
@@ -321,17 +321,17 @@ true</Property>
                 <Property Name="UnifiedAreaRect" Value="{{0.275498,0},{0.226595,0},{0.401428,0},{0.260908,0}}" />
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjScaleX" >
+            <Window Type="TaharezLook/Editbox" Name="ObjScale0" >
                 <Property Name="MaxTextLength" Value="1073741823" />
                 <Property Name="UnifiedAreaRect" Value="{{0.583742,0},{0.202824,0},{0.709193,0},{0.232823,0}}" />
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjScaleY" >
+            <Window Type="TaharezLook/Editbox" Name="ObjScale1" >
                 <Property Name="MaxTextLength" Value="1073741823" />
                 <Property Name="UnifiedAreaRect" Value="{{0.715495,0},{0.202824,0},{0.841193,0},{0.232824,0}}" />
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjScaleZ" >
+            <Window Type="TaharezLook/Editbox" Name="ObjScale2" >
                 <Property Name="MaxTextLength" Value="1073741823" />
                 <Property Name="UnifiedAreaRect" Value="{{0.847247,0},{0.202824,0},{0.973193,0},{0.232443,0}}" />
                 <Property Name="TextParsingEnabled" Value="False" />
