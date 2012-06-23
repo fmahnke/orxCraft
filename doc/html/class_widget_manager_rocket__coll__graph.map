@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_widget_manager.html" title="Each window can have an instance of the widget manager." alt="" coords="386,17,499,44"/>
+<area shape="rect" id="node4" href="$class_scroll_frame_window.html" title="Interface for a Window." alt="" coords="747,34,885,61"/>
+<area shape="rect" id="node10" href="$class_rocket_listener.html" title="RocketListener" alt="" coords="761,85,871,112"/>
+<area shape="rect" id="node13" href="$class_rocket_data_source.html" title="RocketDataSource" alt="" coords="751,157,881,184"/>
+</map>

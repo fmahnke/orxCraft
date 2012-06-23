@@ -1,0 +1,13 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_scroll_checkbox.html" title="Interface for a Checkbox widget." alt="" coords="14,80,127,107"/>
+<area shape="rect" id="node7" href="$class_scroll_combobox.html" title="Base class for a Combobox (drop down list) widget." alt="" coords="157,80,275,107"/>
+<area shape="rect" id="node11" href="$class_scroll_editbox.html" title="Base class for an Editbox widget." alt="" coords="303,80,401,107"/>
+<area shape="rect" id="node15" href="$class_scroll_listbox.html" title="Base class for a Listbox widget." alt="" coords="433,80,529,107"/>
+<area shape="rect" id="node21" href="$class_scroll_push_button.html" title="Base class for a Push Button widget." alt="" coords="623,80,745,107"/>
+<area shape="rect" id="node5" href="$class_c_e_g_u_i_checkbox.html" title="CEGUI implementation of a Checkbox." alt="" coords="5,155,125,181"/>
+<area shape="rect" id="node9" href="$class_c_e_g_u_i_combobox.html" title="CEGUI implementation of a Combobox." alt="" coords="150,155,273,181"/>
+<area shape="rect" id="node13" href="$class_c_e_g_u_i_editbox.html" title="CEGUI Implementation of an Editbox." alt="" coords="299,155,405,181"/>
+<area shape="rect" id="node17" href="$class_c_e_g_u_i_listbox.html" title="CEGUI Implementation of a Listbox." alt="" coords="429,155,533,181"/>
+<area shape="rect" id="node19" href="$class_rocket_listbox.html" title="libRocket Implementation of a Listbox" alt="" coords="558,155,663,181"/>
+<area shape="rect" id="node23" href="$class_c_e_g_u_i_push_button.html" title="CEGUI Implementation of a Push Button." alt="" coords="688,155,819,181"/>
+</map>

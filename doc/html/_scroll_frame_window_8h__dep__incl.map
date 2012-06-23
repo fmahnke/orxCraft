@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$_f_x_slot_editor_window_8h.html" title="include/FXSlotEditorWindow.h" alt="" coords="59,80,255,107"/>
+<area shape="rect" id="node9" href="$_info_window_8h.html" title="include/InfoWindow.h" alt="" coords="280,80,424,107"/>
+<area shape="rect" id="node14" href="$_object_editor_8h.html" title="include/ObjectEditor.h" alt="" coords="449,80,599,107"/>
+<area shape="rect" id="node19" href="$_c_e_g_u_i_checkbox_8cpp.html" title="src/CEGUICheckbox.cpp" alt="" coords="623,80,789,107"/>
+<area shape="rect" id="node21" href="$_widget_manager_c_e_g_u_i_8cpp.html" title="src/WidgetManagerCEGUI.cpp" alt="" coords="815,80,1015,107"/>
+<area shape="rect" id="node23" href="$_widget_manager_rocket_8cpp.html" title="src/WidgetManagerRocket.cpp" alt="" coords="1039,80,1240,107"/>
+<area shape="rect" id="node5" href="$_f_x_slot_editor_window_8cpp.html" title="src/FXSlotEditorWindow.cpp" alt="" coords="5,155,192,181"/>
+<area shape="rect" id="node7" href="$orxcraft_8cpp.html" title="src/orxcraft.cpp" alt="" coords="216,155,328,181"/>
+<area shape="rect" id="node11" href="$_info_window_8cpp.html" title="src/InfoWindow.cpp" alt="" coords="353,155,487,181"/>
+<area shape="rect" id="node16" href="$_object_editor_8cpp.html" title="src/ObjectEditor.cpp" alt="" coords="512,155,653,181"/>
+</map>

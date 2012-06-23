@@ -11,7 +11,7 @@
 #include "WidgetManagerCEGUI.h"
 #endif
 #include "OrxCraft.h"
-#include "ConfigType.h"
+#include "orx_config_util.h"
 
 ObjectEditor::ObjectEditor () :
     m_object (NULL)
@@ -36,19 +36,37 @@ void ObjectEditor::SetupFields ()
 	OrxCraft::GetInstance ().GetGraphicList ();
 
     m_widgetManager->FillList ("ObjGraphic", propList);
-    propList.clear ();
 
     orxConfig_PushSection ("ObjectEditor");
 
-    int counter = orxConfig_GetListCounter ("BlendMode");
-    for (int i = 0; i < counter; i++)
-    {
-	// Get and store next property
-	const orxSTRING property = orxConfig_GetListString ("BlendMode", i);
-	propList.push_back (property);
-    }
-    // Fill field with list of properties
+    // Fill combo boxes
+    propList.clear ();
+    orx_config_util::GetListIntoVector ("AutoScroll", propList);
+    m_widgetManager->FillList ("ObjAutoScroll", propList);
+
+    propList.clear ();
+    orx_config_util::GetListIntoVector ("BlendMode", propList);
     m_widgetManager->FillList ("ObjBlendMode", propList);
+
+    propList.clear ();
+    orx_config_util::GetListIntoVector ("DepthScale", propList);
+    m_widgetManager->FillList ("ObjDepthScale", propList);
+
+    propList.clear ();
+    orx_config_util::GetListIntoVector ("Flip", propList);
+    m_widgetManager->FillList ("ObjFlip", propList);
+
+    propList.clear ();
+    orx_config_util::GetListIntoVector ("Smoothing", propList);
+    m_widgetManager->FillList ("ObjSmoothing", propList);
+
+    propList.clear ();
+    orx_config_util::GetListIntoVector ("UseParentSpace", propList);
+    m_widgetManager->FillList ("ObjUseParentSpace", propList);
+
+    propList.clear ();
+    orx_config_util::GetListIntoVector ("UseRelativeSpeed", propList);
+    m_widgetManager->FillList ("ObjUseRelativeSpeed", propList);
 
     orxConfig_PopSection ();
 }
@@ -84,94 +102,95 @@ void ObjectEditor::UpdateFields () const
 	orxConfig_PushSection (name);
 
 	// Alpha
-	ConfigType::FloatToString (orxConfig_GetFloat ("Alpha"), buffer);
+	orx_config_util::FloatToString (orxConfig_GetFloat ("Alpha"), buffer);
 	m_widgetManager->SetText ("ObjAlpha", buffer);
 	// AngularVelocity
-	ConfigType::FloatToString (orxConfig_GetFloat ("AngularVelocity"), buffer);
+	orx_config_util::FloatToString (orxConfig_GetFloat ("AngularVelocity"), buffer);
 	m_widgetManager->SetText ("ObjAngularVelocity", buffer);
 	// AnimationFrequency
-	ConfigType::FloatToString (orxConfig_GetFloat ("AnimationFrequency"), buffer);
+	orx_config_util::FloatToString (orxConfig_GetFloat ("AnimationFrequency"), buffer);
 	m_widgetManager->SetText ("ObjAnimFreq", buffer);
 	// AnimationSet
-	const orxSTRING aS = ConfigType::ListToString ("AnimationSet");
+	const orxSTRING aS = orx_config_util::ListToString ("AnimationSet");
 	m_widgetManager->SetText ("ObjAnimSet", aS);
 	// AutoScroll
-	const orxSTRING aSc = ConfigType::ListToString ("AutoScroll");
+	const orxSTRING aSc = orx_config_util::ListToString ("AutoScroll");
 	m_widgetManager->SetText ("ObjAutoScroll", aS);
 	// BlendMode
-	const orxSTRING bl = ConfigType::ListToString ("BlendMode");
+	const orxSTRING bl = orx_config_util::ListToString ("BlendMode");
 	m_widgetManager->SetText ("ObjBlendMode", aS);
 	// Body
-	const orxSTRING body = ConfigType::ListToString ("Body");
+	const orxSTRING body = orx_config_util::ListToString ("Body");
 	m_widgetManager->SetText ("ObjBody", aS);
 	// ChildList
 	/** @todo ChildList */
 	// ChildJointList
 	/** @todo ChildJointList */
 	// Clock
-	const orxSTRING clock = ConfigType::ListToString ("Clock");
+	const orxSTRING clock = orx_config_util::ListToString ("Clock");
 	m_widgetManager->SetText ("ObjClock", clock);
 	// Color
-	ConfigType::VectorToString ("Color", 0, buffer);
+	orx_config_util::VectorToString ("Color", 0, buffer);
 	m_widgetManager->SetText ("ObjColor0", buffer);
-	ConfigType::VectorToString ("Color", 1, buffer);
+	orx_config_util::VectorToString ("Color", 1, buffer);
 	m_widgetManager->SetText ("ObjColor1", buffer);
-	ConfigType::VectorToString ("Color", 2, buffer);
+	orx_config_util::VectorToString ("Color", 2, buffer);
 	m_widgetManager->SetText ("ObjColor2", buffer);
 	// DepthScale
-	/** @todo DepthScale */
+	//orx_config_util::BoolToString (orxConfig_GetBool ("DepthScale"), buffer);
+	//m_widgetManager->SetText ("ObjDepthScale", buffer);
 	// Graphic
-	const orxSTRING graphic = ConfigType::ListToString ("Graphic");
+	const orxSTRING graphic = orx_config_util::ListToString ("Graphic");
 	m_widgetManager->SetText ("ObjGraphic", graphic);
 	// Flip
-	const orxSTRING flip = ConfigType::ListToString ("Flip");
+	const orxSTRING flip = orx_config_util::ListToString ("Flip");
 	m_widgetManager->SetText ("ObjFlip", flip);
 	// FXList
-	const orxSTRING fxList = ConfigType::ListToString ("FXList");
+	const orxSTRING fxList = orx_config_util::ListToString ("FXList");
 	m_widgetManager->SetText ("ObjFXList", fxList);
 	// LifeTime
-	ConfigType::FloatToString (orxConfig_GetFloat ("LifeTime"), buffer);
+	orx_config_util::FloatToString (orxConfig_GetFloat ("LifeTime"), buffer);
 	m_widgetManager->SetText ("ObjLifeTime", buffer);
 	// ParentCamera
-	const orxSTRING parentCam = ConfigType::ListToString ("ParentCamera");
+	const orxSTRING parentCam = orx_config_util::ListToString ("ParentCamera");
 	m_widgetManager->SetText ("ObjParentCam", parentCam);
 	// Position
-	ConfigType::VectorToString ("Position", 0, buffer);
+	orx_config_util::VectorToString ("Position", 0, buffer);
 	m_widgetManager->SetText ("ObjPos0", buffer);
-	ConfigType::VectorToString ("Position", 1, buffer);
+	orx_config_util::VectorToString ("Position", 1, buffer);
 	m_widgetManager->SetText ("ObjPos1", buffer);
-	ConfigType::VectorToString ("Position", 2, buffer);
+	orx_config_util::VectorToString ("Position", 2, buffer);
 	m_widgetManager->SetText ("ObjPos2", buffer);
 	// Repeat
-	ConfigType::VectorToString ("Repeat", 0, buffer);
+	orx_config_util::VectorToString ("Repeat", 0, buffer);
 	m_widgetManager->SetText ("ObjRepeat0", buffer);
-	ConfigType::VectorToString ("Repeat", 1, buffer);
+	orx_config_util::VectorToString ("Repeat", 1, buffer);
 	m_widgetManager->SetText ("ObjRepeat1", buffer);
-	ConfigType::VectorToString ("Repeat", 2, buffer);
+	orx_config_util::VectorToString ("Repeat", 2, buffer);
 	m_widgetManager->SetText ("ObjRepeat2", buffer);
 	// Rotation
-	ConfigType::FloatToString (orxConfig_GetFloat ("Rotation"), buffer);
+	orx_config_util::FloatToString (orxConfig_GetFloat ("Rotation"), buffer);
 	m_widgetManager->SetText ("ObjRotation", buffer);
 	// Speed
-	ConfigType::VectorToString ("Speed", 0, buffer);
+	orx_config_util::VectorToString ("Speed", 0, buffer);
 	m_widgetManager->SetText ("ObjSpeedX", buffer);
-	ConfigType::VectorToString ("Speed", 1, buffer);
+	orx_config_util::VectorToString ("Speed", 1, buffer);
 	m_widgetManager->SetText ("ObjSpeedY", buffer);
-	ConfigType::VectorToString ("Speed", 2, buffer);
+	orx_config_util::VectorToString ("Speed", 2, buffer);
 	m_widgetManager->SetText ("ObjSpeedZ", buffer);
 	// Scale
-	ConfigType::VectorToString ("Scale", 0, buffer);
+	orx_config_util::VectorToString ("Scale", 0, buffer);
 	m_widgetManager->SetText ("ObjScale0", buffer);
-	ConfigType::VectorToString ("Scale", 1, buffer);
+	orx_config_util::VectorToString ("Scale", 1, buffer);
 	m_widgetManager->SetText ("ObjScale1", buffer);
-	ConfigType::VectorToString ("Scale", 2, buffer);
+	orx_config_util::VectorToString ("Scale", 2, buffer);
 	m_widgetManager->SetText ("ObjScale2", buffer);
 	// ShaderList
 	//! @todo ShaderList
 	// SoundList
 	//! @todo SoundList
 	// Spawner
-	const orxSTRING spawner = ConfigType::ListToString ("Spawner");
+	const orxSTRING spawner = orx_config_util::ListToString ("Spawner");
 	m_widgetManager->SetText ("ObjSpawner", spawner);
 	// Smoothing
 	orxBOOL smoothing = orxConfig_GetBool ("Smoothing");
@@ -250,6 +269,13 @@ void ObjectEditor::HandleTextAccepted (const orxSTRING widgetName)
 	orxString_ToFloat (GetText ("ObjColor2"), &newBFloat, orxNULL);
 	orxVECTOR newColor = { newRFloat, newGFloat, newBFloat };
 	orxConfig_SetVector ("Color", &newColor);
+    }
+    else if (orxString_Compare (widgetName, "ObjDepthScale") == 0)
+    {
+	const orxSTRING depthScaleStr = GetText ("ObjDepthScale");
+	orxBOOL depthScaleBool;
+	orxString_ToBool (depthScaleStr, &depthScaleBool, orxNULL);
+	orxConfig_SetBool ("DepthScale", depthScaleBool);
     }
     else if (orxString_Compare (widgetName, "ObjGraphic") == 0)
     {

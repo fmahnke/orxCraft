@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_scroll_widget.html" title="Base class for any type of user interface widget." alt="" coords="7,187,103,213"/>
+<area shape="rect" id="node4" href="$class_widget_manager.html" title="Each window can have an instance of the widget manager." alt="" coords="98,96,211,123"/>
+<area shape="rect" id="node6" href="$class_scroll_frame_window.html" title="Interface for a Window." alt="" coords="173,187,312,213"/>
+</map>

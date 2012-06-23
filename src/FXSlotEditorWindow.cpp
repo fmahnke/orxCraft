@@ -12,7 +12,7 @@
 #include "WidgetManagerCEGUI.h"
 #endif
 #include "OrxCraft.h"
-#include "ConfigType.h"
+#include "orx_config_util.h"
 
 void FXSlotEditorWindow::Init (const orxSTRING widgetName)
 {
@@ -31,28 +31,27 @@ void FXSlotEditorWindow::SetupFields ()
 {
     orxConfig_PushSection ("FXSlotEditorWindow");
 
+    // Fill combo boxes
     vector<const orxSTRING> propList;
-    int counter = orxConfig_GetListCounter ("Type");
-    for (int i = 0; i < counter; i++)
-    {
-	// Get and store next property
-	const orxSTRING property = orxConfig_GetListString ("Type", i);
-	propList.push_back (property);
-    }
-    // Fill field with list of properties
-    m_widgetManager->FillList ("FXSlotType", propList);
-    propList.clear ();
 
-    counter = orxConfig_GetListCounter ("Curve");
-    for (int i = 0; i < counter; i++)
-    {
-	// Get and store next property
-	const orxSTRING property = orxConfig_GetListString ("Curve", i);
-	propList.push_back (property);
-    }
-    // Fill field with list of properties
-    m_widgetManager->FillList ("FXSlotCurve", propList);
+    orx_config_util::GetListIntoVector ("Type", propList);
+    m_widgetManager->FillList ("FXSlotType", propList);
+
     propList.clear ();
+    orx_config_util::GetListIntoVector ("Curve", propList);
+    m_widgetManager->FillList ("FXSlotCurve", propList);
+
+    propList.clear ();
+    orx_config_util::GetListIntoVector ("Absolute", propList);
+    m_widgetManager->FillList ("FXSlotAbsolute", propList);
+
+    propList.clear ();
+    orx_config_util::GetListIntoVector ("UseRotation", propList);
+    m_widgetManager->FillList ("FXSlotUseRotation", propList);
+
+    propList.clear ();
+    orx_config_util::GetListIntoVector ("UseScale", propList);
+    m_widgetManager->FillList ("FXSlotUseScale", propList);
 
     orxConfig_PopSection ();
 }
@@ -72,47 +71,47 @@ void FXSlotEditorWindow::UpdateFields () const
     orxConfig_PushSection (m_context);
 
     // Type
-    const orxSTRING type = ConfigType::ListToString ("Type");
+    const orxSTRING type = orx_config_util::ListToString ("Type");
     m_widgetManager->SetText ("FXSlotType", type);
     // Curve
-    const orxSTRING curve = ConfigType::ListToString ("Curve");
+    const orxSTRING curve = orx_config_util::ListToString ("Curve");
     m_widgetManager->SetText ("FXSlotCurve", curve);
     // StartTime
-    ConfigType::FloatToString (orxConfig_GetFloat ("StartTime"), buffer);
+    orx_config_util::FloatToString (orxConfig_GetFloat ("StartTime"), buffer);
     m_widgetManager->SetText ("FXSlotStartTime", buffer);
     // EndTime
-    ConfigType::FloatToString (orxConfig_GetFloat ("EndTime"), buffer);
+    orx_config_util::FloatToString (orxConfig_GetFloat ("EndTime"), buffer);
     m_widgetManager->SetText ("FXSlotEndTime", buffer);
     // StartValue
-    ConfigType::VectorToString ("StartValue", 0, buffer);
+    orx_config_util::VectorToString ("StartValue", 0, buffer);
     m_widgetManager->SetText ("FXSlotStartValue0", buffer);
-    ConfigType::VectorToString ("StartValue", 1, buffer);
+    orx_config_util::VectorToString ("StartValue", 1, buffer);
     m_widgetManager->SetText ("FXSlotStartValue1", buffer);
-    ConfigType::VectorToString ("StartValue", 2, buffer);
+    orx_config_util::VectorToString ("StartValue", 2, buffer);
     m_widgetManager->SetText ("FXSlotStartValue2", buffer);
     // EndValue
-    ConfigType::VectorToString ("EndValue", 0, buffer);
+    orx_config_util::VectorToString ("EndValue", 0, buffer);
     m_widgetManager->SetText ("FXSlotEndValue0", buffer);
-    ConfigType::VectorToString ("EndValue", 1, buffer);
+    orx_config_util::VectorToString ("EndValue", 1, buffer);
     m_widgetManager->SetText ("FXSlotEndValue1", buffer);
-    ConfigType::VectorToString ("EndValue", 2, buffer);
+    orx_config_util::VectorToString ("EndValue", 2, buffer);
     m_widgetManager->SetText ("FXSlotEndValue2", buffer);
     // Phase
-    ConfigType::FloatToString (orxConfig_GetFloat ("Phase"), buffer);
+    orx_config_util::FloatToString (orxConfig_GetFloat ("Phase"), buffer);
     m_widgetManager->SetText  ("FXSlotPhase", buffer);
     // Period
-    ConfigType::FloatToString (orxConfig_GetFloat ("Period"), buffer);
+    orx_config_util::FloatToString (orxConfig_GetFloat ("Period"), buffer);
     m_widgetManager->SetText ("FXSlotPeriod", buffer);
     // Absolute
     /** @todo Absolute */
     // Acceleration
-    ConfigType::FloatToString (orxConfig_GetFloat ("Acceleration"), buffer);
+    orx_config_util::FloatToString (orxConfig_GetFloat ("Acceleration"), buffer);
     m_widgetManager->SetText  ("FXSlotAcceleration", buffer);
     // Amplification
-    ConfigType::FloatToString (orxConfig_GetFloat ("Amplification"), buffer);
+    orx_config_util::FloatToString (orxConfig_GetFloat ("Amplification"), buffer);
     m_widgetManager->SetText ("FXSlotAmplification", buffer);
     // Pow
-    ConfigType::FloatToString (orxConfig_GetFloat ("Pow"), buffer);
+    orx_config_util::FloatToString (orxConfig_GetFloat ("Pow"), buffer);
     m_widgetManager->SetText ("FXSlotPow", buffer);
     // UseRotation
     /** @todo UseRotation */
