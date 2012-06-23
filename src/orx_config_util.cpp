@@ -14,11 +14,11 @@ void BoolToString (orxBOOL inBool, orxSTRING outString)
 {
     if (inBool)
     {
-	sprintf (outString, "%s", "True");
+	sprintf (outString, "%s", "true");
     }
     else
     {
-	sprintf (outString, "%s", "False");
+	sprintf (outString, "%s", "false");
     }
 }
 

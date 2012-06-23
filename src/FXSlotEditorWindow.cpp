@@ -103,7 +103,8 @@ void FXSlotEditorWindow::UpdateFields () const
     orx_config_util::FloatToString (orxConfig_GetFloat ("Period"), buffer);
     m_widgetManager->SetText ("FXSlotPeriod", buffer);
     // Absolute
-    /** @todo Absolute */
+    orx_config_util::BoolToString (orxConfig_GetBool ("Absolute"), buffer);
+    m_widgetManager->SetText ("FXSlotAbsolute", buffer);
     // Acceleration
     orx_config_util::FloatToString (orxConfig_GetFloat ("Acceleration"), buffer);
     m_widgetManager->SetText  ("FXSlotAcceleration", buffer);
@@ -114,9 +115,12 @@ void FXSlotEditorWindow::UpdateFields () const
     orx_config_util::FloatToString (orxConfig_GetFloat ("Pow"), buffer);
     m_widgetManager->SetText ("FXSlotPow", buffer);
     // UseRotation
-    /** @todo UseRotation */
+    orx_config_util::BoolToString (orxConfig_GetBool ("UseRotation"), buffer);
+    m_widgetManager->SetText ("FXSlotUseRotation", buffer);
     // UseScale
-    /** @todo UseScale */
+    orx_config_util::BoolToString (orxConfig_GetBool ("UseScale"), buffer);
+    m_widgetManager->SetText ("FXSlotUseScale", buffer);
+
     orxConfig_PopSection ();
 }
 

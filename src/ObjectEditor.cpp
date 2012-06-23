@@ -137,8 +137,8 @@ void ObjectEditor::UpdateFields () const
 	orx_config_util::VectorToString ("Color", 2, buffer);
 	m_widgetManager->SetText ("ObjColor2", buffer);
 	// DepthScale
-	//orx_config_util::BoolToString (orxConfig_GetBool ("DepthScale"), buffer);
-	//m_widgetManager->SetText ("ObjDepthScale", buffer);
+	orx_config_util::BoolToString (orxConfig_GetBool ("DepthScale"), buffer);
+	m_widgetManager->SetText ("ObjDepthScale", buffer);
 	// Graphic
 	const orxSTRING graphic = orx_config_util::ListToString ("Graphic");
 	m_widgetManager->SetText ("ObjGraphic", graphic);

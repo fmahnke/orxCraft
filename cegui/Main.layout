@@ -205,12 +205,12 @@
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
             <Window Type="TaharezLook/Combobox" Name="ObjAutoScroll" >
-                <Property Name="Text" Value="both" />
-                <Property Name="UnifiedAreaRect" Value="{{0.765649,0},{0.459924,0},{0.939822,0},{0.505758,0}}" />
+                <Property Name="ReadOnly" Value="True" />
+                <Property Name="UnifiedAreaRect" Value="{{0.765649,0},{0.459924,0},{0.939822,0},{0.459924,85}}" />
                 <Property Name="MaxEditTextLength" Value="1073741823" />
             </Window>
             <Window Type="TaharezLook/Combobox" Name="ObjBlendMode" >
-                <Property Name="Text" Value="multiply" />
+                <Property Name="ReadOnly" Value="True" />
                 <Property Name="UnifiedAreaRect" Value="{{0.740306,0},{0.07995,0},{0.974554,0},{0.12075,100}}" />
                 <Property Name="MaxEditTextLength" Value="1073741823" />
             </Window>
@@ -228,9 +228,8 @@
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
             <Window Type="TaharezLook/Combobox" Name="ObjDepthScale" >
-                <Property Name="Text" >false
-true</Property>
-                <Property Name="UnifiedAreaRect" Value="{{0.763524,0},{0.4142,0},{0.939165,0},{0.460034,0}}" />
+                <Property Name="ReadOnly" Value="True" />
+                <Property Name="UnifiedAreaRect" Value="{{0.763524,0},{0.4142,0},{0.939165,0},{0.4142,85}}" />
                 <Property Name="MaxEditTextLength" Value="1073741823" />
             </Window>
             <Window Type="TaharezLook/Combobox" Name="ObjGraphic" >
@@ -240,6 +239,7 @@ true</Property>
                 <Property Name="ReadOnly" Value="True" />
             </Window>
             <Window Type="TaharezLook/Combobox" Name="ObjFlip" >
+                <Property Name="ReadOnly" Value="True" />
                 <Property Name="UnifiedAreaRect" Value="{{0.281384,0},{0.134591,0},{0.411923,0},{0.180425,75}}" />
                 <Property Name="MaxEditTextLength" Value="1073741823" />
             </Window>
@@ -351,9 +351,10 @@ true</Property>
                 <Property Name="UnifiedAreaRect" Value="{{0.847247,0},{0.233847,0},{0.973193,0},{0.268,0}}" />
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjSmoothing" >
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.33439,0},{0.758024,0},{0.587037,0},{0.788023,0}}" />
+            <Window Type="TaharezLook/Combobox" Name="ObjSmoothing" >
+                <Property Name="ReadOnly" Value="True" />
+                <Property Name="MaxEditTextLength" Value="1073741823" />
+                <Property Name="UnifiedAreaRect" Value="{{0.33439,0},{0.758024,0},{0.587037,0},{0.758024,65}}" />
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
             <Window Type="TaharezLook/Editbox" Name="ObjShaderList" >
@@ -372,12 +373,13 @@ true</Property>
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
             <Window Type="TaharezLook/Combobox" Name="ObjUseParentSpace" >
-                <Property Name="UnifiedAreaRect" Value="{{0.365155,0},{0.318961,0},{0.56706,0},{0.364794,0}}" />
+                <Property Name="ReadOnly" Value="True" />
+                <Property Name="UnifiedAreaRect" Value="{{0.365155,0},{0.318961,0},{0.56706,0},{0.318961,65}}" />
                 <Property Name="MaxEditTextLength" Value="1073741823" />
             </Window>
             <Window Type="TaharezLook/Combobox" Name="ObjUseRelativeSpeed" >
-                <Property Name="Text" Value="false" />
-                <Property Name="UnifiedAreaRect" Value="{{0.365155,0},{0.366834,0},{0.564314,0},{0.412668,0}}" />
+                <Property Name="ReadOnly" Value="True" />
+                <Property Name="UnifiedAreaRect" Value="{{0.365155,0},{0.366834,0},{0.564314,0},{0.366834,65}}" />
                 <Property Name="MaxEditTextLength" Value="1073741823" />
             </Window>
             <Window Type="TaharezLook/Editbox" Name="ObjColor0" >

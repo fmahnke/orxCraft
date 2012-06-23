@@ -108,7 +108,7 @@
             </Window>
             <Window Type="TaharezLook/Combobox" Name="FXSlotCurve" >
 				<Property Name="ReadOnly" Value="True" />
-                <Property Name="UnifiedAreaRect" Value="{{0.20369,0},{0.0823169,0},{0.365129,0},{0.335671,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0.20369,0},{0.0823169,0},{0.365129,0},{0.0823169,100}}" />
                 <Property Name="MaxEditTextLength" Value="1073741823" />
             </Window>
             <Window Type="TaharezLook/Editbox" Name="FXSlotStartTime" >
@@ -166,8 +166,8 @@
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
             <Window Type="TaharezLook/Combobox" Name="FXSlotAbsolute" >
-                <Property Name="Text" Value="false" />
-                <Property Name="UnifiedAreaRect" Value="{{0.20369,0},{0.342683,0},{0.313469,0},{0.396037,0}}" />
+				<Property Name="ReadOnly" Value="True" />
+                <Property Name="UnifiedAreaRect" Value="{{0.20369,0},{0.342683,0},{0.313469,0},{0.342683,65}}" />
                 <Property Name="MaxEditTextLength" Value="1073741823" />
             </Window>
             <Window Type="TaharezLook/Editbox" Name="FXSlotAcceleration" >
@@ -189,13 +189,13 @@
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
             <Window Type="TaharezLook/Combobox" Name="FXSlotUseRotation" >
-                <Property Name="Text" Value="false" />
-                <Property Name="UnifiedAreaRect" Value="{{0.20369,0},{0.441464,0},{0.313468,0},{0.494818,0}}" />
+				<Property Name="ReadOnly" Value="True" />
+                <Property Name="UnifiedAreaRect" Value="{{0.20369,0},{0.441464,0},{0.313468,0},{0.441464,65}}" />
                 <Property Name="MaxEditTextLength" Value="1073741823" />
             </Window>
             <Window Type="TaharezLook/Combobox" Name="FXSlotUseScale" >
-                <Property Name="Text" Value="false" />
-                <Property Name="UnifiedAreaRect" Value="{{0.20369,0},{0.485366,0},{0.313468,0},{0.53872,0}}" />
+				<Property Name="ReadOnly" Value="True" />
+                <Property Name="UnifiedAreaRect" Value="{{0.20369,0},{0.485366,0},{0.313468,0},{0.485366,65}}" />
                 <Property Name="MaxEditTextLength" Value="1073741823" />
             </Window>
             <Window Type="TaharezLook/StaticText" Name="LabelFXSlotConfigName" >
