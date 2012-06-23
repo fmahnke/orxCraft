@@ -205,6 +205,9 @@ void FXSlotEditorWindow::HandleTextAccepted (const orxSTRING widgetName)
     }
     else if (orxString_Compare (widgetName, "FXSlotAbsolute") == 0)
     {
+	orxBOOL absolute;
+	orxString_ToBool (GetText ("FXSlotAbsolute"), &absolute, orxNULL);
+	orxConfig_SetBool ("Absolute", absolute);
     }
     else if (orxString_Compare (widgetName, "FXSlotAcceleration") == 0)
     {
@@ -226,9 +229,15 @@ void FXSlotEditorWindow::HandleTextAccepted (const orxSTRING widgetName)
     }
     else if (orxString_Compare (widgetName, "FXSlotUseRotation") == 0)
     {
+	orxBOOL useRotation;
+	orxString_ToBool (GetText ("FXSlotUseRotation"), &useRotation, orxNULL);
+	orxConfig_SetBool ("UseRotation", useRotation);
     }
     else if (orxString_Compare (widgetName, "FXSlotUseScale") == 0)
     {
+	orxBOOL useScale;
+	orxString_ToBool (GetText ("FXSlotUseScale"), &useScale, orxNULL);
+	orxConfig_SetBool ("UseScale", useScale);
     }
 
     orxConfig_PopSection ();

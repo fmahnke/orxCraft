@@ -115,13 +115,13 @@ void ObjectEditor::UpdateFields () const
 	m_widgetManager->SetText ("ObjAnimSet", aS);
 	// AutoScroll
 	const orxSTRING aSc = orx_config_util::ListToString ("AutoScroll");
-	m_widgetManager->SetText ("ObjAutoScroll", aS);
+	m_widgetManager->SetText ("ObjAutoScroll", aSc);
 	// BlendMode
 	const orxSTRING bl = orx_config_util::ListToString ("BlendMode");
-	m_widgetManager->SetText ("ObjBlendMode", aS);
+	m_widgetManager->SetText ("ObjBlendMode", bl);
 	// Body
 	const orxSTRING body = orx_config_util::ListToString ("Body");
-	m_widgetManager->SetText ("ObjBody", aS);
+	m_widgetManager->SetText ("ObjBody", body);
 	// ChildList
 	/** @todo ChildList */
 	// ChildJointList
@@ -193,16 +193,16 @@ void ObjectEditor::UpdateFields () const
 	const orxSTRING spawner = orx_config_util::ListToString ("Spawner");
 	m_widgetManager->SetText ("ObjSpawner", spawner);
 	// Smoothing
-	orxBOOL smoothing = orxConfig_GetBool ("Smoothing");
-	m_widgetManager->SetText ("ObjSmoothing", smoothing ? "true" : "false");
+	orx_config_util::BoolToString (orxConfig_GetBool ("Smoothing"), buffer);
+	m_widgetManager->SetText ("ObjSmoothing", buffer);
 	// UseParentSpace
-	orxBOOL useParentSpace = orxConfig_GetBool ("UseParentSpace");
-	m_widgetManager->SetText ("ObjUseParentSpace",
-	                          useParentSpace ? "true" : "false");
+	orx_config_util::BoolToString (orxConfig_GetBool ("UseParentSpace"),
+				       buffer);
+	m_widgetManager->SetText ("ObjUseParentSpace", buffer);
 	// UseRelativeSpeed
-	orxBOOL useRelativeSpeed = orxConfig_GetBool ("UseRelativeSpeed");
-	m_widgetManager->SetText ("ObjUseRelativeSpeed",
-				  useRelativeSpeed ? "true" : "false");
+	orx_config_util::BoolToString (orxConfig_GetBool ("UseRelativeSpeed"),
+				       buffer);
+	m_widgetManager->SetText ("ObjUseRelativeSpeed", buffer);
 
 	orxConfig_PopSection ();
     }
@@ -244,7 +244,8 @@ void ObjectEditor::HandleTextAccepted (const orxSTRING widgetName)
     }
     else if (orxString_Compare (widgetName, "ObjAutoScroll") == 0)
     {
-	orxASSERT (false);
+	const orxSTRING autoScroll = GetText ("ObjAutoScroll");
+	orxConfig_SetString ("AutoScroll", autoScroll);
     }
     else if (orxString_Compare (widgetName, "ObjBlendMode") == 0)
     {
@@ -281,6 +282,11 @@ void ObjectEditor::HandleTextAccepted (const orxSTRING widgetName)
     {
 	const orxSTRING graphic = GetText ("ObjGraphic");
 	orxConfig_SetString ("Graphic", graphic);
+    }
+    else if (orxString_Compare (widgetName, "ObjFlip") == 0)
+    {
+	const orxSTRING flip = GetText ("ObjFlip");
+	orxConfig_SetString ("Flip", flip);
     }
     else if (orxString_Compare (widgetName, "ObjFXList") == 0)
     {
