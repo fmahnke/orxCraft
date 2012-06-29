@@ -158,7 +158,7 @@ xcopy /y ..\..\librocket\*.* ..\..\bin\windows</Command>
     <ClCompile Include="..\..\src\CEGUICombobox.cpp" />
     <ClCompile Include="..\..\src\CEGUIEditbox.cpp" />
     <ClCompile Include="..\..\src\CEGUIListbox.cpp" />
-    <ClCompile Include="..\..\src\ConfigType.cpp" />
+    <ClCompile Include="..\..\src\orx_config_util.cpp" />
     <ClCompile Include="..\..\src\FXSlotEditorWindow.cpp" />
     <ClCompile Include="..\..\src\orxcraft.cpp" />
     <ClCompile Include="..\..\src\RocketDataSource.cpp" />
@@ -194,7 +194,7 @@ xcopy /y ..\..\librocket\*.* ..\..\bin\windows</Command>
     <ClInclude Include="..\..\include\CEGUICombobox.h" />
     <ClInclude Include="..\..\include\CEGUIEditbox.h" />
     <ClInclude Include="..\..\include\CEGUIListbox.h" />
-    <ClInclude Include="..\..\include\ConfigType.h" />
+    <ClInclude Include="..\..\include\orx_config_util.h" />
     <ClInclude Include="..\..\include\FXSlotEditorWindow.h" />
     <ClInclude Include="..\..\include\ObjectEditor.h" />
     <ClInclude Include="..\..\include\orxCraft.h" />
