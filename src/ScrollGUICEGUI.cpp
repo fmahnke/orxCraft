@@ -5,16 +5,78 @@
  *
  */
 #include "ScrollGUICEGUI.h"
+
 #include "OrxCraft.h"
+#include "ObjectEditor.h"
+#include "FXSlotEditorWindow.h"
+#include "InfoWindow.h"
+
+#include "constants.h"
+
+ScrollGUICEGUI *ScrollGUICEGUI::m_instance = NULL;
 
 ScrollGUICEGUI::ScrollGUICEGUI () :
     m_glRenderer (orxNULL)
 {
 }
 
-void ScrollGUICEGUI::OnCreate ()
+ScrollGUICEGUI::~ScrollGUICEGUI ()
 {
+    std::vector<ScrollFrameWindow *>::iterator it;
+    for (it = m_frameWindows.begin (); it != m_frameWindows.end (); ++it)
+    {
+	delete *it;
+	*it = orxNULL;
+    }
+    //m_glRenderer->destroySystem ();
+    m_glRenderer = orxNULL;
+}
+
+ScrollGUICEGUI * ScrollGUICEGUI::GetInstance ()
+{
+    if (! m_instance)
+    {
+	m_instance = new ScrollGUICEGUI ();
+    }
+
+    return m_instance;
+}
+
+void ScrollGUICEGUI::Destroy ()
+{
+    delete m_instance;
+}
+
+void ScrollGUICEGUI::Init ()
+{
+    // CEGUI renderer has to be initialized first
     m_glRenderer = & CEGUI::OpenGLRenderer::bootstrapSystem();
+
+    // Scroll object initializes CEGUI on creation
+    OrxCraft::GetInstance ().CreateObject (scrollGUIName);
+
+    // Init object editor
+    ObjectEditor *objEditor = new ObjectEditor ();
+    objEditor->Init (objectEditorName);
+    //m_objectEditor->SetObject (m_selectedObject);
+
+    // Init FX slot editor
+    FXSlotEditorWindow *fxSlotEditor = new FXSlotEditorWindow ();
+    fxSlotEditor->Init (fxSlotWindowName);
+    //m_fxSlotEditorWindow->SetContext ("FXS-Darken");
+
+    // Init info window
+    InfoWindow *infoWindow = new InfoWindow ();
+    infoWindow->Init (infoWindowName);
+
+    m_frameWindows.push_back (objEditor);
+    m_frameWindows.push_back (fxSlotEditor);
+    m_frameWindows.push_back (infoWindow);
+
+}
+
+void ScrollGUICEGUI::CEGUIScrollObject::OnCreate ()
+{
     CEGUI::SchemeManager::getSingleton().create( "TaharezLook.scheme" );
     CEGUI::Window* myRoot = CEGUI::WindowManager::getSingleton().loadWindowLayout( "Main.layout" );
     CEGUI::Window* FXSlotWindowRoot = CEGUI::WindowManager::getSingleton().loadWindowLayout( "FXSlotWindow.layout" );
@@ -23,10 +85,8 @@ void ScrollGUICEGUI::OnCreate ()
     CEGUI::System::getSingleton().setGUISheet( myRoot );
 }
 
-void ScrollGUICEGUI::OnDelete ()
+void ScrollGUICEGUI::CEGUIScrollObject::OnDelete ()
 {
-    //m_glRenderer->destroySystem ();
-    m_glRenderer = orxNULL;
 }
 
 void ScrollGUICEGUI::InputMouseMove ()
@@ -172,14 +232,14 @@ void ScrollGUICEGUI::InputKeyPress (const orxSTRING orxKey)
     }
 }
 
-orxBOOL ScrollGUICEGUI::OnRender ()
+orxBOOL ScrollGUICEGUI::CEGUIScrollObject::OnRender ()
 {
     DrawGrid ();
     CEGUI::System::getSingleton().renderGUI();
     return false; 
 }
 
-void ScrollGUICEGUI::DrawGrid ()
+void ScrollGUICEGUI::CEGUIScrollObject::DrawGrid ()
 {
     orxConfig_PushSection ("MainCamera");
     float frustumWidth = orxConfig_GetFloat ("FrustumWidth");

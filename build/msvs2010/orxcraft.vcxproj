@@ -212,6 +212,7 @@ xcopy /y ..\..\librocket\*.* ..\..\bin\windows</Command>
     <ClInclude Include="..\..\include\RocketFileInterface.h" />
     <ClInclude Include="..\..\include\ShellOpenGL.h" />
     <ClInclude Include="..\..\include\RocketRenderInterfaceOrx.h" />
+    <ClInclude Include="..\..\include\constants.h" />
     <ClInclude Include="..\..\include\WidgetManager.h" />
     <ClInclude Include="..\..\include\WidgetManagerCEGUI.h" />
     <ClInclude Include="..\..\include\WidgetManagerRocket.h" />

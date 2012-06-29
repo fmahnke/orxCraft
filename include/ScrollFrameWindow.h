@@ -21,6 +21,13 @@ public:
     //! C-tor
     ScrollFrameWindow () :
 	m_widgetManager (NULL) { };
+
+    //! D-tor
+    virtual ~ScrollFrameWindow ()
+    {
+	delete m_widgetManager;
+    };
+
     /** Initialize the window */
     virtual void Init (const orxSTRING widgetName) = 0;
     /** Get the window's name */
@@ -29,13 +36,8 @@ public:
     virtual void HandleMouseClick   (const orxSTRING widgetName) = 0;
     /** Text accepted (pressed Enter key) event handler */
     virtual void HandleTextAccepted (const orxSTRING widgetName) = 0;
-protected:
-    //! D-tor
-    virtual ~ScrollFrameWindow ()
-    {
-	delete m_widgetManager;
-    };
 
+protected:
     WidgetManager *m_widgetManager;
 };
 

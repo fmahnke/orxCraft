@@ -13,19 +13,8 @@
 
 #include <vector>
 
-class InfoWindow;
-class ObjectEditor;
-class FXSlotEditorWindow;
 class ScrollGUICEGUI;
 class ScrollGUIRocket;
-
-// Inputs
-static const orxSTRING inputQuit       = "Quit";
-static const orxSTRING inputLeftMB     = "LeftClick";
-static const orxSTRING inputLeftArrow  = "LeftArrow";
-static const orxSTRING inputRightArrow = "RightArrow";
-static const orxSTRING inputUpArrow    = "UpArrow";
-static const orxSTRING inputDownArrow  = "DownArrow";
 
 using std::vector;
 
@@ -84,14 +73,6 @@ private:
 	 const orxSTRING _zFileName,
 	 orxBOOL _bUseEncryption);
 
-#if USE_LIBROCKET
-    ScrollGUIRocket         *m_scrollGUI;
-#else
-    ScrollGUICEGUI	    *m_scrollGUI;
-#endif
-    InfoWindow              *m_infoWindow;
-    ObjectEditor            *m_objectEditor;
-    FXSlotEditorWindow      *m_fxSlotEditorWindow;
     ScrollObject            *m_selectedObject;
     /// Currently loaded config objects
     vector<const orxSTRING> m_objectList;

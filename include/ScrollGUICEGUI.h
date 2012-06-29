@@ -12,28 +12,43 @@
 #include "CEGUI.h"
 #include "RendererModules/OpenGL/CEGUIOpenGLRenderer.h"
 
+#include <vector>
+
+class ScrollFrameWindow;
+
 /**
  *  Renders GUI items and sends input from Scroll to them.
  */
-class ScrollGUICEGUI : public ScrollObject
+class ScrollGUICEGUI
 {
 public:
-    ScrollGUICEGUI ();
+    /** Create instance if it doesn't exist. */
+    static ScrollGUICEGUI * GetInstance ();
+    /** Destroy the instance */
+    static void Destroy ();
 
+    void Init ();
     void InputMouseMove ();
     void InputMouseDown ();
     void InputMouseUp ();
     void InputKeyPress (const orxSTRING orxKey);
 
+    class CEGUIScrollObject : public ScrollObject
+    {
+	virtual void    OnCreate ();
+	virtual void    OnDelete ();
+	virtual orxBOOL OnRender ();
+	/** Calculate and render the editor grid */
+	void DrawGrid ();
+    };
+
 private:
-    virtual void    OnCreate ();
-    virtual void    OnDelete ();
-    virtual orxBOOL OnRender ();
+    ScrollGUICEGUI ();
+    ~ScrollGUICEGUI ();
 
-    /** Calculate and render the editor grid */
-    void DrawGrid ();
-
+    static ScrollGUICEGUI *m_instance;
     CEGUI::OpenGLRenderer *m_glRenderer;
+    std::vector<ScrollFrameWindow *> m_frameWindows;
 };
 
 #endif  // SCROLLGUICEGUI_H_
