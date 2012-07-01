@@ -158,6 +158,7 @@ xcopy /y ..\..\librocket\*.* ..\..\bin\windows</Command>
     <ClCompile Include="..\..\src\CEGUICombobox.cpp" />
     <ClCompile Include="..\..\src\CEGUIEditbox.cpp" />
     <ClCompile Include="..\..\src\CEGUIListbox.cpp" />
+    <ClCompile Include="..\..\src\CEDialogManager.cpp" />
     <ClCompile Include="..\..\src\orx_config_util.cpp" />
     <ClCompile Include="..\..\src\FXSlotEditorWindow.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
@@ -173,7 +174,6 @@ xcopy /y ..\..\librocket\*.* ..\..\bin\windows</Command>
     <ClCompile Include="..\..\src\ScrollGUIRocket.cpp" />
     <ClCompile Include="..\..\src\RocketFileInterface.cpp" />
     <ClCompile Include="..\..\src\RocketRenderInterfaceOrx.cpp" />
-    <ClCompile Include="..\..\src\WidgetManagerCEGUI.cpp" />
     <ClCompile Include="..\..\src\WidgetManagerRocket.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -196,11 +196,13 @@ xcopy /y ..\..\librocket\*.* ..\..\bin\windows</Command>
     <ClInclude Include="..\..\..\Scroll\include\Scroll\ScrollBase.h" />
     <ClInclude Include="..\..\..\Scroll\include\Scroll\ScrollEd.h" />
     <ClInclude Include="..\..\..\Scroll\include\Scroll\ScrollObject.h" />
+    <ClInclude Include="..\..\include\CEDialogManager.h" />
     <ClInclude Include="..\..\include\CEGUIPushButton.h" />
     <ClInclude Include="..\..\include\CEGUICheckbox.h" />
     <ClInclude Include="..\..\include\CEGUICombobox.h" />
     <ClInclude Include="..\..\include\CEGUIEditbox.h" />
     <ClInclude Include="..\..\include\CEGUIListbox.h" />
+    <ClInclude Include="..\..\include\DialogManager.h" />
     <ClInclude Include="..\..\include\orx_config_util.h" />
     <ClInclude Include="..\..\include\FXSlotEditorWindow.h" />
     <ClInclude Include="..\..\include\ObjectEditor.h" />
@@ -220,7 +222,6 @@ xcopy /y ..\..\librocket\*.* ..\..\bin\windows</Command>
     <ClInclude Include="..\..\include\ShellOpenGL.h" />
     <ClInclude Include="..\..\include\RocketRenderInterfaceOrx.h" />
     <ClInclude Include="..\..\include\WidgetManager.h" />
-    <ClInclude Include="..\..\include\WidgetManagerCEGUI.h" />
     <ClInclude Include="..\..\include\WidgetManagerRocket.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

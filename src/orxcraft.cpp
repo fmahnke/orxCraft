@@ -18,6 +18,8 @@
 #include "ScrollGUICEGUI.h"
 #endif
 
+#include "CEDialogManager.h"
+
 // Widgets
 static const orxSTRING infoWindow = "O-InfoWindow";
 static const orxSTRING scrollGUI  = "ScrollGUI";
@@ -28,9 +30,9 @@ static orxFLOAT coarseUnit = 5.0;
 static const orxSTRING configFileName = "sampleconfig.ini";
 
 OrxCraft::OrxCraft () :
+    m_dialogManager      (NULL),
     m_infoWindow         (NULL),
     m_selectedObject     (NULL),
-    m_objectEditor       (NULL),
     m_fxSlotEditorWindow (NULL),
     m_scrollGUI          (NULL)
 {
@@ -61,6 +63,9 @@ orxSTATUS OrxCraft::Init ()
     InitConfig ();
     SetupConfig ();
 
+    // Create instance of dialog manager
+    m_dialogManager = new CEDialogManager ();
+
     // Init GUI system
 #ifdef USE_LIBROCKET
     m_scrollGUI = reinterpret_cast<ScrollGUIRocket *> (
@@ -70,10 +75,7 @@ orxSTATUS OrxCraft::Init ()
 #endif
     CreateObject (infoWindow);
 
-    // Init object editor
-    m_objectEditor = new ObjectEditor ();
-    m_objectEditor->Init (objectEditor);
-    m_objectEditor->SetObject (m_selectedObject);
+    m_dialogManager->MakeDialog ("ObjectEditor");
 
     // Init FX slot editor
     //m_fxSlotEditorWindow = new FXSlotEditorWindow ();
@@ -106,9 +108,10 @@ orxSTATUS OrxCraft::Run ()
 
 void OrxCraft::Exit ()
 {
-    delete m_objectEditor;
     delete m_fxSlotEditorWindow;
     delete m_infoWindow;
+    delete m_dialogManager;
+    m_dialogManager = NULL;
 }
 
 void OrxCraft::BindObjects ()

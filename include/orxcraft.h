@@ -13,6 +13,8 @@
 
 #include <vector>
 
+class DialogManager;
+
 class InfoWindow;
 class ObjectEditor;
 class FXSlotEditorWindow;
@@ -89,8 +91,8 @@ private:
 #else
     ScrollGUICEGUI	    *m_scrollGUI;
 #endif
+    DialogManager	    *m_dialogManager;
     InfoWindow              *m_infoWindow;
-    ObjectEditor            *m_objectEditor;
     FXSlotEditorWindow      *m_fxSlotEditorWindow;
     ScrollObject            *m_selectedObject;
     /// Currently loaded config objects

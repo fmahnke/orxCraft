@@ -5,11 +5,6 @@
  *
  */
 #include "InfoWindow.h"
-#ifdef USE_LIBROCKET
-#include "WidgetManagerRocket.h"
-#else
-#include "WidgetManagerCEGUI.h"
-#endif
 #include "OrxCraft.h"
 
 void InfoWindow::Init (const orxSTRING widgetName)

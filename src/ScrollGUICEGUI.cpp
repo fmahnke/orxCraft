@@ -14,13 +14,11 @@ ScrollGUICEGUI::ScrollGUICEGUI () :
 
 void ScrollGUICEGUI::OnCreate ()
 {
-    m_glRenderer = & CEGUI::OpenGLRenderer::bootstrapSystem();
-    CEGUI::SchemeManager::getSingleton().create( "TaharezLook.scheme" );
-    CEGUI::Window* myRoot = CEGUI::WindowManager::getSingleton().loadWindowLayout( "Main.layout" );
-    CEGUI::Window* FXSlotWindowRoot = CEGUI::WindowManager::getSingleton().loadWindowLayout( "FXSlotWindow.layout" );
-    CEGUI::Window* FXSlotWindow = FXSlotWindowRoot->getChildAtIdx (0); 
-    myRoot->addChildWindow (FXSlotWindow);   
-    CEGUI::System::getSingleton().setGUISheet( myRoot );
+    m_glRenderer = & CEGUI::OpenGLRenderer::bootstrapSystem ();
+    CEGUI::SchemeManager::getSingleton ().create ("TaharezLook.scheme");
+    CEGUI::Window* myRoot =
+	CEGUI::WindowManager::getSingleton ().loadWindowLayout ("Main.layout");
+    CEGUI::System::getSingleton ().setGUISheet (myRoot);
 }
 
 void ScrollGUICEGUI::OnDelete ()

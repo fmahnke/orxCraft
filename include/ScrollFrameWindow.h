@@ -40,6 +40,8 @@ public:
     /** Text accepted (pressed Enter key) event handler */
     virtual void OnTextAccepted (const orxSTRING widgetName) = 0;
 
+    virtual void AddWidget (ScrollWidget *widget);
+
 protected:
     //! D-tor
     virtual ~ScrollFrameWindow ()

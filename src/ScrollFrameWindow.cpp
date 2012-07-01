@@ -84,3 +84,8 @@ ScrollListbox * ScrollFrameWindow::FindListbox (const orxSTRING widgetName) cons
 	 
     return theWidget;
 }
+
+void ScrollFrameWindow::AddWidget (ScrollWidget *widget)
+{
+    m_widgetList.push_back (widget);
+}
