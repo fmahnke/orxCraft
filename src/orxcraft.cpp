@@ -36,7 +36,6 @@ OrxCraft::OrxCraft () :
 {
 }
 
-//! @todo Make a Scroll utility functions class
 ScrollObject * OrxCraft::GetObjectByName (const orxSTRING name) const
 {
     ScrollObject *foundObject = NULL;

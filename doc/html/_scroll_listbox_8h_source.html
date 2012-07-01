@@ -52,21 +52,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="_scroll_listbox_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef SCROLL_LISTBOX_H_</span>
 <a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define SCROLL_LISTBOX_H_</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
-<a name="l00010"></a>00010 <span class="preprocessor">#include &quot;<a class="code" href="_scroll_widget_8h.html">ScrollWidget.h</a>&quot;</span>
-<a name="l00011"></a>00011 
-<a name="l00015"></a><a class="code" href="class_scroll_listbox.html">00015</a> <span class="keyword">class </span><a class="code" href="class_scroll_listbox.html" title="Base class for a Listbox widget.">ScrollListbox</a> : <span class="keyword">public</span> <a class="code" href="class_scroll_widget.html" title="Base class for any type of user interface widget.">ScrollWidget</a>
-<a name="l00016"></a>00016 {
-<a name="l00017"></a>00017 <span class="keyword">public</span>:
-<a name="l00018"></a>00018     <span class="keyword">explicit</span> <a class="code" href="class_scroll_listbox.html" title="Base class for a Listbox widget.">ScrollListbox</a> (<a class="code" href="class_scroll_frame_window.html" title="Interface for a Window.">ScrollFrameWindow</a> *dialog) :
-<a name="l00019"></a>00019          <a class="code" href="class_scroll_widget.html#a381f54350e0608b5cf587b8af48b896b" title="Widget C-tor.">ScrollWidget</a> (dialog)
-<a name="l00020"></a>00020     {
-<a name="l00021"></a>00021     }
-<a name="l00022"></a>00022 
-<a name="l00023"></a>00023 <span class="keyword">protected</span>:
-<a name="l00024"></a>00024     <span class="keyword">virtual</span> ~<a class="code" href="class_scroll_listbox.html" title="Base class for a Listbox widget.">ScrollListbox</a> () { }
-<a name="l00025"></a>00025 };
-<a name="l00026"></a>00026 
-<a name="l00027"></a>00027 <span class="preprocessor">#endif  // SCROLL_LISTBOX_H_</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;<a class="code" href="_scroll_widget_8h.html">ScrollWidget.h</a>&quot;</span>
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 <span class="keyword">using</span> std::vector;
+<a name="l00014"></a>00014 
+<a name="l00018"></a><a class="code" href="class_scroll_listbox.html">00018</a> <span class="keyword">class </span><a class="code" href="class_scroll_listbox.html" title="Base class for a Listbox widget.">ScrollListbox</a> : <span class="keyword">public</span> <a class="code" href="class_scroll_widget.html" title="Base class for any type of user interface widget.">ScrollWidget</a>
+<a name="l00019"></a>00019 {
+<a name="l00020"></a>00020 <span class="keyword">public</span>:
+<a name="l00021"></a>00021     <span class="keyword">explicit</span> <a class="code" href="class_scroll_listbox.html" title="Base class for a Listbox widget.">ScrollListbox</a> (<a class="code" href="class_scroll_frame_window.html" title="Interface for a Window.">ScrollFrameWindow</a> *dialog) :
+<a name="l00022"></a>00022          <a class="code" href="class_scroll_widget.html#a381f54350e0608b5cf587b8af48b896b" title="Widget C-tor.">ScrollWidget</a> (dialog)
+<a name="l00023"></a>00023     {
+<a name="l00024"></a>00024     }
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026     <span class="keyword">virtual</span> <span class="keywordtype">void</span> Fill (<span class="keyword">const</span> vector&lt;const orxSTRING&gt; &amp;listItems) = 0;
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028 <span class="keyword">protected</span>:
+<a name="l00029"></a>00029     <span class="keyword">virtual</span> ~<a class="code" href="class_scroll_listbox.html" title="Base class for a Listbox widget.">ScrollListbox</a> () { }
+<a name="l00030"></a>00030 };
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 <span class="preprocessor">#endif  // SCROLL_LISTBOX_H_</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -83,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Sun Jul 1 2012 15:29:17 by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sun Jul 1 2012 17:40:24 by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

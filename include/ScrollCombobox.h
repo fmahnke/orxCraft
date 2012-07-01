@@ -1,5 +1,5 @@
-#ifndef __SCROLLCOMBOBOX_H__
-#define __SCROLLCOMBOBOX_H__
+#ifndef SCROLLCOMBOBOX_H_
+#define SCROLLCOMBOBOX_H_
 /**
  * @file ScrollCombobox.h
  * @date 2012-05-11
@@ -7,7 +7,10 @@
  *
  */
 
+#include <vector>
 #include "ScrollWidget.h"
+
+using std::vector;
 
 /**
  *  Base class for a Combobox (drop down list) widget.
@@ -21,6 +24,10 @@ public:
     {
     }
 
+    virtual void SelectItem (const orxSTRING itemText) = 0;
+
+    /** Fill the box with a list */
+    virtual void Fill (const vector<const orxSTRING> &listItems) = 0;
 };
 
-#endif  // __SCROLLCOMBOBOX_H__
+#endif  // SCROLLCOMBOBOX_H_

@@ -1,3 +1,5 @@
 <map id="G" name="G">
 <area shape="rect" id="node3" href="$class_object_editor.html#a5b6bdcfe81a66d76c00885be739d3ce1" title="Set the ScrollObject being edited." alt="" coords="232,5,392,32"/>
+<area shape="rect" id="node5" href="$class_object_editor.html#ad894282c20596876cd77a43c85b3864e" title="Initialize control items." alt="" coords="440,5,611,32"/>
+<area shape="rect" id="node7" href="$class_object_editor.html#ae8c6116257c2920dd352dab677078a11" title="Initialize the window." alt="" coords="659,5,778,32"/>
 </map>

@@ -52,9 +52,11 @@ void CEGUICombobox::SelectItem (const orxSTRING text)
     for (it = m_items.begin (); it != m_items.end (); ++it)
     {
 	const orxSTRING itemText = (*it)->getText ().c_str ();
+	// Wanted item exists in the items list
 	if (orxString_Compare (itemText, text) == 0)
 	{
-	    m_ceCombobox->setSelection (i, i);
+	    // Set the edit box text accordingly
+	    m_ceCombobox->setText (text);
 	    break;
 	}
 	i++;

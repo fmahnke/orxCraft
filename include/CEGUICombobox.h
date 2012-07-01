@@ -23,7 +23,7 @@ public:
     /** Initialize the Combobox */
     virtual void Init (const orxSTRING widgetName);
     /** Fill the box with a list */
-    void Fill (const vector<const orxSTRING> &listItems);
+    virtual void Fill (const vector<const orxSTRING> &listItems);
 
     virtual void SelectItem (const orxSTRING text);
 

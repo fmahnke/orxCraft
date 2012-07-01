@@ -158,40 +158,45 @@ void ObjectEditor::SetupFields ()
     vector<const orxSTRING> propList =
 	OrxCraft::GetInstance ().GetGraphicList ();
 
-    //m_widgetManager->FillList ("ObjGraphic", propList);
+    m_objGraphic->Fill (propList);
 
     orxConfig_PushSection ("ObjectEditor");
 
     // Fill combo boxes
     propList.clear ();
     orx_config_util::GetListIntoVector ("AutoScroll", propList);
-    //m_widgetManager->FillList ("ObjAutoScroll", propList);
+    m_objAutoScroll->Fill (propList);
 
     propList.clear ();
     orx_config_util::GetListIntoVector ("BlendMode", propList);
-    //m_widgetManager->FillList ("ObjBlendMode", propList);
+    m_objBlendMode->Fill (propList);
 
     propList.clear ();
     orx_config_util::GetListIntoVector ("DepthScale", propList);
-    //m_widgetManager->FillList ("ObjDepthScale", propList);
+    m_objDepthScale->Fill (propList);
 
     propList.clear ();
     orx_config_util::GetListIntoVector ("Flip", propList);
-    //m_widgetManager->FillList ("ObjFlip", propList);
+    m_objFlip->Fill (propList);
 
     propList.clear ();
     orx_config_util::GetListIntoVector ("Smoothing", propList);
-    //m_widgetManager->FillList ("ObjSmoothing", propList);
+    m_objSmoothing->Fill (propList);
 
     propList.clear ();
     orx_config_util::GetListIntoVector ("UseParentSpace", propList);
-    //m_widgetManager->FillList ("ObjUseParentSpace", propList);
+    m_objUseParentSpace->Fill (propList);
 
     propList.clear ();
     orx_config_util::GetListIntoVector ("UseRelativeSpeed", propList);
-    //m_widgetManager->FillList ("ObjUseRelativeSpeed", propList);
+    m_objUseRelativeSpeed->Fill (propList);
 
     orxConfig_PopSection ();
+
+    ScrollObject *object =
+	OrxCraft::GetInstance ().GetObjectByName ("O-Soldier");
+
+    SetObject (object);
 }
 
 const orxSTRING ObjectEditor::GetName ()
@@ -255,13 +260,13 @@ void ObjectEditor::UpdateFields () const
 	m_objColorB->SetText (buffer);
 	// DepthScale
 	orx_config_util::BoolToString (orxConfig_GetBool ("DepthScale"), buffer);
-	orxASSERT (false);
+	m_objDepthScale->SelectItem (buffer);
 	// Graphic
 	const orxSTRING graphic = orx_config_util::ListToString ("Graphic");
-	orxASSERT (false);
+	m_objGraphic->SelectItem (graphic);
 	// Flip
 	const orxSTRING flip = orx_config_util::ListToString ("Flip");
-	orxASSERT (false);
+	m_objFlip->SelectItem (flip);
 	// FXList
 	const orxSTRING fxList = orx_config_util::ListToString ("FXList");
 	m_objFXList->SetText (fxList);
@@ -311,15 +316,15 @@ void ObjectEditor::UpdateFields () const
 	m_objSpawner->SetText (spawner);
 	// Smoothing
 	orx_config_util::BoolToString (orxConfig_GetBool ("Smoothing"), buffer);
-	orxASSERT (false);
+	m_objSmoothing->SelectItem (buffer);
 	// UseParentSpace
 	orx_config_util::BoolToString (orxConfig_GetBool ("UseParentSpace"),
 				       buffer);
-	orxASSERT (false);
+	m_objUseParentSpace->SelectItem (buffer);
 	// UseRelativeSpeed
 	orx_config_util::BoolToString (orxConfig_GetBool ("UseRelativeSpeed"),
 				       buffer);
-	orxASSERT (false);
+	m_objUseRelativeSpeed->SelectItem (buffer);
 
 	orxConfig_PopSection ();
     }

@@ -21,7 +21,7 @@ class CEGUIListbox : public ScrollListbox
 public:
     explicit CEGUIListbox (ScrollFrameWindow *dialog);
     virtual void Init (const orxSTRING widgetName);
-    void Fill (const vector<const orxSTRING> &listItems);
+    virtual void Fill (const vector<const orxSTRING> &listItems);
 
      //bool OnSelectionChanged (const CEGUI::EventArgs &e);
 private:
