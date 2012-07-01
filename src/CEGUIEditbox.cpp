@@ -24,7 +24,8 @@ void CEGUIEditbox::Init (const orxSTRING widgetName)
     Window *rootWindow = CEGUI::System::getSingleton ().getGUISheet ();
     Window *window = rootWindow->getChild (windowName);
 
-    Editbox *editbox = (Editbox *) window->getChild (widgetName);
+    Editbox *editbox = reinterpret_cast<Editbox *> (
+	window->getChild (widgetName));
     editbox->subscribeEvent (Editbox::EventTextAccepted,
 	Event::Subscriber (&CEGUIEditbox::OnTextAccepted, this));
 

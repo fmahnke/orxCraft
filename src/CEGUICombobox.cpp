@@ -24,7 +24,8 @@ void CEGUICombobox::Init (const orxSTRING widgetName)
     Window *rootWindow = CEGUI::System::getSingleton ().getGUISheet ();
     Window *window = rootWindow->getChild (windowName);
 
-    Combobox *combobox = (Combobox *) window->getChild (widgetName);
+    Combobox *combobox = reinterpret_cast<Combobox *> (
+	window->getChild (widgetName));
     combobox->subscribeEvent (Combobox::EventListSelectionAccepted,
 	Event::Subscriber (&CEGUICombobox::OnSelectionAccepted, this));
 

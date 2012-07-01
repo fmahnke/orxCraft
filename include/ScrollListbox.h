@@ -1,5 +1,5 @@
-#ifndef __SCROLL_LISTBOX_H__
-#define __SCROLL_LISTBOX_H__
+#ifndef SCROLL_LISTBOX_H_
+#define SCROLL_LISTBOX_H_
 /**
  * @file ScrollListbox.h
  * @date 2012-05-10
@@ -21,7 +21,7 @@ public:
     };
 
 protected:
-    virtual ~ScrollListbox () { };
+    virtual ~ScrollListbox () { }
 };
 
-#endif  // __SCROLL_LISTBOX_H__
+#endif  // SCROLL_LISTBOX_H_

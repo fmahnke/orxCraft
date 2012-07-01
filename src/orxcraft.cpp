@@ -78,9 +78,10 @@ orxSTATUS OrxCraft::Init ()
 
     // Init GUI system
 #ifdef USE_LIBROCKET
-    m_scrollGUI = (ScrollGUIRocket *) CreateObject (scrollGUI);
+    m_scrollGUI = reinterpret_cast<ScrollGUIRocket *> (
+	CreateObject (scrollGUI));
 #else
-    m_scrollGUI = (ScrollGUICEGUI *) CreateObject (scrollGUI);
+    m_scrollGUI = reinterpret_cast<ScrollGUICEGUI *> (CreateObject (scrollGUI));
 #endif
     CreateObject (infoWindow);
 
@@ -249,7 +250,8 @@ orxSTATUS orxFASTCALL OrxCraft::EventHandler(const orxEVENT *_pstEvent)
 	if(_pstEvent->eID == orxINPUT_EVENT_ON)
 	{
 	    orxINPUT_EVENT_PAYLOAD *pstPayload;
-	    pstPayload = (orxINPUT_EVENT_PAYLOAD *) _pstEvent->pstPayload;
+	    pstPayload = reinterpret_cast<orxINPUT_EVENT_PAYLOAD *> (
+		_pstEvent->pstPayload);
 	    switch (pstPayload->aeType[0])
 	    {
 	    case orxINPUT_TYPE_KEYBOARD_KEY:
@@ -263,7 +265,8 @@ orxSTATUS orxFASTCALL OrxCraft::EventHandler(const orxEVENT *_pstEvent)
 	if(_pstEvent->eID == orxINPUT_EVENT_OFF)
 	{
 	    orxINPUT_EVENT_PAYLOAD *pstPayload;
-	    pstPayload = (orxINPUT_EVENT_PAYLOAD *) _pstEvent->pstPayload;
+	    pstPayload = reinterpret_cast<orxINPUT_EVENT_PAYLOAD *> (
+		_pstEvent->pstPayload);
 	    if (orxString_Compare (inputLeftMB, pstPayload->zInputName) == 0)
 	    {
 		OrxCraft::GetInstance ().OnMouseUp ();

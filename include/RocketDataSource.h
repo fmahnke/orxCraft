@@ -8,10 +8,9 @@
  * Data source for a list built with a libRocket DataGrid
  */
 
+#include <vector>
 #include "Rocket/Controls/DataSource.h"
 #include "Scroll.h"
-
-#include <vector>
 
 using std::vector;
 
@@ -19,7 +18,7 @@ class RocketDataSource : public Rocket::Controls::DataSource
 {
 public:
     //! Construct data source and initialize data source name
-    RocketDataSource (const orxSTRING name);
+    explicit RocketDataSource (const orxSTRING name);
     //! Set the items in a column
     void         SetColumn (const orxSTRING tableName,
 			    const orxSTRING colName,

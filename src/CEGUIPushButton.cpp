@@ -24,7 +24,8 @@ void CEGUIPushButton::Init (const orxSTRING widgetName)
     Window *rootWindow = CEGUI::System::getSingleton ().getGUISheet ();
     Window *window = rootWindow->getChild (windowName);
 
-    PushButton *pushbutton = (PushButton *) window->getChild (widgetName);
+    PushButton *pushbutton = reinterpret_cast<PushButton *> (
+	window->getChild (widgetName));
     pushbutton->subscribeEvent (PushButton::EventClicked,
 	Event::Subscriber (&CEGUIPushButton::OnClicked, this));
 

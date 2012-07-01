@@ -14,6 +14,8 @@
 
 #include "WidgetManager.h"
 
+#include <vector>
+
 class ScrollFrameWindow;
 class ScrollWidget;
 

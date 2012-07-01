@@ -187,22 +187,23 @@ void ScrollGUICEGUI::DrawGrid ()
     orxConfig_PopSection ();
 
     int gridRes = 100;
-    int columns = (int) frustumWidth / gridRes;
-    int rows = (int) frustumHeight / gridRes;
+    int columns = static_cast<int> (frustumWidth / gridRes);
+    int rows = static_cast<int> (frustumHeight / gridRes);
 
     orxRGBA gridColor = orx2RGBA (200, 0, 0, 255);
 
     for (int i = 1; i <= columns; i++)
     {
-	orxVECTOR start = { (float) i * gridRes, 0, 0};
-	orxVECTOR end   = { (float) i * gridRes, frustumHeight, 0};
+	orxVECTOR start = { static_cast<float> (i) * gridRes, 0, 0 };
+	orxVECTOR end   = { static_cast<float> (i) * gridRes, frustumHeight,
+			    0 };
 	orxDisplay_DrawLine (&start, &end, gridColor);
     }
 
     for (int i = 1; i <= rows; i++)
     {
-	orxVECTOR start = {0, (float) i * gridRes, 0};
-	orxVECTOR end   = {frustumWidth, (float) i * gridRes, 0};
+	orxVECTOR start = { 0, static_cast<float> (i) * gridRes, 0 };
+	orxVECTOR end   = { frustumWidth, static_cast<float> (i) * gridRes, 0 };
 	orxDisplay_DrawLine (&start, &end, gridColor);
     }
 }

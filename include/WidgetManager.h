@@ -7,12 +7,12 @@
  *
  */
 
+#include <vector>
 #include "orx/orx.h"
 #include "ScrollWidget.h"
 
 class ScrollFrameWindow;
 
-#include <vector>
 using std::vector;
 
 /**

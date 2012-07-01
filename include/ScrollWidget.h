@@ -18,7 +18,7 @@ class ScrollWidget
 {
 public:    
     /** Widget C-tor */
-    ScrollWidget (WidgetManager *manager) :
+    explicit ScrollWidget (WidgetManager *manager) :
 	m_widgetName (NULL),
 	m_manager    (manager)
     {

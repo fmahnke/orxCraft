@@ -24,7 +24,8 @@ void CEGUICheckbox::Init (const orxSTRING widgetName)
     Window *rootWindow = CEGUI::System::getSingleton ().getGUISheet ();
     Window *window = rootWindow->getChild (name);
 
-    Checkbox *checkbox = (Checkbox *) window->getChild (widgetName);
+    Checkbox *checkbox = reinterpret_cast<Checkbox *> (
+	window->getChild (widgetName));
     checkbox->subscribeEvent (Checkbox::EventCheckStateChanged,
 	Event::Subscriber (&CEGUICheckbox::OnCheckStateChanged, this));
 }

@@ -25,11 +25,10 @@ void CEGUIListbox::Init (const orxSTRING widgetName)
     Window *rootWindow = CEGUI::System::getSingleton ().getGUISheet ();
     Window *window = rootWindow->getChild (windowName);
 
-    Listbox *listbox = (Listbox *) window->getChild (widgetName);
+    Listbox *listbox = reinterpret_cast<Listbox *> (
+	window->getChild (widgetName));
     listbox->subscribeEvent (Window::EventMouseClick,
 	Event::Subscriber (&CEGUIListbox::OnMouseClick, this));
-    //listbox->subscribeEvent (Listbox::EventSelectionChanged,
-//	Event::Subscriber (&CEGUIListbox::OnSelectionChanged, this));
     m_ceListbox = listbox;
     m_widgetName = new char[strlen (widgetName) + 1];
     strcpy (m_widgetName, widgetName);

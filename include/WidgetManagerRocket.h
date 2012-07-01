@@ -9,8 +9,8 @@
  */
 
 #include "orx/orx.h"
-
 #include "WidgetManager.h"
+#include <vector>
 
 class RocketDataSource;
 class RocketListener;
