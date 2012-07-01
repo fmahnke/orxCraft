@@ -1,8 +1,8 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$_info_window_8h.html" title="InfoWindow.h" alt="" coords="120,80,219,107"/>
-<area shape="rect" id="node19" href="$_widget_manager_c_e_g_u_i_8h.html" title="WidgetManagerCEGUI.h" alt="" coords="269,155,432,181"/>
-<area shape="rect" id="node26" href="$orxcraft_8h.html" title="OrxCraft.h" alt="" coords="5,229,85,256"/>
-<area shape="rect" id="node5" href="$_scroll_frame_window_8h.html" title="ScrollFrameWindow.h" alt="" coords="95,155,244,181"/>
-<area shape="rect" id="node11" href="$_widget_manager_8h.html" title="WidgetManager.h" alt="" coords="263,229,387,256"/>
-<area shape="rect" id="node16" href="$_scroll_widget_8h.html" title="./ScrollWidget.h" alt="" coords="261,304,376,331"/>
+<area shape="rect" id="node3" href="$_info_window_8h.html" title="InfoWindow.h" alt="" coords="136,80,235,107"/>
+<area shape="rect" id="node14" href="$_widget_manager_c_e_g_u_i_8h.html" title="WidgetManagerCEGUI.h" alt="" coords="314,80,477,107"/>
+<area shape="rect" id="node26" href="$orxcraft_8h.html" title="OrxCraft.h" alt="" coords="5,155,85,181"/>
+<area shape="rect" id="node5" href="$_scroll_frame_window_8h.html" title="ScrollFrameWindow.h" alt="" coords="111,155,260,181"/>
+<area shape="rect" id="node11" href="$_scroll_widget_8h.html" title="ScrollWidget.h" alt="" coords="269,229,376,256"/>
+<area shape="rect" id="node21" href="$_widget_manager_8h.html" title="WidgetManager.h" alt="" coords="434,155,557,181"/>
 </map>

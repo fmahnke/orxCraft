@@ -1,7 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$_c_e_g_u_i_checkbox_8h.html" title="CEGUICheckbox.h" alt="" coords="99,80,229,107"/>
-<area shape="rect" id="node13" href="$_scroll_frame_window_8h.html" title="ScrollFrameWindow.h" alt="" coords="295,80,444,107"/>
-<area shape="rect" id="node5" href="$_scroll_checkbox_8h.html" title="ScrollCheckbox.h" alt="" coords="102,155,225,181"/>
-<area shape="rect" id="node7" href="$_scroll_widget_8h.html" title="ScrollWidget.h" alt="" coords="141,229,248,256"/>
-<area shape="rect" id="node18" href="$_widget_manager_8h.html" title="WidgetManager.h" alt="" coords="250,155,373,181"/>
+<area shape="rect" id="node3" href="$_c_e_g_u_i_checkbox_8h.html" title="CEGUICheckbox.h" alt="" coords="124,80,255,107"/>
+<area shape="rect" id="node13" href="$_scroll_frame_window_8h.html" title="ScrollFrameWindow.h" alt="" coords="251,155,400,181"/>
+<area shape="rect" id="node5" href="$_scroll_checkbox_8h.html" title="ScrollCheckbox.h" alt="" coords="5,155,128,181"/>
+<area shape="rect" id="node7" href="$_scroll_widget_8h.html" title="ScrollWidget.h" alt="" coords="148,229,255,256"/>
 </map>

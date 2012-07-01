@@ -1,6 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$_c_e_g_u_i_listbox_8h.html" title="CEGUIListbox.h" alt="" coords="112,80,227,107"/>
-<area shape="rect" id="node13" href="$_widget_manager_8h.html" title="WidgetManager.h" alt="" coords="251,80,375,107"/>
+<area shape="rect" id="node3" href="$_c_e_g_u_i_listbox_8h.html" title="CEGUIListbox.h" alt="" coords="116,80,231,107"/>
+<area shape="rect" id="node13" href="$_scroll_frame_window_8h.html" title="ScrollFrameWindow.h" alt="" coords="235,155,384,181"/>
 <area shape="rect" id="node5" href="$_scroll_listbox_8h.html" title="ScrollListbox.h" alt="" coords="5,155,112,181"/>
-<area shape="rect" id="node7" href="$_scroll_widget_8h.html" title="./ScrollWidget.h" alt="" coords="96,229,211,256"/>
+<area shape="rect" id="node7" href="$_scroll_widget_8h.html" title="ScrollWidget.h" alt="" coords="132,229,239,256"/>
 </map>

@@ -125,30 +125,9 @@ void WidgetManagerRocket::AddWidgetRecursive (const Element *root)
 	    listbox->SetDataSource (m_dataSource);
 	    delete [] tableName;
 	    // Add list box to widget list
-	    m_widgetList.push_back (listbox);
 	}
 	AddWidgetRecursive (element);
     }
-}
-
-ScrollWidget * WidgetManagerRocket::FindWidget
-    (const orxSTRING widgetName) const
-{
-    orxASSERT (widgetName != orxNULL);
-
-    ScrollWidget *theWidget = NULL;
-    vector<ScrollWidget *>::const_iterator widgIter;
-    for (widgIter = m_widgetList.begin (); widgIter != m_widgetList.end ();
-	 ++widgIter)
-    {
-	if (orxString_ICompare ((*widgIter)->GetName (), widgetName) == 0)
-	{
-	    theWidget = *widgIter;
-	    break;
-	}
-    }
-	 
-    return theWidget;
 }
 
 const orxSTRING WidgetManagerRocket::GetText (const orxSTRING widgetName) const
@@ -246,10 +225,10 @@ void WidgetManagerRocket::FillList (const orxSTRING widgetName,
 
 void WidgetManagerRocket::OnMouseClick (const orxSTRING widgetName)
 {
-    m_scrollWindow->HandleMouseClick (widgetName);
+    m_scrollWindow->OnMouseClick (widgetName);
 }
 
 void WidgetManagerRocket::OnTextAccepted (const orxSTRING widgetName)
 {
-    m_scrollWindow->HandleTextAccepted (widgetName);
+    m_scrollWindow->OnTextAccepted (widgetName);
 }

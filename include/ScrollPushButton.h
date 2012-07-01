@@ -9,7 +9,7 @@
 
 #include "ScrollWidget.h"
 
-class WidgetManager;
+class ScrollFrameWindow;
 
 /**
  *  Base class for a Push Button widget.
@@ -17,10 +17,10 @@ class WidgetManager;
 class ScrollPushButton : public ScrollWidget
 {
 public:
-    explicit ScrollPushButton (WidgetManager *manager) :
-	ScrollWidget (manager)
+    explicit ScrollPushButton (ScrollFrameWindow *dialog) :
+	ScrollWidget (dialog)
     {
-    };
+    }
 };
 
 #endif  // __SCROLL_PUSH_BUTTON_H__

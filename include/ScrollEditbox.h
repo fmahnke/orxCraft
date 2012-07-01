@@ -9,7 +9,7 @@
 
 #include "ScrollWidget.h"
 
-class WidgetManager;
+class ScrollFrameWindow;
 
 /**
  *  Base class for an Editbox widget.
@@ -17,10 +17,13 @@ class WidgetManager;
 class ScrollEditbox : public ScrollWidget
 {
 public:
-    explicit ScrollEditbox (WidgetManager *manager) :
-	ScrollWidget (manager)
+    explicit ScrollEditbox (ScrollFrameWindow *dialog) :
+	ScrollWidget (dialog)
     {
-    };
+    }
+
+    virtual const orxSTRING GetText () = 0;
+    virtual void SetText (const orxSTRING text) = 0;
 };
 
 #endif  // __SCROLL_EDITBOX_H__

@@ -16,10 +16,11 @@ class ScrollCombobox : public ScrollWidget
 {
 public:
     //! C-tor
-    explicit ScrollCombobox (WidgetManager *manager) :
-	 ScrollWidget (manager)
+    explicit ScrollCombobox (ScrollFrameWindow *dialog) :
+	 ScrollWidget (dialog)
     {
-    };
+    }
+
 };
 
 #endif  // __SCROLLCOMBOBOX_H__

@@ -10,6 +10,9 @@
 #include "ScrollFrameWindow.h"
 
 class ScrollObject;
+class ScrollCombobox;
+class ScrollEditbox;
+class ScrollListbox;
 
 class ObjectEditor : public ScrollFrameWindow
 {
@@ -30,11 +33,51 @@ public:
     //! Set the ScrollObject being edited
     void SetObject (ScrollObject *object);
 
-    virtual void HandleMouseClick   (const orxSTRING widgetName);
-    virtual void HandleTextAccepted (const orxSTRING widgetName);
+    virtual void OnMouseClick   (const orxSTRING widgetName);
+    virtual void OnTextAccepted (const orxSTRING widgetName);
 
 private:
     ScrollObject *m_object;
+
+    ScrollEditbox *m_objConfigName;
+    ScrollEditbox *m_objAlpha;
+    ScrollEditbox *m_objAngVelocity;
+    ScrollEditbox *m_objPosX;
+    ScrollEditbox *m_objPosY;
+    ScrollEditbox *m_objPosZ;
+    ScrollEditbox *m_objFXList;
+    ScrollListbox *m_objChildList;
+    ScrollEditbox *m_objAnimFreq;
+    ScrollEditbox *m_objAnimSet;
+    ScrollCombobox *m_objAutoScroll;
+    ScrollCombobox *m_objBlendMode;
+    ScrollEditbox *m_objBody;
+    ScrollListbox *m_objChildJointList;
+    ScrollEditbox *m_objClock;
+    ScrollCombobox *m_objDepthScale;
+    ScrollCombobox *m_objGraphic;
+    ScrollCombobox *m_objFlip;
+    ScrollEditbox *m_objLifeTime;
+    ScrollEditbox *m_objParentCam;
+    ScrollEditbox *m_objRepeatX;
+    ScrollEditbox *m_objRepeatY;
+    ScrollEditbox *m_objRepeatZ;
+    ScrollEditbox *m_objRotation;
+    ScrollEditbox *m_objScaleX;
+    ScrollEditbox *m_objScaleY;
+    ScrollEditbox *m_objScaleZ;
+    ScrollEditbox *m_objSpeedX;
+    ScrollEditbox *m_objSpeedY;
+    ScrollEditbox *m_objSpeedZ;
+    ScrollCombobox *m_objSmoothing;
+    ScrollEditbox *m_objShaderList;
+    ScrollEditbox *m_objSoundList;
+    ScrollEditbox *m_objSpawner;
+    ScrollCombobox *m_objUseParentSpace;
+    ScrollCombobox *m_objUseRelativeSpeed;
+    ScrollEditbox *m_objColorR;
+    ScrollEditbox *m_objColorG;
+    ScrollEditbox *m_objColorB;
 };
 
 #endif  // OBJECTEDITOR_H_

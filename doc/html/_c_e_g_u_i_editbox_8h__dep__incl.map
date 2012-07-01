@@ -1,4 +1,5 @@
 <map id="G" name="G">
 <area shape="rect" id="node3" href="$_c_e_g_u_i_editbox_8cpp.html" title="src/CEGUIEditbox.cpp" alt="" coords="5,80,157,107"/>
-<area shape="rect" id="node5" href="$_widget_manager_c_e_g_u_i_8cpp.html" title="src/WidgetManagerCEGUI.cpp" alt="" coords="183,80,383,107"/>
+<area shape="rect" id="node5" href="$_object_editor_8cpp.html" title="src/ObjectEditor.cpp" alt="" coords="183,80,324,107"/>
+<area shape="rect" id="node7" href="$_widget_manager_c_e_g_u_i_8cpp.html" title="src/WidgetManagerCEGUI.cpp" alt="" coords="348,80,548,107"/>
 </map>

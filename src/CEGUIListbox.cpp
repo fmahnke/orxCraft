@@ -7,21 +7,21 @@
 
 #include "CEGUIListbox.h"
 
-#include "WidgetManager.h"
+#include "ScrollFrameWindow.h"
 
 using CEGUI::Listbox;
 using CEGUI::Event;
 using CEGUI::Window;
 
-CEGUIListbox::CEGUIListbox (WidgetManager *manager) :
-    ScrollListbox (manager),
+CEGUIListbox::CEGUIListbox (ScrollFrameWindow *dialog) :
+    ScrollListbox (dialog),
     m_ceListbox (NULL)
 {
 }
 
 void CEGUIListbox::Init (const orxSTRING widgetName)
 {
-    const orxSTRING windowName = m_manager->GetWindowName ();
+    const orxSTRING windowName = m_manager->GetName ();
     Window *rootWindow = CEGUI::System::getSingleton ().getGUISheet ();
     Window *window = rootWindow->getChild (windowName);
 

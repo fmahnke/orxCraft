@@ -9,7 +9,7 @@
 
 #include "Scroll.h"
 
-class WidgetManager;
+class ScrollFrameWindow;
 
 /**
  *  Base class for any type of user interface widget
@@ -18,11 +18,11 @@ class ScrollWidget
 {
 public:    
     /** Widget C-tor */
-    explicit ScrollWidget (WidgetManager *manager) :
+    explicit ScrollWidget (ScrollFrameWindow *dialog) :
 	m_widgetName (NULL),
-	m_manager    (manager)
+	m_manager    (dialog)
     {
-    };
+    }
 
     /** Initialize the widget */
     virtual void Init (const orxSTRING widgetName) = 0;
@@ -34,11 +34,11 @@ public:
     virtual ~ScrollWidget ()
     {
 	delete [] m_widgetName;
-    };
+    }
 
 protected:
-    char          *m_widgetName;
-    WidgetManager *m_manager;
+    char              *m_widgetName;
+    ScrollFrameWindow *m_manager;
 };
 
 #endif  // __SCROLLWIDGET_H__

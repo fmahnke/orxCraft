@@ -54,15 +54,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 This is the complete list of members for <a class="el" href="class_f_x_slot_editor_window.html">FXSlotEditorWindow</a>, including all inherited members.<table>
+  <tr bgcolor="#f0f0f0"><td><b>FindCombobox</b>(const orxSTRING widgetName) const  (defined in <a class="el" href="class_scroll_frame_window.html">ScrollFrameWindow</a>)</td><td><a class="el" href="class_scroll_frame_window.html">ScrollFrameWindow</a></td><td></td></tr>
+  <tr bgcolor="#f0f0f0"><td><b>FindEditbox</b>(const orxSTRING widgetName) const  (defined in <a class="el" href="class_scroll_frame_window.html">ScrollFrameWindow</a>)</td><td><a class="el" href="class_scroll_frame_window.html">ScrollFrameWindow</a></td><td></td></tr>
+  <tr bgcolor="#f0f0f0"><td><b>FindListbox</b>(const orxSTRING widgetName) const  (defined in <a class="el" href="class_scroll_frame_window.html">ScrollFrameWindow</a>)</td><td><a class="el" href="class_scroll_frame_window.html">ScrollFrameWindow</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_scroll_frame_window.html#a12a54044f6b9ceea3ac6270475ed99a9">FindWidget</a>(const orxSTRING widgetName) const </td><td><a class="el" href="class_scroll_frame_window.html">ScrollFrameWindow</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_f_x_slot_editor_window.html#acd465ed0c4c790841a8263d618d534c3">GetName</a>()</td><td><a class="el" href="class_f_x_slot_editor_window.html">FXSlotEditorWindow</a></td><td><code> [virtual]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_f_x_slot_editor_window.html#a922e5949dde93886cc74c92c5eacafcf">GetText</a>(const orxSTRING widgetName) const </td><td><a class="el" href="class_f_x_slot_editor_window.html">FXSlotEditorWindow</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_f_x_slot_editor_window.html#a8ebda1e6a92b7211d390df01d0e86e17">HandleMouseClick</a>(const orxSTRING widgetName)</td><td><a class="el" href="class_f_x_slot_editor_window.html">FXSlotEditorWindow</a></td><td><code> [virtual]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_f_x_slot_editor_window.html#aa968cae167b4e30511e35361782fc1d4">HandleTextAccepted</a>(const orxSTRING widgetName)</td><td><a class="el" href="class_f_x_slot_editor_window.html">FXSlotEditorWindow</a></td><td><code> [virtual]</code></td></tr>
+  <tr bgcolor="#f0f0f0"><td><b>HandleMouseClick</b>(const orxSTRING widgetName) (defined in <a class="el" href="class_f_x_slot_editor_window.html">FXSlotEditorWindow</a>)</td><td><a class="el" href="class_f_x_slot_editor_window.html">FXSlotEditorWindow</a></td><td><code> [virtual]</code></td></tr>
+  <tr bgcolor="#f0f0f0"><td><b>HandleTextAccepted</b>(const orxSTRING widgetName) (defined in <a class="el" href="class_f_x_slot_editor_window.html">FXSlotEditorWindow</a>)</td><td><a class="el" href="class_f_x_slot_editor_window.html">FXSlotEditorWindow</a></td><td><code> [virtual]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_f_x_slot_editor_window.html#a27a871b1a53fe2438d7cc3f9c5158ae9">Init</a>(const orxSTRING widgetName)</td><td><a class="el" href="class_f_x_slot_editor_window.html">FXSlotEditorWindow</a></td><td><code> [virtual]</code></td></tr>
   <tr bgcolor="#f0f0f0"><td><b>m_context</b> (defined in <a class="el" href="class_f_x_slot_editor_window.html">FXSlotEditorWindow</a>)</td><td><a class="el" href="class_f_x_slot_editor_window.html">FXSlotEditorWindow</a></td><td><code> [private]</code></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>m_widgetManager</b> (defined in <a class="el" href="class_scroll_frame_window.html">ScrollFrameWindow</a>)</td><td><a class="el" href="class_scroll_frame_window.html">ScrollFrameWindow</a></td><td><code> [protected]</code></td></tr>
+  <tr bgcolor="#f0f0f0"><td><b>m_widgetList</b> (defined in <a class="el" href="class_scroll_frame_window.html">ScrollFrameWindow</a>)</td><td><a class="el" href="class_scroll_frame_window.html">ScrollFrameWindow</a></td><td><code> [protected]</code></td></tr>
   <tr bgcolor="#f0f0f0"><td><b>m_windowName</b> (defined in <a class="el" href="class_f_x_slot_editor_window.html">FXSlotEditorWindow</a>)</td><td><a class="el" href="class_f_x_slot_editor_window.html">FXSlotEditorWindow</a></td><td><code> [private]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_scroll_frame_window.html#a35977b4ca54fa5111f25e30171075259">ScrollFrameWindow</a>()</td><td><a class="el" href="class_scroll_frame_window.html">ScrollFrameWindow</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_scroll_frame_window.html#addbbd97f25c5798353d7a92e449720d3">OnMouseClick</a>(const orxSTRING widgetName)=0</td><td><a class="el" href="class_scroll_frame_window.html">ScrollFrameWindow</a></td><td><code> [pure virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_scroll_frame_window.html#a9c9108aa24601af922e7977785d76ae4">OnTextAccepted</a>(const orxSTRING widgetName)=0</td><td><a class="el" href="class_scroll_frame_window.html">ScrollFrameWindow</a></td><td><code> [pure virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_scroll_frame_window.html#a35977b4ca54fa5111f25e30171075259">ScrollFrameWindow</a>()</td><td><a class="el" href="class_scroll_frame_window.html">ScrollFrameWindow</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_f_x_slot_editor_window.html#a51af7667a2d11fe2f52fb27a10db83ea">SetContext</a>(const orxSTRING sectionName)</td><td><a class="el" href="class_f_x_slot_editor_window.html">FXSlotEditorWindow</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_f_x_slot_editor_window.html#af6dbe1ebd75862da7e7ba55f7a70f7ad">SetupFields</a>()</td><td><a class="el" href="class_f_x_slot_editor_window.html">FXSlotEditorWindow</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_f_x_slot_editor_window.html#a6138cdbf580e5fa9b042b6d41be3c479">UpdateFields</a>() const </td><td><a class="el" href="class_f_x_slot_editor_window.html">FXSlotEditorWindow</a></td><td></td></tr>
@@ -82,7 +88,7 @@ This is the complete list of members for <a class="el" href="class_f_x_slot_edit
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Sun Jul 1 2012 10:36:39 by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sun Jul 1 2012 15:29:18 by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

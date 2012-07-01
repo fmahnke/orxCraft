@@ -56,18 +56,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00011"></a>00011 
 <a name="l00012"></a>00012 <span class="preprocessor">#include &quot;CEGUI.h&quot;</span>
 <a name="l00013"></a>00013 
-<a name="l00014"></a>00014 <span class="keyword">class </span><a class="code" href="class_widget_manager.html" title="Each window can have an instance of the widget manager.">WidgetManager</a>;
+<a name="l00014"></a>00014 <span class="keyword">class </span><a class="code" href="class_scroll_frame_window.html" title="Interface for a Window.">ScrollFrameWindow</a>;
 <a name="l00015"></a>00015 
 <a name="l00017"></a><a class="code" href="class_c_e_g_u_i_push_button.html">00017</a> <span class="keyword">class </span><a class="code" href="class_c_e_g_u_i_push_button.html" title="CEGUI Implementation of a Push Button.">CEGUIPushButton</a> : <span class="keyword">public</span> <a class="code" href="class_scroll_push_button.html" title="Base class for a Push Button widget.">ScrollPushButton</a>
 <a name="l00018"></a>00018 {
 <a name="l00019"></a>00019 <span class="keyword">public</span>:
-<a name="l00020"></a>00020     <span class="keyword">explicit</span> <a class="code" href="class_c_e_g_u_i_push_button.html" title="CEGUI Implementation of a Push Button.">CEGUIPushButton</a> (<a class="code" href="class_widget_manager.html" title="Each window can have an instance of the widget manager.">WidgetManager</a> *manager);
+<a name="l00020"></a>00020     <span class="keyword">explicit</span> <a class="code" href="class_c_e_g_u_i_push_button.html" title="CEGUI Implementation of a Push Button.">CEGUIPushButton</a> (<a class="code" href="class_scroll_frame_window.html" title="Interface for a Window.">ScrollFrameWindow</a> *dialog);
 <a name="l00021"></a>00021     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_c_e_g_u_i_push_button.html#a4deea4a3110ad8dfa902664b5dd56ca3" title="Initialize the widget.">Init</a> (<span class="keyword">const</span> orxSTRING widgetName);
 <a name="l00022"></a>00022 
-<a name="l00023"></a>00023 <span class="keyword">private</span>:
-<a name="l00024"></a>00024     <span class="keywordtype">bool</span> OnClicked (<span class="keyword">const</span> CEGUI::EventArgs &amp;e);
-<a name="l00025"></a>00025 };
-<a name="l00026"></a>00026 <span class="preprocessor">#endif  // __CEGUIBUTTON_H__</span>
+<a name="l00023"></a>00023     <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetText (<span class="keyword">const</span> orxSTRING text);
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 <span class="keyword">private</span>:
+<a name="l00026"></a>00026     <span class="keywordtype">bool</span> OnClicked (<span class="keyword">const</span> CEGUI::EventArgs &amp;e);
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028     CEGUI::PushButton *m_cePushButton;
+<a name="l00029"></a>00029 };
+<a name="l00030"></a>00030 <span class="preprocessor">#endif  // __CEGUIBUTTON_H__</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -84,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Sun Jul 1 2012 10:36:38 by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sun Jul 1 2012 15:29:17 by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

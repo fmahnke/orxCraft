@@ -1,0 +1,246 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "orxCraft.sublime-project",
+			"settings":
+			{
+				"buffer_size": 431,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/src2/orxCraft/include/WidgetManager.h",
+			"settings":
+			{
+				"buffer_size": 1171,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 104.0,
+		"selected_items":
+		[
+			[
+				"sublimecl",
+				"Preferences: SublimeClang Settings – User"
+			],
+			[
+				"sublime",
+				"Preferences: SublimeClang Settings – Default"
+			],
+			[
+				"Install",
+				"Package Control: Install Package"
+			],
+			[
+				"Install Pack",
+				"Package Control: Install Package"
+			],
+			[
+				"Discover ",
+				"Package Control: Discover Packages"
+			],
+			[
+				"Discover Packages",
+				"Package Control: Discover Packages"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/src2/orxCraft/src/WidgetManager.cpp",
+		"/C/src2/orxCraft/include/WidgetManager.h",
+		"/C/src2/include/WidgetManager.h",
+		"/C/src2/equilibria/InputComponent.h",
+		"/C/src2/equilibria/Equilibria.h",
+		"/C/src2/equilibria/Equilibria.cpp",
+		"/C/src2/equilibria/config/GameData.ini",
+		"/sdk/android-ndk-r7/sources/orx/code/include/math/orxMath.h",
+		"/C/sdk/android-ndk-r7/sources/orx/code/include/base/orxModule.h",
+		"/sdk/android-ndk-r7/sources/orx/code/include/memory/orxMemory.h",
+		"/sdk/android-ndk-r7/sources/orx/code/include/base/orxModule.h",
+		"/C/programs/Sublime Text 2 Build 2181 x64/Data/Packages/User/SublimeClang.sublime-settings"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"include"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "orxCraft.sublime-project",
+					"settings":
+					{
+						"buffer_size": 431,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								144,
+								144
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/src2/orxCraft/include/WidgetManager.h",
+					"settings":
+					{
+						"buffer_size": 1171,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								180,
+								180
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.clang":
+	{
+		"height": 181.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

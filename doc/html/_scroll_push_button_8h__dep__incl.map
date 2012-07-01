@@ -1,5 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$_c_e_g_u_i_push_button_8h.html" title="include/CEGUIPushButton.h" alt="" coords="107,80,293,107"/>
+<area shape="rect" id="node3" href="$_c_e_g_u_i_push_button_8h.html" title="include/CEGUIPushButton.h" alt="" coords="184,80,371,107"/>
 <area shape="rect" id="node5" href="$_c_e_g_u_i_push_button_8cpp.html" title="src/CEGUIPushButton.cpp" alt="" coords="5,155,181,181"/>
-<area shape="rect" id="node7" href="$_widget_manager_c_e_g_u_i_8cpp.html" title="src/WidgetManagerCEGUI.cpp" alt="" coords="207,155,407,181"/>
+<area shape="rect" id="node7" href="$_object_editor_8cpp.html" title="src/ObjectEditor.cpp" alt="" coords="207,155,348,181"/>
+<area shape="rect" id="node9" href="$_widget_manager_c_e_g_u_i_8cpp.html" title="src/WidgetManagerCEGUI.cpp" alt="" coords="372,155,572,181"/>
 </map>

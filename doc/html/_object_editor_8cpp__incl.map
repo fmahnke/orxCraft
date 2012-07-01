@@ -1,9 +1,15 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$_object_editor_8h.html" title="ObjectEditor.h" alt="" coords="145,80,249,107"/>
-<area shape="rect" id="node19" href="$_widget_manager_c_e_g_u_i_8h.html" title="WidgetManagerCEGUI.h" alt="" coords="274,155,437,181"/>
-<area shape="rect" id="node26" href="$orxcraft_8h.html" title="OrxCraft.h" alt="" coords="5,229,85,256"/>
-<area shape="rect" id="node30" href="$orx__config__util_8h.html" title="orx_config_util.h" alt="" coords="569,229,684,256"/>
-<area shape="rect" id="node5" href="$_scroll_frame_window_8h.html" title="ScrollFrameWindow.h" alt="" coords="100,155,249,181"/>
-<area shape="rect" id="node11" href="$_widget_manager_8h.html" title="WidgetManager.h" alt="" coords="263,229,387,256"/>
-<area shape="rect" id="node16" href="$_scroll_widget_8h.html" title="./ScrollWidget.h" alt="" coords="268,304,383,331"/>
+<area shape="rect" id="node3" href="$_object_editor_8h.html" title="ObjectEditor.h" alt="" coords="306,80,411,107"/>
+<area shape="rect" id="node5" href="$_scroll_frame_window_8h.html" title="ScrollFrameWindow.h" alt="" coords="259,155,408,181"/>
+<area shape="rect" id="node14" href="$orxcraft_8h.html" title="OrxCraft.h" alt="" coords="5,155,85,181"/>
+<area shape="rect" id="node18" href="$orx__config__util_8h.html" title="orx_config_util.h" alt="" coords="114,80,229,107"/>
+<area shape="rect" id="node26" href="$_c_e_g_u_i_combobox_8h.html" title="CEGUICombobox.h" alt="" coords="933,80,1067,107"/>
+<area shape="rect" id="node32" href="$_c_e_g_u_i_editbox_8h.html" title="CEGUIEditbox.h" alt="" coords="436,80,553,107"/>
+<area shape="rect" id="node38" href="$_c_e_g_u_i_listbox_8h.html" title="CEGUIListbox.h" alt="" coords="577,80,692,107"/>
+<area shape="rect" id="node44" href="$_c_e_g_u_i_push_button_8h.html" title="CEGUIPushButton.h" alt="" coords="767,80,908,107"/>
+<area shape="rect" id="node11" href="$_scroll_widget_8h.html" title="ScrollWidget.h" alt="" coords="501,229,608,256"/>
+<area shape="rect" id="node28" href="$_scroll_combobox_8h.html" title="ScrollCombobox.h" alt="" coords="956,155,1084,181"/>
+<area shape="rect" id="node34" href="$_scroll_editbox_8h.html" title="ScrollEditbox.h" alt="" coords="433,155,543,181"/>
+<area shape="rect" id="node40" href="$_scroll_listbox_8h.html" title="ScrollListbox.h" alt="" coords="567,155,675,181"/>
+<area shape="rect" id="node46" href="$_scroll_push_button_8h.html" title="ScrollPushButton.h" alt="" coords="797,155,931,181"/>
 </map>

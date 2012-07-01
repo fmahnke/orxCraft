@@ -159,17 +159,24 @@ xcopy /y ..\..\librocket\*.* ..\..\bin\windows</Command>
     <ClCompile Include="..\..\src\CEGUIEditbox.cpp" />
     <ClCompile Include="..\..\src\CEGUIListbox.cpp" />
     <ClCompile Include="..\..\src\orx_config_util.cpp" />
-    <ClCompile Include="..\..\src\FXSlotEditorWindow.cpp" />
+    <ClCompile Include="..\..\src\FXSlotEditorWindow.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\src\orxcraft.cpp" />
     <ClCompile Include="..\..\src\RocketDataSource.cpp" />
-    <ClCompile Include="..\..\src\RocketListbox.cpp" />
+    <ClCompile Include="..\..\src\RocketListbox.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\src\RocketListener.cpp" />
+    <ClCompile Include="..\..\src\ScrollFrameWindow.cpp" />
     <ClCompile Include="..\..\src\ScrollGUICEGUI.cpp" />
     <ClCompile Include="..\..\src\ScrollGUIRocket.cpp" />
     <ClCompile Include="..\..\src\RocketFileInterface.cpp" />
     <ClCompile Include="..\..\src\RocketRenderInterfaceOrx.cpp" />
     <ClCompile Include="..\..\src\WidgetManagerCEGUI.cpp" />
-    <ClCompile Include="..\..\src\WidgetManagerRocket.cpp" />
+    <ClCompile Include="..\..\src\WidgetManagerRocket.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <None Include="..\..\..\Scroll\include\Scroll\Scroll.inl" />
     <None Include="..\..\..\Scroll\include\Scroll\ScrollBase.inl" />
     <None Include="..\..\..\Scroll\include\Scroll\ScrollEd.inl" />

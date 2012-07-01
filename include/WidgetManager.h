@@ -29,7 +29,8 @@ public:
     WidgetManager () :
         m_scrollWindow (NULL)
     {
-    };
+    }
+
     virtual void Init (const orxSTRING widgetName,
 		       ScrollFrameWindow *scrollWindow) = 0;
     virtual ScrollWidget * FindWidget (const orxSTRING widgetName) const = 0;
@@ -42,7 +43,8 @@ public:
 
     virtual const orxSTRING GetText (const orxSTRING widgetName) const = 0;
     /// Update widget text explicitly
-    virtual int   SetText (const orxSTRING widgetName, const orxSTRING text) = 0;
+    virtual int   SetEditText (const orxSTRING widgetName,
+			       const orxSTRING text) = 0;
 
     //! Fill a list box
     virtual void FillList (const orxSTRING widgetName,
@@ -55,17 +57,9 @@ public:
 
     virtual ~WidgetManager ()
     {
-	vector<ScrollWidget *>::iterator iter;
-	for (iter = m_widgetList.begin ();
-	    iter != m_widgetList.end ();
-	    ++iter)
-	{
-	    delete *iter;
-	}
     };
 
 protected:
-    vector<ScrollWidget *> m_widgetList;
 
 private:
     ScrollFrameWindow *m_scrollWindow;

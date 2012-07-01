@@ -8,13 +8,10 @@
  * CEGUI implementation of Widget Manager
  */
 
-#include "orx/orx.h"
-
-#include "CEGUI.h"
-
-#include "WidgetManager.h"
-
 #include <vector>
+#include "orx/orx.h"
+#include "CEGUI.h"
+#include "WidgetManager.h"
 
 class ScrollFrameWindow;
 class ScrollWidget;
@@ -48,7 +45,7 @@ public:
 
     virtual const orxSTRING GetText (const orxSTRING widgetName) const;
     /// Update widget text explicitly
-    virtual int SetText (const orxSTRING widgetName, const orxSTRING text);
+    virtual int SetEditText (const orxSTRING widgetName, const orxSTRING text);
 
     //! Fill a list box
     void FillList (const orxSTRING widgetName,

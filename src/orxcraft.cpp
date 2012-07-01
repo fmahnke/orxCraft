@@ -36,20 +36,6 @@ OrxCraft::OrxCraft () :
 {
 }
 
-void OrxCraft::SetSelectedObject (const orxSTRING name)
-{
-    orxASSERT (name != orxNULL);
-    orxASSERT (m_objectEditor != orxNULL);
-
-    m_selectedObject = GetObjectByName (name);
-    m_objectEditor->SetObject (m_selectedObject);
-}
-
-void OrxCraft::SetSelectedFXSlot (const orxSTRING name)
-{
-    m_fxSlotEditorWindow->SetContext (name);
-}
-
 //! @todo Make a Scroll utility functions class
 ScrollObject * OrxCraft::GetObjectByName (const orxSTRING name) const
 {
@@ -91,13 +77,13 @@ orxSTATUS OrxCraft::Init ()
     m_objectEditor->SetObject (m_selectedObject);
 
     // Init FX slot editor
-    m_fxSlotEditorWindow = new FXSlotEditorWindow ();
-    m_fxSlotEditorWindow->Init ("FXSlotWindow");
-    m_fxSlotEditorWindow->SetContext ("FXS-Darken");
+    //m_fxSlotEditorWindow = new FXSlotEditorWindow ();
+    //m_fxSlotEditorWindow->Init ("FXSlotWindow");
+    //m_fxSlotEditorWindow->SetContext ("FXS-Darken");
 
     // Init info window
-    m_infoWindow = new InfoWindow ();
-    m_infoWindow->Init ("InfoWindow");
+    //m_infoWindow = new InfoWindow ();
+    //m_infoWindow->Init ("InfoWindow");
 
     orxEvent_AddHandler (orxEVENT_TYPE_INPUT, EventHandler);
 

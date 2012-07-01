@@ -56,30 +56,73 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00010"></a>00010 <span class="preprocessor">#include &quot;<a class="code" href="_scroll_frame_window_8h.html">ScrollFrameWindow.h</a>&quot;</span>
 <a name="l00011"></a>00011 
 <a name="l00012"></a>00012 <span class="keyword">class </span>ScrollObject;
-<a name="l00013"></a>00013 
-<a name="l00014"></a><a class="code" href="class_object_editor.html">00014</a> <span class="keyword">class </span><a class="code" href="class_object_editor.html">ObjectEditor</a> : <span class="keyword">public</span> <a class="code" href="class_scroll_frame_window.html" title="Interface for a Window.">ScrollFrameWindow</a>
-<a name="l00015"></a>00015 {
-<a name="l00016"></a>00016 <span class="keyword">public</span>:
-<a name="l00018"></a>00018     <a class="code" href="class_object_editor.html#a2a2374794ac7b930a3587ca62bff15dd" title="C-tor.">ObjectEditor</a> ();
-<a name="l00019"></a>00019 
-<a name="l00020"></a>00020     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_object_editor.html#ae8c6116257c2920dd352dab677078a11" title="Initialize the window.">Init</a> (<span class="keyword">const</span> orxSTRING widgetName);
-<a name="l00021"></a>00021 
-<a name="l00023"></a>00023     <span class="keywordtype">void</span> <a class="code" href="class_object_editor.html#ad894282c20596876cd77a43c85b3864e" title="Initialize control items.">SetupFields</a>  ();
-<a name="l00025"></a>00025     <span class="keywordtype">void</span> <a class="code" href="class_object_editor.html#a73ea5b4793f17306802170a80b63e3e3" title="Update all widgets to show current ScrollObject config values.">UpdateFields</a> () <span class="keyword">const</span>;
-<a name="l00026"></a>00026 
-<a name="l00027"></a>00027     <span class="keyword">virtual</span> <span class="keyword">const</span> orxSTRING <a class="code" href="class_object_editor.html#a658f4b9d0a9659f47e5ef635ee2a74f4" title="Get the window&#39;s name.">GetName</a> ();
-<a name="l00028"></a>00028     
-<a name="l00029"></a>00029     <span class="keyword">const</span> orxSTRING GetText (<span class="keyword">const</span> orxSTRING widgetName) <span class="keyword">const</span>;
-<a name="l00031"></a>00031     <span class="keywordtype">void</span> <a class="code" href="class_object_editor.html#a5b6bdcfe81a66d76c00885be739d3ce1" title="Set the ScrollObject being edited.">SetObject</a> (ScrollObject *<span class="keywordtype">object</span>);
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_object_editor.html#add66df5196ed2c427457cd22fdc8532f" title="Left mouse click event handler.">HandleMouseClick</a>   (<span class="keyword">const</span> orxSTRING widgetName);
-<a name="l00034"></a>00034     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_object_editor.html#aa372e0fa80607f4baeb7ce740ae78541" title="Text accepted (pressed Enter key) event handler.">HandleTextAccepted</a> (<span class="keyword">const</span> orxSTRING widgetName);
+<a name="l00013"></a>00013 <span class="keyword">class </span><a class="code" href="class_scroll_combobox.html" title="Base class for a Combobox (drop down list) widget.">ScrollCombobox</a>;
+<a name="l00014"></a>00014 <span class="keyword">class </span><a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a>;
+<a name="l00015"></a>00015 <span class="keyword">class </span><a class="code" href="class_scroll_listbox.html" title="Base class for a Listbox widget.">ScrollListbox</a>;
+<a name="l00016"></a>00016 
+<a name="l00017"></a><a class="code" href="class_object_editor.html">00017</a> <span class="keyword">class </span><a class="code" href="class_object_editor.html">ObjectEditor</a> : <span class="keyword">public</span> <a class="code" href="class_scroll_frame_window.html" title="Interface for a Window.">ScrollFrameWindow</a>
+<a name="l00018"></a>00018 {
+<a name="l00019"></a>00019 <span class="keyword">public</span>:
+<a name="l00021"></a>00021     <a class="code" href="class_object_editor.html#a2a2374794ac7b930a3587ca62bff15dd" title="C-tor.">ObjectEditor</a> ();
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_object_editor.html#ae8c6116257c2920dd352dab677078a11" title="Initialize the window.">Init</a> (<span class="keyword">const</span> orxSTRING widgetName);
+<a name="l00024"></a>00024 
+<a name="l00026"></a>00026     <span class="keywordtype">void</span> <a class="code" href="class_object_editor.html#ad894282c20596876cd77a43c85b3864e" title="Initialize control items.">SetupFields</a>  ();
+<a name="l00028"></a>00028     <span class="keywordtype">void</span> <a class="code" href="class_object_editor.html#a73ea5b4793f17306802170a80b63e3e3" title="Update all widgets to show current ScrollObject config values.">UpdateFields</a> () <span class="keyword">const</span>;
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030     <span class="keyword">virtual</span> <span class="keyword">const</span> orxSTRING <a class="code" href="class_object_editor.html#a658f4b9d0a9659f47e5ef635ee2a74f4" title="Get the window&#39;s name.">GetName</a> ();
+<a name="l00031"></a>00031     
+<a name="l00032"></a>00032     <span class="keyword">const</span> orxSTRING GetText (<span class="keyword">const</span> orxSTRING widgetName) <span class="keyword">const</span>;
+<a name="l00034"></a>00034     <span class="keywordtype">void</span> <a class="code" href="class_object_editor.html#a5b6bdcfe81a66d76c00885be739d3ce1" title="Set the ScrollObject being edited.">SetObject</a> (ScrollObject *<span class="keywordtype">object</span>);
 <a name="l00035"></a>00035 
-<a name="l00036"></a>00036 <span class="keyword">private</span>:
-<a name="l00037"></a>00037     ScrollObject *m_object;
-<a name="l00038"></a>00038 };
-<a name="l00039"></a>00039 
-<a name="l00040"></a>00040 <span class="preprocessor">#endif  // OBJECTEDITOR_H_</span>
+<a name="l00036"></a>00036     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_object_editor.html#a296002f9addd6930be08f5668f2da655" title="Left mouse click event handler.">OnMouseClick</a>   (<span class="keyword">const</span> orxSTRING widgetName);
+<a name="l00037"></a>00037     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_object_editor.html#a0a32d3309b6e037f24b71532da522def" title="Text accepted (pressed Enter key) event handler.">OnTextAccepted</a> (<span class="keyword">const</span> orxSTRING widgetName);
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039 <span class="keyword">private</span>:
+<a name="l00040"></a>00040     ScrollObject *m_object;
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042     <a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a> *m_objConfigName;
+<a name="l00043"></a>00043     <a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a> *m_objAlpha;
+<a name="l00044"></a>00044     <a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a> *m_objAngVelocity;
+<a name="l00045"></a>00045     <a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a> *m_objPosX;
+<a name="l00046"></a>00046     <a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a> *m_objPosY;
+<a name="l00047"></a>00047     <a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a> *m_objPosZ;
+<a name="l00048"></a>00048     <a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a> *m_objFXList;
+<a name="l00049"></a>00049     <a class="code" href="class_scroll_listbox.html" title="Base class for a Listbox widget.">ScrollListbox</a> *m_objChildList;
+<a name="l00050"></a>00050     <a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a> *m_objAnimFreq;
+<a name="l00051"></a>00051     <a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a> *m_objAnimSet;
+<a name="l00052"></a>00052     <a class="code" href="class_scroll_combobox.html" title="Base class for a Combobox (drop down list) widget.">ScrollCombobox</a> *m_objAutoScroll;
+<a name="l00053"></a>00053     <a class="code" href="class_scroll_combobox.html" title="Base class for a Combobox (drop down list) widget.">ScrollCombobox</a> *m_objBlendMode;
+<a name="l00054"></a>00054     <a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a> *m_objBody;
+<a name="l00055"></a>00055     <a class="code" href="class_scroll_listbox.html" title="Base class for a Listbox widget.">ScrollListbox</a> *m_objChildJointList;
+<a name="l00056"></a>00056     <a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a> *m_objClock;
+<a name="l00057"></a>00057     <a class="code" href="class_scroll_combobox.html" title="Base class for a Combobox (drop down list) widget.">ScrollCombobox</a> *m_objDepthScale;
+<a name="l00058"></a>00058     <a class="code" href="class_scroll_combobox.html" title="Base class for a Combobox (drop down list) widget.">ScrollCombobox</a> *m_objGraphic;
+<a name="l00059"></a>00059     <a class="code" href="class_scroll_combobox.html" title="Base class for a Combobox (drop down list) widget.">ScrollCombobox</a> *m_objFlip;
+<a name="l00060"></a>00060     <a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a> *m_objLifeTime;
+<a name="l00061"></a>00061     <a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a> *m_objParentCam;
+<a name="l00062"></a>00062     <a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a> *m_objRepeatX;
+<a name="l00063"></a>00063     <a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a> *m_objRepeatY;
+<a name="l00064"></a>00064     <a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a> *m_objRepeatZ;
+<a name="l00065"></a>00065     <a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a> *m_objRotation;
+<a name="l00066"></a>00066     <a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a> *m_objScaleX;
+<a name="l00067"></a>00067     <a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a> *m_objScaleY;
+<a name="l00068"></a>00068     <a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a> *m_objScaleZ;
+<a name="l00069"></a>00069     <a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a> *m_objSpeedX;
+<a name="l00070"></a>00070     <a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a> *m_objSpeedY;
+<a name="l00071"></a>00071     <a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a> *m_objSpeedZ;
+<a name="l00072"></a>00072     <a class="code" href="class_scroll_combobox.html" title="Base class for a Combobox (drop down list) widget.">ScrollCombobox</a> *m_objSmoothing;
+<a name="l00073"></a>00073     <a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a> *m_objShaderList;
+<a name="l00074"></a>00074     <a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a> *m_objSoundList;
+<a name="l00075"></a>00075     <a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a> *m_objSpawner;
+<a name="l00076"></a>00076     <a class="code" href="class_scroll_combobox.html" title="Base class for a Combobox (drop down list) widget.">ScrollCombobox</a> *m_objUseParentSpace;
+<a name="l00077"></a>00077     <a class="code" href="class_scroll_combobox.html" title="Base class for a Combobox (drop down list) widget.">ScrollCombobox</a> *m_objUseRelativeSpeed;
+<a name="l00078"></a>00078     <a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a> *m_objColorR;
+<a name="l00079"></a>00079     <a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a> *m_objColorG;
+<a name="l00080"></a>00080     <a class="code" href="class_scroll_editbox.html" title="Base class for an Editbox widget.">ScrollEditbox</a> *m_objColorB;
+<a name="l00081"></a>00081 };
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083 <span class="preprocessor">#endif  // OBJECTEDITOR_H_</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -96,7 +139,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Sun Jul 1 2012 10:36:38 by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sun Jul 1 2012 15:29:17 by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

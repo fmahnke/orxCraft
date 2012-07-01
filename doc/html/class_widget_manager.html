@@ -51,7 +51,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">WidgetManager Class Reference</div>  </div>
@@ -74,7 +73,7 @@ Collaboration diagram for WidgetManager:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_widget_manager__coll__graph.png" border="0" usemap="#_widget_manager_coll__map" alt="Collaboration graph"/></div>
 <map name="_widget_manager_coll__map" id="_widget_manager_coll__map">
-<area shape="rect" id="node2" href="class_scroll_frame_window.html" title="Interface for a Window." alt="" coords="17,187,156,213"/></map>
+<area shape="rect" id="node2" href="class_scroll_frame_window.html" title="Interface for a Window." alt="" coords="17,96,156,123"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="class_widget_manager-members.html">List of all members.</a></p>
@@ -93,8 +92,8 @@ virtual const orxSTRING&#160;</td><td class="memItemRight" valign="bottom"><b>Ge
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetSelectedItem</b> (const orxSTRING widgetName, const orxSTRING selectedItem)=0</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab988648f3414f3b4cb08c0a6d1089c2b"></a><!-- doxytag: member="WidgetManager::GetText" ref="ab988648f3414f3b4cb08c0a6d1089c2b" args="(const orxSTRING widgetName) const =0" -->
 virtual const orxSTRING&#160;</td><td class="memItemRight" valign="bottom"><b>GetText</b> (const orxSTRING widgetName) const =0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a16d161cfcd68f0cadcd8db0ff14b37c4"></a><!-- doxytag: member="WidgetManager::SetText" ref="a16d161cfcd68f0cadcd8db0ff14b37c4" args="(const orxSTRING widgetName, const orxSTRING text)=0" -->
-virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_widget_manager.html#a16d161cfcd68f0cadcd8db0ff14b37c4">SetText</a> (const orxSTRING widgetName, const orxSTRING text)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7e54ee9f952ea30e9f17ff3c093def16"></a><!-- doxytag: member="WidgetManager::SetEditText" ref="a7e54ee9f952ea30e9f17ff3c093def16" args="(const orxSTRING widgetName, const orxSTRING text)=0" -->
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_widget_manager.html#a7e54ee9f952ea30e9f17ff3c093def16">SetEditText</a> (const orxSTRING widgetName, const orxSTRING text)=0</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Update widget text explicitly. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5953b0ca4319d282709f13dc96c935db"></a><!-- doxytag: member="WidgetManager::FillList" ref="a5953b0ca4319d282709f13dc96c935db" args="(const orxSTRING widgetName, const vector&lt; const orxSTRING &gt; &amp;listItems)=0" -->
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_widget_manager.html#a5953b0ca4319d282709f13dc96c935db">FillList</a> (const orxSTRING widgetName, const vector&lt; const orxSTRING &gt; &amp;listItems)=0</td></tr>
@@ -105,10 +104,6 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab5ace8c55f7d643c82f49ec297e4cf8"></a><!-- doxytag: member="WidgetManager::OnTextAccepted" ref="aab5ace8c55f7d643c82f49ec297e4cf8" args="(const orxSTRING widgetName)=0" -->
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_widget_manager.html#aab5ace8c55f7d643c82f49ec297e4cf8">OnTextAccepted</a> (const orxSTRING widgetName)=0</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle a text accepted event from a widget. <br/></td></tr>
-<tr><td colspan="2"><h2><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a055b5c0a464528c66a148c60cfa2111a"></a><!-- doxytag: member="WidgetManager::m_widgetList" ref="a055b5c0a464528c66a148c60cfa2111a" args="" -->
-vector&lt; <a class="el" href="class_scroll_widget.html">ScrollWidget</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_widgetList</b></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a454c29efdec350858f2c8fe9464497d8"></a><!-- doxytag: member="WidgetManager::m_scrollWindow" ref="a454c29efdec350858f2c8fe9464497d8" args="" -->
@@ -137,7 +132,7 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>m_windowName</b> [255
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Sun Jul 1 2012 10:36:39 by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sun Jul 1 2012 15:29:18 by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

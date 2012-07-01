@@ -6,21 +6,21 @@
  */
 
 #include "CEGUICombobox.h"
-#include "WidgetManager.h"
+#include "ScrollFrameWindow.h"
 
 using CEGUI::Combobox;
 using CEGUI::Event;
 using CEGUI::Window;
 
-CEGUICombobox::CEGUICombobox (WidgetManager *manager) :
-    ScrollCombobox (manager),
+CEGUICombobox::CEGUICombobox (ScrollFrameWindow *dialog) :
+    ScrollCombobox (dialog),
     m_ceCombobox   (NULL)
 {
 }
 
 void CEGUICombobox::Init (const orxSTRING widgetName)
 {
-    const orxSTRING windowName = m_manager->GetWindowName ();
+    const orxSTRING windowName = m_manager->GetName ();
     Window *rootWindow = CEGUI::System::getSingleton ().getGUISheet ();
     Window *window = rootWindow->getChild (windowName);
 
@@ -40,6 +40,24 @@ void CEGUICombobox::Fill (const vector<const orxSTRING> &listItems)
     {
 	m_items.push_back (new CEGUI::ListboxTextItem (listItems.at (i)));
 	m_ceCombobox->addItem (m_items.back ());
+    }
+}
+
+void CEGUICombobox::SelectItem (const orxSTRING text)
+{
+    orxASSERT (text != orxNULL);
+
+    int i = 0;
+    std::vector<CEGUI::ListboxTextItem *>::const_iterator it;
+    for (it = m_items.begin (); it != m_items.end (); ++it)
+    {
+	const orxSTRING itemText = (*it)->getText ().c_str ();
+	if (orxString_Compare (itemText, text) == 0)
+	{
+	    m_ceCombobox->setSelection (i, i);
+	    break;
+	}
+	i++;
     }
 }
 

@@ -15,10 +15,10 @@
 class ScrollListbox : public ScrollWidget
 {
 public:
-    explicit ScrollListbox (WidgetManager *manager) :
-	 ScrollWidget (manager)
+    explicit ScrollListbox (ScrollFrameWindow *dialog) :
+	 ScrollWidget (dialog)
     {
-    };
+    }
 
 protected:
     virtual ~ScrollListbox () { }

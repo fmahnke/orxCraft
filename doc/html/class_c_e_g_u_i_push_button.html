@@ -51,7 +51,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a>  </div>
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">CEGUIPushButton Class Reference</div>  </div>
 </div>
@@ -73,22 +74,28 @@ Collaboration diagram for CEGUIPushButton:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_c_e_g_u_i_push_button__coll__graph.png" border="0" usemap="#_c_e_g_u_i_push_button_coll__map" alt="Collaboration graph"/></div>
 <map name="_c_e_g_u_i_push_button_coll__map" id="_c_e_g_u_i_push_button_coll__map">
-<area shape="rect" id="node2" href="class_scroll_push_button.html" title="Base class for a Push Button widget." alt="" coords="9,264,132,291"/><area shape="rect" id="node4" href="class_scroll_widget.html" title="Base class for any type of user interface widget." alt="" coords="23,187,119,213"/><area shape="rect" id="node6" href="class_widget_manager.html" title="Each window can have an instance of the widget manager." alt="" coords="114,96,227,123"/><area shape="rect" id="node8" href="class_scroll_frame_window.html" title="Interface for a Window." alt="" coords="189,187,328,213"/></map>
+<area shape="rect" id="node2" href="class_scroll_push_button.html" title="Base class for a Push Button widget." alt="" coords="25,264,148,291"/><area shape="rect" id="node4" href="class_scroll_widget.html" title="Base class for any type of user interface widget." alt="" coords="39,187,135,213"/><area shape="rect" id="node6" href="class_scroll_frame_window.html" title="Interface for a Window." alt="" coords="17,96,156,123"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="class_c_e_g_u_i_push_button-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a44504cce1195288ab52d125da7002048"></a><!-- doxytag: member="CEGUIPushButton::CEGUIPushButton" ref="a44504cce1195288ab52d125da7002048" args="(WidgetManager *manager)" -->
-&#160;</td><td class="memItemRight" valign="bottom"><b>CEGUIPushButton</b> (<a class="el" href="class_widget_manager.html">WidgetManager</a> *manager)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a71e37817634b7a4fc9d332236f459fc5"></a><!-- doxytag: member="CEGUIPushButton::CEGUIPushButton" ref="a71e37817634b7a4fc9d332236f459fc5" args="(ScrollFrameWindow *dialog)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><b>CEGUIPushButton</b> (<a class="el" href="class_scroll_frame_window.html">ScrollFrameWindow</a> *dialog)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4deea4a3110ad8dfa902664b5dd56ca3"></a><!-- doxytag: member="CEGUIPushButton::Init" ref="a4deea4a3110ad8dfa902664b5dd56ca3" args="(const orxSTRING widgetName)" -->
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_e_g_u_i_push_button.html#a4deea4a3110ad8dfa902664b5dd56ca3">Init</a> (const orxSTRING widgetName)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the widget. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a688a9b1c8c16ea81cef420ae67bae30f"></a><!-- doxytag: member="CEGUIPushButton::SetText" ref="a688a9b1c8c16ea81cef420ae67bae30f" args="(const orxSTRING text)" -->
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetText</b> (const orxSTRING text)</td></tr>
 <tr><td colspan="2"><h2><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b64ea93c99ea919643b03b629d9e4d6"></a><!-- doxytag: member="CEGUIPushButton::OnClicked" ref="a0b64ea93c99ea919643b03b629d9e4d6" args="(const CEGUI::EventArgs &amp;e)" -->
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>OnClicked</b> (const CEGUI::EventArgs &amp;e)</td></tr>
+<tr><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8eb6dd8d23c3398cbc1b0b25d3ac443f"></a><!-- doxytag: member="CEGUIPushButton::m_cePushButton" ref="a8eb6dd8d23c3398cbc1b0b25d3ac443f" args="" -->
+CEGUI::PushButton *&#160;</td><td class="memItemRight" valign="bottom"><b>m_cePushButton</b></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>CEGUI Implementation of a Push Button. </p>
@@ -111,7 +118,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>OnClicked</b> (const 
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Sun Jul 1 2012 10:36:39 by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sun Jul 1 2012 15:29:18 by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>
