@@ -68,7 +68,7 @@ Collaboration diagram for OrxCraft:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_orx_craft__coll__graph.png" border="0" usemap="#_orx_craft_coll__map" alt="Collaboration graph"/></div>
 <map name="_orx_craft_coll__map" id="_orx_craft_coll__map">
-<area shape="rect" id="node2" href="class_info_window.html" title="InfoWindow" alt="" coords="5,96,93,123"/><area shape="rect" id="node4" href="class_scroll_frame_window.html" title="Interface for a Window." alt="" coords="260,5,399,32"/><area shape="rect" id="node6" href="class_widget_manager.html" title="Each window can have an instance of the widget manager." alt="" coords="749,96,861,123"/><area shape="rect" id="node11" href="class_f_x_slot_editor_window.html" title="FXSlotEditorWindow" alt="" coords="118,96,257,123"/><area shape="rect" id="node14" href="class_object_editor.html" title="ObjectEditor" alt="" coords="282,96,376,123"/><area shape="rect" id="node17" href="class_scroll_g_u_i_c_e_g_u_i.html" title="Renders GUI items and sends input from Scroll to them." alt="" coords="401,96,519,123"/></map>
+<area shape="rect" id="node2" href="class_scroll_g_u_i_c_e_g_u_i.html" title="Renders GUI items and sends input from Scroll to them." alt="" coords="5,5,123,32"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="class_orx_craft-members.html">List of all members.</a></p>
@@ -78,12 +78,6 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4e2cd6235f26b4be54173daf1f8d1eff"></a><!-- doxytag: member="OrxCraft::GetObjectList" ref="a4e2cd6235f26b4be54173daf1f8d1eff" args="()" -->
 vector&lt; const orxSTRING &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_orx_craft.html#a4e2cd6235f26b4be54173daf1f8d1eff">GetObjectList</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get names of currently loaded objects. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a14b72e79f96c876637cc087e5b4487f5"></a><!-- doxytag: member="OrxCraft::GetSelectedObject" ref="a14b72e79f96c876637cc087e5b4487f5" args="()" -->
-ScrollObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_orx_craft.html#a14b72e79f96c876637cc087e5b4487f5">GetSelectedObject</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get selected object in Object Editor. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad4e9fd5f719b82471fa34f47664f61e0"></a><!-- doxytag: member="OrxCraft::SetSelectedObject" ref="ad4e9fd5f719b82471fa34f47664f61e0" args="(const orxSTRING name)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_orx_craft.html#ad4e9fd5f719b82471fa34f47664f61e0">SetSelectedObject</a> (const orxSTRING name)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set selected object in Object Editor. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae559e671fbdb22f237d52427faf8f508"></a><!-- doxytag: member="OrxCraft::GetFXSlotList" ref="ae559e671fbdb22f237d52427faf8f508" args="()" -->
 vector&lt; const orxSTRING &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_orx_craft.html#ae559e671fbdb22f237d52427faf8f508">GetFXSlotList</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get names of currently loaded FXSlots. <br/></td></tr>
@@ -132,16 +126,8 @@ static orxSTATUS orxFASTCALL&#160;</td><td class="memItemRight" valign="bottom">
 static orxBOOL orxFASTCALL&#160;</td><td class="memItemRight" valign="bottom"><b>SaveConfigFunction</b> (const orxSTRING _zSectionName, const orxSTRING _zKeyName, const orxSTRING _zFileName, orxBOOL _bUseEncryption)</td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="accebe54bd37df2392360ccc32e074f73"></a><!-- doxytag: member="OrxCraft::m_scrollGUI" ref="accebe54bd37df2392360ccc32e074f73" args="" -->
-<a class="el" href="class_scroll_g_u_i_c_e_g_u_i.html">ScrollGUICEGUI</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_scrollGUI</b></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3d635f56967f39b948eb2404f2737020"></a><!-- doxytag: member="OrxCraft::m_infoWindow" ref="a3d635f56967f39b948eb2404f2737020" args="" -->
-<a class="el" href="class_info_window.html">InfoWindow</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_infoWindow</b></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a4abbaaa87384d8d3958be473382dfa"></a><!-- doxytag: member="OrxCraft::m_objectEditor" ref="a1a4abbaaa87384d8d3958be473382dfa" args="" -->
-<a class="el" href="class_object_editor.html">ObjectEditor</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_objectEditor</b></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a24ca43bf1f9b1f1416a596d5847d908c"></a><!-- doxytag: member="OrxCraft::m_fxSlotEditorWindow" ref="a24ca43bf1f9b1f1416a596d5847d908c" args="" -->
-<a class="el" href="class_f_x_slot_editor_window.html">FXSlotEditorWindow</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_fxSlotEditorWindow</b></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acaab46068b7508a01809b1c91c5cfaf6"></a><!-- doxytag: member="OrxCraft::m_selectedObject" ref="acaab46068b7508a01809b1c91c5cfaf6" args="" -->
-ScrollObject *&#160;</td><td class="memItemRight" valign="bottom"><b>m_selectedObject</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a49defe9c620d730e1ada22ac03f31063"></a><!-- doxytag: member="OrxCraft::m_gui" ref="a49defe9c620d730e1ada22ac03f31063" args="" -->
+<a class="el" href="class_scroll_g_u_i_c_e_g_u_i.html">ScrollGUICEGUI</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_gui</b></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a834d3c68e47726c66cceba34ab48a433"></a><!-- doxytag: member="OrxCraft::m_objectList" ref="a834d3c68e47726c66cceba34ab48a433" args="" -->
 vector&lt; const orxSTRING &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_orx_craft.html#a834d3c68e47726c66cceba34ab48a433">m_objectList</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Currently loaded config objects. <br/></td></tr>
@@ -171,14 +157,14 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_dirty</b></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>Make a Scroll utility functions class </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>Make a Scroll utility functions class </dd></dl>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_orx_craft_aeea06b24410e74d5041a7160142e4ed1_icgraph.png" border="0" usemap="#class_orx_craft_aeea06b24410e74d5041a7160142e4ed1_icgraph" alt=""/></div>
 <map name="class_orx_craft_aeea06b24410e74d5041a7160142e4ed1_icgraph" id="class_orx_craft_aeea06b24410e74d5041a7160142e4ed1_icgraph">
-<area shape="rect" id="node3" href="class_orx_craft.html#ad4e9fd5f719b82471fa34f47664f61e0" title="Set selected object in Object Editor." alt="" coords="240,5,427,32"/><area shape="rect" id="node5" href="class_orx_craft.html#a767e16b92a09c92f83ddf3af655ccf16" title="Setup loaded config section lists and create objects." alt="" coords="259,56,407,83"/></map>
+<area shape="rect" id="node3" href="class_orx_craft.html#a767e16b92a09c92f83ddf3af655ccf16" title="Setup loaded config section lists and create objects." alt="" coords="241,5,389,32"/></map>
 </div>
 </p>
 
@@ -203,7 +189,7 @@ Here is the caller graph for this function:</div>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Sat Jun 23 2012 15:54:24 by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sun Jul 1 2012 11:13:33 by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

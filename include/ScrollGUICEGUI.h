@@ -22,10 +22,10 @@ class ScrollFrameWindow;
 class ScrollGUICEGUI
 {
 public:
-    /** Create instance if it doesn't exist. */
-    static ScrollGUICEGUI * GetInstance ();
-    /** Destroy the instance */
-    static void Destroy ();
+    /** C-tor */
+    ScrollGUICEGUI ();
+    /** D-tor */
+    ~ScrollGUICEGUI ();
 
     void Init ();
     void InputMouseMove ();
@@ -43,10 +43,7 @@ public:
     };
 
 private:
-    ScrollGUICEGUI ();
-    ~ScrollGUICEGUI ();
 
-    static ScrollGUICEGUI *m_instance;
     CEGUI::OpenGLRenderer *m_glRenderer;
     std::vector<ScrollFrameWindow *> m_frameWindows;
 };

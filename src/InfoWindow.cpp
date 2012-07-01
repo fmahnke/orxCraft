@@ -37,12 +37,10 @@ void InfoWindow::HandleMouseClick (const orxSTRING widgetName)
     if (orxString_ICompare (widgetName, "ObjectSectionList") == 0)
     {
 	const orxSTRING itemName = m_widgetManager->GetSelectedItem (widgetName);
-	OrxCraft::GetInstance ().SetSelectedObject (itemName);
     }
     else if (orxString_ICompare (widgetName, "FXSlotSectionList") == 0)
     {
 	const orxSTRING itemName = m_widgetManager->GetSelectedItem (widgetName);
-	OrxCraft::GetInstance ().SetSelectedFXSlot (itemName);
     }
     else if (orxString_ICompare (widgetName, "SaveConfig") == 0)
     {

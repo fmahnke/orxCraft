@@ -13,7 +13,7 @@
 
 #include "constants.h"
 
-ScrollGUICEGUI *ScrollGUICEGUI::m_instance = NULL;
+using CEGUI::System;
 
 ScrollGUICEGUI::ScrollGUICEGUI () :
     m_glRenderer (orxNULL)
@@ -32,21 +32,6 @@ ScrollGUICEGUI::~ScrollGUICEGUI ()
     m_glRenderer = orxNULL;
 }
 
-ScrollGUICEGUI * ScrollGUICEGUI::GetInstance ()
-{
-    if (! m_instance)
-    {
-	m_instance = new ScrollGUICEGUI ();
-    }
-
-    return m_instance;
-}
-
-void ScrollGUICEGUI::Destroy ()
-{
-    delete m_instance;
-}
-
 void ScrollGUICEGUI::Init ()
 {
     // CEGUI renderer has to be initialized first
@@ -58,12 +43,10 @@ void ScrollGUICEGUI::Init ()
     // Init object editor
     ObjectEditor *objEditor = new ObjectEditor ();
     objEditor->Init (objectEditorName);
-    //m_objectEditor->SetObject (m_selectedObject);
 
     // Init FX slot editor
     FXSlotEditorWindow *fxSlotEditor = new FXSlotEditorWindow ();
     fxSlotEditor->Init (fxSlotWindowName);
-    //m_fxSlotEditorWindow->SetContext ("FXS-Darken");
 
     // Init info window
     InfoWindow *infoWindow = new InfoWindow ();
@@ -72,17 +55,23 @@ void ScrollGUICEGUI::Init ()
     m_frameWindows.push_back (objEditor);
     m_frameWindows.push_back (fxSlotEditor);
     m_frameWindows.push_back (infoWindow);
-
 }
 
 void ScrollGUICEGUI::CEGUIScrollObject::OnCreate ()
 {
-    CEGUI::SchemeManager::getSingleton().create( "TaharezLook.scheme" );
-    CEGUI::Window* myRoot = CEGUI::WindowManager::getSingleton().loadWindowLayout( "Main.layout" );
-    CEGUI::Window* FXSlotWindowRoot = CEGUI::WindowManager::getSingleton().loadWindowLayout( "FXSlotWindow.layout" );
-    CEGUI::Window* FXSlotWindow = FXSlotWindowRoot->getChildAtIdx (0); 
+    using CEGUI::SchemeManager;
+    using CEGUI::Window;
+    using CEGUI::WindowManager;
+
+    SchemeManager::getSingleton().create("TaharezLook.scheme");
+
+    WindowManager &winManager = WindowManager::getSingleton ();
+    Window* myRoot = winManager.loadWindowLayout ("Main.layout");
+    Window* FXSlotWindowRoot = winManager.loadWindowLayout (
+	"FXSlotWindow.layout");
+    Window* FXSlotWindow = FXSlotWindowRoot->getChildAtIdx (0); 
     myRoot->addChildWindow (FXSlotWindow);   
-    CEGUI::System::getSingleton().setGUISheet( myRoot );
+    System::getSingleton().setGUISheet( myRoot );
 }
 
 void ScrollGUICEGUI::CEGUIScrollObject::OnDelete ()
@@ -97,8 +86,8 @@ void ScrollGUICEGUI::InputMouseMove ()
     orxVECTOR worldPos;
     orxRender_GetWorldPosition (&mousePos, &worldPos);
 
-    CEGUI::System::getSingleton ().injectMousePosition (worldPos.fX,
-							worldPos.fY);
+    System::getSingleton ().injectMousePosition (worldPos.fX,
+						 worldPos.fY);
 }
 
 void ScrollGUICEGUI::InputMouseDown ()
@@ -109,8 +98,9 @@ void ScrollGUICEGUI::InputMouseDown ()
     orxVECTOR worldPos;
     orxRender_GetWorldPosition (&mousePos, &worldPos);
 
-    CEGUI::System::getSingleton ().injectMousePosition (worldPos.fX, worldPos.fY);
-    CEGUI::System::getSingleton ().injectMouseButtonDown (CEGUI::LeftButton);
+    System::getSingleton ().injectMousePosition (worldPos.fX,
+						 worldPos.fY);
+    System::getSingleton ().injectMouseButtonDown (CEGUI::LeftButton);
 }
 
 void ScrollGUICEGUI::InputMouseUp ()
@@ -121,8 +111,9 @@ void ScrollGUICEGUI::InputMouseUp ()
     orxVECTOR worldPos;
     orxRender_GetWorldPosition (&mousePos, &worldPos);
 
-    CEGUI::System::getSingleton ().injectMousePosition (worldPos.fX, worldPos.fY);
-    CEGUI::System::getSingleton ().injectMouseButtonUp (CEGUI::LeftButton);
+    System::getSingleton ().injectMousePosition (worldPos.fX,
+						 worldPos.fY);
+    System::getSingleton ().injectMouseButtonUp (CEGUI::LeftButton);
 }
 
 void ScrollGUICEGUI::InputKeyPress (const orxSTRING orxKey)
@@ -225,17 +216,17 @@ void ScrollGUICEGUI::InputKeyPress (const orxSTRING orxKey)
 	inputChar = '-';
     }
 
-    CEGUI::System::getSingleton ().injectKeyDown (key);
+    System::getSingleton ().injectKeyDown (key);
     if (inputChar != '\0')
     {
-	CEGUI::System::getSingleton ().injectChar (inputChar);
+	System::getSingleton ().injectChar (inputChar);
     }
 }
 
 orxBOOL ScrollGUICEGUI::CEGUIScrollObject::OnRender ()
 {
     DrawGrid ();
-    CEGUI::System::getSingleton().renderGUI();
+    System::getSingleton().renderGUI();
     return false; 
 }
 

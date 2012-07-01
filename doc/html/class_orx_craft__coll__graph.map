@@ -1,8 +1,3 @@
 <map id="G" name="G">
-<area shape="rect" id="node2" href="$class_info_window.html" title="InfoWindow" alt="" coords="5,96,93,123"/>
-<area shape="rect" id="node4" href="$class_scroll_frame_window.html" title="Interface for a Window." alt="" coords="260,5,399,32"/>
-<area shape="rect" id="node6" href="$class_widget_manager.html" title="Each window can have an instance of the widget manager." alt="" coords="749,96,861,123"/>
-<area shape="rect" id="node11" href="$class_f_x_slot_editor_window.html" title="FXSlotEditorWindow" alt="" coords="118,96,257,123"/>
-<area shape="rect" id="node14" href="$class_object_editor.html" title="ObjectEditor" alt="" coords="282,96,376,123"/>
-<area shape="rect" id="node17" href="$class_scroll_g_u_i_c_e_g_u_i.html" title="Renders GUI items and sends input from Scroll to them." alt="" coords="401,96,519,123"/>
+<area shape="rect" id="node2" href="$class_scroll_g_u_i_c_e_g_u_i.html" title="Renders GUI items and sends input from Scroll to them." alt="" coords="5,5,123,32"/>
 </map>

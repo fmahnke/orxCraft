@@ -17,13 +17,8 @@
 #include "constants.h"
 
 OrxCraft::OrxCraft () :
-    m_selectedObject     (NULL)
+    m_gui (NULL)
 {
-}
-
-void OrxCraft::SetSelectedObject (const orxSTRING name)
-{
-    orxASSERT (false);
 }
 
 void OrxCraft::SetSelectedFXSlot (const orxSTRING name)
@@ -58,7 +53,8 @@ orxSTATUS OrxCraft::Init ()
     SetupConfig ();
 
     // Init GUI system
-    ScrollGUICEGUI::GetInstance ()->Init ();
+    m_gui = new ScrollGUICEGUI ();
+    m_gui->Init ();
 
     orxEvent_AddHandler (orxEVENT_TYPE_INPUT, EventHandler);
 
@@ -82,7 +78,8 @@ orxSTATUS OrxCraft::Run ()
 
 void OrxCraft::Exit ()
 {
-    ScrollGUICEGUI::GetInstance ()->Destroy ();
+    delete m_gui;
+    m_gui = NULL;
 }
 
 void OrxCraft::BindObjects ()
@@ -114,7 +111,7 @@ void OrxCraft::Update (const orxCLOCK_INFO &_rstInfo)
     if (orxObject_Pick (&worldPos) == orxNULL)
     {
 	// Pass input to GUI
-	ScrollGUICEGUI::GetInstance ()->InputMouseMove ();
+	m_gui->InputMouseMove ();
     }
 }
 
@@ -186,17 +183,17 @@ void OrxCraft::SaveEditorConfig ()
 
 void OrxCraft::OnMouseDown ()
 {
-    ScrollGUICEGUI::GetInstance ()->InputMouseDown ();
+    m_gui->InputMouseDown ();
 }
 
 void OrxCraft::OnMouseUp ()
 {
-    ScrollGUICEGUI::GetInstance ()->InputMouseUp ();
+    m_gui->InputMouseUp ();
 }
 
 void OrxCraft::OnKeyPress (const orxSTRING key)
 {
-    ScrollGUICEGUI::GetInstance ()->InputKeyPress (key);
+    m_gui->InputKeyPress (key);
 }
 
 orxSTATUS orxFASTCALL OrxCraft::EventHandler(const orxEVENT *_pstEvent)
