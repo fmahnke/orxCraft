@@ -52,39 +52,38 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="_rocket_data_source_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef ROCKETDATASOURCE_H__</span>
 <a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define ROCKETDATASOURCE_H__</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
-<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;Rocket/Controls/DataSource.h&quot;</span>
-<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;Scroll.h&quot;</span>
-<a name="l00013"></a>00013 
-<a name="l00014"></a>00014 <span class="preprocessor">#include &lt;vector&gt;</span>
-<a name="l00015"></a>00015 
-<a name="l00016"></a>00016 <span class="keyword">using</span> std::vector;
-<a name="l00017"></a>00017 
-<a name="l00018"></a><a class="code" href="class_rocket_data_source.html">00018</a> <span class="keyword">class </span><a class="code" href="class_rocket_data_source.html">RocketDataSource</a> : <span class="keyword">public</span> Rocket::Controls::DataSource
-<a name="l00019"></a>00019 {
-<a name="l00020"></a>00020 <span class="keyword">public</span>:
-<a name="l00022"></a>00022     <a class="code" href="class_rocket_data_source.html#a74d1fc175ff91f4b364e55eeb9e4d620" title="Construct data source and initialize data source name.">RocketDataSource</a> (<span class="keyword">const</span> orxSTRING name);
-<a name="l00024"></a>00024     <span class="keywordtype">void</span>         <a class="code" href="class_rocket_data_source.html#a85de999251b02ad51eb9155ed19f6837" title="Set the items in a column.">SetColumn</a> (<span class="keyword">const</span> orxSTRING tableName,
-<a name="l00025"></a>00025                             <span class="keyword">const</span> orxSTRING colName,
-<a name="l00026"></a>00026                             <span class="keyword">const</span> vector&lt;const orxSTRING&gt; &amp;items);
-<a name="l00027"></a>00027     <span class="keyword">virtual</span> <span class="keywordtype">void</span> GetRow(Rocket::Core::StringList&amp; row,
-<a name="l00028"></a>00028                         <span class="keyword">const</span> Rocket::Core::String&amp; table,
-<a name="l00029"></a>00029                         <span class="keywordtype">int</span> row_index,
-<a name="l00030"></a>00030                         <span class="keyword">const</span> Rocket::Core::StringList&amp; columns);
-<a name="l00031"></a>00031     <span class="keyword">virtual</span> <span class="keywordtype">int</span>  GetNumRows(<span class="keyword">const</span> Rocket::Core::String&amp; table);
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033 <span class="keyword">private</span>:
-<a name="l00035"></a>00035     <span class="keywordtype">int</span>          <a class="code" href="class_rocket_data_source.html#a451d10207c622aa280db2da4557fd6ee" title="Add a new table to the data source.">AddTable</a>       (<span class="keyword">const</span> orxSTRING tableName);
-<a name="l00037"></a>00037     <span class="keywordtype">int</span>          <a class="code" href="class_rocket_data_source.html#a7c14d28a8762b5d3f1ef3bc95575a68c" title="Add a new column to the data source.">AddColumn</a>      (<span class="keyword">const</span> orxSTRING tableName,
-<a name="l00038"></a>00038                                  <span class="keyword">const</span> orxSTRING columnName);
-<a name="l00039"></a>00039     <span class="keywordtype">int</span>          GetTableIndex  (<span class="keyword">const</span> orxSTRING tableName) <span class="keyword">const</span>;
-<a name="l00040"></a>00040     <span class="keywordtype">int</span>          GetColumnIndex (<span class="keyword">const</span> orxSTRING tableName,
-<a name="l00041"></a>00041                                  <span class="keyword">const</span> orxSTRING columnName) <span class="keyword">const</span>;
-<a name="l00042"></a>00042     vector&lt;const orxSTRING&gt; m_tableNames;
-<a name="l00043"></a>00043     vector&lt;vector&lt;const orxSTRING&gt;&gt; m_columnNames;
-<a name="l00044"></a>00044     vector&lt;vector&lt;vector&lt;const orxSTRING&gt;&gt;&gt; m_items;
-<a name="l00045"></a>00045 };
-<a name="l00046"></a>00046 
-<a name="l00047"></a>00047 <span class="preprocessor">#endif  // ROCKETDATASOURCE_H__</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;Rocket/Controls/DataSource.h&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;Scroll.h&quot;</span>
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 <span class="keyword">using</span> std::vector;
+<a name="l00016"></a>00016 
+<a name="l00017"></a><a class="code" href="class_rocket_data_source.html">00017</a> <span class="keyword">class </span><a class="code" href="class_rocket_data_source.html">RocketDataSource</a> : <span class="keyword">public</span> Rocket::Controls::DataSource
+<a name="l00018"></a>00018 {
+<a name="l00019"></a>00019 <span class="keyword">public</span>:
+<a name="l00021"></a>00021     <span class="keyword">explicit</span> <a class="code" href="class_rocket_data_source.html#a74d1fc175ff91f4b364e55eeb9e4d620" title="Construct data source and initialize data source name.">RocketDataSource</a> (<span class="keyword">const</span> orxSTRING name);
+<a name="l00023"></a>00023     <span class="keywordtype">void</span>         <a class="code" href="class_rocket_data_source.html#a85de999251b02ad51eb9155ed19f6837" title="Set the items in a column.">SetColumn</a> (<span class="keyword">const</span> orxSTRING tableName,
+<a name="l00024"></a>00024                             <span class="keyword">const</span> orxSTRING colName,
+<a name="l00025"></a>00025                             <span class="keyword">const</span> vector&lt;const orxSTRING&gt; &amp;items);
+<a name="l00026"></a>00026     <span class="keyword">virtual</span> <span class="keywordtype">void</span> GetRow(Rocket::Core::StringList&amp; row,
+<a name="l00027"></a>00027                         <span class="keyword">const</span> Rocket::Core::String&amp; table,
+<a name="l00028"></a>00028                         <span class="keywordtype">int</span> row_index,
+<a name="l00029"></a>00029                         <span class="keyword">const</span> Rocket::Core::StringList&amp; columns);
+<a name="l00030"></a>00030     <span class="keyword">virtual</span> <span class="keywordtype">int</span>  GetNumRows(<span class="keyword">const</span> Rocket::Core::String&amp; table);
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 <span class="keyword">private</span>:
+<a name="l00034"></a>00034     <span class="keywordtype">int</span>          <a class="code" href="class_rocket_data_source.html#a451d10207c622aa280db2da4557fd6ee" title="Add a new table to the data source.">AddTable</a>       (<span class="keyword">const</span> orxSTRING tableName);
+<a name="l00036"></a>00036     <span class="keywordtype">int</span>          <a class="code" href="class_rocket_data_source.html#a7c14d28a8762b5d3f1ef3bc95575a68c" title="Add a new column to the data source.">AddColumn</a>      (<span class="keyword">const</span> orxSTRING tableName,
+<a name="l00037"></a>00037                                  <span class="keyword">const</span> orxSTRING columnName);
+<a name="l00038"></a>00038     <span class="keywordtype">int</span>          GetTableIndex  (<span class="keyword">const</span> orxSTRING tableName) <span class="keyword">const</span>;
+<a name="l00039"></a>00039     <span class="keywordtype">int</span>          GetColumnIndex (<span class="keyword">const</span> orxSTRING tableName,
+<a name="l00040"></a>00040                                  <span class="keyword">const</span> orxSTRING columnName) <span class="keyword">const</span>;
+<a name="l00041"></a>00041     vector&lt;const orxSTRING&gt; m_tableNames;
+<a name="l00042"></a>00042     vector&lt;vector&lt;const orxSTRING&gt;&gt; m_columnNames;
+<a name="l00043"></a>00043     vector&lt;vector&lt;vector&lt;const orxSTRING&gt;&gt;&gt; m_items;
+<a name="l00044"></a>00044 };
+<a name="l00045"></a>00045 
+<a name="l00046"></a>00046 <span class="preprocessor">#endif  // ROCKETDATASOURCE_H__</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -101,7 +100,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Sat Jun 23 2012 15:54:23 by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sun Jul 1 2012 10:36:38 by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>
