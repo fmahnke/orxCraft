@@ -17,6 +17,12 @@ class WidgetManager;
 class ScrollWidget
 {
 public:    
+       /** Let's make ScrollCheckbox happy for now (Conrad) */
+       ScrollWidget () :
+       m_widgetName (NULL),
+       m_manager    (NULL)
+    {
+    };
     /** Widget C-tor */
     explicit ScrollWidget (WidgetManager *manager) :
 	m_widgetName (NULL),
