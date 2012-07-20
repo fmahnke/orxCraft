@@ -4,6 +4,7 @@
  * @author fritz@fritzmahnke.com
  *
  */
+#ifdef USE_LIBROCKET
 #include "ScrollGUIRocket.h"
 #include "OrxCraft.h"
 
@@ -222,3 +223,4 @@ orxBOOL ScrollGUIRocket::OnRender ()
 void ScrollGUIRocket::Update(const orxCLOCK_INFO &_rstInfo)
 {
 }
+#endif

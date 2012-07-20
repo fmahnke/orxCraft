@@ -4,7 +4,7 @@
  * @author fritz@fritzmahnke.com
  *
  */
-
+#ifdef USE_LIBROCKET
 #include "WidgetManagerRocket.h"
 #include "Rocket/Core.h"
 #include "Rocket/Controls.h"
@@ -253,3 +253,4 @@ void WidgetManagerRocket::OnTextAccepted (const orxSTRING widgetName)
 {
     m_scrollWindow->HandleTextAccepted (widgetName);
 }
+#endif

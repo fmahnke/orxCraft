@@ -4,7 +4,7 @@
  * @author fritz@fritzmahnke.com
  *
  */
-
+#ifdef USE_LIBROCKET
 #include "RocketListbox.h"
 #include "WidgetManager.h"
 #include "RocketDataSource.h"
@@ -78,3 +78,4 @@ RocketListbox::~RocketListbox ()
 {
     delete [] m_dataTableName;
 }
+#endif

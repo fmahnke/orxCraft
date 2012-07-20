@@ -30,7 +30,7 @@
  * THE SOFTWARE.
  *
  */
-
+#ifdef USE_LIBROCKET
 #include "GL/glew.h"
 #include <RocketRenderInterfaceOrx.h>
 #include <Rocket/Core.h>
@@ -227,4 +227,4 @@ void RocketRenderInterfaceOrx::ReleaseTexture(Rocket::Core::TextureHandle textur
 {
 	glDeleteTextures(1, (GLuint*) &texture_handle);
 }
-
+#endif

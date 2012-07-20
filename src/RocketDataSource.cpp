@@ -4,7 +4,7 @@
  * @author fritz@fritzmahnke.com
  *
  */
-
+#ifdef USE_LIBROCKET
 #include "RocketDataSource.h"
 
 RocketDataSource::RocketDataSource (const orxSTRING name) :
@@ -178,3 +178,4 @@ int RocketDataSource::GetColumnIndex (const orxSTRING tableName,
     }
     return columnIndex;
 }
+#endif

@@ -4,7 +4,7 @@
  * @author fritz@fritzmahnke.com
  *
  */
-
+#ifdef USE_LIBROCKET
 #include "RocketListener.h"
 #include "Rocket/Core.h"
 #include "Scroll.h"
@@ -39,3 +39,4 @@ void RocketListener::ProcessEvent (Rocket::Core::Event &event)
 	}
     }
 }
+#endif

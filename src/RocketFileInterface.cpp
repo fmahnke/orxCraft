@@ -30,7 +30,7 @@
  * THE SOFTWARE.
  *
  */
-
+#ifdef USE_LIBROCKET
 #include <RocketFileInterface.h>
 #include <stdio.h>
 
@@ -78,3 +78,4 @@ size_t RocketFileInterface::Tell(Rocket::Core::FileHandle file)
 {
 	return ftell((FILE*) file);
 }
+#endif
