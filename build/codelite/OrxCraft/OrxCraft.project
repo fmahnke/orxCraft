@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="OrxCraft" InternalType="Console">
+  <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00030001N0005Debug0000000000000001N0011Linux Debug0000000000000001N0013Linux Release000000000000]]>
+    </Plugin>
+  </Plugins>
+  <Description/>
+  <Dependencies/>
+  <VirtualDirectory Name="src">
+    <File Name="../../../src/CEGUICheckbox.cpp"/>
+    <File Name="../../../src/CEGUICombobox.cpp"/>
+    <File Name="../../../src/CEGUIEditbox.cpp"/>
+    <File Name="../../../src/CEGUIListbox.cpp"/>
+    <File Name="../../../src/CEGUIPushButton.cpp"/>
+    <File Name="../../../src/FXSlotEditorWindow.cpp"/>
+    <File Name="../../../src/InfoWindow.cpp"/>
+    <File Name="../../../src/ObjectEditor.cpp"/>
+    <File Name="../../../src/orx_config_util.cpp"/>
+    <File Name="../../../src/orxcraft.cpp"/>
+    <File Name="../../../src/RocketDataSource.cpp"/>
+    <File Name="../../../src/RocketFileInterface.cpp"/>
+    <File Name="../../../src/RocketListbox.cpp"/>
+    <File Name="../../../src/RocketListener.cpp"/>
+    <File Name="../../../src/RocketRenderInterfaceOrx.cpp"/>
+    <File Name="../../../src/ScrollGUICEGUI.cpp"/>
+    <File Name="../../../src/ScrollGUIRocket.cpp"/>
+    <File Name="../../../src/WidgetManagerCEGUI.cpp"/>
+    <File Name="../../../src/WidgetManagerRocket.cpp"/>
+  </VirtualDirectory>
+  <VirtualDirectory Name="include">
+    <File Name="../../../include/CEGUICheckbox.h"/>
+    <File Name="../../../include/CEGUICombobox.h"/>
+    <File Name="../../../include/CEGUIEditbox.h"/>
+    <File Name="../../../include/CEGUIListbox.h"/>
+    <File Name="../../../include/CEGUIPushButton.h"/>
+    <File Name="../../../include/FXSlotEditorWindow.h"/>
+    <File Name="../../../include/InfoWindow.h"/>
+    <File Name="../../../include/ObjectEditor.h"/>
+    <File Name="../../../include/orx_config_util.h"/>
+    <File Name="../../../include/RocketDataSource.h"/>
+    <File Name="../../../include/RocketFileInterface.h"/>
+    <File Name="../../../include/RocketListbox.h"/>
+    <File Name="../../../include/RocketListener.h"/>
+    <File Name="../../../include/RocketRenderInterfaceOrx.h"/>
+    <File Name="../../../include/ScrollCheckbox.h"/>
+    <File Name="../../../include/ScrollCombobox.h"/>
+    <File Name="../../../include/ScrollEditbox.h"/>
+    <File Name="../../../include/ScrollFrameWindow.h"/>
+    <File Name="../../../include/ScrollGUICEGUI.h"/>
+    <File Name="../../../include/ScrollGUIRocket.h"/>
+    <File Name="../../../include/ScrollListbox.h"/>
+    <File Name="../../../include/ScrollPushButton.h"/>
+    <File Name="../../../include/ScrollWidget.h"/>
+    <File Name="../../../include/ShellOpenGL.h"/>
+    <File Name="../../../include/WidgetManager.h"/>
+    <File Name="../../../include/WidgetManagerCEGUI.h"/>
+    <File Name="../../../include/WidgetManagerRocket.h"/>
+    <File Name="../../../include/OrxCraft.h"/>
+  </VirtualDirectory>
+  <Settings Type="Executable">
+    <GlobalSettings>
+      <Compiler Options="-I../../../include" C_Options="-I../../../include">
+        <IncludePath Value="."/>
+        <IncludePath Value="$(CEGUI_DIR)/cegui/include"/>
+        <IncludePath Value="$(SCROLL_DIR)/include/Scroll/"/>
+        <IncludePath Value="$(ORX_DIR)/code/include"/>
+      </Compiler>
+      <Linker Options="-Wl,-rpath=lib/orx -Wl,-rpath=lib/cegui">
+        <LibraryPath Value="."/>
+        <LibraryPath Value="$(ORX_DIR)/code/lib/dynamic"/>
+        <LibraryPath Value="$(CEGUI_DIR)/lib"/>
+        <Library Value="CEGUIBase"/>
+        <Library Value="CEGUIOpenGLRenderer"/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Linux Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-ggdb;-O0;-Wall" C_Options="-ggdb;-O0;-Wall" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" UseDifferentPCHFlags="no" PCHFlags="">
+        <IncludePath Value="."/>
+        <Preprocessor Value="__orxDEBUG__"/>
+      </Compiler>
+      <Linker Options="" Required="yes">
+        <Library Value="orxd"/>
+      </Linker>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/$(ProjectName)d" IntermediateDirectory="../../LinuxDebug" Command="./$(ProjectName)d" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
+        <![CDATA[]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild>
+        <Command Enabled="yes">ln -sf ../../data $(IntermediateDirectory)</Command>
+        <Command Enabled="yes">ln -sf data/OrxCraftd.ini $(IntermediateDirectory)/OrxCraftd.ini</Command>
+        <Command Enabled="yes">mkdir -p $(IntermediateDirectory)/lib/orx</Command>
+        <Command Enabled="yes">mkdir -p $(IntermediateDirectory)/lib/cegui</Command>
+        <Command Enabled="yes">ln -sf $(ORX_DIR)/code/lib/dynamic/* $(IntermediateDirectory)/lib/orx</Command>
+        <Command Enabled="yes">ln -sf $(CEGUI_DIR)/lib/* $(IntermediateDirectory)/lib/cegui</Command>
+      </PostBuild>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion EnableCpp11="no">
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+    <Configuration Name="Linux Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-O2;-Wall" C_Options="-O2;-Wall" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" UseDifferentPCHFlags="no" PCHFlags="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="" Required="yes">
+        <Library Value="orx"/>
+      </Linker>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="../../LinuxRelease" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
+        <![CDATA[]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild>
+        <Command Enabled="yes">ln -sf ../../data $(IntermediateDirectory)</Command>
+        <Command Enabled="yes">ln -sf data/OrxCraft.ini $(IntermediateDirectory)/OrxCraft.ini</Command>
+        <Command Enabled="yes">mkdir -p $(IntermediateDirectory)/lib/orx</Command>
+        <Command Enabled="yes">mkdir -p $(IntermediateDirectory)/lib/cegui</Command>
+        <Command Enabled="yes">ln -sf $(ORX_DIR)/code/lib/dynamic/* $(IntermediateDirectory)/lib/orx</Command>
+        <Command Enabled="yes">ln -sf $(CEGUI_DIR)/lib/* $(IntermediateDirectory)/lib/cegui</Command>
+      </PostBuild>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion EnableCpp11="no">
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+  </Settings>
+</CodeLite_Project>
