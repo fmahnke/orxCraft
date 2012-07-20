@@ -5,7 +5,7 @@
  *
  */
 #define __SCROLL_IMPL__
-#include "orxcraft.h"
+#include "OrxCraft.h"
 #undef  __SCROLL_IMPL__
 
 #include "InfoWindow.h"
