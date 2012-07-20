@@ -18,7 +18,7 @@
     <TabInfo>
       <wxString Value="/home/konrad/Projects/OrxCraft/src/ScrollGUICEGUI.cpp" Name="FileName"/>
       <int Value="18" Name="FirstVisibleLine"/>
-      <int Value="18" Name="CurrentLine"/>
+      <int Value="27" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
     </TabInfo>
   </TabInfoArray>

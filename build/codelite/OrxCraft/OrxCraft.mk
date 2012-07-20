@@ -73,6 +73,7 @@ $(OutputFile): $(IntermediateDirectory)/.d $(Objects)
 PostBuild:
 	@echo Executing Post Build commands ...
 	ln -sf ../../data $(IntermediateDirectory)
+	ln -sf ../../cegui $(IntermediateDirectory)
 	ln -sf data/OrxCraft.ini $(IntermediateDirectory)/OrxCraft.ini
 	mkdir -p $(IntermediateDirectory)/lib/orx
 	mkdir -p $(IntermediateDirectory)/lib/cegui

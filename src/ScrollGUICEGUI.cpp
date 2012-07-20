@@ -15,6 +15,29 @@ ScrollGUICEGUI::ScrollGUICEGUI () :
 void ScrollGUICEGUI::OnCreate ()
 {
     m_glRenderer = & CEGUI::OpenGLRenderer::bootstrapSystem();
+	// Initialise the required dirs for the DefaultResourceProvider
+	// All CEGUI data files are stored in data/cegui subdirectory relative to OrxCraft executable
+	CEGUI::DefaultResourceProvider* rp = 
+		static_cast<CEGUI::DefaultResourceProvider*>(CEGUI::System::getSingleton().getResourceProvider());
+	rp->setResourceGroupDirectory("schemes", "./cegui/schemes/");
+	rp->setResourceGroupDirectory("imagesets", "./cegui/imagesets/");
+	rp->setResourceGroupDirectory("fonts", "./cegui/fonts/");
+	rp->setResourceGroupDirectory("layouts", "./cegui/layouts/");
+	rp->setResourceGroupDirectory("looknfeels", "./cegui/looknfeel/");
+	rp->setResourceGroupDirectory("lua_scripts", "./cegui/lua_scripts/");
+	rp->setResourceGroupDirectory("schemas", "./cegui/xml_schemas/");
+	// Set the default resource groups to be used
+	CEGUI::Imageset::setDefaultResourceGroup("imagesets");
+	CEGUI::Font::setDefaultResourceGroup("fonts");
+	CEGUI::Scheme::setDefaultResourceGroup("schemes");
+	CEGUI::WidgetLookManager::setDefaultResourceGroup("looknfeels");
+	CEGUI::WindowManager::setDefaultResourceGroup("layouts");
+	CEGUI::ScriptModule::setDefaultResourceGroup("lua_scripts");
+	// Setup default group for validation schemas
+	CEGUI::XMLParser* parser = CEGUI::System::getSingleton().getXMLParser();
+	if (parser->isPropertyPresent("SchemaDefaultResourceGroup"))
+		parser->setProperty("SchemaDefaultResourceGroup", "schemas");
+	// Load OrxCraft GUI settings
     CEGUI::SchemeManager::getSingleton().create( "TaharezLook.scheme" );
     CEGUI::Window* myRoot = CEGUI::WindowManager::getSingleton().loadWindowLayout( "Main.layout" );
     CEGUI::Window* FXSlotWindowRoot = CEGUI::WindowManager::getSingleton().loadWindowLayout( "FXSlotWindow.layout" );

@@ -25,7 +25,7 @@ static const orxSTRING objectEditor = "ObjectEditor";
 
 // Settings
 static orxFLOAT coarseUnit = 5.0;
-static const orxSTRING configFileName = "sampleconfig.ini";
+static const orxSTRING configFileName = "data/sampleconfig.ini";
 
 OrxCraft::OrxCraft () :
     m_infoWindow         (NULL),

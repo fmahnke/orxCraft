@@ -95,6 +95,7 @@
       <PreBuild/>
       <PostBuild>
         <Command Enabled="yes">ln -sf ../../data $(IntermediateDirectory)</Command>
+        <Command Enabled="yes">ln -sf ../../cegui $(IntermediateDirectory)</Command>
         <Command Enabled="yes">ln -sf data/OrxCraftd.ini $(IntermediateDirectory)/OrxCraftd.ini</Command>
         <Command Enabled="yes">mkdir -p $(IntermediateDirectory)/lib/orx</Command>
         <Command Enabled="yes">mkdir -p $(IntermediateDirectory)/lib/cegui</Command>
@@ -140,6 +141,7 @@
       <PreBuild/>
       <PostBuild>
         <Command Enabled="yes">ln -sf ../../data $(IntermediateDirectory)</Command>
+        <Command Enabled="yes">ln -sf ../../cegui $(IntermediateDirectory)</Command>
         <Command Enabled="yes">ln -sf data/OrxCraft.ini $(IntermediateDirectory)/OrxCraft.ini</Command>
         <Command Enabled="yes">mkdir -p $(IntermediateDirectory)/lib/orx</Command>
         <Command Enabled="yes">mkdir -p $(IntermediateDirectory)/lib/cegui</Command>
