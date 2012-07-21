@@ -11,10 +11,8 @@ Development Schedule
 * Complete editor windows for remainder of Orx structures
 * Integrate OrxCraft with ScrollEd
 
-Using CEGUI as the GUI engine
------------------------------
-To enable CEGUI support (may crash/not build), unset preprocessor directive USE_LIBROCKET
-
+Setup Using CEGUI as the GUI engine
+-----------------------------------
 The following needs to be in the executable directory:
 
 * All the stuff from the cegui folder 
@@ -22,12 +20,11 @@ The following needs to be in the executable directory:
 * CEGUI .dll dependencies from your CEGUI build
 * sampleconfig.ini from the data directory
 
-libRocket
----------
-To enable libRocket support (may crash/not build) set preprocessor directive USE_LIBROCKET
+Notes on libRocket
+------------------
+The code to render the GUI with libRocket is now out of sync with the master
+branch (continuing with CEGUI is the focus). The libRocket code has been
+removed from master and is now contained in the librocket-support branch.
 
-The following needs to be in the executable directory:
+It will need some modifications before it will work with the master branch.
 
-* RocketCore.dll, RocketControls.dll, RocketDebugger.dll form your libRocket build
-* All the files in the libRocket folder. These are the libRocket templates and layout files.
-* sampleconfig.ini from the data directory

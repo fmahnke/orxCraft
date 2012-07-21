@@ -12,11 +12,7 @@
 #include "ObjectEditor.h"
 #include "FXSlotEditorWindow.h"
 
-#ifdef USE_LIBROCKET
-#include "ScrollGUIRocket.h"
-#else
 #include "ScrollGUICEGUI.h"
-#endif
 
 #include "CEDialogManager.h"
 
@@ -66,12 +62,8 @@ orxSTATUS OrxCraft::Init ()
     m_dialogManager = new CEDialogManager ();
 
     // Init GUI system
-#ifdef USE_LIBROCKET
-    m_scrollGUI = reinterpret_cast<ScrollGUIRocket *> (
-	CreateObject (scrollGUI));
-#else
     m_scrollGUI = reinterpret_cast<ScrollGUICEGUI *> (CreateObject (scrollGUI));
-#endif
+
     CreateObject (infoWindow);
 
     m_dialogManager->MakeDialog ("ObjectEditor");
@@ -112,11 +104,7 @@ void OrxCraft::Exit ()
 
 void OrxCraft::BindObjects ()
 {
-#ifdef USE_LIBROCKET
-    ScrollBindObject<ScrollGUIRocket> (scrollGUI);
-#else
     ScrollBindObject<ScrollGUICEGUI> (scrollGUI);
-#endif
 }
 
 void OrxCraft::Update (const orxCLOCK_INFO &_rstInfo)

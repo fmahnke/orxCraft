@@ -98,7 +98,7 @@
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>xcopy /y ..\..\cegui\*.layout ..\..\bin\windows
-xcopy /y ..\..\librocket\*.* ..\..\bin\windows</Command>
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -162,18 +162,8 @@ xcopy /y ..\..\librocket\*.* ..\..\bin\windows</Command>
     <ClCompile Include="..\..\src\orx_config_util.cpp" />
     <ClCompile Include="..\..\src\FXSlotEditorWindow.cpp" />
     <ClCompile Include="..\..\src\orxcraft.cpp" />
-    <ClCompile Include="..\..\src\RocketDataSource.cpp" />
-    <ClCompile Include="..\..\src\RocketListbox.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\src\RocketListener.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="..\..\src\ScrollFrameWindow.cpp" />
     <ClCompile Include="..\..\src\ScrollGUICEGUI.cpp" />
-    <ClCompile Include="..\..\src\ScrollGUIRocket.cpp" />
-    <ClCompile Include="..\..\src\RocketFileInterface.cpp" />
-    <ClCompile Include="..\..\src\RocketRenderInterfaceOrx.cpp" />
     <None Include="..\..\..\Scroll\include\Scroll\Scroll.inl" />
     <None Include="..\..\..\Scroll\include\Scroll\ScrollBase.inl" />
     <None Include="..\..\..\Scroll\include\Scroll\ScrollEd.inl" />
@@ -188,7 +178,6 @@ xcopy /y ..\..\librocket\*.* ..\..\bin\windows</Command>
     <None Include="..\..\README.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\libRocket\Include\Rocket\Core\SystemInterface.h" />
     <ClInclude Include="..\..\..\Scroll\include\Scroll\Scroll.h" />
     <ClInclude Include="..\..\..\Scroll\include\Scroll\ScrollBase.h" />
     <ClInclude Include="..\..\..\Scroll\include\Scroll\ScrollEd.h" />
@@ -205,19 +194,13 @@ xcopy /y ..\..\librocket\*.* ..\..\bin\windows</Command>
     <ClInclude Include="..\..\include\ObjectEditor.h" />
     <ClInclude Include="..\..\include\orxCraft.h" />
     <ClInclude Include="..\..\include\InfoWindow.h" />
-    <ClInclude Include="..\..\include\RocketListbox.h" />
-    <ClInclude Include="..\..\include\RocketListDataSource.h" />
     <ClInclude Include="..\..\include\ScrollPushButton.h" />
     <ClInclude Include="..\..\include\ScrollCombobox.h" />
     <ClInclude Include="..\..\include\ScrollEditbox.h" />
     <ClInclude Include="..\..\include\ScrollFrameWindow.h" />
     <ClInclude Include="..\..\include\ScrollGUI.h" />
     <ClInclude Include="..\..\include\ScrollListbox.h" />
-    <ClInclude Include="..\..\include\ScrollRocketListener.h" />
     <ClInclude Include="..\..\include\ScrollWidget.h" />
-    <ClInclude Include="..\..\include\RocketFileInterface.h" />
-    <ClInclude Include="..\..\include\ShellOpenGL.h" />
-    <ClInclude Include="..\..\include\RocketRenderInterfaceOrx.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -86,11 +86,9 @@ private:
 	 const orxSTRING _zFileName,
 	 orxBOOL _bUseEncryption);
 
-#if USE_LIBROCKET
-    ScrollGUIRocket         *m_scrollGUI;
-#else
+    //! @todo Need a base class
     ScrollGUICEGUI	    *m_scrollGUI;
-#endif
+
     DialogManager	    *m_dialogManager;
     InfoWindow              *m_infoWindow;
     ScrollObject            *m_selectedObject;
