@@ -3,6 +3,8 @@
  * @date 2012-07-01
  * @author fritz@fritzmahnke.com
  *
+ * CEGUI implementation of the Dialog Manager.
+ * 
  * @todo Make sure dialogs get destroyed on program quit
  */
 
