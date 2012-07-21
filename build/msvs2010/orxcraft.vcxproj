@@ -166,15 +166,14 @@ xcopy /y ..\..\librocket\*.* ..\..\bin\windows</Command>
     <ClCompile Include="..\..\src\RocketListbox.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\src\RocketListener.cpp" />
+    <ClCompile Include="..\..\src\RocketListener.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\src\ScrollFrameWindow.cpp" />
     <ClCompile Include="..\..\src\ScrollGUICEGUI.cpp" />
     <ClCompile Include="..\..\src\ScrollGUIRocket.cpp" />
     <ClCompile Include="..\..\src\RocketFileInterface.cpp" />
     <ClCompile Include="..\..\src\RocketRenderInterfaceOrx.cpp" />
-    <ClCompile Include="..\..\src\WidgetManagerRocket.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
     <None Include="..\..\..\Scroll\include\Scroll\Scroll.inl" />
     <None Include="..\..\..\Scroll\include\Scroll\ScrollBase.inl" />
     <None Include="..\..\..\Scroll\include\Scroll\ScrollEd.inl" />
@@ -219,8 +218,6 @@ xcopy /y ..\..\librocket\*.* ..\..\bin\windows</Command>
     <ClInclude Include="..\..\include\RocketFileInterface.h" />
     <ClInclude Include="..\..\include\ShellOpenGL.h" />
     <ClInclude Include="..\..\include\RocketRenderInterfaceOrx.h" />
-    <ClInclude Include="..\..\include\WidgetManager.h" />
-    <ClInclude Include="..\..\include\WidgetManagerRocket.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
