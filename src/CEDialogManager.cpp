@@ -3,6 +3,7 @@
  * @date 2012-07-01
  * @author fritz@fritzmahnke.com
  *
+ * @todo Make sure dialogs get destroyed on program quit
  */
 
 #include "CEDialogManager.h"
@@ -10,7 +11,10 @@
 #include "CEGUI.h"
 
 #include "ScrollFrameWindow.h"
+
+// Dialogs
 #include "ObjectEditor.h"
+#include "FXSlotEditorWindow.h"
 
 #include "CEGUICombobox.h"
 #include "CEGUIEditbox.h"
@@ -30,6 +34,12 @@ void CEDialogManager::MakeDialog (const orxSTRING dialogName)
 	dialog = new ObjectEditor ();
 	windowRoot = CEGUI::WindowManager::getSingleton().loadWindowLayout(
 	    "ObjectEditor.layout");
+    }
+    else if (orxString_Compare (dialogName, "FXSlotEditor") == 0)
+    {
+	dialog = new FXSlotEditorWindow ();
+	windowRoot = CEGUI::WindowManager::getSingleton().loadWindowLayout(
+	    "FXSlotEditor.layout");
     }
     else
     {
@@ -80,5 +90,5 @@ void CEDialogManager::MakeDialog (const orxSTRING dialogName)
 	}
     }
 
-    dialog->Init ("ObjectEditor");
+    dialog->Init (dialogName);
 }

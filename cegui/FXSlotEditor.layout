@@ -3,7 +3,7 @@
 <GUILayout >
     <Window Type="DefaultWindow" Name="FXSlotWindowRoot" >
         <Property Name="UnifiedAreaRect" Value="{{0,0},{0,0},{1,0},{1,0}}" />
-        <Window Type="TaharezLook/FrameWindow" Name="FXSlotWindow" >
+        <Window Type="TaharezLook/FrameWindow" Name="FXSlotEditor" >
             <Property Name="Text" Value="FXSlot" />
 			<Property Name="Alpha" Value="0.7" />
             <Property Name="TitlebarFont" Value="DejaVuSans-8" />

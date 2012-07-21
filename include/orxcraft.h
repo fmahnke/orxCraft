@@ -93,7 +93,6 @@ private:
 #endif
     DialogManager	    *m_dialogManager;
     InfoWindow              *m_infoWindow;
-    FXSlotEditorWindow      *m_fxSlotEditorWindow;
     ScrollObject            *m_selectedObject;
     /// Currently loaded config objects
     vector<const orxSTRING> m_objectList;

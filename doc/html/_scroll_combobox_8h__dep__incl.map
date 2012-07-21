@@ -1,7 +1,8 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$_c_e_g_u_i_combobox_8h.html" title="include/CEGUICombobox.h" alt="" coords="198,80,377,107"/>
-<area shape="rect" id="node11" href="$_scroll_frame_window_8cpp.html" title="src/ScrollFrameWindow.cpp" alt="" coords="402,80,587,107"/>
+<area shape="rect" id="node3" href="$_c_e_g_u_i_combobox_8h.html" title="include/CEGUICombobox.h" alt="" coords="99,80,279,107"/>
+<area shape="rect" id="node9" href="$_f_x_slot_editor_window_8cpp.html" title="src/FXSlotEditorWindow.cpp" alt="" coords="304,80,491,107"/>
+<area shape="rect" id="node11" href="$_object_editor_8cpp.html" title="src/ObjectEditor.cpp" alt="" coords="515,80,656,107"/>
+<area shape="rect" id="node13" href="$_scroll_frame_window_8cpp.html" title="src/ScrollFrameWindow.cpp" alt="" coords="681,80,865,107"/>
 <area shape="rect" id="node5" href="$_c_e_dialog_manager_8cpp.html" title="src/CEDialogManager.cpp" alt="" coords="5,155,179,181"/>
 <area shape="rect" id="node7" href="$_c_e_g_u_i_combobox_8cpp.html" title="src/CEGUICombobox.cpp" alt="" coords="203,155,373,181"/>
-<area shape="rect" id="node9" href="$_object_editor_8cpp.html" title="src/ObjectEditor.cpp" alt="" coords="397,155,539,181"/>
 </map>

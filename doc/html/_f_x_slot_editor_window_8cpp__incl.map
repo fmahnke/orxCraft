@@ -1,7 +1,9 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$_f_x_slot_editor_window_8h.html" title="FXSlotEditorWindow.h" alt="" coords="352,80,502,107"/>
-<area shape="rect" id="node16" href="$orxcraft_8h.html" title="OrxCraft.h" alt="" coords="87,155,167,181"/>
-<area shape="rect" id="node20" href="$orx__config__util_8h.html" title="orx_config_util.h" alt="" coords="212,80,327,107"/>
-<area shape="rect" id="node5" href="$_scroll_frame_window_8h.html" title="ScrollFrameWindow.h" alt="" coords="342,155,491,181"/>
-<area shape="rect" id="node11" href="$_scroll_widget_8h.html" title="ScrollWidget.h" alt="" coords="273,229,379,256"/>
+<area shape="rect" id="node3" href="$_f_x_slot_editor_window_8h.html" title="FXSlotEditorWindow.h" alt="" coords="142,80,292,107"/>
+<area shape="rect" id="node14" href="$orxcraft_8h.html" title="OrxCraft.h" alt="" coords="571,155,652,181"/>
+<area shape="rect" id="node18" href="$orx__config__util_8h.html" title="orx_config_util.h" alt="" coords="401,80,516,107"/>
+<area shape="rect" id="node23" href="$_scroll_combobox_8h.html" title="ScrollCombobox.h" alt="" coords="269,155,397,181"/>
+<area shape="rect" id="node27" href="$_scroll_editbox_8h.html" title="ScrollEditbox.h" alt="" coords="5,80,115,107"/>
+<area shape="rect" id="node5" href="$_scroll_frame_window_8h.html" title="ScrollFrameWindow.h" alt="" coords="96,155,245,181"/>
+<area shape="rect" id="node11" href="$_scroll_widget_8h.html" title="ScrollWidget.h" alt="" coords="208,229,315,256"/>
 </map>

@@ -8,19 +8,8 @@
 #include "OrxCraft.h"
 #include "orx_config_util.h"
 
-#include "ScrollFrameWindow.h"
-
-// Temporary, until factory is built
-#include "CEGUI.h"
-
-#include "CEGUICombobox.h"
-#include "CEGUIEditbox.h"
-#include "CEGUIListbox.h"
-#include "CEGUIPushButton.h"
-
-using CEGUI::Combobox;
-using CEGUI::Listbox;
-using CEGUI::Window;
+#include "ScrollCombobox.h"
+#include "ScrollEditbox.h"
 
 ObjectEditor::ObjectEditor () :
     m_object (NULL),
@@ -68,48 +57,6 @@ ObjectEditor::ObjectEditor () :
 
 void ObjectEditor::Init (const orxSTRING widgetName)
 {
-    CEGUI::Window *rootWindow = CEGUI::System::getSingleton ().getGUISheet ();
-    CEGUI::Window *window = rootWindow->getChild (widgetName);
-    
-    int counter = window->getChildCount ();
-    for (int i = 0; i < counter; i++)
-    {
-	const orxSTRING type = window->getChildAtIdx (i)->getType ().c_str ();
-	const orxSTRING name = window->getChildAtIdx (i)->getName ().c_str ();
-	if (orxString_Compare (type, "TaharezLook/Checkbox") == 0)
-	{
-	    orxASSERT (false);
-	    /*
-	    CEGUICheckbox *checkbox = new CEGUICheckbox (this);
-	    checkbox->Init (name);
-	    m_widgetList.push_back (checkbox);
-	    */
-	}
-	else if (orxString_Compare (type, "TaharezLook/Combobox") == 0)
-	{
-	    CEGUICombobox *combobox = new CEGUICombobox (this);
-	    combobox->Init (name);
-	    m_widgetList.push_back (combobox);
-	}
-	else if (orxString_Compare (type, "TaharezLook/Editbox") == 0)
-	{
-	    CEGUIEditbox *editbox = new CEGUIEditbox (this);
-	    editbox->Init (name);
-	    m_widgetList.push_back (editbox);
-	}
-	else if (orxString_Compare (type, "TaharezLook/Listbox") == 0)
-	{
-	    CEGUIListbox *listbox = new CEGUIListbox (this);
-	    listbox->Init (name);
-	    m_widgetList.push_back (listbox);
-	}
-	else if (orxString_Compare (type, "TaharezLook/Button") == 0)
-	{
-	    CEGUIPushButton *pushbutton = new CEGUIPushButton (this);
-	    pushbutton->Init (name);
-	    m_widgetList.push_back (pushbutton);
-	}
-    }
     m_objConfigName = FindEditbox ("ObjectConfigName");
     m_objAlpha = FindEditbox ("ObjAlpha");
     m_objAngVelocity = FindEditbox ("ObjAngularVelocity");

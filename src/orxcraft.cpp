@@ -33,7 +33,6 @@ OrxCraft::OrxCraft () :
     m_dialogManager      (NULL),
     m_infoWindow         (NULL),
     m_selectedObject     (NULL),
-    m_fxSlotEditorWindow (NULL),
     m_scrollGUI          (NULL)
 {
 }
@@ -78,9 +77,7 @@ orxSTATUS OrxCraft::Init ()
     m_dialogManager->MakeDialog ("ObjectEditor");
 
     // Init FX slot editor
-    //m_fxSlotEditorWindow = new FXSlotEditorWindow ();
-    //m_fxSlotEditorWindow->Init ("FXSlotWindow");
-    //m_fxSlotEditorWindow->SetContext ("FXS-Darken");
+    m_dialogManager->MakeDialog ("FXSlotEditor");
 
     // Init info window
     //m_infoWindow = new InfoWindow ();
@@ -108,7 +105,6 @@ orxSTATUS OrxCraft::Run ()
 
 void OrxCraft::Exit ()
 {
-    delete m_fxSlotEditorWindow;
     delete m_infoWindow;
     delete m_dialogManager;
     m_dialogManager = NULL;
