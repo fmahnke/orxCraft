@@ -57,7 +57,7 @@ private:
     ScrollCombobox *m_fxsUseRotation;
     ScrollCombobox *m_fxsUseScale;
     
-    ScrollEditbox *m_fxsConfigName;
+    ScrollCombobox *m_fxsConfigName;
 
 };
 

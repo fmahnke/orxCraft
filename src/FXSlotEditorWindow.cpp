@@ -55,7 +55,7 @@ void FXSlotEditorWindow::Init (const orxSTRING widgetName)
     m_fxsAbsolute = FindCombobox ("FXSlotAbsolute");
     m_fxsUseRotation = FindCombobox ("FXSlotUseRotation");
     m_fxsUseScale = FindCombobox ("FXSlotUseScale");
-    m_fxsConfigName = FindEditbox ("FXSlotConfigName");
+    m_fxsConfigName = FindCombobox ("FXSlotConfigName");
 
     SetupFields ();
 
@@ -64,10 +64,13 @@ void FXSlotEditorWindow::Init (const orxSTRING widgetName)
 
 void FXSlotEditorWindow::SetupFields ()
 {
+    vector<const orxSTRING> propList;
+    propList = OrxCraft::GetInstance ().GetFXSlotList ();
+    m_fxsConfigName->Fill (propList);
+    
     orxConfig_PushSection ("FXSlotEditorWindow");
 
     // Fill combo boxes
-    vector<const orxSTRING> propList;
 
     orx_config_util::GetListIntoVector ("Type", propList);
     m_fxsType->Fill (propList);
@@ -101,7 +104,7 @@ void FXSlotEditorWindow::UpdateFields () const
     char buffer[255];
 
     // Config name
-    m_fxsConfigName->SetText (m_context);
+    m_fxsConfigName->SelectItem (m_context);
 
     orxConfig_PushSection (m_context);
 
@@ -180,6 +183,13 @@ void FXSlotEditorWindow::OnTextAccepted (const orxSTRING widgetName)
 {
     orxASSERT (widgetName != orxNULL);
     orxASSERT (m_context != orxNULL);
+
+    if (orxString_Compare (widgetName, "FXSlotConfigName") == 0)
+    {
+	const orxSTRING name = m_fxsConfigName->GetSelectedItem ();
+	//! @todo Better not to have this in the Scroll singleton
+	SetContext (name);
+    }
 
     // Push config section of edited object
     orxConfig_PushSection (m_context);

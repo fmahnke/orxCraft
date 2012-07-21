@@ -97,15 +97,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a296002f9addd6930be08f5668f2da655"></a><!-- doxytag: member="ObjectEditor::OnMouseClick" ref="a296002f9addd6930be08f5668f2da655" args="(const orxSTRING widgetName)" -->
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object_editor.html#a296002f9addd6930be08f5668f2da655">OnMouseClick</a> (const orxSTRING widgetName)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Left mouse click event handler. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0a32d3309b6e037f24b71532da522def"></a><!-- doxytag: member="ObjectEditor::OnTextAccepted" ref="a0a32d3309b6e037f24b71532da522def" args="(const orxSTRING widgetName)" -->
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object_editor.html#a0a32d3309b6e037f24b71532da522def">OnTextAccepted</a> (const orxSTRING widgetName)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Text accepted (pressed Enter key) event handler. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object_editor.html#a0a32d3309b6e037f24b71532da522def">OnTextAccepted</a> (const orxSTRING widgetName)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Text accepted (pressed Enter key) event handler.  <a href="#a0a32d3309b6e037f24b71532da522def"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad8df6315f9cd7b3fab9ee8567176e01e"></a><!-- doxytag: member="ObjectEditor::m_object" ref="ad8df6315f9cd7b3fab9ee8567176e01e" args="" -->
 ScrollObject *&#160;</td><td class="memItemRight" valign="bottom"><b>m_object</b></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7e742db793e8a15919003e0b3fa877dc"></a><!-- doxytag: member="ObjectEditor::m_objConfigName" ref="a7e742db793e8a15919003e0b3fa877dc" args="" -->
-<a class="el" href="class_scroll_editbox.html">ScrollEditbox</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_objConfigName</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac5bd604a5dc3fd7e3e37eb0eab243374"></a><!-- doxytag: member="ObjectEditor::m_objConfigName" ref="ac5bd604a5dc3fd7e3e37eb0eab243374" args="" -->
+<a class="el" href="class_scroll_combobox.html">ScrollCombobox</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_objConfigName</b></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8625a4dab5732ac396b8a9405a7f94f2"></a><!-- doxytag: member="ObjectEditor::m_objAlpha" ref="a8625a4dab5732ac396b8a9405a7f94f2" args="" -->
 <a class="el" href="class_scroll_editbox.html">ScrollEditbox</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_objAlpha</b></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a618787aa07af2a280857460f09b01445"></a><!-- doxytag: member="ObjectEditor::m_objAngVelocity" ref="a618787aa07af2a280857460f09b01445" args="" -->
@@ -184,6 +183,39 @@ ScrollObject *&#160;</td><td class="memItemRight" valign="bottom"><b>m_object</b
 <a class="el" href="class_scroll_editbox.html">ScrollEditbox</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_objColorB</b></td></tr>
 </table>
 <hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a0a32d3309b6e037f24b71532da522def"></a><!-- doxytag: member="ObjectEditor::OnTextAccepted" ref="a0a32d3309b6e037f24b71532da522def" args="(const orxSTRING widgetName)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ObjectEditor::OnTextAccepted </td>
+          <td>(</td>
+          <td class="paramtype">const orxSTRING&#160;</td>
+          <td class="paramname"><em>widgetName</em></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Text accepted (pressed Enter key) event handler. </p>
+
+<p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>Better not to have this in the Scroll singleton </dd></dl>
+</p>
+
+<p>Implements <a class="el" href="class_scroll_frame_window.html#a9c9108aa24601af922e7977785d76ae4">ScrollFrameWindow</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_object_editor_a0a32d3309b6e037f24b71532da522def_cgraph.png" border="0" usemap="#class_object_editor_a0a32d3309b6e037f24b71532da522def_cgraph" alt=""/></div>
+<map name="class_object_editor_a0a32d3309b6e037f24b71532da522def_cgraph" id="class_object_editor_a0a32d3309b6e037f24b71532da522def_cgraph">
+<area shape="rect" id="node3" href="class_scroll_combobox.html#a7da145833d51234df1e78c4833e7107a" title="Get the text of the selected item." alt="" coords="254,31,477,57"/><area shape="rect" id="node5" href="class_object_editor.html#a5b6bdcfe81a66d76c00885be739d3ce1" title="Set the ScrollObject being edited." alt="" coords="285,81,445,108"/><area shape="rect" id="node7" href="class_object_editor.html#a73ea5b4793f17306802170a80b63e3e3" title="Update all widgets to show current ScrollObject config values." alt="" coords="525,81,704,108"/><area shape="rect" id="node9" href="namespaceorx__config__util.html#a1473d31b82d1e40199e061754b040c34" title="Convert an Orx bool to an Orx string." alt="" coords="759,5,945,32"/><area shape="rect" id="node11" href="namespaceorx__config__util.html#aeb8b58e7e7e156e402cf10f16ac00ea0" title="Convert an Orx float to an Orx string." alt="" coords="757,56,947,83"/><area shape="rect" id="node13" href="namespaceorx__config__util.html#a522bc8bd2bf019bd235af6996770d285" title="Convert an Orx config list to an Orx string." alt="" coords="761,107,943,133"/><area shape="rect" id="node15" href="namespaceorx__config__util.html#a064139ede9c138c60fdb7c11b0f5573b" title="Convert an Orx config vector to an Orx string." alt="" coords="753,157,951,184"/></map>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="a73ea5b4793f17306802170a80b63e3e3"></a><!-- doxytag: member="ObjectEditor::UpdateFields" ref="a73ea5b4793f17306802170a80b63e3e3" args="() const " -->
 <div class="memitem">
 <div class="memproto">
@@ -200,10 +232,10 @@ ScrollObject *&#160;</td><td class="memItemRight" valign="bottom"><b>m_object</b
 
 <p>Update all widgets to show current ScrollObject config values. </p>
 
-<p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>ChildList </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>ChildJointList </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>ShaderList </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>SoundList </dd></dl>
+<p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>ChildList </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>ChildJointList </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>ShaderList </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>SoundList </dd></dl>
 </p>
 
 <p><div class="dynheader">
@@ -220,7 +252,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_object_editor_a73ea5b4793f17306802170a80b63e3e3_icgraph.png" border="0" usemap="#class_object_editor_a73ea5b4793f17306802170a80b63e3e3_icgraph" alt=""/></div>
 <map name="class_object_editor_a73ea5b4793f17306802170a80b63e3e3_icgraph" id="class_object_editor_a73ea5b4793f17306802170a80b63e3e3_icgraph">
-<area shape="rect" id="node3" href="class_object_editor.html#a5b6bdcfe81a66d76c00885be739d3ce1" title="Set the ScrollObject being edited." alt="" coords="232,5,392,32"/><area shape="rect" id="node5" href="class_object_editor.html#ad894282c20596876cd77a43c85b3864e" title="Initialize control items." alt="" coords="440,5,611,32"/><area shape="rect" id="node7" href="class_object_editor.html#ae8c6116257c2920dd352dab677078a11" title="Initialize the window." alt="" coords="659,5,778,32"/></map>
+<area shape="rect" id="node3" href="class_object_editor.html#a5b6bdcfe81a66d76c00885be739d3ce1" title="Set the ScrollObject being edited." alt="" coords="232,31,392,57"/><area shape="rect" id="node5" href="class_object_editor.html#a0a32d3309b6e037f24b71532da522def" title="Text accepted (pressed Enter key) event handler." alt="" coords="441,5,639,32"/><area shape="rect" id="node7" href="class_object_editor.html#ad894282c20596876cd77a43c85b3864e" title="Initialize control items." alt="" coords="455,56,625,83"/><area shape="rect" id="node9" href="class_object_editor.html#ae8c6116257c2920dd352dab677078a11" title="Initialize the window." alt="" coords="689,56,807,83"/></map>
 </div>
 </p>
 
@@ -245,7 +277,7 @@ Here is the caller graph for this function:</div>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Jul 20 2012 22:35:04 by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sat Jul 21 2012 00:20:31 by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

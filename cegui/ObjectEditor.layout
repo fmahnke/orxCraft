@@ -16,11 +16,10 @@
                 <Property Name="VertExtent" Value="12.4227" />
                 <Property Name="UnifiedAreaRect" Value="{{0.031308,0},{0.00526317,0},{0.276425,-8},{0.038157,0}}" />
             </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjectConfigName" >
-                <Property Name="Text" Value="No Object Selected" />
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0,56},{0.00526317,0},{0.75,50},{0.0392632,0}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
+            <Window Type="TaharezLook/Combobox" Name="ObjectConfigName" >
+                <Property Name="ReadOnly" Value="True" />
+                <Property Name="MaxEditTextLength" Value="1073741823" />
+                <Property Name="UnifiedAreaRect" Value="{{0,56},{0.00526317,0},{0.75,50},{0,200}}" />
             </Window>
             <Window Type="TaharezLook/StaticText" Name="LabelAlpha" >
                 <Property Name="Text" Value="Alpha" />

@@ -39,7 +39,7 @@ public:
 private:
     ScrollObject *m_object;
 
-    ScrollEditbox *m_objConfigName;
+    ScrollCombobox *m_objConfigName;
     ScrollEditbox *m_objAlpha;
     ScrollEditbox *m_objAngVelocity;
     ScrollEditbox *m_objPosX;
@@ -81,3 +81,4 @@ private:
 };
 
 #endif  // OBJECTEDITOR_H_
+

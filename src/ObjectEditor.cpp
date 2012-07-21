@@ -57,7 +57,7 @@ ObjectEditor::ObjectEditor () :
 
 void ObjectEditor::Init (const orxSTRING widgetName)
 {
-    m_objConfigName = FindEditbox ("ObjectConfigName");
+    m_objConfigName = FindCombobox ("ObjectConfigName");
     m_objAlpha = FindEditbox ("ObjAlpha");
     m_objAngVelocity = FindEditbox ("ObjAngularVelocity");
     m_objPosX = FindEditbox ("ObjPos0");
@@ -103,7 +103,11 @@ void ObjectEditor::Init (const orxSTRING widgetName)
 void ObjectEditor::SetupFields ()
 {
     vector<const orxSTRING> propList =
-	OrxCraft::GetInstance ().GetGraphicList ();
+	OrxCraft::GetInstance ().GetObjectList ();
+
+    m_objConfigName->Fill (propList);
+
+    propList = OrxCraft::GetInstance ().GetGraphicList ();
 
     m_objGraphic->Fill (propList);
 
@@ -166,7 +170,7 @@ void ObjectEditor::UpdateFields () const
 	const orxSTRING name = m_object->GetModelName ();
 
 	// Config name
-	m_objConfigName->SetText (name);
+	m_objConfigName->SelectItem (name);
 
 	orxConfig_PushSection (name);
 
@@ -286,6 +290,15 @@ void ObjectEditor::OnTextAccepted (const orxSTRING widgetName)
 {
     orxASSERT (widgetName != orxNULL);
     orxASSERT (m_object != orxNULL);
+
+    if (orxString_Compare (widgetName, "ObjectConfigName") == 0)
+    {
+	const orxSTRING name = m_objConfigName->GetSelectedItem ();
+	//! @todo Better not to have this in the Scroll singleton
+	ScrollObject *object =
+	    OrxCraft::GetInstance ().GetObjectByName (name);
+	SetObject (object);
+    }
 
     // Push config section of edited object
     orxConfig_PushSection (m_object->GetModelName ());

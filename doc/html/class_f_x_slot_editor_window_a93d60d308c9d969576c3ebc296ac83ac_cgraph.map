@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_scroll_combobox.html#a7da145833d51234df1e78c4833e7107a" title="Get the text of the selected item." alt="" coords="299,31,522,57"/>
+<area shape="rect" id="node5" href="$class_f_x_slot_editor_window.html#a51af7667a2d11fe2f52fb27a10db83ea" title="Set the FXSlot being edited." alt="" coords="304,81,517,108"/>
+<area shape="rect" id="node7" href="$class_f_x_slot_editor_window.html#a6138cdbf580e5fa9b042b6d41be3c479" title="Update all fields on the window using current values from config." alt="" coords="571,81,795,108"/>
+<area shape="rect" id="node9" href="$namespaceorx__config__util.html#a1473d31b82d1e40199e061754b040c34" title="Convert an Orx bool to an Orx string." alt="" coords="849,5,1036,32"/>
+<area shape="rect" id="node11" href="$namespaceorx__config__util.html#aeb8b58e7e7e156e402cf10f16ac00ea0" title="Convert an Orx float to an Orx string." alt="" coords="847,56,1038,83"/>
+<area shape="rect" id="node13" href="$namespaceorx__config__util.html#a522bc8bd2bf019bd235af6996770d285" title="Convert an Orx config list to an Orx string." alt="" coords="851,107,1034,133"/>
+<area shape="rect" id="node15" href="$namespaceorx__config__util.html#a064139ede9c138c60fdb7c11b0f5573b" title="Convert an Orx config vector to an Orx string." alt="" coords="843,157,1042,184"/>
+</map>

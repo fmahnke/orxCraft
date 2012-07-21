@@ -66,11 +66,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00025"></a>00025     }
 <a name="l00026"></a>00026 
 <a name="l00027"></a>00027     <span class="keyword">virtual</span> <span class="keywordtype">void</span> SelectItem (<span class="keyword">const</span> orxSTRING itemText) = 0;
-<a name="l00028"></a>00028 
-<a name="l00030"></a>00030     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_scroll_combobox.html#a6d8bc910492e23865403589f22a97b1a" title="Fill the box with a list.">Fill</a> (<span class="keyword">const</span> vector&lt;const orxSTRING&gt; &amp;listItems) = 0;
-<a name="l00031"></a>00031 };
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033 <span class="preprocessor">#endif  // SCROLLCOMBOBOX_H_</span>
+<a name="l00029"></a>00029     <span class="keyword">virtual</span> <span class="keyword">const</span> orxSTRING <a class="code" href="class_scroll_combobox.html#a7da145833d51234df1e78c4833e7107a" title="Get the text of the selected item.">GetSelectedItem</a> () <span class="keyword">const</span> = 0;
+<a name="l00030"></a>00030 
+<a name="l00032"></a>00032     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_scroll_combobox.html#a6d8bc910492e23865403589f22a97b1a" title="Fill the box with a list.">Fill</a> (<span class="keyword">const</span> vector&lt;const orxSTRING&gt; &amp;listItems) = 0;
+<a name="l00033"></a>00033 };
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035 <span class="preprocessor">#endif  // SCROLLCOMBOBOX_H_</span>
+<a name="l00036"></a>00036 <span class="preprocessor"></span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -87,7 +89,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Jul 20 2012 22:35:04 by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sat Jul 21 2012 00:20:31 by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>
