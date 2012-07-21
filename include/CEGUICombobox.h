@@ -26,6 +26,7 @@ public:
     virtual void Fill (const vector<const orxSTRING> &listItems);
 
     virtual void SelectItem (const orxSTRING text);
+    virtual const orxSTRING GetSelectedItem () const;
 
 private:
     bool OnSelectionAccepted (const CEGUI::EventArgs &e);
@@ -34,3 +35,4 @@ private:
     vector<CEGUI::ListboxTextItem *> m_items;
 };
 #endif  // __CEGUICOMBOBOX_H__
+

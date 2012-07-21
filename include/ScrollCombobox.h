@@ -25,9 +25,12 @@ public:
     }
 
     virtual void SelectItem (const orxSTRING itemText) = 0;
+    //! Get the text of the selected item
+    virtual const orxSTRING GetSelectedItem () const = 0;
 
     /** Fill the box with a list */
     virtual void Fill (const vector<const orxSTRING> &listItems) = 0;
 };
 
 #endif  // SCROLLCOMBOBOX_H_
+

@@ -314,14 +314,13 @@ void ObjectEditor::OnTextAccepted (const orxSTRING widgetName)
     else if (orxString_Compare (widgetName, "ObjAutoScroll") == 0)
     {
 	orxASSERT (false);
-	//const orxSTRING autoScroll = GetText ("ObjAutoScroll");
-	//orxConfig_SetString ("AutoScroll", autoScroll);
+	const orxSTRING autoScroll = m_objAutoScroll->GetSelectedItem ();
+	orxConfig_SetString ("AutoScroll", autoScroll);
     }
     else if (orxString_Compare (widgetName, "ObjBlendMode") == 0)
     {
-	orxASSERT (false);
-	//const orxSTRING blendMode = GetText ("ObjBlendMode");
-	//orxConfig_SetString ("BlendMode", blendMode);
+	const orxSTRING blendMode = m_objBlendMode->GetSelectedItem ();
+	orxConfig_SetString ("BlendMode", blendMode);
     }
     else if (orxString_Compare (widgetName, "ObjBody") == 0)
     {
@@ -345,22 +344,20 @@ void ObjectEditor::OnTextAccepted (const orxSTRING widgetName)
     else if (orxString_Compare (widgetName, "ObjDepthScale") == 0)
     {
 	orxASSERT (false);
-	//const orxSTRING depthScaleStr = GetText ("ObjDepthScale");
-	//orxBOOL depthScaleBool;
-	//orxString_ToBool (depthScaleStr, &depthScaleBool, orxNULL);
-	//orxConfig_SetBool ("DepthScale", depthScaleBool);
+	const orxSTRING depthScale = m_objDepthScale->GetSelectedItem ();
+	orxBOOL depthScaleBool;
+	orxString_ToBool (depthScale, &depthScaleBool, orxNULL);
+	orxConfig_SetBool ("DepthScale", depthScaleBool);
     }
     else if (orxString_Compare (widgetName, "ObjGraphic") == 0)
     {
-	orxASSERT (false);
-	//const orxSTRING graphic = GetText ("ObjGraphic");
-	//orxConfig_SetString ("Graphic", graphic);
+	const orxSTRING graphic = m_objGraphic->GetSelectedItem ();
+	orxConfig_SetString ("Graphic", graphic);
     }
     else if (orxString_Compare (widgetName, "ObjFlip") == 0)
     {
-	orxASSERT (false);
-	//const orxSTRING flip = GetText ("ObjFlip");
-	//orxConfig_SetString ("Flip", flip);
+	const orxSTRING flip = m_objFlip->GetSelectedItem ();
+	orxConfig_SetString ("Flip", flip);
     }
     else if (orxString_Compare (widgetName, "ObjFXList") == 0)
     {

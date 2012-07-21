@@ -187,13 +187,13 @@ void FXSlotEditorWindow::OnTextAccepted (const orxSTRING widgetName)
     // Update Orx config in memory from value entered in control
     if (orxString_Compare (widgetName, "FXSlotType") == 0)
     {
-//	const orxSTRING type = m_fxsType->GetText ();
-//	orxConfig_SetString ("Type", type);
+	const orxSTRING type = m_fxsType->GetSelectedItem ();
+	orxConfig_SetString ("Type", type);
     }
     else if (orxString_Compare (widgetName, "FXSlotCurve") == 0)
     {
-//	const orxSTRING curve = m_fxsCurve->GetText ();
-//	orxConfig_SetString ("Curve", curve);
+	const orxSTRING curve = m_fxsCurve->GetSelectedItem ();
+	orxConfig_SetString ("Curve", curve);
     }
     else if (orxString_Compare (widgetName, "FXSlotStartTime") == 0)
     {
@@ -244,14 +244,15 @@ void FXSlotEditorWindow::OnTextAccepted (const orxSTRING widgetName)
     else if (orxString_Compare (widgetName, "FXSlotAbsolute") == 0)
     {
 	orxBOOL absolute;
-//	orxString_ToBool (m_fxsAbsolute->GetText (), &absolute, orxNULL);
-//	orxConfig_SetBool ("Absolute", absolute);
+	orxString_ToBool (m_fxsAbsolute->GetSelectedItem (), &absolute,
+		          orxNULL);
+	orxConfig_SetBool ("Absolute", absolute);
     }
     else if (orxString_Compare (widgetName, "FXSlotAcceleration") == 0)
     {
 	orxFLOAT accel;
-//	orxString_ToFloat (m_fxsAcceleratio->GetText (), &accel, orxNULL);
-//	orxConfig_SetFloat ("Acceleration", accel);
+	orxString_ToFloat (m_fxsAcceleration->GetText (), &accel, orxNULL);
+	orxConfig_SetFloat ("Acceleration", accel);
     }
     else if (orxString_Compare (widgetName, "FXSlotAmplification") == 0)
     {
@@ -268,14 +269,16 @@ void FXSlotEditorWindow::OnTextAccepted (const orxSTRING widgetName)
     else if (orxString_Compare (widgetName, "FXSlotUseRotation") == 0)
     {
 	orxBOOL useRotation;
-//	orxString_ToBool (m_fxsUseRotation->GetText (), &useRotation, orxNULL);
-//	orxConfig_SetBool ("UseRotation", useRotation);
+	orxString_ToBool (m_fxsUseRotation->GetSelectedItem (), &useRotation,
+			  orxNULL);
+	orxConfig_SetBool ("UseRotation", useRotation);
     }
     else if (orxString_Compare (widgetName, "FXSlotUseScale") == 0)
     {
 	orxBOOL useScale;
-//	orxString_ToBool (m_fxsUseScale->GetText (), &useScale, orxNULL);
-//	orxConfig_SetBool ("UseScale", useScale);
+	orxString_ToBool (m_fxsUseScale->GetSelectedItem (), &useScale,
+			  orxNULL);
+	orxConfig_SetBool ("UseScale", useScale);
     }
 
     orxConfig_PopSection ();

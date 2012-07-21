@@ -63,6 +63,12 @@ void CEGUICombobox::SelectItem (const orxSTRING text)
     }
 }
 
+const orxSTRING CEGUICombobox::GetSelectedItem () const
+{
+    CEGUI::ListboxItem *item = m_ceCombobox->getSelectedItem ();
+    return item->getText ().c_str ();
+}
+
 bool CEGUICombobox::OnSelectionAccepted (const CEGUI::EventArgs &e)
 {
     CEGUI::WindowEventArgs *args = (CEGUI::WindowEventArgs *) &e;
@@ -71,3 +77,4 @@ bool CEGUICombobox::OnSelectionAccepted (const CEGUI::EventArgs &e)
 
     return true;
 }
+

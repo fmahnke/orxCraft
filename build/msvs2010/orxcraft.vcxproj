@@ -160,9 +160,7 @@ xcopy /y ..\..\librocket\*.* ..\..\bin\windows</Command>
     <ClCompile Include="..\..\src\CEGUIListbox.cpp" />
     <ClCompile Include="..\..\src\CEDialogManager.cpp" />
     <ClCompile Include="..\..\src\orx_config_util.cpp" />
-    <ClCompile Include="..\..\src\FXSlotEditorWindow.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
+    <ClCompile Include="..\..\src\FXSlotEditorWindow.cpp" />
     <ClCompile Include="..\..\src\orxcraft.cpp" />
     <ClCompile Include="..\..\src\RocketDataSource.cpp" />
     <ClCompile Include="..\..\src\RocketListbox.cpp">
