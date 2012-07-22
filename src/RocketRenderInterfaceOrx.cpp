@@ -228,4 +228,3 @@ void RocketRenderInterfaceOrx::ReleaseTexture(Rocket::Core::TextureHandle textur
 	glDeleteTextures(1, (GLuint*) &texture_handle);
 }
 #endif
-
