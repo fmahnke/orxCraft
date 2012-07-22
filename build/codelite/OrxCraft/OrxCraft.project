@@ -18,15 +18,9 @@
     <File Name="../../../src/ObjectEditor.cpp"/>
     <File Name="../../../src/orx_config_util.cpp"/>
     <File Name="../../../src/orxcraft.cpp"/>
-    <File Name="../../../src/RocketDataSource.cpp"/>
-    <File Name="../../../src/RocketFileInterface.cpp"/>
-    <File Name="../../../src/RocketListbox.cpp"/>
-    <File Name="../../../src/RocketListener.cpp"/>
-    <File Name="../../../src/RocketRenderInterfaceOrx.cpp"/>
     <File Name="../../../src/ScrollGUICEGUI.cpp"/>
-    <File Name="../../../src/ScrollGUIRocket.cpp"/>
-    <File Name="../../../src/WidgetManagerCEGUI.cpp"/>
-    <File Name="../../../src/WidgetManagerRocket.cpp"/>
+    <File Name="../../../src/CEDialogManager.cpp"/>
+    <File Name="../../../src/ScrollFrameWindow.cpp"/>
   </VirtualDirectory>
   <VirtualDirectory Name="include">
     <File Name="../../../include/CEGUICheckbox.h"/>
@@ -38,25 +32,17 @@
     <File Name="../../../include/InfoWindow.h"/>
     <File Name="../../../include/ObjectEditor.h"/>
     <File Name="../../../include/orx_config_util.h"/>
-    <File Name="../../../include/RocketDataSource.h"/>
-    <File Name="../../../include/RocketFileInterface.h"/>
-    <File Name="../../../include/RocketListbox.h"/>
-    <File Name="../../../include/RocketListener.h"/>
-    <File Name="../../../include/RocketRenderInterfaceOrx.h"/>
     <File Name="../../../include/ScrollCheckbox.h"/>
     <File Name="../../../include/ScrollCombobox.h"/>
     <File Name="../../../include/ScrollEditbox.h"/>
     <File Name="../../../include/ScrollFrameWindow.h"/>
     <File Name="../../../include/ScrollGUICEGUI.h"/>
-    <File Name="../../../include/ScrollGUIRocket.h"/>
     <File Name="../../../include/ScrollListbox.h"/>
     <File Name="../../../include/ScrollPushButton.h"/>
     <File Name="../../../include/ScrollWidget.h"/>
-    <File Name="../../../include/ShellOpenGL.h"/>
-    <File Name="../../../include/WidgetManager.h"/>
-    <File Name="../../../include/WidgetManagerCEGUI.h"/>
-    <File Name="../../../include/WidgetManagerRocket.h"/>
     <File Name="../../../include/OrxCraft.h"/>
+    <File Name="../../../include/CEDialogManager.h"/>
+    <File Name="../../../include/DialogManager.h"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>
@@ -86,7 +72,8 @@
       <ResourceCompiler Options="" Required="no"/>
       <General OutputFile="$(IntermediateDirectory)/$(ProjectName)d" IntermediateDirectory="../../LinuxDebug" Command="./$(ProjectName)d" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
       <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
-        <![CDATA[]]>
+        <![CDATA[
+      ]]>
       </Environment>
       <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
         <PostConnectCommands/>
@@ -132,7 +119,8 @@
       <ResourceCompiler Options="" Required="no"/>
       <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="../../LinuxRelease" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
       <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
-        <![CDATA[]]>
+        <![CDATA[
+      ]]>
       </Environment>
       <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
         <PostConnectCommands/>
