@@ -14,8 +14,8 @@ class InfoWindow : public ScrollFrameWindow
 public:
     virtual void Init (const orxSTRING widgetName);
     virtual const orxSTRING GetName ();
-    virtual void HandleMouseClick   (const orxSTRING widgetName);
-    virtual void HandleTextAccepted (const orxSTRING widgetName);
+    virtual void OnMouseClick   (const orxSTRING widgetName);
+    virtual void OnTextAccepted (const orxSTRING widgetName);
 };
 
 #endif	// __INFOWINDOW_H__

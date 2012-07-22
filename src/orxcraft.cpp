@@ -12,11 +12,9 @@
 #include "ObjectEditor.h"
 #include "FXSlotEditorWindow.h"
 
-#ifdef USE_LIBROCKET
-#include "ScrollGUIRocket.h"
-#else
 #include "ScrollGUICEGUI.h"
-#endif
+
+#include "CEDialogManager.h"
 
 // Widgets
 static const orxSTRING infoWindow = "O-InfoWindow";
@@ -28,29 +26,13 @@ static orxFLOAT coarseUnit = 5.0;
 static const orxSTRING configFileName = "data/sampleconfig.ini";
 
 OrxCraft::OrxCraft () :
+    m_dialogManager      (NULL),
     m_infoWindow         (NULL),
     m_selectedObject     (NULL),
-    m_objectEditor       (NULL),
-    m_fxSlotEditorWindow (NULL),
     m_scrollGUI          (NULL)
 {
 }
 
-void OrxCraft::SetSelectedObject (const orxSTRING name)
-{
-    orxASSERT (name != orxNULL);
-    orxASSERT (m_objectEditor != orxNULL);
-
-    m_selectedObject = GetObjectByName (name);
-    m_objectEditor->SetObject (m_selectedObject);
-}
-
-void OrxCraft::SetSelectedFXSlot (const orxSTRING name)
-{
-    m_fxSlotEditorWindow->SetContext (name);
-}
-
-//! @todo Make a Scroll utility functions class
 ScrollObject * OrxCraft::GetObjectByName (const orxSTRING name) const
 {
     ScrollObject *foundObject = NULL;
@@ -76,28 +58,22 @@ orxSTATUS OrxCraft::Init ()
     InitConfig ();
     SetupConfig ();
 
+    // Create instance of dialog manager
+    m_dialogManager = new CEDialogManager ();
+
     // Init GUI system
-#ifdef USE_LIBROCKET
-    m_scrollGUI = reinterpret_cast<ScrollGUIRocket *> (
-	CreateObject (scrollGUI));
-#else
     m_scrollGUI = reinterpret_cast<ScrollGUICEGUI *> (CreateObject (scrollGUI));
-#endif
+
     CreateObject (infoWindow);
 
-    // Init object editor
-    m_objectEditor = new ObjectEditor ();
-    m_objectEditor->Init (objectEditor);
-    m_objectEditor->SetObject (m_selectedObject);
+    m_dialogManager->MakeDialog ("ObjectEditor");
 
     // Init FX slot editor
-    m_fxSlotEditorWindow = new FXSlotEditorWindow ();
-    m_fxSlotEditorWindow->Init ("FXSlotWindow");
-    m_fxSlotEditorWindow->SetContext ("FXS-Darken");
+    m_dialogManager->MakeDialog ("FXSlotEditor");
 
     // Init info window
-    m_infoWindow = new InfoWindow ();
-    m_infoWindow->Init ("InfoWindow");
+    //m_infoWindow = new InfoWindow ();
+    //m_infoWindow->Init ("InfoWindow");
 
     orxEvent_AddHandler (orxEVENT_TYPE_INPUT, EventHandler);
 
@@ -121,18 +97,14 @@ orxSTATUS OrxCraft::Run ()
 
 void OrxCraft::Exit ()
 {
-    delete m_objectEditor;
-    delete m_fxSlotEditorWindow;
     delete m_infoWindow;
+    delete m_dialogManager;
+    m_dialogManager = NULL;
 }
 
 void OrxCraft::BindObjects ()
 {
-#ifdef USE_LIBROCKET
-    ScrollBindObject<ScrollGUIRocket> (scrollGUI);
-#else
     ScrollBindObject<ScrollGUICEGUI> (scrollGUI);
-#endif
 }
 
 void OrxCraft::Update (const orxCLOCK_INFO &_rstInfo)

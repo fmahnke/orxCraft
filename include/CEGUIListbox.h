@@ -11,7 +11,7 @@
 
 #include "CEGUI.h"
 
-class WidgetManager;
+class ScrollFrameWindow;
 
 using std::vector;
 
@@ -19,9 +19,9 @@ using std::vector;
 class CEGUIListbox : public ScrollListbox
 {
 public:
-    explicit CEGUIListbox (WidgetManager *manager);
+    explicit CEGUIListbox (ScrollFrameWindow *dialog);
     virtual void Init (const orxSTRING widgetName);
-    void Fill (const vector<const orxSTRING> &listItems);
+    virtual void Fill (const vector<const orxSTRING> &listItems);
 
      //bool OnSelectionChanged (const CEGUI::EventArgs &e);
 private:

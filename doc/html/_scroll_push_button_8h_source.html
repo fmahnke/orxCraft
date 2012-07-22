@@ -54,15 +54,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00010"></a>00010 <span class="preprocessor">#include &quot;<a class="code" href="_scroll_widget_8h.html">ScrollWidget.h</a>&quot;</span>
 <a name="l00011"></a>00011 
-<a name="l00012"></a>00012 <span class="keyword">class </span><a class="code" href="class_widget_manager.html" title="Each window can have an instance of the widget manager.">WidgetManager</a>;
+<a name="l00012"></a>00012 <span class="keyword">class </span><a class="code" href="class_scroll_frame_window.html" title="Interface for a Window.">ScrollFrameWindow</a>;
 <a name="l00013"></a>00013 
 <a name="l00017"></a><a class="code" href="class_scroll_push_button.html">00017</a> <span class="keyword">class </span><a class="code" href="class_scroll_push_button.html" title="Base class for a Push Button widget.">ScrollPushButton</a> : <span class="keyword">public</span> <a class="code" href="class_scroll_widget.html" title="Base class for any type of user interface widget.">ScrollWidget</a>
 <a name="l00018"></a>00018 {
 <a name="l00019"></a>00019 <span class="keyword">public</span>:
-<a name="l00020"></a>00020     <span class="keyword">explicit</span> <a class="code" href="class_scroll_push_button.html" title="Base class for a Push Button widget.">ScrollPushButton</a> (<a class="code" href="class_widget_manager.html" title="Each window can have an instance of the widget manager.">WidgetManager</a> *manager) :
-<a name="l00021"></a>00021         <a class="code" href="class_scroll_widget.html#a0045f6a4a048a5e157d8899f6e64b9fc" title="Widget C-tor.">ScrollWidget</a> (manager)
+<a name="l00020"></a>00020     <span class="keyword">explicit</span> <a class="code" href="class_scroll_push_button.html" title="Base class for a Push Button widget.">ScrollPushButton</a> (<a class="code" href="class_scroll_frame_window.html" title="Interface for a Window.">ScrollFrameWindow</a> *dialog) :
+<a name="l00021"></a>00021         <a class="code" href="class_scroll_widget.html#a381f54350e0608b5cf587b8af48b896b" title="Widget C-tor.">ScrollWidget</a> (dialog)
 <a name="l00022"></a>00022     {
-<a name="l00023"></a>00023     };
+<a name="l00023"></a>00023     }
 <a name="l00024"></a>00024 };
 <a name="l00025"></a>00025 
 <a name="l00026"></a>00026 <span class="preprocessor">#endif  // __SCROLL_PUSH_BUTTON_H__</span>
@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Sun Jul 1 2012 10:36:38 by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sat Jul 21 2012 00:20:31 by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

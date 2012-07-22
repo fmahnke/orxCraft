@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_scroll_combobox.html#a7da145833d51234df1e78c4833e7107a" title="Get the text of the selected item." alt="" coords="254,31,477,57"/>
+<area shape="rect" id="node5" href="$class_object_editor.html#a5b6bdcfe81a66d76c00885be739d3ce1" title="Set the ScrollObject being edited." alt="" coords="285,81,445,108"/>
+<area shape="rect" id="node7" href="$class_object_editor.html#a73ea5b4793f17306802170a80b63e3e3" title="Update all widgets to show current ScrollObject config values." alt="" coords="525,81,704,108"/>
+<area shape="rect" id="node9" href="$namespaceorx__config__util.html#a1473d31b82d1e40199e061754b040c34" title="Convert an Orx bool to an Orx string." alt="" coords="759,5,945,32"/>
+<area shape="rect" id="node11" href="$namespaceorx__config__util.html#aeb8b58e7e7e156e402cf10f16ac00ea0" title="Convert an Orx float to an Orx string." alt="" coords="757,56,947,83"/>
+<area shape="rect" id="node13" href="$namespaceorx__config__util.html#a522bc8bd2bf019bd235af6996770d285" title="Convert an Orx config list to an Orx string." alt="" coords="761,107,943,133"/>
+<area shape="rect" id="node15" href="$namespaceorx__config__util.html#a064139ede9c138c60fdb7c11b0f5573b" title="Convert an Orx config vector to an Orx string." alt="" coords="753,157,951,184"/>
+</map>

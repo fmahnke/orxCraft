@@ -1,0 +1,30 @@
+{
+    "folders":
+    [
+        {
+            "path": "../../src"
+        },
+		{
+			"path": "../../include"
+		},
+        {
+            "path": "."
+        }
+    ],
+    "settings":
+    {
+        "tab_size": 4,
+		"sublimeclang_options":
+		[
+			"-I${folder:${project_path:orxCraft.sublime-project}}/../../include"
+		]
+    },
+    "build_systems":
+    [
+        {
+            "name": "List",
+            "cmd": ["ls"]
+        }
+    ]
+}
+

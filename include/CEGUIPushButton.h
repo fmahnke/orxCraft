@@ -11,16 +11,20 @@
 
 #include "CEGUI.h"
 
-class WidgetManager;
+class ScrollFrameWindow;
 
 /** CEGUI Implementation of a Push Button */
 class CEGUIPushButton : public ScrollPushButton
 {
 public:
-    explicit CEGUIPushButton (WidgetManager *manager);
+    explicit CEGUIPushButton (ScrollFrameWindow *dialog);
     virtual void Init (const orxSTRING widgetName);
+
+    virtual void SetText (const orxSTRING text);
 
 private:
     bool OnClicked (const CEGUI::EventArgs &e);
+
+    CEGUI::PushButton *m_cePushButton;
 };
 #endif  // __CEGUIBUTTON_H__

@@ -13,6 +13,8 @@
 
 #include <vector>
 
+class DialogManager;
+
 class InfoWindow;
 class ObjectEditor;
 class FXSlotEditorWindow;
@@ -84,14 +86,11 @@ private:
 	 const orxSTRING _zFileName,
 	 orxBOOL _bUseEncryption);
 
-#if USE_LIBROCKET
-    ScrollGUIRocket         *m_scrollGUI;
-#else
+    //! @todo Need a base class
     ScrollGUICEGUI	    *m_scrollGUI;
-#endif
+
+    DialogManager	    *m_dialogManager;
     InfoWindow              *m_infoWindow;
-    ObjectEditor            *m_objectEditor;
-    FXSlotEditorWindow      *m_fxSlotEditorWindow;
     ScrollObject            *m_selectedObject;
     /// Currently loaded config objects
     vector<const orxSTRING> m_objectList;

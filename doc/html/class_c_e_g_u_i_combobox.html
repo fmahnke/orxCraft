@@ -74,22 +74,27 @@ Collaboration diagram for CEGUICombobox:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_c_e_g_u_i_combobox__coll__graph.png" border="0" usemap="#_c_e_g_u_i_combobox_coll__map" alt="Collaboration graph"/></div>
 <map name="_c_e_g_u_i_combobox_coll__map" id="_c_e_g_u_i_combobox_coll__map">
-<area shape="rect" id="node2" href="class_scroll_combobox.html" title="Base class for a Combobox (drop down list) widget." alt="" coords="5,264,123,291"/><area shape="rect" id="node4" href="class_scroll_widget.html" title="Base class for any type of user interface widget." alt="" coords="16,187,112,213"/><area shape="rect" id="node6" href="class_widget_manager.html" title="Each window can have an instance of the widget manager." alt="" coords="107,96,220,123"/><area shape="rect" id="node8" href="class_scroll_frame_window.html" title="Interface for a Window." alt="" coords="183,187,321,213"/></map>
+<area shape="rect" id="node2" href="class_scroll_combobox.html" title="Base class for a Combobox (drop down list) widget." alt="" coords="28,264,145,291"/><area shape="rect" id="node4" href="class_scroll_widget.html" title="Base class for any type of user interface widget." alt="" coords="39,187,135,213"/><area shape="rect" id="node6" href="class_scroll_frame_window.html" title="Interface for a Window." alt="" coords="17,96,156,123"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="class_c_e_g_u_i_combobox-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a64ddf6a2a6345af8e5f885038e34596a"></a><!-- doxytag: member="CEGUICombobox::CEGUICombobox" ref="a64ddf6a2a6345af8e5f885038e34596a" args="(WidgetManager *manager)" -->
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_e_g_u_i_combobox.html#a64ddf6a2a6345af8e5f885038e34596a">CEGUICombobox</a> (<a class="el" href="class_widget_manager.html">WidgetManager</a> *manager)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3288a848a346added4712aa71cf6221c"></a><!-- doxytag: member="CEGUICombobox::CEGUICombobox" ref="a3288a848a346added4712aa71cf6221c" args="(ScrollFrameWindow *dialog)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_e_g_u_i_combobox.html#a3288a848a346added4712aa71cf6221c">CEGUICombobox</a> (<a class="el" href="class_scroll_frame_window.html">ScrollFrameWindow</a> *dialog)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">C-tor. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ade853e23692326d08f65dfe549473871"></a><!-- doxytag: member="CEGUICombobox::Init" ref="ade853e23692326d08f65dfe549473871" args="(const orxSTRING widgetName)" -->
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_e_g_u_i_combobox.html#ade853e23692326d08f65dfe549473871">Init</a> (const orxSTRING widgetName)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the Combobox. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a33dab92c7271f8845c184ec479dce61b"></a><!-- doxytag: member="CEGUICombobox::Fill" ref="a33dab92c7271f8845c184ec479dce61b" args="(const vector&lt; const orxSTRING &gt; &amp;listItems)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_e_g_u_i_combobox.html#a33dab92c7271f8845c184ec479dce61b">Fill</a> (const vector&lt; const orxSTRING &gt; &amp;listItems)</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_e_g_u_i_combobox.html#a33dab92c7271f8845c184ec479dce61b">Fill</a> (const vector&lt; const orxSTRING &gt; &amp;listItems)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the box with a list. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a79067ac1ef8181f4c4296b73a015eedd"></a><!-- doxytag: member="CEGUICombobox::SelectItem" ref="a79067ac1ef8181f4c4296b73a015eedd" args="(const orxSTRING text)" -->
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SelectItem</b> (const orxSTRING text)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa09dbab2cb50d44d293afd9119a0565a"></a><!-- doxytag: member="CEGUICombobox::GetSelectedItem" ref="aa09dbab2cb50d44d293afd9119a0565a" args="() const " -->
+virtual const orxSTRING&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_e_g_u_i_combobox.html#aa09dbab2cb50d44d293afd9119a0565a">GetSelectedItem</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the text of the selected item. <br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a810ac509ff0531d99e5d4cfb467ee638"></a><!-- doxytag: member="CEGUICombobox::OnSelectionAccepted" ref="a810ac509ff0531d99e5d4cfb467ee638" args="(const CEGUI::EventArgs &amp;e)" -->
@@ -122,7 +127,7 @@ vector&lt; CEGUI::ListboxTextItem * &gt;&#160;</td><td class="memItemRight" vali
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Sun Jul 1 2012 10:36:38 by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sat Jul 21 2012 00:20:31 by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

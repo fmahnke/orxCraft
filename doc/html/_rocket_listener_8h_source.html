@@ -54,17 +54,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00010"></a>00010 <span class="preprocessor">#include &quot;Rocket/Core.h&quot;</span>
 <a name="l00011"></a>00011 
-<a name="l00012"></a>00012 <span class="keyword">class </span><a class="code" href="class_widget_manager.html" title="Each window can have an instance of the widget manager.">WidgetManager</a>;
+<a name="l00012"></a>00012 <span class="keyword">class </span>WidgetManager;
 <a name="l00013"></a>00013 
 <a name="l00014"></a><a class="code" href="class_rocket_listener.html">00014</a> <span class="keyword">class </span><a class="code" href="class_rocket_listener.html">RocketListener</a> : <span class="keyword">public</span> Rocket::Core::EventListener
 <a name="l00015"></a>00015 {
 <a name="l00016"></a>00016 <span class="keyword">public</span>:
-<a name="l00017"></a>00017     <a class="code" href="class_rocket_listener.html">RocketListener</a> (<a class="code" href="class_widget_manager.html" title="Each window can have an instance of the widget manager.">WidgetManager</a> *manager) :
+<a name="l00017"></a>00017     <a class="code" href="class_rocket_listener.html">RocketListener</a> (WidgetManager *manager) :
 <a name="l00018"></a>00018         m_widgetManager (manager) { }
 <a name="l00020"></a>00020     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_rocket_listener.html#a06b3ffc4394b7b1b809a9d6df66cb075" title="Process the incoming Event.">ProcessEvent</a> (Rocket::Core::Event &amp;event);
 <a name="l00021"></a>00021 
 <a name="l00022"></a>00022 <span class="keyword">private</span>:
-<a name="l00023"></a>00023     <a class="code" href="class_widget_manager.html" title="Each window can have an instance of the widget manager.">WidgetManager</a> *m_widgetManager;
+<a name="l00023"></a>00023     WidgetManager *m_widgetManager;
 <a name="l00024"></a>00024 };
 <a name="l00025"></a>00025 
 <a name="l00026"></a>00026 <span class="preprocessor">#endif  // ROCKETLISTENER_H_</span>
@@ -84,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Sun Jul 1 2012 10:36:38 by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sat Jul 21 2012 00:20:31 by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

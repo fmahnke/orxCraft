@@ -6,21 +6,21 @@
  */
 
 #include "CEGUICombobox.h"
-#include "WidgetManager.h"
+#include "ScrollFrameWindow.h"
 
 using CEGUI::Combobox;
 using CEGUI::Event;
 using CEGUI::Window;
 
-CEGUICombobox::CEGUICombobox (WidgetManager *manager) :
-    ScrollCombobox (manager),
+CEGUICombobox::CEGUICombobox (ScrollFrameWindow *dialog) :
+    ScrollCombobox (dialog),
     m_ceCombobox   (NULL)
 {
 }
 
 void CEGUICombobox::Init (const orxSTRING widgetName)
 {
-    const orxSTRING windowName = m_manager->GetWindowName ();
+    const orxSTRING windowName = m_manager->GetName ();
     Window *rootWindow = CEGUI::System::getSingleton ().getGUISheet ();
     Window *window = rootWindow->getChild (windowName);
 
@@ -43,6 +43,32 @@ void CEGUICombobox::Fill (const vector<const orxSTRING> &listItems)
     }
 }
 
+void CEGUICombobox::SelectItem (const orxSTRING text)
+{
+    orxASSERT (text != orxNULL);
+
+    int i = 0;
+    std::vector<CEGUI::ListboxTextItem *>::const_iterator it;
+    for (it = m_items.begin (); it != m_items.end (); ++it)
+    {
+	const orxSTRING itemText = (*it)->getText ().c_str ();
+	// Wanted item exists in the items list
+	if (orxString_Compare (itemText, text) == 0)
+	{
+	    // Set the edit box text accordingly
+	    m_ceCombobox->setText (text);
+	    break;
+	}
+	i++;
+    }
+}
+
+const orxSTRING CEGUICombobox::GetSelectedItem () const
+{
+    CEGUI::ListboxItem *item = m_ceCombobox->getSelectedItem ();
+    return item->getText ().c_str ();
+}
+
 bool CEGUICombobox::OnSelectionAccepted (const CEGUI::EventArgs &e)
 {
     CEGUI::WindowEventArgs *args = (CEGUI::WindowEventArgs *) &e;
@@ -51,3 +77,4 @@ bool CEGUICombobox::OnSelectionAccepted (const CEGUI::EventArgs &e)
 
     return true;
 }
+

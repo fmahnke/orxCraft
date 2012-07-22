@@ -68,7 +68,7 @@ Collaboration diagram for FXSlotEditorWindow:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_f_x_slot_editor_window__coll__graph.png" border="0" usemap="#_f_x_slot_editor_window_coll__map" alt="Collaboration graph"/></div>
 <map name="_f_x_slot_editor_window_coll__map" id="_f_x_slot_editor_window_coll__map">
-<area shape="rect" id="node2" href="class_scroll_frame_window.html" title="Interface for a Window." alt="" coords="49,5,188,32"/><area shape="rect" id="node4" href="class_widget_manager.html" title="Each window can have an instance of the widget manager." alt="" coords="189,96,301,123"/></map>
+<area shape="rect" id="node2" href="class_scroll_frame_window.html" title="Interface for a Window." alt="" coords="17,96,156,123"/><area shape="rect" id="node8" href="class_scroll_widget.html" title="Base class for any type of user interface widget." alt="" coords="113,187,209,213"/><area shape="rect" id="node6" href="class_scroll_combobox.html" title="Base class for a Combobox (drop down list) widget." alt="" coords="103,264,220,291"/><area shape="rect" id="node11" href="class_scroll_editbox.html" title="Base class for an Editbox widget." alt="" coords="244,264,343,291"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="class_f_x_slot_editor_window-members.html">List of all members.</a></p>
@@ -93,19 +93,88 @@ const orxSTRING&#160;</td><td class="memItemRight" valign="bottom"><a class="el"
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a51af7667a2d11fe2f52fb27a10db83ea"></a><!-- doxytag: member="FXSlotEditorWindow::SetContext" ref="a51af7667a2d11fe2f52fb27a10db83ea" args="(const orxSTRING sectionName)" -->
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_x_slot_editor_window.html#a51af7667a2d11fe2f52fb27a10db83ea">SetContext</a> (const orxSTRING sectionName)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the FXSlot being edited. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8ebda1e6a92b7211d390df01d0e86e17"></a><!-- doxytag: member="FXSlotEditorWindow::HandleMouseClick" ref="a8ebda1e6a92b7211d390df01d0e86e17" args="(const orxSTRING widgetName)" -->
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_x_slot_editor_window.html#a8ebda1e6a92b7211d390df01d0e86e17">HandleMouseClick</a> (const orxSTRING widgetName)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3e8c04c7904fb9299327fc2b2ff55cef"></a><!-- doxytag: member="FXSlotEditorWindow::OnMouseClick" ref="a3e8c04c7904fb9299327fc2b2ff55cef" args="(const orxSTRING widgetName)" -->
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_x_slot_editor_window.html#a3e8c04c7904fb9299327fc2b2ff55cef">OnMouseClick</a> (const orxSTRING widgetName)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Left mouse click event handler. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa968cae167b4e30511e35361782fc1d4"></a><!-- doxytag: member="FXSlotEditorWindow::HandleTextAccepted" ref="aa968cae167b4e30511e35361782fc1d4" args="(const orxSTRING widgetName)" -->
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_x_slot_editor_window.html#aa968cae167b4e30511e35361782fc1d4">HandleTextAccepted</a> (const orxSTRING widgetName)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Text accepted (pressed Enter key) event handler. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_x_slot_editor_window.html#a93d60d308c9d969576c3ebc296ac83ac">OnTextAccepted</a> (const orxSTRING widgetName)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Text accepted (pressed Enter key) event handler.  <a href="#a93d60d308c9d969576c3ebc296ac83ac"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af891d5ed0e3ba518c60562884bef7f10"></a><!-- doxytag: member="FXSlotEditorWindow::m_context" ref="af891d5ed0e3ba518c60562884bef7f10" args="[255]" -->
 char&#160;</td><td class="memItemRight" valign="bottom"><b>m_context</b> [255]</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a39d069a96e519f59bb3692fc3e57c3e2"></a><!-- doxytag: member="FXSlotEditorWindow::m_windowName" ref="a39d069a96e519f59bb3692fc3e57c3e2" args="[255]" -->
-char&#160;</td><td class="memItemRight" valign="bottom"><b>m_windowName</b> [255]</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a16a667fc059783c16ce8705300d2d699"></a><!-- doxytag: member="FXSlotEditorWindow::m_fxsType" ref="a16a667fc059783c16ce8705300d2d699" args="" -->
+<a class="el" href="class_scroll_combobox.html">ScrollCombobox</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_fxsType</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a26c60f01657f716a5580f0b15972f6d3"></a><!-- doxytag: member="FXSlotEditorWindow::m_fxsCurve" ref="a26c60f01657f716a5580f0b15972f6d3" args="" -->
+<a class="el" href="class_scroll_combobox.html">ScrollCombobox</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_fxsCurve</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8cf3e1907d9bb2d94155da790e6456b9"></a><!-- doxytag: member="FXSlotEditorWindow::m_fxsStartTime" ref="a8cf3e1907d9bb2d94155da790e6456b9" args="" -->
+<a class="el" href="class_scroll_editbox.html">ScrollEditbox</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_fxsStartTime</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a955178e0cfc638c5b3f1bbb007054b15"></a><!-- doxytag: member="FXSlotEditorWindow::m_fxsEndTime" ref="a955178e0cfc638c5b3f1bbb007054b15" args="" -->
+<a class="el" href="class_scroll_editbox.html">ScrollEditbox</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_fxsEndTime</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aca566682c49d2d1eae1c563273b94624"></a><!-- doxytag: member="FXSlotEditorWindow::m_fxsStartValue0" ref="aca566682c49d2d1eae1c563273b94624" args="" -->
+<a class="el" href="class_scroll_editbox.html">ScrollEditbox</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_fxsStartValue0</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae68f807b927d4d917819eb4407c30d51"></a><!-- doxytag: member="FXSlotEditorWindow::m_fxsStartValue1" ref="ae68f807b927d4d917819eb4407c30d51" args="" -->
+<a class="el" href="class_scroll_editbox.html">ScrollEditbox</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_fxsStartValue1</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a69752f9287029f42e50b1f67739ad5c6"></a><!-- doxytag: member="FXSlotEditorWindow::m_fxsStartValue2" ref="a69752f9287029f42e50b1f67739ad5c6" args="" -->
+<a class="el" href="class_scroll_editbox.html">ScrollEditbox</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_fxsStartValue2</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abbd7d52d19afa169532e286e35068d86"></a><!-- doxytag: member="FXSlotEditorWindow::m_fxsEndValue0" ref="abbd7d52d19afa169532e286e35068d86" args="" -->
+<a class="el" href="class_scroll_editbox.html">ScrollEditbox</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_fxsEndValue0</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a98d9aa8fab6febce362efc1e58995fad"></a><!-- doxytag: member="FXSlotEditorWindow::m_fxsEndValue1" ref="a98d9aa8fab6febce362efc1e58995fad" args="" -->
+<a class="el" href="class_scroll_editbox.html">ScrollEditbox</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_fxsEndValue1</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7f6be83cc2e09ca8918f120b8dec3c86"></a><!-- doxytag: member="FXSlotEditorWindow::m_fxsEndValue2" ref="a7f6be83cc2e09ca8918f120b8dec3c86" args="" -->
+<a class="el" href="class_scroll_editbox.html">ScrollEditbox</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_fxsEndValue2</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae695a4e46a6fe39bce241ebeb5ea5bb6"></a><!-- doxytag: member="FXSlotEditorWindow::m_fxsPhase" ref="ae695a4e46a6fe39bce241ebeb5ea5bb6" args="" -->
+<a class="el" href="class_scroll_editbox.html">ScrollEditbox</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_fxsPhase</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab02ce9e6eac8192b094ad5d380754947"></a><!-- doxytag: member="FXSlotEditorWindow::m_fxsPeriod" ref="ab02ce9e6eac8192b094ad5d380754947" args="" -->
+<a class="el" href="class_scroll_editbox.html">ScrollEditbox</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_fxsPeriod</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a140d7b9318d6565c1d9d0a43982b5622"></a><!-- doxytag: member="FXSlotEditorWindow::m_fxsAcceleration" ref="a140d7b9318d6565c1d9d0a43982b5622" args="" -->
+<a class="el" href="class_scroll_editbox.html">ScrollEditbox</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_fxsAcceleration</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa5cd75c5d4740c63a3321b7e49a6d4b6"></a><!-- doxytag: member="FXSlotEditorWindow::m_fxsAmplification" ref="aa5cd75c5d4740c63a3321b7e49a6d4b6" args="" -->
+<a class="el" href="class_scroll_editbox.html">ScrollEditbox</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_fxsAmplification</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a87cdd5438a93851b25d6cad90199b21d"></a><!-- doxytag: member="FXSlotEditorWindow::m_fxsPow" ref="a87cdd5438a93851b25d6cad90199b21d" args="" -->
+<a class="el" href="class_scroll_editbox.html">ScrollEditbox</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_fxsPow</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac90bdd523981c2c1de36086609dfa6f0"></a><!-- doxytag: member="FXSlotEditorWindow::m_fxsAbsolute" ref="ac90bdd523981c2c1de36086609dfa6f0" args="" -->
+<a class="el" href="class_scroll_combobox.html">ScrollCombobox</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_fxsAbsolute</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a561b444918859e2bab85b7b7e7d4a31b"></a><!-- doxytag: member="FXSlotEditorWindow::m_fxsUseRotation" ref="a561b444918859e2bab85b7b7e7d4a31b" args="" -->
+<a class="el" href="class_scroll_combobox.html">ScrollCombobox</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_fxsUseRotation</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a30bdac0883d7d0ff68efe8967c6d600d"></a><!-- doxytag: member="FXSlotEditorWindow::m_fxsUseScale" ref="a30bdac0883d7d0ff68efe8967c6d600d" args="" -->
+<a class="el" href="class_scroll_combobox.html">ScrollCombobox</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_fxsUseScale</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af89e3335d4b877106aecc1e7d5cc96b4"></a><!-- doxytag: member="FXSlotEditorWindow::m_fxsConfigName" ref="af89e3335d4b877106aecc1e7d5cc96b4" args="" -->
+<a class="el" href="class_scroll_combobox.html">ScrollCombobox</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_fxsConfigName</b></td></tr>
 </table>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a93d60d308c9d969576c3ebc296ac83ac"></a><!-- doxytag: member="FXSlotEditorWindow::OnTextAccepted" ref="a93d60d308c9d969576c3ebc296ac83ac" args="(const orxSTRING widgetName)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FXSlotEditorWindow::OnTextAccepted </td>
+          <td>(</td>
+          <td class="paramtype">const orxSTRING&#160;</td>
+          <td class="paramname"><em>widgetName</em></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Text accepted (pressed Enter key) event handler. </p>
+
+<p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Better not to have this in the Scroll singleton </dd></dl>
+</p>
+
+<p>Implements <a class="el" href="class_scroll_frame_window.html#a9c9108aa24601af922e7977785d76ae4">ScrollFrameWindow</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_f_x_slot_editor_window_a93d60d308c9d969576c3ebc296ac83ac_cgraph.png" border="0" usemap="#class_f_x_slot_editor_window_a93d60d308c9d969576c3ebc296ac83ac_cgraph" alt=""/></div>
+<map name="class_f_x_slot_editor_window_a93d60d308c9d969576c3ebc296ac83ac_cgraph" id="class_f_x_slot_editor_window_a93d60d308c9d969576c3ebc296ac83ac_cgraph">
+<area shape="rect" id="node3" href="class_scroll_combobox.html#a7da145833d51234df1e78c4833e7107a" title="Get the text of the selected item." alt="" coords="299,31,522,57"/><area shape="rect" id="node5" href="class_f_x_slot_editor_window.html#a51af7667a2d11fe2f52fb27a10db83ea" title="Set the FXSlot being edited." alt="" coords="304,81,517,108"/><area shape="rect" id="node7" href="class_f_x_slot_editor_window.html#a6138cdbf580e5fa9b042b6d41be3c479" title="Update all fields on the window using current values from config." alt="" coords="571,81,795,108"/><area shape="rect" id="node9" href="namespaceorx__config__util.html#a1473d31b82d1e40199e061754b040c34" title="Convert an Orx bool to an Orx string." alt="" coords="849,5,1036,32"/><area shape="rect" id="node11" href="namespaceorx__config__util.html#aeb8b58e7e7e156e402cf10f16ac00ea0" title="Convert an Orx float to an Orx string." alt="" coords="847,56,1038,83"/><area shape="rect" id="node13" href="namespaceorx__config__util.html#a522bc8bd2bf019bd235af6996770d285" title="Convert an Orx config list to an Orx string." alt="" coords="851,107,1034,133"/><area shape="rect" id="node15" href="namespaceorx__config__util.html#a064139ede9c138c60fdb7c11b0f5573b" title="Convert an Orx config vector to an Orx string." alt="" coords="843,157,1042,184"/></map>
+</div>
+</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="_f_x_slot_editor_window_8h_source.html">FXSlotEditorWindow.h</a></li>
 <li>src/<a class="el" href="_f_x_slot_editor_window_8cpp.html">FXSlotEditorWindow.cpp</a></li>
@@ -125,7 +194,7 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>m_windowName</b> [255
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Sun Jul 1 2012 10:36:39 by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sat Jul 21 2012 00:20:31 by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

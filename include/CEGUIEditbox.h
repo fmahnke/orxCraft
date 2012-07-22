@@ -11,18 +11,20 @@
 
 #include "CEGUI.h"
 
-class WidgetManager;
+class ScrollFrameWindow;
 
 /** CEGUI Implementation of an Editbox */
 class CEGUIEditbox : public ScrollEditbox
 {
 public:
-    explicit CEGUIEditbox (WidgetManager *manager);
+    explicit CEGUIEditbox (ScrollFrameWindow *dialog);
     virtual void Init (const orxSTRING widgetName);
 
-    void SetText (const orxSTRING windowName, const orxSTRING widgetName,
-		  const orxSTRING text);
+    virtual const orxSTRING GetText ();
+    virtual void SetText (const orxSTRING text);
 private:
     bool OnTextAccepted (const CEGUI::EventArgs &e);
+
+    CEGUI::Editbox *m_ceEditbox;
 };
 #endif  // __SCROLL_CEGUIEDITBOX_H__

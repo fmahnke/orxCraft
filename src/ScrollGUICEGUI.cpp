@@ -14,7 +14,7 @@ ScrollGUICEGUI::ScrollGUICEGUI () :
 
 void ScrollGUICEGUI::OnCreate ()
 {
-    m_glRenderer = & CEGUI::OpenGLRenderer::bootstrapSystem();
+    m_glRenderer = & CEGUI::OpenGLRenderer::bootstrapSystem ();
 	// Initialise the required dirs for the DefaultResourceProvider
 	// All CEGUI data files are stored in data/cegui subdirectory relative to OrxCraft executable
 	CEGUI::DefaultResourceProvider* rp = 
@@ -38,12 +38,10 @@ void ScrollGUICEGUI::OnCreate ()
 	if (parser->isPropertyPresent("SchemaDefaultResourceGroup"))
 		parser->setProperty("SchemaDefaultResourceGroup", "schemas");
 	// Load OrxCraft GUI settings
-    CEGUI::SchemeManager::getSingleton().create( "TaharezLook.scheme" );
-    CEGUI::Window* myRoot = CEGUI::WindowManager::getSingleton().loadWindowLayout( "Main.layout" );
-    CEGUI::Window* FXSlotWindowRoot = CEGUI::WindowManager::getSingleton().loadWindowLayout( "FXSlotWindow.layout" );
-    CEGUI::Window* FXSlotWindow = FXSlotWindowRoot->getChildAtIdx (0); 
-    myRoot->addChildWindow (FXSlotWindow);   
-    CEGUI::System::getSingleton().setGUISheet( myRoot );
+    CEGUI::SchemeManager::getSingleton ().create ("TaharezLook.scheme");
+    CEGUI::Window* myRoot =
+	CEGUI::WindowManager::getSingleton ().loadWindowLayout ("Main.layout");
+    CEGUI::System::getSingleton ().setGUISheet (myRoot);
 }
 
 void ScrollGUICEGUI::OnDelete ()

@@ -1,6 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$_c_e_g_u_i_combobox_8h.html" title="CEGUICombobox.h" alt="" coords="114,80,248,107"/>
-<area shape="rect" id="node13" href="$_widget_manager_8h.html" title="WidgetManager.h" alt="" coords="273,80,396,107"/>
-<area shape="rect" id="node5" href="$_scroll_combobox_8h.html" title="ScrollCombobox.h" alt="" coords="5,155,133,181"/>
-<area shape="rect" id="node7" href="$_scroll_widget_8h.html" title="ScrollWidget.h" alt="" coords="116,229,223,256"/>
+<area shape="rect" id="node3" href="$_c_e_g_u_i_combobox_8h.html" title="CEGUICombobox.h" alt="" coords="175,80,309,107"/>
+<area shape="rect" id="node15" href="$_scroll_frame_window_8h.html" title="ScrollFrameWindow.h" alt="" coords="5,155,155,181"/>
+<area shape="rect" id="node5" href="$_scroll_combobox_8h.html" title="ScrollCombobox.h" alt="" coords="179,155,307,181"/>
+<area shape="rect" id="node9" href="$_scroll_widget_8h.html" title="ScrollWidget.h" alt="" coords="84,229,191,256"/>
 </map>

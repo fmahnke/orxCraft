@@ -5,25 +5,10 @@
  *
  */
 #include "InfoWindow.h"
-#ifdef USE_LIBROCKET
-#include "WidgetManagerRocket.h"
-#else
-#include "WidgetManagerCEGUI.h"
-#endif
 #include "OrxCraft.h"
 
 void InfoWindow::Init (const orxSTRING widgetName)
 {
-#ifdef USE_LIBROCKET
-    m_widgetManager = new WidgetManagerRocket ();
-#else
-    m_widgetManager = new WidgetManagerCEGUI ();
-#endif
-    m_widgetManager->Init (widgetName, this);
-    vector<const orxSTRING> objList = OrxCraft::GetInstance ().GetObjectList ();
-    m_widgetManager->FillList ("ObjectSectionList", objList);
-    vector<const orxSTRING> fxSlotList = OrxCraft::GetInstance ().GetFXSlotList ();
-    m_widgetManager->FillList ("FXSlotSectionList", fxSlotList);
 }
 
 const orxSTRING InfoWindow::GetName ()
@@ -32,17 +17,15 @@ const orxSTRING InfoWindow::GetName ()
     return orxNULL;
 }
 
-void InfoWindow::HandleMouseClick (const orxSTRING widgetName)
+void InfoWindow::OnMouseClick (const orxSTRING widgetName)
 {
     if (orxString_ICompare (widgetName, "ObjectSectionList") == 0)
     {
-	const orxSTRING itemName = m_widgetManager->GetSelectedItem (widgetName);
-	OrxCraft::GetInstance ().SetSelectedObject (itemName);
+	//const orxSTRING itemName = m_widgetManager->GetSelectedItem (widgetName);
     }
     else if (orxString_ICompare (widgetName, "FXSlotSectionList") == 0)
     {
-	const orxSTRING itemName = m_widgetManager->GetSelectedItem (widgetName);
-	OrxCraft::GetInstance ().SetSelectedFXSlot (itemName);
+	//const orxSTRING itemName = m_widgetManager->GetSelectedItem (widgetName);
     }
     else if (orxString_ICompare (widgetName, "SaveConfig") == 0)
     {
@@ -50,7 +33,7 @@ void InfoWindow::HandleMouseClick (const orxSTRING widgetName)
     }
 }
 
-void InfoWindow::HandleTextAccepted (const orxSTRING widgetName)
+void InfoWindow::OnTextAccepted (const orxSTRING widgetName)
 {
     orxASSERT (false);
 }

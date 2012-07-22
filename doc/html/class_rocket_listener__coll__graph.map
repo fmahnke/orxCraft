@@ -1,4 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node2" href="$class_widget_manager.html" title="Each window can have an instance of the widget manager." alt="" coords="139,96,252,123"/>
-<area shape="rect" id="node4" href="$class_scroll_frame_window.html" title="Interface for a Window." alt="" coords="200,187,339,213"/>
+<area shape="rect" id="node2" href="$class_widget_manager.html" title="Each window can have an instance of the widget manager." alt="" coords="30,187,143,213"/>
+<area shape="rect" id="node4" href="$class_scroll_frame_window.html" title="Interface for a Window." alt="" coords="17,96,156,123"/>
 </map>

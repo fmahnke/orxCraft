@@ -1,7 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" id="node2" href="$class_scroll_listbox.html" title="Base class for a Listbox widget." alt="" coords="1027,56,1125,83"/>
-<area shape="rect" id="node4" href="$class_scroll_widget.html" title="Base class for any type of user interface widget." alt="" coords="664,5,760,32"/>
-<area shape="rect" id="node6" href="$class_widget_manager.html" title="Each window can have an instance of the widget manager." alt="" coords="294,51,407,77"/>
-<area shape="rect" id="node8" href="$class_scroll_frame_window.html" title="Interface for a Window." alt="" coords="643,56,781,83"/>
-<area shape="rect" id="node13" href="$class_rocket_data_source.html" title="RocketDataSource" alt="" coords="1011,140,1141,167"/>
+<area shape="rect" id="node2" href="$class_scroll_listbox.html" title="Base class for a Listbox widget." alt="" coords="1014,25,1111,52"/>
+<area shape="rect" id="node4" href="$class_scroll_widget.html" title="Base class for any type of user interface widget." alt="" coords="651,7,747,33"/>
+<area shape="rect" id="node6" href="$class_scroll_frame_window.html" title="Interface for a Window." alt="" coords="293,7,432,33"/>
+<area shape="rect" id="node10" href="$class_rocket_data_source.html" title="RocketDataSource" alt="" coords="997,97,1128,124"/>
 </map>

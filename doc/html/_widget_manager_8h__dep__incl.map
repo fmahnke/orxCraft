@@ -1,21 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$_scroll_frame_window_8h.html" title="include/ScrollFrameWindow.h" alt="" coords="663,80,857,107"/>
-<area shape="rect" id="node27" href="$_widget_manager_c_e_g_u_i_8h.html" title="include/WidgetManagerCEGUI.h" alt="" coords="141,155,349,181"/>
-<area shape="rect" id="node33" href="$_widget_manager_rocket_8h.html" title="include/WidgetManagerRocket.h" alt="" coords="881,80,1092,107"/>
-<area shape="rect" id="node36" href="$_c_e_g_u_i_combobox_8cpp.html" title="src/CEGUICombobox.cpp" alt="" coords="1116,80,1287,107"/>
-<area shape="rect" id="node38" href="$_c_e_g_u_i_editbox_8cpp.html" title="src/CEGUIEditbox.cpp" alt="" coords="1311,80,1464,107"/>
-<area shape="rect" id="node40" href="$_c_e_g_u_i_listbox_8cpp.html" title="src/CEGUIListbox.cpp" alt="" coords="1489,80,1639,107"/>
-<area shape="rect" id="node42" href="$_c_e_g_u_i_push_button_8cpp.html" title="src/CEGUIPushButton.cpp" alt="" coords="1663,80,1840,107"/>
-<area shape="rect" id="node44" href="$_rocket_listbox_8cpp.html" title="src/RocketListbox.cpp" alt="" coords="1865,80,2017,107"/>
-<area shape="rect" id="node46" href="$_rocket_listener_8cpp.html" title="src/RocketListener.cpp" alt="" coords="2042,80,2197,107"/>
-<area shape="rect" id="node5" href="$_f_x_slot_editor_window_8h.html" title="include/FXSlotEditorWindow.h" alt="" coords="565,155,760,181"/>
-<area shape="rect" id="node11" href="$_info_window_8h.html" title="include/InfoWindow.h" alt="" coords="785,155,929,181"/>
-<area shape="rect" id="node16" href="$_object_editor_8h.html" title="include/ObjectEditor.h" alt="" coords="954,155,1104,181"/>
-<area shape="rect" id="node21" href="$_c_e_g_u_i_checkbox_8cpp.html" title="src/CEGUICheckbox.cpp" alt="" coords="374,155,540,181"/>
-<area shape="rect" id="node23" href="$_widget_manager_c_e_g_u_i_8cpp.html" title="src/WidgetManagerCEGUI.cpp" alt="" coords="5,229,205,256"/>
-<area shape="rect" id="node25" href="$_widget_manager_rocket_8cpp.html" title="src/WidgetManagerRocket.cpp" alt="" coords="1129,155,1329,181"/>
-<area shape="rect" id="node7" href="$_f_x_slot_editor_window_8cpp.html" title="src/FXSlotEditorWindow.cpp" alt="" coords="248,229,435,256"/>
-<area shape="rect" id="node9" href="$orxcraft_8cpp.html" title="src/orxcraft.cpp" alt="" coords="801,229,913,256"/>
-<area shape="rect" id="node13" href="$_info_window_8cpp.html" title="src/InfoWindow.cpp" alt="" coords="469,229,603,256"/>
-<area shape="rect" id="node18" href="$_object_editor_8cpp.html" title="src/ObjectEditor.cpp" alt="" coords="633,229,775,256"/>
+<area shape="rect" id="node3" href="$_widget_manager_rocket_8h.html" title="include/WidgetManagerRocket.h" alt="" coords="5,80,216,107"/>
+<area shape="rect" id="node7" href="$_rocket_listbox_8cpp.html" title="src/RocketListbox.cpp" alt="" coords="240,80,392,107"/>
+<area shape="rect" id="node9" href="$_rocket_listener_8cpp.html" title="src/RocketListener.cpp" alt="" coords="417,80,572,107"/>
+<area shape="rect" id="node5" href="$_widget_manager_rocket_8cpp.html" title="src/WidgetManagerRocket.cpp" alt="" coords="10,155,211,181"/>
 </map>

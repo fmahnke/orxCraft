@@ -7,7 +7,10 @@
  *
  */
 
+#include <vector>
 #include "ScrollWidget.h"
+
+using std::vector;
 
 /**
  *  Base class for a Listbox widget.
@@ -15,10 +18,12 @@
 class ScrollListbox : public ScrollWidget
 {
 public:
-    explicit ScrollListbox (WidgetManager *manager) :
-	 ScrollWidget (manager)
+    explicit ScrollListbox (ScrollFrameWindow *dialog) :
+	 ScrollWidget (dialog)
     {
-    };
+    }
+
+    virtual void Fill (const vector<const orxSTRING> &listItems) = 0;
 
 protected:
     virtual ~ScrollListbox () { }

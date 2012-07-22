@@ -54,12 +54,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 This is the complete list of members for <a class="el" href="class_scroll_combobox.html">ScrollCombobox</a>, including all inherited members.<table>
+  <tr class="memlist"><td><a class="el" href="class_scroll_combobox.html#a6d8bc910492e23865403589f22a97b1a">Fill</a>(const vector&lt; const orxSTRING &gt; &amp;listItems)=0</td><td><a class="el" href="class_scroll_combobox.html">ScrollCombobox</a></td><td><code> [pure virtual]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_scroll_widget.html#af1bde9bddb27f3bfb92c4b811f91ceb4">GetName</a>()</td><td><a class="el" href="class_scroll_widget.html">ScrollWidget</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_scroll_combobox.html#a7da145833d51234df1e78c4833e7107a">GetSelectedItem</a>() const =0</td><td><a class="el" href="class_scroll_combobox.html">ScrollCombobox</a></td><td><code> [pure virtual]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_scroll_widget.html#ad7b1a8464effb5f869a844e2aca2c9ed">Init</a>(const orxSTRING widgetName)=0</td><td><a class="el" href="class_scroll_widget.html">ScrollWidget</a></td><td><code> [pure virtual]</code></td></tr>
   <tr bgcolor="#f0f0f0"><td><b>m_manager</b> (defined in <a class="el" href="class_scroll_widget.html">ScrollWidget</a>)</td><td><a class="el" href="class_scroll_widget.html">ScrollWidget</a></td><td><code> [protected]</code></td></tr>
   <tr bgcolor="#f0f0f0"><td><b>m_widgetName</b> (defined in <a class="el" href="class_scroll_widget.html">ScrollWidget</a>)</td><td><a class="el" href="class_scroll_widget.html">ScrollWidget</a></td><td><code> [protected]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_scroll_combobox.html#a4a1b5a4e2ee1d53ab42e22f5a53c83e4">ScrollCombobox</a>(WidgetManager *manager)</td><td><a class="el" href="class_scroll_combobox.html">ScrollCombobox</a></td><td><code> [inline, explicit]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_scroll_widget.html#a0045f6a4a048a5e157d8899f6e64b9fc">ScrollWidget</a>(WidgetManager *manager)</td><td><a class="el" href="class_scroll_widget.html">ScrollWidget</a></td><td><code> [inline, explicit]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_scroll_combobox.html#a1376b237c2c6047fd3a0bb3571465d9c">ScrollCombobox</a>(ScrollFrameWindow *dialog)</td><td><a class="el" href="class_scroll_combobox.html">ScrollCombobox</a></td><td><code> [inline, explicit]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_scroll_widget.html#a381f54350e0608b5cf587b8af48b896b">ScrollWidget</a>(ScrollFrameWindow *dialog)</td><td><a class="el" href="class_scroll_widget.html">ScrollWidget</a></td><td><code> [inline, explicit]</code></td></tr>
+  <tr bgcolor="#f0f0f0"><td><b>SelectItem</b>(const orxSTRING itemText)=0 (defined in <a class="el" href="class_scroll_combobox.html">ScrollCombobox</a>)</td><td><a class="el" href="class_scroll_combobox.html">ScrollCombobox</a></td><td><code> [pure virtual]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_scroll_widget.html#a3af0be600dc09d31521483d2a543a875">~ScrollWidget</a>()</td><td><a class="el" href="class_scroll_widget.html">ScrollWidget</a></td><td><code> [inline, virtual]</code></td></tr>
 </table></div>
 <!-- window showing the filter options -->
@@ -76,7 +79,7 @@ This is the complete list of members for <a class="el" href="class_scroll_combob
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Sun Jul 1 2012 10:36:39 by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sat Jul 21 2012 00:20:31 by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

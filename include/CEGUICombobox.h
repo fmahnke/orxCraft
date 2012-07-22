@@ -10,7 +10,7 @@
 #include "ScrollCombobox.h"
 #include "CEGUI.h"
 
-class WidgetManager;
+class ScrollFrameWindow;
 
 using std::vector;
 
@@ -19,11 +19,14 @@ class CEGUICombobox : public ScrollCombobox
 {
 public:
     /** C-tor */
-    explicit CEGUICombobox (WidgetManager *manager);
+    explicit CEGUICombobox (ScrollFrameWindow *dialog);
     /** Initialize the Combobox */
     virtual void Init (const orxSTRING widgetName);
     /** Fill the box with a list */
-    void Fill (const vector<const orxSTRING> &listItems);
+    virtual void Fill (const vector<const orxSTRING> &listItems);
+
+    virtual void SelectItem (const orxSTRING text);
+    virtual const orxSTRING GetSelectedItem () const;
 
 private:
     bool OnSelectionAccepted (const CEGUI::EventArgs &e);
@@ -32,3 +35,4 @@ private:
     vector<CEGUI::ListboxTextItem *> m_items;
 };
 #endif  // __CEGUICOMBOBOX_H__
+
