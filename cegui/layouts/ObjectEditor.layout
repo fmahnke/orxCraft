@@ -9,370 +9,400 @@
             <Property Name="Alpha" Value="0.7" />
             <Property Name="TitlebarFont" Value="DejaVuSans-8" />
             <Property Name="TitlebarEnabled" Value="True" />
-            <Property Name="UnifiedAreaRect" Value="{{0,0},{0.290048,0},{0.33,0},{1.00255,0}}" />
+            <Property Name="UnifiedAreaRect" Value="{{0,0},{0,0},{0.4,0},{0.65,0}}" />
             <Window Type="TaharezLook/StaticText" Name="LabelName" >
                 <Property Name="Text" Value="Name" />
                 <Property Name="HorzExtent" Value="32" />
                 <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.031308,0},{0.00526317,0},{0.276425,-8},{0.038157,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0,15},{0,15},{0.2,0},{0.06,15}}" />
             </Window>
             <Window Type="TaharezLook/Combobox" Name="ObjectConfigName" >
                 <Property Name="ReadOnly" Value="True" />
                 <Property Name="MaxEditTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0,56},{0.00526317,0},{0.75,50},{0,200}}" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="LabelAlpha" >
-                <Property Name="Text" Value="Alpha" />
-                <Property Name="HorzExtent" Value="31" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.031308,0},{0.176344,0},{0.334212,-36},{0.220684,0}}" />
-            </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjAlpha" >
-                <Property Name="Text" Value="asdf" />
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.273575,0},{0.185975,0},{0.398832,0},{0.220135,0}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="LabelAngularVelocity" >
-                <Property Name="Text" Value="Ang. Velocity" />
-                <Property Name="HorzExtent" Value="68" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.031308,0},{0.267173,0},{0.365023,0},{0.297427,0}}" />
-            </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjAngularVelocity" >
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.275498,0},{0.266951,0},{0.404224,0},{0.301362,0}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
-            </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjPos0" >
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.583743,0},{0.136377,0},{0.709735,0},{0.170227,0}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
-            </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjPos1" >
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.715495,0},{0.136377,0},{0.841822,0},{0.170228,0}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
-            </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjPos2" >
-                <Property Name="Text" Value="999.9" />
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.847247,0},{0.136377,0},{0.972711,0},{0.169923,0}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="LabelFXs" >
-                <Property Name="Text" Value="FXList" />
-                <Property Name="HorzExtent" Value="31" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.031308,0},{0.516383,0},{0.234434,0},{0.556383,0}}" />
-            </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjFXList" >
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.209196,0},{0.520144,0},{0.913884,0},{0.550144,0}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
-            </Window>
-            <Window Type="TaharezLook/Listbox" Name="ChildList" >
-                <Property Name="UnifiedAreaRect" Value="{{0.252064,0},{0.045622,0},{0.898158,0},{0.0739789,0}}" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="LabelAnimFreq" >
-                <Property Name="Text" Value="Anim. Freq." />
-                <Property Name="HorzExtent" Value="60" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.031308,0},{0.417749,0},{0.300365,0},{0.458029,0}}" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="LabelAnimSet" >
-                <Property Name="Text" Value="Anim. Set" />
-                <Property Name="HorzExtent" Value="51" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.031308,0},{0.45817,0},{0.272337,0},{0.49625,0}}" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="AutoScroll" >
-                <Property Name="Text" Value="AutoScroll" />
-                <Property Name="HorzExtent" Value="53" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.558736,0},{0.45817,0},{0.771249,0},{0.499605,0}}" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="BlendMode" >
-                <Property Name="Text" Value="BlendMode" />
-                <Property Name="HorzExtent" Value="58" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.502934,0},{0.0834961,0},{0.773828,0},{0.121576,0}}" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="Body" >
-                <Property Name="Text" Value="Body" />
-                <Property Name="HorzExtent" Value="26" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.031308,0},{0.570201,0},{0.147505,0},{0.611637,0}}" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="AutoScroll14" >
-                <Property Name="Text" Value="ChildList" />
-                <Property Name="HorzExtent" Value="46" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.031308,0},{0.0392824,0},{0.208784,0},{0.0823953,0}}" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="ChildJointList" >
-                <Property Name="Text" Value="ChildJointList" />
-                <Property Name="HorzExtent" Value="69" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.031308,0},{0.633967,0},{0.28968,0},{0.67708,0}}" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="Clock" >
-                <Property Name="Text" Value="Clock" />
-                <Property Name="HorzExtent" Value="30" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.481013,0},{0.564938,0},{0.674472,0},{0.608051,0}}" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="DepthScale" >
-                <Property Name="Text" Value="DepthScale" />
-                <Property Name="HorzExtent" Value="61" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.558736,0},{0.420408,0},{0.77294,0},{0.463521,0}}" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="Graphic" >
-                <Property Name="Text" Value="Graphic" />
-                <Property Name="HorzExtent" Value="43" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.031308,0},{0.0834961,0},{0.228573,0},{0.119897,0}}" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="Flip" >
-                <Property Name="Text" Value="Flip" />
-                <Property Name="HorzExtent" Value="19" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.031308,0},{0.1321,0},{0.124028,0},{0.175213,0}}" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="LifeTime" >
-                <Property Name="Text" Value="LifeTime" />
-                <Property Name="HorzExtent" Value="46" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.428861,0},{0.274465,0},{0.591053,0},{0.317578,0}}" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="ParentCamera" >
-                <Property Name="Text" Value="ParentCamera" />
-                <Property Name="HorzExtent" Value="77" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.031308,0},{0.692856,0},{0.325253,0},{0.735969,0}}" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="Position" >
-                <Property Name="Text" Value="Position" />
-                <Property Name="HorzExtent" Value="40" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.438946,0},{0.131034,0},{0.597514,0},{0.174147,0}}" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="Repeat" >
-                <Property Name="Text" Value="Repeat" />
-                <Property Name="HorzExtent" Value="37" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.451125,0},{0.166196,0},{0.641432,0},{0.209309,0}}" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="LabelRotation" >
-                <Property Name="Text" >Rotation
-</Property>
-                <Property Name="HorzExtent" Value="44" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.031308,0},{0.221619,0},{0.174953,0},{0.264732,0}}" />
-            </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjAnimFreq" >
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.279736,0},{0.427838,0},{0.529736,0},{0.457838,0}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
-            </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjAnimSet" >
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.281131,0},{0.461679,0},{0.531131,0},{0.49168,0}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
-            </Window>
-            <Window Type="TaharezLook/Combobox" Name="ObjAutoScroll" >
-                <Property Name="ReadOnly" Value="True" />
-                <Property Name="UnifiedAreaRect" Value="{{0.765649,0},{0.459924,0},{0.939822,0},{0.459924,85}}" />
-                <Property Name="MaxEditTextLength" Value="1073741823" />
-            </Window>
-            <Window Type="TaharezLook/Combobox" Name="ObjBlendMode" >
-                <Property Name="ReadOnly" Value="True" />
-                <Property Name="UnifiedAreaRect" Value="{{0.740306,0},{0.07995,0},{0.974554,0},{0.12075,100}}" />
-                <Property Name="MaxEditTextLength" Value="1073741823" />
-            </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjBody" >
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.208903,0},{0.574763,0},{0.458902,0},{0.604763,0}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
-            </Window>
-            <Window Type="TaharezLook/Listbox" Name="ObjChildJointList" >
-                <Property Name="UnifiedAreaRect" Value="{{0.340472,0},{0.642122,0},{0.837108,0},{0.670479,0}}" />
-            </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjClock" >
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.595132,0},{0.574763,0},{0.87258,0},{0.604763,0}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
-            </Window>
-            <Window Type="TaharezLook/Combobox" Name="ObjDepthScale" >
-                <Property Name="ReadOnly" Value="True" />
-                <Property Name="UnifiedAreaRect" Value="{{0.763524,0},{0.4142,0},{0.939165,0},{0.4142,85}}" />
-                <Property Name="MaxEditTextLength" Value="1073741823" />
-            </Window>
-            <Window Type="TaharezLook/Combobox" Name="ObjGraphic" >
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.0,60},{0.0,40},{0.0,150},{0.0,110}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
-                <Property Name="ReadOnly" Value="True" />
-            </Window>
-            <Window Type="TaharezLook/Combobox" Name="ObjFlip" >
-                <Property Name="ReadOnly" Value="True" />
-                <Property Name="UnifiedAreaRect" Value="{{0.281384,0},{0.134591,0},{0.411923,0},{0.180425,75}}" />
-                <Property Name="MaxEditTextLength" Value="1073741823" />
-            </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjLifeTime" >
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.583742,0},{0.275239,0},{0.709351,0},{0.309454,0}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
-            </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjParentCam" >
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.32046,0},{0.701038,0},{0.57046,0},{0.731038,0}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
-            </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjRepeat0" >
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.583742,0},{0.171988,0},{0.709193,0},{0.201987,0}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
-            </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjRepeat1" >
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.715495,0},{0.171988,0},{0.841193,0},{0.201988,0}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
-            </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjRepeat2" >
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.847247,0},{0.171434,0},{0.973193,0},{0.201434,0}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="LabelSpeed" >
-                <Property Name="Text" Value="Speed" />
-                <Property Name="HorzExtent" Value="33" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.45943,0},{0.229112,0},{0.59477,0},{0.272226,0}}" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="LabelScale" >
-                <Property Name="Text" Value="Scale" />
-                <Property Name="HorzExtent" Value="29" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.48355,0},{0.196897,0},{0.59477,0},{0.240011,0}}" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="LabelShaderList" >
-                <Property Name="Text" Value="ShaderList" />
-                <Property Name="HorzExtent" Value="56" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.031308,0},{0.794162,0},{0.241721,0},{0.837276,0}}" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="LabelSoundList" >
-                <Property Name="Text" Value="SoundList" />
-                <Property Name="HorzExtent" Value="52" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.031308,0},{0.829786,0},{0.238976,0},{0.8729,0}}" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="LabelSpawner" >
-                <Property Name="Text" Value="Spawner" />
-                <Property Name="HorzExtent" Value="48" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.031308,0},{0.855119,0},{0.206038,0},{0.898233,0}}" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="LabelSmoothing" >
-                <Property Name="Text" Value="Smoothing" />
-                <Property Name="HorzExtent" Value="58" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.031308,0},{0.754565,0},{0.2527,0},{0.797679,0}}" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="LabelUseParentSpace" >
-                <Property Name="Text" Value="UseParentSpace" />
-                <Property Name="HorzExtent" Value="86" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.031308,0},{0.320734,0},{0.331189,0},{0.363848,0}}" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="LabelUseRelativeSpeed" >
-                <Property Name="Text" Value="UseRelativeSpeed" />
-                <Property Name="HorzExtent" Value="94" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.031308,0},{0.366834,0},{0.378963,0},{0.409947,0}}" />
-            </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjRotation" >
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.275498,0},{0.226595,0},{0.401428,0},{0.260908,0}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
-            </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjScale0" >
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.583742,0},{0.202824,0},{0.709193,0},{0.232823,0}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
-            </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjScale1" >
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.715495,0},{0.202824,0},{0.841193,0},{0.232824,0}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
-            </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjScale2" >
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.847247,0},{0.202824,0},{0.973193,0},{0.232443,0}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
-            </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjSpeedX" >
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.583742,0},{0.233847,0},{0.709193,0},{0.268,0}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
-            </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjSpeedY" >
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.715495,0},{0.233847,0},{0.841193,0},{0.268,0}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
-            </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjSpeedZ" >
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.847247,0},{0.233847,0},{0.973193,0},{0.268,0}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
-            </Window>
-            <Window Type="TaharezLook/Combobox" Name="ObjSmoothing" >
-                <Property Name="ReadOnly" Value="True" />
-                <Property Name="MaxEditTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.33439,0},{0.758024,0},{0.587037,0},{0.758024,65}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
-            </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjShaderList" >
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.33439,0},{0.796279,0},{0.587037,0},{0.826278,0}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
-            </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjSoundList" >
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.33439,0},{0.83026,0},{0.584292,0},{0.860258,0}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
-            </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjSpawner" >
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.337135,0},{0.866225,0},{0.589783,0},{0.896224,0}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
-            </Window>
-            <Window Type="TaharezLook/Combobox" Name="ObjUseParentSpace" >
-                <Property Name="ReadOnly" Value="True" />
-                <Property Name="UnifiedAreaRect" Value="{{0.365155,0},{0.318961,0},{0.56706,0},{0.318961,65}}" />
-                <Property Name="MaxEditTextLength" Value="1073741823" />
-            </Window>
-            <Window Type="TaharezLook/Combobox" Name="ObjUseRelativeSpeed" >
-                <Property Name="ReadOnly" Value="True" />
-                <Property Name="UnifiedAreaRect" Value="{{0.365155,0},{0.366834,0},{0.564314,0},{0.366834,65}}" />
-                <Property Name="MaxEditTextLength" Value="1073741823" />
-            </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjColor0" >
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.648539,0},{0.33623,0},{0.774531,0},{0.37008,0}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
-            </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjColor1" >
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.792436,0},{0.333745,0},{0.918763,0},{0.367596,0}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
-            </Window>
-            <Window Type="TaharezLook/Editbox" Name="ObjColor2" >
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.823573,0},{0.368467,0},{0.949037,0},{0.402013,0}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
+                <Property Name="UnifiedAreaRect" Value="{{0.2,15},{0,15},{1.0,-15},{0.06,200}}" />
+            </Window>
+            <Window Type="TaharezLook/TabControl" Name="Frame/TabControl" >
+                <Property Name="TabHeight" Value="{0,-1}" />
+                <Property Name="UnifiedMaxSize" Value="{{1,0},{1,0}}" />
+                <Property Name="TabPanePosition" Value="Top" />
+                <Property Name="UnifiedAreaRect" Value="{{0,15},{0.06,30},{1,-15},{1,-15}}" />
+                <Window Type="DefaultGUISheet" Name="GeneralTab">
+                    <Property Name="Text" Value="General" />
+                    <Window Type="TaharezLook/StaticText" Name="LabelChildList" >
+                        <Property Name="Text" Value="ChildList" />
+                        <Property Name="HorzExtent" Value="46" />
+                        <Property Name="VertExtent" Value="12.4227" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0,5},{0.3,0},{0.08,5}}" />
+                    </Window>
+                    <Window Type="TaharezLook/Listbox" Name="ObjectChildList" >
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.08,10},{1.0,-5},{0.16,10}}" />
+                    </Window>
+                    <Window Type="TaharezLook/StaticText" Name="Clock" >
+                        <Property Name="Text" Value="Clock" />
+                        <Property Name="HorzExtent" Value="30" />
+                        <Property Name="VertExtent" Value="12.4227" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.24,10},{0.3,0},{0.32,10}}" />
+                    </Window>
+                    <Window Type="TaharezLook/Editbox" Name="ObjClock" >
+                        <Property Name="MaxTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0.3,5},{0.24,10},{1.0,-5},{0.32,10}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                    </Window>
+                    <Window Type="TaharezLook/StaticText" Name="LifeTime" >
+                        <Property Name="Text" Value="LifeTime" />
+                        <Property Name="HorzExtent" Value="46" />
+                        <Property Name="VertExtent" Value="12.4227" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.32,15},{0.3,0},{0.40,15}}" />
+                    </Window>
+                    <Window Type="TaharezLook/Editbox" Name="ObjLifeTime" >
+                        <Property Name="MaxTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0.3,5},{0.32,15},{1.0,-5},{0.40,15}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                    </Window>
+                    <Window Type="TaharezLook/StaticText" Name="AutoScroll" >
+                        <Property Name="Text" Value="AutoScroll" />
+                        <Property Name="HorzExtent" Value="53" />
+                        <Property Name="VertExtent" Value="12.4227" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.4,20},{0.3,0},{0.48,20}}" />
+                    </Window>
+                    <Window Type="TaharezLook/Combobox" Name="ObjAutoScroll" >
+                        <Property Name="ReadOnly" Value="True" />
+                        <Property Name="UnifiedAreaRect" Value="{{0.3,5},{0.4,20},{1,-5},{0.48,100}}" />
+                        <Property Name="MaxEditTextLength" Value="1073741823" />
+                    </Window>
+                    <Window Type="TaharezLook/StaticText" Name="DepthScale" >
+                        <Property Name="Text" Value="DepthScale" />
+                        <Property Name="HorzExtent" Value="61" />
+                        <Property Name="VertExtent" Value="12.4227" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.48,25},{0.3,0},{0.56,25}}" />
+                    </Window>
+                    <Window Type="TaharezLook/Combobox" Name="ObjDepthScale" >
+                        <Property Name="ReadOnly" Value="True" />
+                        <Property Name="UnifiedAreaRect" Value="{{0.3,5},{0.48,25},{1.0,-1},{0.56,100}}" />
+                        <Property Name="MaxEditTextLength" Value="1073741823" />
+                    </Window>
+                    <Window Type="TaharezLook/StaticText" Name="ParentCamera" >
+                        <Property Name="Text" Value="ParentCamera" />
+                        <Property Name="HorzExtent" Value="77" />
+                        <Property Name="VertExtent" Value="12.4227" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.56,30},{0.3,0},{0.64,30}}" />
+                    </Window>
+                    <Window Type="TaharezLook/Editbox" Name="ObjParentCam" >
+                        <Property Name="MaxTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0.3,5},{0.56,30},{1.0,-5},{0.64,30}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                    </Window>
+                    <Window Type="TaharezLook/StaticText" Name="LabelUseParentSpace" >
+                        <Property Name="Text" Value="UseParentSpace" />
+                        <Property Name="HorzExtent" Value="86" />
+                        <Property Name="VertExtent" Value="12.4227" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.64,35},{0.3,0},{0.72,35}}" />
+                    </Window>
+                    <Window Type="TaharezLook/Combobox" Name="ObjUseParentSpace" >
+                        <Property Name="ReadOnly" Value="True" />
+                        <Property Name="UnifiedAreaRect" Value="{{0.3,5},{0.64,35},{1.0,-5},{0.72,100}}" />
+                        <Property Name="MaxEditTextLength" Value="1073741823" />
+                    </Window>
+                </Window>
+
+
+                <Window Type="DefaultGUISheet" Name="PositionTab">
+                    <Property Name="Text" Value="Position" />
+                    <Window Type="TaharezLook/StaticText" Name="Position" >
+                        <Property Name="Text" Value="Position" />
+                        <Property Name="HorzExtent" Value="40" />
+                        <Property Name="VertExtent" Value="12.4227" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.0,5},{0.3,0},{0.08,5}}" />
+                    </Window>
+                    <Window Type="TaharezLook/Editbox" Name="ObjPos0" >
+                        <Property Name="MaxTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.08,10},{0.33,0},{0.16,10}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                    </Window>
+                    <Window Type="TaharezLook/Editbox" Name="ObjPos1" >
+                        <Property Name="MaxTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0.33,2},{0.08,10},{0.66,0},{0.16,10}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                    </Window>
+                    <Window Type="TaharezLook/Editbox" Name="ObjPos2" >
+                        <Property Name="Text" Value="999.9" />
+                        <Property Name="MaxTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0.66,2},{0.08,10},{1.0,-5},{0.16,10}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                    </Window>
+                    <Window Type="TaharezLook/StaticText" Name="Repeat" >
+                        <Property Name="Text" Value="Repeat" />
+                        <Property Name="HorzExtent" Value="37" />
+                        <Property Name="VertExtent" Value="12.4227" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.16,15},{0.3,0},{0.24,15}}" />
+                    </Window>
+                    <Window Type="TaharezLook/Editbox" Name="ObjRepeat0" >
+                        <Property Name="MaxTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.24,20},{0.33,0},{0.32,20}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                    </Window>
+                    <Window Type="TaharezLook/Editbox" Name="ObjRepeat1" >
+                        <Property Name="MaxTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0.33,2},{0.24,20},{0.66,0},{0.32,20}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                    </Window>
+                    <Window Type="TaharezLook/Editbox" Name="ObjRepeat2" >
+                        <Property Name="MaxTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0.66,2},{0.24,20},{1.0,-5},{0.32,20}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                    </Window>
+                    <Window Type="TaharezLook/StaticText" Name="LabelSpeed" >
+                        <Property Name="Text" Value="Speed" />
+                        <Property Name="HorzExtent" Value="33" />
+                        <Property Name="VertExtent" Value="12.4227" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.32,25},{0.3,0},{0.40,25}}" />
+                    </Window>
+                    <Window Type="TaharezLook/Editbox" Name="ObjSpeedX" >
+                        <Property Name="MaxTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.40,30},{0.33,0},{0.48,30}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                    </Window>
+                    <Window Type="TaharezLook/Editbox" Name="ObjSpeedY" >
+                        <Property Name="MaxTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0.33,2},{0.40,30},{0.66,0},{0.48,30}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                    </Window>
+                    <Window Type="TaharezLook/Editbox" Name="ObjSpeedZ" >
+                        <Property Name="MaxTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0.66,2},{0.40,30},{1.0,-5},{0.48,30}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                    </Window>
+                    <Window Type="TaharezLook/StaticText" Name="LabelUseRelativeSpeed" >
+                        <Property Name="Text" Value="UseRelativeSpeed" />
+                        <Property Name="HorzExtent" Value="94" />
+                        <Property Name="VertExtent" Value="12.4227" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.48,35},{0.3,0},{0.56,35}}" />
+                    </Window>
+                    <Window Type="TaharezLook/Combobox" Name="ObjUseRelativeSpeed" >
+                        <Property Name="ReadOnly" Value="True" />
+                        <Property Name="UnifiedAreaRect" Value="{{0.3,5},{0.48,35},{1.0,-5},{0.56,100}}" />
+                        <Property Name="MaxEditTextLength" Value="1073741823" />
+                    </Window>
+                    <Window Type="TaharezLook/StaticText" Name="LabelAngularVelocity" >
+                        <Property Name="Text" Value="Ang. Velocity" />
+                        <Property Name="HorzExtent" Value="68" />
+                        <Property Name="VertExtent" Value="12.4227" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.56,40},{0.3,0},{0.64,40}}" />
+                    </Window>
+                    <Window Type="TaharezLook/Editbox" Name="ObjAngularVelocity" >
+                        <Property Name="MaxTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0.3,5},{0.56,40},{1.0,-5},{0.64,40}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                    </Window>
+                </Window>
+                <Window Type="DefaultGUISheet" Name="GraphicsTab">
+                    <Property Name="Text" Value="Graphics" />
+                    <Window Type="TaharezLook/StaticText" Name="Graphic" >
+                        <Property Name="Text" Value="Graphic" />
+                        <Property Name="HorzExtent" Value="43" />
+                        <Property Name="VertExtent" Value="12.4227" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0,5},{0.3,0},{0.08,5}}" />
+                    </Window>
+                    <Window Type="TaharezLook/Combobox" Name="ObjGraphic" >
+                        <Property Name="MaxTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0.3,5},{0,5},{1.0,-5},{0.08,200}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                        <Property Name="ReadOnly" Value="True" />
+                    </Window>
+                    <Window Type="TaharezLook/StaticText" Name="LabelAlpha" >
+                        <Property Name="Text" Value="Alpha" />
+                        <Property Name="HorzExtent" Value="31" />
+                        <Property Name="VertExtent" Value="12.4227" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.08,10},{0.3,0},{0.16,10}}" />
+                    </Window>
+                    <Window Type="TaharezLook/Editbox" Name="ObjAlpha" >
+                        <Property Name="Text" Value="asdf" />
+                        <Property Name="MaxTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0.3,5},{0.08,10},{1.0,-5},{0.16,10}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                    </Window>
+                    <Window Type="TaharezLook/StaticText" Name="LabelSmoothing" >
+                        <Property Name="Text" Value="Smoothing" />
+                        <Property Name="HorzExtent" Value="58" />
+                        <Property Name="VertExtent" Value="12.4227" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.16,15},{0.3,0},{0.24,15}}" />
+                    </Window>
+                    <Window Type="TaharezLook/Combobox" Name="ObjSmoothing" >
+                        <Property Name="ReadOnly" Value="True" />
+                        <Property Name="MaxEditTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0.3,5},{0.16,15},{1.0,-5},{0.24,100}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                    </Window>
+                    <Window Type="TaharezLook/StaticText" Name="BlendMode" >
+                        <Property Name="Text" Value="BlendMode" />
+                        <Property Name="HorzExtent" Value="58" />
+                        <Property Name="VertExtent" Value="12.4227" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.24,20},{0.3,0},{0.32,20}}" />
+                    </Window>
+                    <Window Type="TaharezLook/Combobox" Name="ObjBlendMode" >
+                        <Property Name="ReadOnly" Value="True" />
+                        <Property Name="UnifiedAreaRect" Value="{{0.3,5},{0.24,20},{1.0,-5},{0.32,100}}" />
+                        <Property Name="MaxEditTextLength" Value="1073741823" />
+                    </Window>
+                    <Window Type="TaharezLook/StaticText" Name="Color" >
+                        <Property Name="Text" Value="Color" />
+                        <Property Name="HorzExtent" Value="58" />
+                        <Property Name="VertExtent" Value="12.4227" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.32,25},{0.3,0},{0.40,25}}" />
+                    </Window>
+                    <Window Type="TaharezLook/Editbox" Name="ObjColor0" >
+                        <Property Name="MaxTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.40,30},{0.33,0},{0.48,30}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                    </Window>
+                    <Window Type="TaharezLook/Editbox" Name="ObjColor1" >
+                        <Property Name="MaxTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0.33,2},{0.40,30},{0.66,0},{0.48,30}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                    </Window>
+                    <Window Type="TaharezLook/Editbox" Name="ObjColor2" >
+                        <Property Name="MaxTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0.66,2},{0.40,30},{1.0,-5},{0.48,30}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                    </Window>
+
+
+                    <Window Type="TaharezLook/StaticText" Name="LabelRotation" >
+                        <Property Name="Text" Value="Rotation" />
+                        <Property Name="HorzExtent" Value="44" />
+                        <Property Name="VertExtent" Value="12.4227" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.50,40},{0.3,0},{0.58,40}}" />
+                    </Window>
+                    <Window Type="TaharezLook/Editbox" Name="ObjRotation" >
+                        <Property Name="MaxTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0.3,5},{0.50,40},{1.0,-5},{0.58,40}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                    </Window>
+                    <Window Type="TaharezLook/StaticText" Name="Flip" >
+                        <Property Name="Text" Value="Flip" />
+                        <Property Name="HorzExtent" Value="19" />
+                        <Property Name="VertExtent" Value="12.4227" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.58,45},{0.3,0},{0.66,45}}" />
+                    </Window>
+                    <Window Type="TaharezLook/Combobox" Name="ObjFlip" >
+                        <Property Name="ReadOnly" Value="True" />
+                        <Property Name="UnifiedAreaRect" Value="{{0.3,5},{0.58,45},{1.0,-5},{0.66,100}}" />
+                        <Property Name="MaxEditTextLength" Value="1073741823" />
+                    </Window>
+                    <Window Type="TaharezLook/StaticText" Name="LabelScale" >
+                        <Property Name="Text" Value="Scale" />
+                        <Property Name="HorzExtent" Value="29" />
+                        <Property Name="VertExtent" Value="12.4227" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.66,50},{0.3,0},{0.74,50}}" />
+                    </Window>
+                    <Window Type="TaharezLook/Editbox" Name="ObjScale0" >
+                        <Property Name="MaxTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.74,55},{0.33,0},{0.82,55}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                    </Window>
+                    <Window Type="TaharezLook/Editbox" Name="ObjScale1" >
+                        <Property Name="MaxTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0.33,2},{0.74,55},{0.66,0},{0.82,55}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                    </Window>
+                    <Window Type="TaharezLook/Editbox" Name="ObjScale2" >
+                        <Property Name="MaxTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0.66,2},{0.74,55},{1.0,-5},{0.82,55}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                    </Window>
+                </Window>
+                <Window Type="DefaultGUISheet" Name="AnimationTab">
+                    <Property Name="Text" Value="Anims &amp; Physics" />
+                    <Window Type="TaharezLook/StaticText" Name="LabelAnimFreq" >
+                        <Property Name="Text" Value="Anim. Freq." />
+                        <Property Name="HorzExtent" Value="60" />
+                        <Property Name="VertExtent" Value="12.4227" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0,5},{0.3,0},{0.08,5}}" />
+                    </Window>
+                    <Window Type="TaharezLook/Editbox" Name="ObjAnimFreq" >
+                        <Property Name="MaxTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0.3,5},{0,5},{1.0,-5},{0.08,5}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                    </Window>
+                    <Window Type="TaharezLook/StaticText" Name="LabelAnimSet" >
+                        <Property Name="Text" Value="Anim. Set" />
+                        <Property Name="HorzExtent" Value="51" />
+                        <Property Name="VertExtent" Value="12.4227" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.08,10},{0.3,0},{0.16,10}}" />
+                    </Window>
+                    <Window Type="TaharezLook/Editbox" Name="ObjAnimSet" >
+                        <Property Name="MaxTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0.3,5},{0.08,10},{1.0,-5},{0.16,10}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                    </Window>
+                    <Window Type="TaharezLook/StaticText" Name="Body" >
+                        <Property Name="Text" Value="Body" />
+                        <Property Name="HorzExtent" Value="26" />
+                        <Property Name="VertExtent" Value="12.4227" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.16,15},{0.3,0},{0.24,15}}" />
+                    </Window>
+                    <Window Type="TaharezLook/Editbox" Name="ObjBody" >
+                        <Property Name="MaxTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0.3,0},{0.16,15},{1.0,-5},{0.24,15}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                    </Window>
+                    <Window Type="TaharezLook/StaticText" Name="ChildJointList" >
+                        <Property Name="Text" Value="ChildJointList" />
+                        <Property Name="HorzExtent" Value="69" />
+                        <Property Name="VertExtent" Value="12.4227" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.24,20},{0.3,0},{0.32,20}}" />
+                    </Window>
+                    <Window Type="TaharezLook/Listbox" Name="ObjChildJointList" >
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.32,25},{1.0,-5},{0.40,25}}" />
+                    </Window>
+                </Window>
+                <Window Type="DefaultGUISheet" Name="FXTab">
+                    <Property Name="Text" Value="FXs" />
+                    <Window Type="TaharezLook/StaticText" Name="LabelFXs" >
+                        <Property Name="Text" Value="FXList" />
+                        <Property Name="HorzExtent" Value="31" />
+                        <Property Name="VertExtent" Value="12.4227" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0,5},{0.3,0},{0.08,5}}" />
+                    </Window>
+                    <Window Type="TaharezLook/Editbox" Name="ObjFXList" >
+                        <Property Name="MaxTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.08,10},{1.0,-5},{0.16,10}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                    </Window>
+                    <Window Type="TaharezLook/StaticText" Name="LabelShaderList" >
+                        <Property Name="Text" Value="ShaderList" />
+                        <Property Name="HorzExtent" Value="56" />
+                        <Property Name="VertExtent" Value="12.4227" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.16,15},{0.3,0},{0.24,15}}" />
+                    </Window>
+                    <Window Type="TaharezLook/Editbox" Name="ObjShaderList" >
+                        <Property Name="MaxTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.24,20},{1.0,-5},{0.32,20}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                    </Window>
+                    <Window Type="TaharezLook/StaticText" Name="LabelSoundList" >
+                        <Property Name="Text" Value="SoundList" />
+                        <Property Name="HorzExtent" Value="52" />
+                        <Property Name="VertExtent" Value="12.4227" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.32,25},{0.3,0},{0.40,25}}" />
+                    </Window>
+                    <Window Type="TaharezLook/Editbox" Name="ObjSoundList" >
+                        <Property Name="MaxTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.40,30},{1.0,-5},{0.48,30}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                    </Window>
+                    <Window Type="TaharezLook/StaticText" Name="LabelSpawner" >
+                        <Property Name="Text" Value="Spawner" />
+                        <Property Name="HorzExtent" Value="48" />
+                        <Property Name="VertExtent" Value="12.4227" />
+                        <Property Name="UnifiedAreaRect" Value="{{0,5},{0.48,35},{0.3,0},{0.56,35}}" />
+                    </Window>
+                    <Window Type="TaharezLook/Editbox" Name="ObjSpawner" >
+                        <Property Name="MaxTextLength" Value="1073741823" />
+                        <Property Name="UnifiedAreaRect" Value="{{0.3,5},{0.48,35},{1.0,-5},{0.56,35}}" />
+                        <Property Name="TextParsingEnabled" Value="False" />
+                    </Window>
+                </Window>
             </Window>
         </Window>
     </Window>

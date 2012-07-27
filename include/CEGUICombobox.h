@@ -22,6 +22,7 @@ public:
     explicit CEGUICombobox (ScrollFrameWindow *dialog);
     /** Initialize the Combobox */
     virtual void Init (const orxSTRING widgetName);
+    virtual void Init (CEGUI::Window* widget);
     /** Fill the box with a list */
     virtual void Fill (const vector<const orxSTRING> &listItems);
 
@@ -36,3 +37,4 @@ private:
 };
 #endif  // __CEGUICOMBOBOX_H__
 
+// vim: tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab

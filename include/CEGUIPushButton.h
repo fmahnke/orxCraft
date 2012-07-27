@@ -19,6 +19,7 @@ class CEGUIPushButton : public ScrollPushButton
 public:
     explicit CEGUIPushButton (ScrollFrameWindow *dialog);
     virtual void Init (const orxSTRING widgetName);
+    virtual void Init (CEGUI::Window* widget);
 
     virtual void SetText (const orxSTRING text);
 
@@ -28,3 +29,5 @@ private:
     CEGUI::PushButton *m_cePushButton;
 };
 #endif  // __CEGUIBUTTON_H__
+
+// vim: tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab

@@ -55,8 +55,9 @@ void CEDialogManager::MakeDialog (const orxSTRING dialogName)
     int counter = window->getChildCount ();
     for (int i = 0; i < counter; i++)
     {
-	const orxSTRING type = window->getChildAtIdx (i)->getType ().c_str ();
-	const orxSTRING name = window->getChildAtIdx (i)->getName ().c_str ();
+	CEGUI::Window* widget = window->getChildAtIdx (i);
+	const orxSTRING type = widget->getType ().c_str ();
+	const orxSTRING name = widget->getName ().c_str ();
 	if (orxString_Compare (type, "TaharezLook/Checkbox") == 0)
 	{
 	    orxASSERT (false);
@@ -69,28 +70,39 @@ void CEDialogManager::MakeDialog (const orxSTRING dialogName)
 	else if (orxString_Compare (type, "TaharezLook/Combobox") == 0)
 	{
 	    CEGUICombobox *combobox = new CEGUICombobox (dialog);
-	    combobox->Init (name);
+	    combobox->Init (widget);
 	    dialog->AddWidget (combobox);
 	}
 	else if (orxString_Compare (type, "TaharezLook/Editbox") == 0)
 	{
 	    CEGUIEditbox *editbox = new CEGUIEditbox (dialog);
-	    editbox->Init (name);
+	    editbox->Init (widget);
 	    dialog->AddWidget (editbox);
 	}
 	else if (orxString_Compare (type, "TaharezLook/Listbox") == 0)
 	{
 	    CEGUIListbox *listbox = new CEGUIListbox (dialog);
-	    listbox->Init (name);
+	    listbox->Init (widget);
 	    dialog->AddWidget (listbox);
 	}
 	else if (orxString_Compare (type, "TaharezLook/Button") == 0)
 	{
 	    CEGUIPushButton *pushbutton = new CEGUIPushButton (dialog);
-	    pushbutton->Init (name);
+	    pushbutton->Init (widget);
 	    dialog->AddWidget (pushbutton);
+	}
+	else if (orxString_Compare (type, "TaharezLook/TabControl") == 0)
+	{
+	    // int tabcounter = window->getChildCount (); 
+	    // for (int i = 0; i < counter; i++) 
+	    // { 
+		// const orxSTRING type = window->getChildAtIdx (i)->getType ().c_str (); 
+		// const orxSTRING name = window->getChildAtIdx (i)->getName ().c_str (); 
+	    orxASSERT (false);
 	}
     }
 
     dialog->Init (dialogName);
 }
+
+// vim: tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab

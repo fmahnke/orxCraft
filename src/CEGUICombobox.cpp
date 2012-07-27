@@ -34,6 +34,17 @@ void CEGUICombobox::Init (const orxSTRING widgetName)
     strcpy (m_widgetName, widgetName);
 }
 
+void CEGUICombobox::Init (Window* widget)
+{
+    Combobox *combobox = reinterpret_cast<Combobox *> (widget);
+    combobox->subscribeEvent (Combobox::EventListSelectionAccepted,
+	Event::Subscriber (&CEGUICombobox::OnSelectionAccepted, this));
+
+    m_ceCombobox = combobox;
+    m_widgetName = new char[strlen (widget->getName().c_str()) + 1];
+    strcpy (m_widgetName, widget->getName().c_str());
+}
+
 void CEGUICombobox::Fill (const vector<const orxSTRING> &listItems)
 {
     for (unsigned int i = 0; i < listItems.size (); i++)
@@ -78,3 +89,4 @@ bool CEGUICombobox::OnSelectionAccepted (const CEGUI::EventArgs &e)
     return true;
 }
 
+// vim: tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab

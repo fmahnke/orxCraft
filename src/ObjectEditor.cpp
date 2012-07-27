@@ -187,11 +187,13 @@ void ObjectEditor::UpdateFields () const
 	const orxSTRING aS = orx_config_util::ListToString ("AnimationSet");
 	m_objAnimSet->SetText (aS);
 	// AutoScroll
-	const orxSTRING aSc = orx_config_util::ListToString ("AutoScroll");
-	orxASSERT (false);
+	vector<const orxSTRING> aSc;
+	orx_config_util::GetListIntoVector ("AutoScroll", aSc);
+	m_objAutoScroll->Fill(aSc);
 	// BlendMode
-	const orxSTRING bl = orx_config_util::ListToString ("BlendMode");
-	orxASSERT (false);
+	vector<const orxSTRING> bl;
+	orx_config_util::GetListIntoVector ("BlendMode", bl);
+	m_objBlendMode->Fill(bl);
 	// Body
 	const orxSTRING body = orx_config_util::ListToString ("Body");
 	m_objBody->SetText (body);
@@ -447,9 +449,11 @@ void ObjectEditor::OnTextAccepted (const orxSTRING widgetName)
     {
 	orxASSERT (false);
     }
-   
+
     orxConfig_PopSection ();
 
     // Update object in editor
     OrxCraft::GetInstance ().NeedObjectUpdate ();
 }
+
+// vim: tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab

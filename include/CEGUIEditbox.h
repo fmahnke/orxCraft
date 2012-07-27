@@ -19,6 +19,7 @@ class CEGUIEditbox : public ScrollEditbox
 public:
     explicit CEGUIEditbox (ScrollFrameWindow *dialog);
     virtual void Init (const orxSTRING widgetName);
+    virtual void Init (CEGUI::Window* widget);
 
     virtual const orxSTRING GetText ();
     virtual void SetText (const orxSTRING text);
@@ -28,3 +29,5 @@ private:
     CEGUI::Editbox *m_ceEditbox;
 };
 #endif  // __SCROLL_CEGUIEDITBOX_H__
+
+// vim: tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab
