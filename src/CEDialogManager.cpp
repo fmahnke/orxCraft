@@ -57,52 +57,74 @@ void CEDialogManager::MakeDialog (const orxSTRING dialogName)
     {
 	CEGUI::Window* widget = window->getChildAtIdx (i);
 	const orxSTRING type = widget->getType ().c_str ();
-	const orxSTRING name = widget->getName ().c_str ();
-	if (orxString_Compare (type, "TaharezLook/Checkbox") == 0)
+	if (orxString_Compare (type, "TaharezLook/TabControl") == 0)
 	{
-	    orxASSERT (false);
-	    /*
-	    CEGUICheckbox *checkbox = new CEGUICheckbox (this);
-	    checkbox->Init (name);
-	    m_widgetList.push_back (checkbox);
-	    */
-	}
-	else if (orxString_Compare (type, "TaharezLook/Combobox") == 0)
-	{
-	    CEGUICombobox *combobox = new CEGUICombobox (dialog);
-	    combobox->Init (widget);
-	    dialog->AddWidget (combobox);
-	}
-	else if (orxString_Compare (type, "TaharezLook/Editbox") == 0)
-	{
-	    CEGUIEditbox *editbox = new CEGUIEditbox (dialog);
-	    editbox->Init (widget);
-	    dialog->AddWidget (editbox);
-	}
-	else if (orxString_Compare (type, "TaharezLook/Listbox") == 0)
-	{
-	    CEGUIListbox *listbox = new CEGUIListbox (dialog);
-	    listbox->Init (widget);
-	    dialog->AddWidget (listbox);
-	}
-	else if (orxString_Compare (type, "TaharezLook/Button") == 0)
-	{
-	    CEGUIPushButton *pushbutton = new CEGUIPushButton (dialog);
-	    pushbutton->Init (widget);
-	    dialog->AddWidget (pushbutton);
-	}
-	else if (orxString_Compare (type, "TaharezLook/TabControl") == 0)
-	{
-	    // int tabcounter = window->getChildCount (); 
-	    // for (int i = 0; i < counter; i++) 
-	    // { 
-		// const orxSTRING type = window->getChildAtIdx (i)->getType ().c_str (); 
-		// const orxSTRING name = window->getChildAtIdx (i)->getName ().c_str (); 
-	    orxASSERT (false);
+	    //TabControl
+	    int c_counter = widget->getChildCount ();
+	    for (int j = 0; j < c_counter; j++) {
+		// Container - Pane, ScrollBar and other stuff
+		CEGUI::Window* container = widget->getChildAtIdx (j);
+		int t_counter = container->getChildCount ();
+		for(int k = 0; k < t_counter; k++) {
+		    // The actual Tab
+		    CEGUI::Window* tab = container->getChildAtIdx(k);
+			const orxSTRING type = tab->getType ().c_str ();
+			// Tabs are of type "DefaultWindow"
+			if (orxString_Compare (type, "DefaultWindow") != 0)
+			    continue;
+		    int w_counter = tab->getChildCount ();
+		    for(int l = 0; l < w_counter; l++) {
+			// Widget inside a Tab
+			CEGUI::Window* sub_widget = tab->getChildAtIdx(l);
+			LinkWidgetToDialog(sub_widget, dialog);
+		    }
+		}
+	    }
+	} else {
+	    LinkWidgetToDialog(widget, dialog);
 	}
     }
 
     dialog->Init (dialogName);
+}
+
+void CEDialogManager::LinkWidgetToDialog(CEGUI::Window* widget, ScrollFrameWindow* dialog)
+{
+    const orxSTRING type = widget->getType ().c_str ();
+	const orxSTRING name = widget->getName ().c_str ();
+    if (orxString_Compare (type, "TaharezLook/Checkbox") == 0)
+    {
+	orxASSERT (false);
+	/*
+	CEGUICheckbox *checkbox = new CEGUICheckbox (this);
+	checkbox->Init (name);
+	m_widgetList.push_back (checkbox);
+	*/
+    }
+    else if (orxString_Compare (type, "TaharezLook/Combobox") == 0)
+    {
+	CEGUICombobox *combobox = new CEGUICombobox (dialog);
+	combobox->Init (widget);
+	dialog->AddWidget (combobox);
+    }
+    else if (orxString_Compare (type, "TaharezLook/Editbox") == 0)
+    {
+	CEGUIEditbox *editbox = new CEGUIEditbox (dialog);
+	editbox->Init (widget);
+	dialog->AddWidget (editbox);
+    }
+    else if (orxString_Compare (type, "TaharezLook/Listbox") == 0)
+    {
+	CEGUIListbox *listbox = new CEGUIListbox (dialog);
+	listbox->Init (widget);
+	dialog->AddWidget (listbox);
+    }
+    else if (orxString_Compare (type, "TaharezLook/Button") == 0)
+    {
+	CEGUIPushButton *pushbutton = new CEGUIPushButton (dialog);
+	pushbutton->Init (widget);
+	dialog->AddWidget (pushbutton);
+    }
 }
 
 // vim: tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab
