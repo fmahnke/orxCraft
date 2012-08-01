@@ -89,3 +89,5 @@ void ScrollFrameWindow::AddWidget (ScrollWidget *widget)
 {
     m_widgetList.push_back (widget);
 }
+
+// vim: tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab

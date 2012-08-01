@@ -55,11 +55,8 @@ void ScrollGUICEGUI::InputMouseMove ()
     orxVECTOR mousePos;
     orxMouse_GetPosition (&mousePos);
 
-    orxVECTOR worldPos;
-    orxRender_GetWorldPosition (&mousePos, &worldPos);
-
-    CEGUI::System::getSingleton ().injectMousePosition (worldPos.fX,
-							worldPos.fY);
+    CEGUI::System::getSingleton ().injectMousePosition (mousePos.fX,
+							mousePos.fY);
 }
 
 void ScrollGUICEGUI::InputMouseDown ()
@@ -67,10 +64,7 @@ void ScrollGUICEGUI::InputMouseDown ()
     orxVECTOR mousePos;
     orxMouse_GetPosition (&mousePos);
 
-    orxVECTOR worldPos;
-    orxRender_GetWorldPosition (&mousePos, &worldPos);
-
-    CEGUI::System::getSingleton ().injectMousePosition (worldPos.fX, worldPos.fY);
+    CEGUI::System::getSingleton ().injectMousePosition (mousePos.fX, mousePos.fY);
     CEGUI::System::getSingleton ().injectMouseButtonDown (CEGUI::LeftButton);
 }
 
@@ -79,10 +73,7 @@ void ScrollGUICEGUI::InputMouseUp ()
     orxVECTOR mousePos;
     orxMouse_GetPosition (&mousePos);
 
-    orxVECTOR worldPos;
-    orxRender_GetWorldPosition (&mousePos, &worldPos);
-
-    CEGUI::System::getSingleton ().injectMousePosition (worldPos.fX, worldPos.fY);
+    CEGUI::System::getSingleton ().injectMousePosition (mousePos.fX, mousePos.fY);
     CEGUI::System::getSingleton ().injectMouseButtonUp (CEGUI::LeftButton);
 }
 
@@ -228,3 +219,5 @@ void ScrollGUICEGUI::DrawGrid ()
 	orxDisplay_DrawLine (&start, &end, gridColor);
     }
 }
+
+// vim: tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab
