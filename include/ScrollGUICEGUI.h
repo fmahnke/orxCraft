@@ -7,31 +7,43 @@
  *
  * The CEGUI implementation of a Scroll GUI
  */
+
 #include "Scroll.h"
 
 #include "CEGUI.h"
 #include "RendererModules/OpenGL/CEGUIOpenGLRenderer.h"
 
+#include <vector>
+
+class ScrollFrameWindow;
+
 /**
  *  Renders GUI items and sends input from Scroll to them.
  */
-class ScrollGUICEGUI : public ScrollObject
+class ScrollGUICEGUI
 {
 public:
+    /** C-tor */
     ScrollGUICEGUI ();
+    /** D-tor */
+    ~ScrollGUICEGUI ();
 
+    void Init ();
     void InputMouseMove ();
     void InputMouseDown ();
     void InputMouseUp ();
     void InputKeyPress (const orxSTRING orxKey);
 
-private:
-    virtual void    OnCreate ();
-    virtual void    OnDelete ();
-    virtual orxBOOL OnRender ();
+    class CEGUIScrollObject : public ScrollObject
+    {
+	virtual void    OnCreate ();
+	virtual void    OnDelete ();
+	virtual orxBOOL OnRender ();
+	/** Calculate and render the editor grid */
+	void DrawGrid ();
+    };
 
-    /** Calculate and render the editor grid */
-    void DrawGrid ();
+private:
 
     CEGUI::OpenGLRenderer *m_glRenderer;
 };

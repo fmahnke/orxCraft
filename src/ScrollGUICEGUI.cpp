@@ -5,26 +5,51 @@
  *
  */
 #include "ScrollGUICEGUI.h"
+
 #include "OrxCraft.h"
+#include "ObjectEditor.h"
+#include "FXSlotEditorWindow.h"
+#include "InfoWindow.h"
+
+#include "constants.h"
+
+using CEGUI::System;
 
 ScrollGUICEGUI::ScrollGUICEGUI () :
     m_glRenderer (orxNULL)
 {
 }
 
-void ScrollGUICEGUI::OnCreate ()
-{
-    m_glRenderer = & CEGUI::OpenGLRenderer::bootstrapSystem ();
-    CEGUI::SchemeManager::getSingleton ().create ("TaharezLook.scheme");
-    CEGUI::Window* myRoot =
-	CEGUI::WindowManager::getSingleton ().loadWindowLayout ("Main.layout");
-    CEGUI::System::getSingleton ().setGUISheet (myRoot);
-}
-
-void ScrollGUICEGUI::OnDelete ()
+ScrollGUICEGUI::~ScrollGUICEGUI ()
 {
     //m_glRenderer->destroySystem ();
     m_glRenderer = orxNULL;
+}
+
+void ScrollGUICEGUI::Init ()
+{
+    // CEGUI renderer has to be initialized first
+    m_glRenderer = & CEGUI::OpenGLRenderer::bootstrapSystem();
+
+    // Scroll object initializes CEGUI on creation
+    OrxCraft::GetInstance ().CreateObject (scrollGUIName);
+}
+
+void ScrollGUICEGUI::CEGUIScrollObject::OnCreate ()
+{
+    using CEGUI::SchemeManager;
+    using CEGUI::Window;
+    using CEGUI::WindowManager;
+
+    SchemeManager::getSingleton().create("TaharezLook.scheme");
+
+    WindowManager &winManager = WindowManager::getSingleton ();
+    Window* myRoot = winManager.loadWindowLayout ("Main.layout");
+    System::getSingleton().setGUISheet( myRoot );
+}
+
+void ScrollGUICEGUI::CEGUIScrollObject::OnDelete ()
+{
 }
 
 void ScrollGUICEGUI::InputMouseMove ()
@@ -35,8 +60,8 @@ void ScrollGUICEGUI::InputMouseMove ()
     orxVECTOR worldPos;
     orxRender_GetWorldPosition (&mousePos, &worldPos);
 
-    CEGUI::System::getSingleton ().injectMousePosition (worldPos.fX,
-							worldPos.fY);
+    System::getSingleton ().injectMousePosition (worldPos.fX,
+						 worldPos.fY);
 }
 
 void ScrollGUICEGUI::InputMouseDown ()
@@ -47,8 +72,9 @@ void ScrollGUICEGUI::InputMouseDown ()
     orxVECTOR worldPos;
     orxRender_GetWorldPosition (&mousePos, &worldPos);
 
-    CEGUI::System::getSingleton ().injectMousePosition (worldPos.fX, worldPos.fY);
-    CEGUI::System::getSingleton ().injectMouseButtonDown (CEGUI::LeftButton);
+    System::getSingleton ().injectMousePosition (worldPos.fX,
+						 worldPos.fY);
+    System::getSingleton ().injectMouseButtonDown (CEGUI::LeftButton);
 }
 
 void ScrollGUICEGUI::InputMouseUp ()
@@ -59,8 +85,9 @@ void ScrollGUICEGUI::InputMouseUp ()
     orxVECTOR worldPos;
     orxRender_GetWorldPosition (&mousePos, &worldPos);
 
-    CEGUI::System::getSingleton ().injectMousePosition (worldPos.fX, worldPos.fY);
-    CEGUI::System::getSingleton ().injectMouseButtonUp (CEGUI::LeftButton);
+    System::getSingleton ().injectMousePosition (worldPos.fX,
+						 worldPos.fY);
+    System::getSingleton ().injectMouseButtonUp (CEGUI::LeftButton);
 }
 
 void ScrollGUICEGUI::InputKeyPress (const orxSTRING orxKey)
@@ -163,21 +190,21 @@ void ScrollGUICEGUI::InputKeyPress (const orxSTRING orxKey)
 	inputChar = '-';
     }
 
-    CEGUI::System::getSingleton ().injectKeyDown (key);
+    System::getSingleton ().injectKeyDown (key);
     if (inputChar != '\0')
     {
-	CEGUI::System::getSingleton ().injectChar (inputChar);
+	System::getSingleton ().injectChar (inputChar);
     }
 }
 
-orxBOOL ScrollGUICEGUI::OnRender ()
+orxBOOL ScrollGUICEGUI::CEGUIScrollObject::OnRender ()
 {
     DrawGrid ();
-    CEGUI::System::getSingleton().renderGUI();
+    System::getSingleton().renderGUI();
     return false; 
 }
 
-void ScrollGUICEGUI::DrawGrid ()
+void ScrollGUICEGUI::CEGUIScrollObject::DrawGrid ()
 {
     orxConfig_PushSection ("MainCamera");
     float frustumWidth = orxConfig_GetFloat ("FrustumWidth");
@@ -185,23 +212,22 @@ void ScrollGUICEGUI::DrawGrid ()
     orxConfig_PopSection ();
 
     int gridRes = 100;
-    int columns = static_cast<int> (frustumWidth / gridRes);
-    int rows = static_cast<int> (frustumHeight / gridRes);
+    int columns = (int) frustumWidth / gridRes;
+    int rows = (int) frustumHeight / gridRes;
 
     orxRGBA gridColor = orx2RGBA (200, 0, 0, 255);
 
     for (int i = 1; i <= columns; i++)
     {
-	orxVECTOR start = { static_cast<float> (i) * gridRes, 0, 0 };
-	orxVECTOR end   = { static_cast<float> (i) * gridRes, frustumHeight,
-			    0 };
+	orxVECTOR start = { (float) i * gridRes, 0, 0};
+	orxVECTOR end   = { (float) i * gridRes, frustumHeight, 0};
 	orxDisplay_DrawLine (&start, &end, gridColor);
     }
 
     for (int i = 1; i <= rows; i++)
     {
-	orxVECTOR start = { 0, static_cast<float> (i) * gridRes, 0 };
-	orxVECTOR end   = { frustumWidth, static_cast<float> (i) * gridRes, 0 };
+	orxVECTOR start = {0, (float) i * gridRes, 0};
+	orxVECTOR end   = {frustumWidth, (float) i * gridRes, 0};
 	orxDisplay_DrawLine (&start, &end, gridColor);
     }
 }

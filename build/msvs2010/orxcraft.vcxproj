@@ -201,6 +201,7 @@
     <ClInclude Include="..\..\include\ScrollGUI.h" />
     <ClInclude Include="..\..\include\ScrollListbox.h" />
     <ClInclude Include="..\..\include\ScrollWidget.h" />
+    <ClInclude Include="..\..\include\constants.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -37,3 +37,4 @@ void InfoWindow::OnTextAccepted (const orxSTRING widgetName)
 {
     orxASSERT (false);
 }
+
