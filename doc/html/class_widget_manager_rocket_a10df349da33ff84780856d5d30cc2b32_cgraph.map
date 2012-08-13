@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$class_widget_manager_rocket.html#abfc9d8370785879e871d7da071945afb" title="Add all child widgets of a root widget to the widget list." alt="" coords="232,56,515,83"/>
-<area shape="rect" id="node5" href="$class_rocket_listbox.html#a9cd7ac09e21dbeb89c539631bcb69d29" title="Initialize the widget." alt="" coords="611,5,741,32"/>
-<area shape="rect" id="node7" href="$class_rocket_listbox.html#ad6c275edfcdfe6c96b2a02b3ad779701" title="Set the data source used by this list box." alt="" coords="575,56,777,83"/>
-<area shape="rect" id="node9" href="$class_rocket_listbox.html#a229b354423bee0d5a42aa6bf704990bc" title="Set the name of the data table used by this list box." alt="" coords="563,107,789,133"/>
-</map>

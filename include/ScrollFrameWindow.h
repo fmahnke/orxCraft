@@ -59,3 +59,4 @@ protected:
 };
 
 #endif  // __SCROLLFRAMEWINDOW_H__
+
