@@ -22,3 +22,5 @@ static const orxSTRING inputUpArrow    = "UpArrow";
 static const orxSTRING inputDownArrow  = "DownArrow";
 
 #endif	// CONSTANTS_H
+
+// vim: tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab

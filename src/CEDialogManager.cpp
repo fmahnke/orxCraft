@@ -94,3 +94,5 @@ void CEDialogManager::MakeDialog (const orxSTRING dialogName)
 
     dialog->Init (dialogName);
 }
+
+// vim: tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab

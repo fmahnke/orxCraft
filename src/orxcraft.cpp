@@ -281,3 +281,4 @@ void OrxCraft::SetSelectedFXSlot (const orxSTRING name)
     orxASSERT (false);
 }
 
+// vim: tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab

@@ -12,3 +12,5 @@ class CEDialogManager : public DialogManager
 public:
     virtual void MakeDialog (const orxSTRING dialogName);
 };
+
+// vim: tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab
