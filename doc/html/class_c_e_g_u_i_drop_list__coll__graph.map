@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$class_scroll_listbox.html" title="Base class for a Listbox widget." alt="" coords="5,264,101,291"/>
-<area shape="rect" id="node4" href="$class_scroll_widget.html" title="Base class for any type of user interface widget." alt="" coords="5,187,101,213"/>
-<area shape="rect" id="node6" href="$class_widget_manager.html" title="Each window can have an instance of the widget manager." alt="" coords="97,96,209,123"/>
-<area shape="rect" id="node8" href="$class_scroll_frame_window.html" title="Interface for a Window." alt="" coords="172,187,311,213"/>
-</map>

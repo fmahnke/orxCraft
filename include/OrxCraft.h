@@ -4,30 +4,22 @@
  * @author fritz@fritzmahnke.com
  *
  */
-#ifndef __OrxCraft_H_
-#define __OrxCraft_H_
+#ifndef ORXCRAFT_H
+#define ORXCRAFT_H
 
 //! Includes
-//#define __NO_SCROLLED__ // Uncomment this define to prevent the embedded editor (ScrollEd) from being compiled
+// #define __NO_SCROLLED__
+/*
+ *  Uncomment above define to prevent the embedded editor (ScrollEd) from
+ *  being compiled
+ */
 #include "Scroll.h"
 
 #include <vector>
 
 class DialogManager;
 
-class InfoWindow;
-class ObjectEditor;
-class FXSlotEditorWindow;
 class ScrollGUICEGUI;
-class ScrollGUIRocket;
-
-// Inputs
-static const orxSTRING inputQuit       = "Quit";
-static const orxSTRING inputLeftMB     = "LeftClick";
-static const orxSTRING inputLeftArrow  = "LeftArrow";
-static const orxSTRING inputRightArrow = "RightArrow";
-static const orxSTRING inputUpArrow    = "UpArrow";
-static const orxSTRING inputDownArrow  = "DownArrow";
 
 using std::vector;
 
@@ -39,11 +31,6 @@ public:
 
     //! Get names of currently loaded objects
     inline vector<const orxSTRING>& GetObjectList () { return m_objectList; }
-    //! Get selected object in Object Editor
-    inline ScrollObject * GetSelectedObject () { return m_selectedObject; }
-    //! Set selected object in Object Editor
-    void SetSelectedObject (const orxSTRING name); 
-
     //! Get names of currently loaded FXSlots
     inline vector<const orxSTRING>& GetFXSlotList () { return m_fxSlotList; }
     //! Set selected FXSlot in FXSlot Editor
@@ -86,12 +73,9 @@ private:
 	 const orxSTRING _zFileName,
 	 orxBOOL _bUseEncryption);
 
-    //! @todo Need a base class
-    ScrollGUICEGUI	    *m_scrollGUI;
+    ScrollGUICEGUI	    *m_gui;
 
     DialogManager	    *m_dialogManager;
-    InfoWindow              *m_infoWindow;
-    ScrollObject            *m_selectedObject;
     /// Currently loaded config objects
     vector<const orxSTRING> m_objectList;
     /// Currently loaded config graphics
@@ -101,4 +85,6 @@ private:
 
     bool m_dirty;
 };
-#endif // __OrxCraft_H_
+
+#endif // ORXCRAFT_H
+

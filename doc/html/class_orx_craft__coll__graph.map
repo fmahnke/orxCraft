@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$class_info_window.html" title="InfoWindow" alt="" coords="43,173,131,200"/>
-<area shape="rect" id="node4" href="$class_scroll_frame_window.html" title="Interface for a Window." alt="" coords="17,96,156,123"/>
-<area shape="rect" id="node8" href="$class_dialog_manager.html" title="DialogManager" alt="" coords="155,173,263,200"/>
-<area shape="rect" id="node10" href="$class_scroll_g_u_i_c_e_g_u_i.html" title="Renders GUI items and sends input from Scroll to them." alt="" coords="288,173,405,200"/>
-</map>

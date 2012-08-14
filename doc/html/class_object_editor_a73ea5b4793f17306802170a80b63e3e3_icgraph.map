@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$class_object_editor.html#a5b6bdcfe81a66d76c00885be739d3ce1" title="Set the ScrollObject being edited." alt="" coords="232,31,392,57"/>
-<area shape="rect" id="node5" href="$class_object_editor.html#a0a32d3309b6e037f24b71532da522def" title="Text accepted (pressed Enter key) event handler." alt="" coords="441,5,639,32"/>
-<area shape="rect" id="node7" href="$class_object_editor.html#ad894282c20596876cd77a43c85b3864e" title="Initialize control items." alt="" coords="455,56,625,83"/>
-<area shape="rect" id="node9" href="$class_object_editor.html#ae8c6116257c2920dd352dab677078a11" title="Initialize the window." alt="" coords="689,56,807,83"/>
-</map>
