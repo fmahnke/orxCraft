@@ -11,6 +11,7 @@
 
 #include "ScrollCombobox.h"
 #include "ScrollEditbox.h"
+#include "ScrollCheckbox.h"
 
 FXSlotEditorWindow::FXSlotEditorWindow () :
     m_fxsType (NULL),
@@ -52,7 +53,7 @@ void FXSlotEditorWindow::Init (const orxSTRING widgetName)
     m_fxsAcceleration = FindEditbox ("FXSlotAcceleration");
     m_fxsAmplification = FindEditbox ("FXSlotAmplification");
     m_fxsPow = FindEditbox ("FXSlotPow");
-    m_fxsAbsolute = FindCombobox ("FXSlotAbsolute");
+    m_fxsAbsolute = FindCheckbox ("FXSlotAbsolute");
     m_fxsUseRotation = FindCombobox ("FXSlotUseRotation");
     m_fxsUseScale = FindCombobox ("FXSlotUseScale");
     m_fxsConfigName = FindCombobox ("FXSlotConfigName");
@@ -78,10 +79,6 @@ void FXSlotEditorWindow::SetupFields ()
     propList.clear ();
     orx_config_util::GetListIntoVector ("Curve", propList);
     m_fxsCurve->Fill (propList);
-
-    propList.clear ();
-    orx_config_util::GetListIntoVector ("Absolute", propList);
-    m_fxsAbsolute->Fill (propList);
 
     propList.clear ();
     orx_config_util::GetListIntoVector ("UseRotation", propList);
@@ -141,8 +138,8 @@ void FXSlotEditorWindow::UpdateFields () const
     orx_config_util::FloatToString (orxConfig_GetFloat ("Period"), buffer);
     m_fxsPeriod->SetText (buffer);
     // Absolute
-    orx_config_util::BoolToString (orxConfig_GetBool ("Absolute"), buffer);
-    m_fxsAbsolute->SelectItem (buffer);
+    orxBOOL abs = orxConfig_GetBool ("Absolute");
+    m_fxsAbsolute->SetSelected (abs);
     // Acceleration
     orx_config_util::FloatToString (orxConfig_GetFloat ("Acceleration"), buffer);
     m_fxsAcceleration->SetText (buffer);
@@ -253,9 +250,7 @@ void FXSlotEditorWindow::OnTextAccepted (const orxSTRING widgetName)
     }
     else if (orxString_Compare (widgetName, "FXSlotAbsolute") == 0)
     {
-	orxBOOL absolute;
-	orxString_ToBool (m_fxsAbsolute->GetSelectedItem (), &absolute,
-		          orxNULL);
+	orxBOOL absolute = m_fxsAbsolute->IsSelected();
 	orxConfig_SetBool ("Absolute", absolute);
     }
     else if (orxString_Compare (widgetName, "FXSlotAcceleration") == 0)

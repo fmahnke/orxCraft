@@ -85,6 +85,24 @@ ScrollListbox * ScrollFrameWindow::FindListbox (const orxSTRING widgetName) cons
     return theWidget;
 }
 
+ScrollCheckbox * ScrollFrameWindow::FindCheckbox (
+    const orxSTRING widgetName) const
+{
+    ScrollCheckbox *theWidget = NULL;
+    vector<ScrollWidget *>::const_iterator widgIter;
+    for (widgIter = m_widgetList.begin (); widgIter != m_widgetList.end ();
+	 ++widgIter)
+    {
+	if (orxString_Compare ((*widgIter)->GetName (), widgetName) == 0)
+	{
+	    theWidget = reinterpret_cast<ScrollCheckbox *> (*widgIter);
+	    break;
+	}
+    }
+	 
+    return theWidget;
+}
+
 void ScrollFrameWindow::AddWidget (ScrollWidget *widget)
 {
     m_widgetList.push_back (widget);

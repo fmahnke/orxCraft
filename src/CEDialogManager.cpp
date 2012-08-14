@@ -21,6 +21,7 @@
 #include "CEGUICombobox.h"
 #include "CEGUIEditbox.h"
 #include "CEGUIListbox.h"
+#include "CEGUICheckbox.h"
 #include "CEGUIPushButton.h"
 
 void CEDialogManager::MakeDialog (const orxSTRING dialogName)
@@ -68,10 +69,10 @@ void CEDialogManager::MakeDialog (const orxSTRING dialogName)
 		for(int k = 0; k < t_counter; k++) {
 		    // The actual Tab
 		    CEGUI::Window* tab = container->getChildAtIdx(k);
-			const orxSTRING type = tab->getType ().c_str ();
-			// Tabs are of type "DefaultWindow"
-			if (orxString_Compare (type, "DefaultWindow") != 0)
-			    continue;
+		    const orxSTRING type = tab->getType ().c_str ();
+		    // Tabs are of type "DefaultWindow"
+		    if (orxString_Compare (type, "DefaultWindow") != 0)
+			continue;
 		    int w_counter = tab->getChildCount ();
 		    for(int l = 0; l < w_counter; l++) {
 			// Widget inside a Tab
@@ -91,15 +92,11 @@ void CEDialogManager::MakeDialog (const orxSTRING dialogName)
 void CEDialogManager::LinkWidgetToDialog(CEGUI::Window* widget, ScrollFrameWindow* dialog)
 {
     const orxSTRING type = widget->getType ().c_str ();
-	const orxSTRING name = widget->getName ().c_str ();
     if (orxString_Compare (type, "TaharezLook/Checkbox") == 0)
     {
-	orxASSERT (false);
-	/*
-	CEGUICheckbox *checkbox = new CEGUICheckbox (this);
-	checkbox->Init (name);
-	m_widgetList.push_back (checkbox);
-	*/
+	CEGUICheckbox *checkbox = new CEGUICheckbox (dialog);
+	checkbox->Init (widget);
+	dialog->AddWidget (checkbox);
     }
     else if (orxString_Compare (type, "TaharezLook/Combobox") == 0)
     {

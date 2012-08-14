@@ -15,6 +15,7 @@ using std::vector;
 class ScrollEditbox;
 class ScrollCombobox;
 class ScrollListbox;
+class ScrollCheckbox;
 
 /**
  *  Interface for a Window.
@@ -29,6 +30,7 @@ public:
     ScrollWidget * FindWidget (const orxSTRING widgetName) const;
     ScrollEditbox * FindEditbox (const orxSTRING widgetName) const;
     ScrollCombobox * FindCombobox (const orxSTRING widgetName) const;
+    ScrollCheckbox * FindCheckbox (const orxSTRING widgetName) const;
     ScrollListbox * FindListbox (const orxSTRING widgetName) const;
 
     /** Initialize the window */

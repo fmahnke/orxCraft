@@ -12,6 +12,7 @@
 class ScrollCombobox;
 class ScrollEditbox;
 class ScrollListbox;
+class ScrollCheckbox;
 
 class FXSlotEditorWindow : public ScrollFrameWindow
 {
@@ -53,7 +54,7 @@ private:
     ScrollEditbox *m_fxsAmplification;
     ScrollEditbox *m_fxsPow;
 
-    ScrollCombobox *m_fxsAbsolute;
+    ScrollCheckbox *m_fxsAbsolute;
     ScrollCombobox *m_fxsUseRotation;
     ScrollCombobox *m_fxsUseScale;
     

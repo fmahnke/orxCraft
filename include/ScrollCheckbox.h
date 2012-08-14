@@ -17,13 +17,14 @@ class ScrollFrameWindow;
 class ScrollCheckbox : public ScrollWidget
 {
 public:
-    explicit ScrollCheckbox (ScrollFrameWindow *manager) :
-	m_manager (manager)
+    explicit ScrollCheckbox (ScrollFrameWindow *dialog) :
+	ScrollWidget (dialog)
     {
     }; 
-protected:
-    virtual void SignalCheckStateChanged () = 0;
-    ScrollFrameWindow *m_manager;
+
+    virtual void SetSelected (const orxBOOL select) = 0;
+    virtual const orxBOOL IsSelected () const = 0;
+
 };
 
 #endif  // __SCROLL_CHECKBOX_H__
