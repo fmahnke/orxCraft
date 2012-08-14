@@ -3,7 +3,12 @@
 
 // Settings
 static orxFLOAT coarseUnit = 5.0;
-static const orxSTRING configFileName = "data/sampleconfig.ini";
+static const orxSTRING projectParamShortName = "p";
+static const orxSTRING projectParamShort = "-p";
+static const orxSTRING projectParamLongName = "project";
+static const orxSTRING projectParamLong = "--project";
+static const orxSTRING projectParamShortDesc = "Project file to open.";
+static const orxSTRING projectParamLongDesc = "Opens specified Project ini file. Allows to create/remove/edit Orx objects contained in the project.";
 
 // Scroll Object
 static const orxSTRING scrollGUIName  = "ScrollGUI";

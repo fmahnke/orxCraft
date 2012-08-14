@@ -23,9 +23,11 @@ static const orxSTRING infoWindow = "O-InfoWindow";
 static const orxSTRING scrollGUI  = "ScrollGUI";
 static const orxSTRING objectEditor = "ObjectEditor";
 
+orxSTRING OrxCraft::m_projectFileName = NULL;
+
 OrxCraft::OrxCraft () :
-    m_dialogManager (NULL),
-    m_gui           (NULL)
+    m_dialogManager   (NULL),
+    m_gui             (NULL)
 {
 }
 
@@ -49,6 +51,17 @@ ScrollObject * OrxCraft::GetObjectByName (const orxSTRING name) const
 orxSTATUS OrxCraft::Init ()
 {
     orxSTATUS eResult = orxSTATUS_SUCCESS;
+
+    orxPARAM  stParams;
+    // Asks for command line project parameter
+    orxMemory_Zero(&stParams, sizeof(orxPARAM));
+    stParams.pfnParser  = OrxCraft::ProcessParams;
+    stParams.u32Flags   = orxPARAM_KU32_FLAG_NONE;
+    stParams.zShortName = projectParamShortName;
+    stParams.zLongName  = projectParamLongName;
+    stParams.zShortDesc = projectParamShortDesc;
+    stParams.zLongDesc  = projectParamLongDesc;
+    orxParam_Register(&stParams);
 
     // Load things we want to edit from config
     InitConfig ();
@@ -135,7 +148,7 @@ void OrxCraft::NeedObjectUpdate ()
 
 void OrxCraft::InitConfig ()
 {
-    orxConfig_Load (configFileName);
+    orxConfig_Load (m_projectFileName);
 }
 
 void OrxCraft::SetupConfig ()
@@ -191,7 +204,7 @@ void OrxCraft::SetupConfig ()
 
 void OrxCraft::SaveEditorConfig ()
 {
-    orxConfig_Save (configFileName, false, &SaveConfigFunction);
+    orxConfig_Save (m_projectFileName, false, &SaveConfigFunction);
 }
 
 void OrxCraft::OnMouseDown ()
@@ -265,6 +278,32 @@ orxBOOL orxFASTCALL OrxCraft::SaveConfigFunction
     }
 
     return saveIt;
+}
+
+orxSTATUS orxFASTCALL OrxCraft::ProcessParams(orxU32 _u32ParamCount, const orxSTRING _azParams[])
+{
+  orxSTATUS eResult;
+
+  // Has a valid project parameter?
+  if(_u32ParamCount >= 2 &&
+	  (orxString_Compare(_azParams[0], projectParamLong) == 0 ||
+	   orxString_Compare(_azParams[0], projectParamShort) == 0)
+	  )
+  {
+    // Stores map's name
+    m_projectFileName = orxString_Duplicate(_azParams[1]);
+
+    // Updates result
+    eResult = orxSTATUS_SUCCESS;
+  }
+  else
+  {
+    // Updates result
+    eResult = orxSTATUS_FAILURE;
+  }
+
+  // Done!
+  return eResult;
 }
 
 int main(int argc, char **argv)

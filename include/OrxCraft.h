@@ -72,6 +72,9 @@ private:
          const orxSTRING _zKeyName,
 	 const orxSTRING _zFileName,
 	 orxBOOL _bUseEncryption);
+    /** Process command line parameters */
+    static orxSTATUS orxFASTCALL ProcessParams(
+	    orxU32 _u32ParamCount, const orxSTRING _azParams[]);
 
     ScrollGUICEGUI	    *m_gui;
 
@@ -84,6 +87,7 @@ private:
     vector<const orxSTRING> m_fxSlotList;
 
     bool m_dirty;
+    static orxSTRING m_projectFileName;
 };
 
 #endif // ORXCRAFT_H
