@@ -138,8 +138,7 @@ void FXSlotEditorWindow::UpdateFields () const
     orx_config_util::FloatToString (orxConfig_GetFloat ("Period"), buffer);
     m_fxsPeriod->SetText (buffer);
     // Absolute
-    orxBOOL abs = orxConfig_GetBool ("Absolute");
-    m_fxsAbsolute->SetSelected (abs);
+    m_fxsAbsolute->SetSelected (orxConfig_GetBool ("Absolute"));
     // Acceleration
     orx_config_util::FloatToString (orxConfig_GetFloat ("Acceleration"), buffer);
     m_fxsAcceleration->SetText (buffer);
