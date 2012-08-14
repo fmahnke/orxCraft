@@ -266,11 +266,11 @@ orxBOOL orxFASTCALL OrxCraft::SaveConfigFunction
 
 int main(int argc, char **argv)
 {
-  // Executes game
-  OrxCraft::GetInstance ().Execute (argc, argv);
+    // Executes game
+    OrxCraft::GetInstance ().Execute (argc, argv);
 
-  // Done!
-  return EXIT_SUCCESS;
+    // Done!
+    return EXIT_SUCCESS;
 }
 
 void OrxCraft::SetSelectedFXSlot (const orxSTRING name)
