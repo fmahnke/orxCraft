@@ -48,7 +48,7 @@
     <GlobalSettings>
       <Compiler Options="-I../../../include" C_Options="-I../../../include">
         <IncludePath Value="."/>
-        <IncludePath Value="$(CEGUI_DIR)/cegui/include"/>
+        <IncludePath Value="$(CEGUI_DIR)/include/CEGUI"/>
         <IncludePath Value="$(SCROLL_DIR)/include/Scroll/"/>
         <IncludePath Value="$(ORX_DIR)/code/include"/>
       </Compiler>
@@ -72,8 +72,7 @@
       <ResourceCompiler Options="" Required="no"/>
       <General OutputFile="$(IntermediateDirectory)/$(ProjectName)d" IntermediateDirectory="../../LinuxDebug" Command="./$(ProjectName)d" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
       <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
-        <![CDATA[
-      ]]>
+        <![CDATA[]]>
       </Environment>
       <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
         <PostConnectCommands/>
@@ -120,6 +119,8 @@
       <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="../../LinuxRelease" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
       <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
         <![CDATA[
+      
+      
       ]]>
       </Environment>
       <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
