@@ -20,6 +20,7 @@ static const orxSTRING objectEditorName = "ObjectEditor";
 
 // Inputs
 static const orxSTRING inputQuit       = "Quit";
+static const orxSTRING inputSave       = "Save";
 static const orxSTRING inputLeftMB     = "LeftClick";
 static const orxSTRING inputLeftArrow  = "LeftArrow";
 static const orxSTRING inputRightArrow = "RightArrow";

@@ -124,6 +124,13 @@ void OrxCraft::Update (const orxCLOCK_INFO &_rstInfo)
 	SetupConfig ();
     }
 
+    // Save?
+    if(orxInput_IsActive(inputSave) && orxInput_HasNewStatus(inputSave))
+    {
+	// Save project
+	SaveEditorConfig();
+    }
+
     orxVECTOR mousePos;
     orxMouse_GetPosition (&mousePos);
 
