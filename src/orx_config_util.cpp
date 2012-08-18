@@ -89,3 +89,5 @@ void VectorToString (const orxSTRING prop,
 }
 
 }   // namespace orx_config_util
+
+// vim: tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab

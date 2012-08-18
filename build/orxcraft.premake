@@ -45,8 +45,9 @@ solution "orxCraft"
     links {"CEGUIBase", "CEGUIOpenGLRenderer"}
 
     configuration "Linux*"
-	postbuildcommands {"ln -sf ../data ../../bin/data",
-			   "ln -sf ../cegui ../../bin/cegui"}
+	postbuildcommands {"ln -sfn ../data ../../bin/data",
+			   "ln -sfn ../cegui ../../bin/cegui",
+			   "cp ../../data/orxCraftd.ini ../../bin"}
 
     configuration "Linux64 Embedded Dynamic Debug"
 	targetname ("orxCraftd")

@@ -17,6 +17,12 @@ class ScrollFrameWindow;
 class ScrollWidget
 {
 public:    
+    /** Let's make ScrollCheckbox happy for now (Conrad) */
+    ScrollWidget () :
+	m_widgetName (NULL),
+	m_manager    (NULL)
+    {
+    };
     /** Widget C-tor */
     explicit ScrollWidget (ScrollFrameWindow *dialog) :
 	m_widgetName (NULL),
@@ -42,3 +48,5 @@ protected:
 };
 
 #endif  // __SCROLLWIDGET_H__
+
+// vim: tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab

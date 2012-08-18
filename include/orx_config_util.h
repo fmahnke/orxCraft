@@ -33,3 +33,5 @@ void VectorToString (const orxSTRING prop, orxU32 elementNum,
 }   // namespace orx_config_util
 
 #endif // ORX_CONFIG_UTIL_H
+
+// vim: tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab

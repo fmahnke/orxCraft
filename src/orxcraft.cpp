@@ -117,8 +117,11 @@ void OrxCraft::Update (const orxCLOCK_INFO &_rstInfo)
     orxVECTOR worldPos;
     orxRender_GetWorldPosition (&mousePos, &worldPos);
 
-    // Nothing picked
-    if (orxObject_Pick (&worldPos) == orxNULL)
+    // GUI windows are on top of Orx objects. Check if mouse is inside of a window.
+    CEGUI::System::getSingleton ().injectMousePosition (mousePos.fX, mousePos.fY);
+    CEGUI::Window *window = CEGUI::System::getSingleton ().getWindowContainingMouse ();
+    // Root window covers whole viewport but it is invisible.
+    if(window != NULL && orxString_Compare(window->getName().c_str(), "root") != 0)
     {
 	// Pass input to GUI
 	m_gui->InputMouseMove ();
@@ -278,3 +281,4 @@ void OrxCraft::SetSelectedFXSlot (const orxSTRING name)
     orxASSERT (false);
 }
 
+// vim: tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab

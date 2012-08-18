@@ -39,3 +39,5 @@ bool CEGUICheckbox::OnCheckStateChanged (const CEGUI::EventArgs &e)
     // Our item has been checked or unchecked, update our item accordingly.
     return true;
 }
+
+// vim: tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab

@@ -3,7 +3,7 @@
 
 // Settings
 static orxFLOAT coarseUnit = 5.0;
-static const orxSTRING configFileName = "sampleconfig.ini";
+static const orxSTRING configFileName = "data/sampleconfig.ini";
 
 // Scroll Object
 static const orxSTRING scrollGUIName  = "ScrollGUI";
@@ -22,3 +22,5 @@ static const orxSTRING inputUpArrow    = "UpArrow";
 static const orxSTRING inputDownArrow  = "DownArrow";
 
 #endif	// CONSTANTS_H
+
+// vim: tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab

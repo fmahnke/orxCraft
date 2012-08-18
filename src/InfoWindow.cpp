@@ -38,3 +38,4 @@ void InfoWindow::OnTextAccepted (const orxSTRING widgetName)
     orxASSERT (false);
 }
 
+// vim: tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab

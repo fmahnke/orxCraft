@@ -31,3 +31,5 @@ private:
     vector<CEGUI::ListboxTextItem *> m_items;
 };
 #endif  // __CEGUILISTBOX_H__
+
+// vim: tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab

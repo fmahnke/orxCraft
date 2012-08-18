@@ -295,3 +295,5 @@ void FXSlotEditorWindow::OnTextAccepted (const orxSTRING widgetName)
 
     OrxCraft::GetInstance ().NeedObjectUpdate ();
 }
+
+// vim: tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab

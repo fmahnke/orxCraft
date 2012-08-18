@@ -1,3 +1,4 @@
+*.swp
 bin/
 build/msvs2010/Debug/
 build/msvs2010/ipch/
@@ -7,3 +8,4 @@ build/msvs2010/orxcraft.opensdf
 build/msvs2010/orxcraft.sdf
 build/msvs2010/orxcraft.suo
 doc/html/
+
