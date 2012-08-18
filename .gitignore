@@ -1,3 +1,4 @@
+*.swp
 bin/windows/
 build/msvs2010/Debug/
 build/msvs2010/ipch/
