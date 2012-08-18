@@ -75,7 +75,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\..\..\..\sdk\glew-1.7.0\include;..\..\include;..\..\..\Scroll\include\Scroll;..\..\orx\code\include;..\..\..\CEGUI-0.7.6\cegui\include;..\..\..\librocket-1.2.1-src\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\include;..\..\..\Scroll\include\Scroll;..\..\orx\code\include;..\..\..\CEGUI-0.7.6\cegui\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>__orxDEBUG__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -85,9 +85,9 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>glew32.lib;RocketCore_d.lib;RocketControls_d.lib;opengl32.lib;orxd.lib;CEGUIBase_d.lib;CEGUICoronaImageCodec_d.lib;CEGUIDevILImageCodec_d.lib;CEGUIFalagardWRBase_d.lib;CEGUIFreeImageImageCodec_d.lib;CEGUIExpatParser_d.lib;CEGUIOpenGLRenderer_d.lib;CEGUILuaScriptModule_d.lib;CEGUISILLYImageCodec_d.lib;CEGUISTBImageCodec_d.lib;CEGUITGAImageCodec_d.lib;tolua++_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>gtestd.lib;orxd.lib;CEGUIBase_d.lib;CEGUICoronaImageCodec_d.lib;CEGUIDevILImageCodec_d.lib;CEGUIFalagardWRBase_d.lib;CEGUIFreeImageImageCodec_d.lib;CEGUIExpatParser_d.lib;CEGUIOpenGLRenderer_d.lib;CEGUILuaScriptModule_d.lib;CEGUISILLYImageCodec_d.lib;CEGUISTBImageCodec_d.lib;CEGUITGAImageCodec_d.lib;tolua++_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>C:\src2\orxcraft\bin\windows\orxcraftd.exe</OutputFile>
-      <AdditionalLibraryDirectories>..\..\..\..\sdk\glew-1.7.0\lib;..\..\..\CEGUI-0.7.6\lib;..\..\..\lib\windows;..\..\..\orx\code\lib\dynamic;..\..\..\librocket-1.2.1-src\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\lib;..\..\..\CEGUI-0.7.6\lib;..\..\..\lib\windows;..\..\..\orx\code\lib\dynamic;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
@@ -97,8 +97,8 @@
       </Command>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>xcopy /y ..\..\cegui\*.layout ..\..\bin\windows
-</Command>
+      <Command>xcopy /y /s /i ..\..\cegui ..\..\bin\windows\cegui
+xcopy /y /s /i ..\..\data ..\..\bin\windows\data</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -115,9 +115,9 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>orx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>gtest.lib;orx.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>..\..\bin\windows\dfrm.exe</OutputFile>
-      <AdditionalLibraryDirectories>..\..\lib\windows;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\lib;..\..\lib\windows;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -189,6 +189,7 @@
     <ClInclude Include="..\..\include\CEGUIEditbox.h" />
     <ClInclude Include="..\..\include\CEGUIListbox.h" />
     <ClInclude Include="..\..\include\DialogManager.h" />
+    <ClInclude Include="..\..\include\gtest\gtest.h" />
     <ClInclude Include="..\..\include\orx_config_util.h" />
     <ClInclude Include="..\..\include\FXSlotEditorWindow.h" />
     <ClInclude Include="..\..\include\ObjectEditor.h" />

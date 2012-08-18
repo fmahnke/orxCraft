@@ -6,7 +6,7 @@
  */
 
 #include "FXSlotEditorWindow.h"
-#include "OrxCraft.h"
+#include "orxCraft.h"
 #include "orx_config_util.h"
 
 #include "ScrollCombobox.h"
