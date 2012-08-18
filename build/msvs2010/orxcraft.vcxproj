@@ -97,8 +97,8 @@
       </Command>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>xcopy /y ..\..\cegui\*.layout ..\..\bin\windows
-</Command>
+      <Command>xcopy /y /s /i ..\..\cegui ..\..\bin\windows\cegui
+xcopy /y /s /i ..\..\data ..\..\bin\windows\data</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
