@@ -1,4 +1,4 @@
-bin/windows/
+bin/
 build/msvs2010/Debug/
 build/msvs2010/ipch/
 build/msvs2010/orxCraft.vcxproj.filters

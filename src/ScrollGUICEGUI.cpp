@@ -6,7 +6,7 @@
  */
 #include "ScrollGUICEGUI.h"
 
-#include "OrxCraft.h"
+#include "orxCraft.h"
 #include "ObjectEditor.h"
 #include "FXSlotEditorWindow.h"
 #include "InfoWindow.h"

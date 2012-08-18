@@ -38,13 +38,15 @@ solution "orxCraft"
                  "/usr/include/CEGUI"}
     files {"../src/**.cpp"}
 
+    excludes {"../src/CEGUICheckbox.cpp"}
+
     libdirs {orx_path .. "/lib/dynamic"}
 
     links {"CEGUIBase", "CEGUIOpenGLRenderer"}
 
     configuration "Linux*"
-	postbuildcommands {"ln -s ../../data ../../bin/data",
-			   "ln -s ../../cegui ../../bin/cegui"}
+	postbuildcommands {"ln -sf ../data ../../bin/data",
+			   "ln -sf ../cegui ../../bin/cegui"}
 
     configuration "Linux64 Embedded Dynamic Debug"
 	targetname ("orxCraftd")
