@@ -54,3 +54,5 @@ void CEGUIEditbox::SetText (const orxSTRING text)
 
     m_ceEditbox->setText (text);
 }
+
+// vim: tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab

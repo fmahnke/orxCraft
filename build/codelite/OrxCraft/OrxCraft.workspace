@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Workspace Name="OrxCraft" Database="./OrxCraft.tags">
+  <Project Name="OrxCraft" Path="OrxCraft.project" Active="Yes"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Linux Debug" Selected="yes">
+      <Project Name="OrxCraft" ConfigName="Linux Debug"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Linux Release" Selected="no">
+      <Project Name="OrxCraft" ConfigName="Linux Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>

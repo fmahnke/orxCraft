@@ -453,3 +453,5 @@ void ObjectEditor::OnTextAccepted (const orxSTRING widgetName)
     // Update object in editor
     OrxCraft::GetInstance ().NeedObjectUpdate ();
 }
+
+// vim: tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab

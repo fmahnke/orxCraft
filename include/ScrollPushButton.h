@@ -24,3 +24,5 @@ public:
 };
 
 #endif  // __SCROLL_PUSH_BUTTON_H__
+
+// vim: tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab

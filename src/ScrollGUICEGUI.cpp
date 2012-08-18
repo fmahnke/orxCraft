@@ -37,9 +37,30 @@ void ScrollGUICEGUI::Init ()
 
 void ScrollGUICEGUI::CEGUIScrollObject::OnCreate ()
 {
-    using CEGUI::SchemeManager;
-    using CEGUI::Window;
-    using CEGUI::WindowManager;
+    using namespace CEGUI;
+
+    // Initialise the required dirs for the DefaultResourceProvider
+    // All CEGUI data files are stored in data/cegui subdirectory relative to OrxCraft executable
+    DefaultResourceProvider* rp = 
+	static_cast<DefaultResourceProvider*>(System::getSingleton().getResourceProvider());
+    rp->setResourceGroupDirectory("schemes", "./cegui/schemes/");
+    rp->setResourceGroupDirectory("imagesets", "./cegui/imagesets/");
+    rp->setResourceGroupDirectory("fonts", "./cegui/fonts/");
+    rp->setResourceGroupDirectory("layouts", "./cegui/layouts/");
+    rp->setResourceGroupDirectory("looknfeels", "./cegui/looknfeel/");
+    rp->setResourceGroupDirectory("lua_scripts", "./cegui/lua_scripts/");
+    rp->setResourceGroupDirectory("schemas", "./cegui/xml_schemas/");
+    // Set the default resource groups to be used
+    Imageset::setDefaultResourceGroup("imagesets");
+    Font::setDefaultResourceGroup("fonts");
+    Scheme::setDefaultResourceGroup("schemes");
+    WidgetLookManager::setDefaultResourceGroup("looknfeels");
+    WindowManager::setDefaultResourceGroup("layouts");
+    ScriptModule::setDefaultResourceGroup("lua_scripts");
+    // Setup default group for validation schemas
+    XMLParser* parser = System::getSingleton().getXMLParser();
+    if (parser->isPropertyPresent("SchemaDefaultResourceGroup"))
+	parser->setProperty("SchemaDefaultResourceGroup", "schemas");
 
     SchemeManager::getSingleton().create("TaharezLook.scheme");
 
@@ -57,11 +78,7 @@ void ScrollGUICEGUI::InputMouseMove ()
     orxVECTOR mousePos;
     orxMouse_GetPosition (&mousePos);
 
-    orxVECTOR worldPos;
-    orxRender_GetWorldPosition (&mousePos, &worldPos);
-
-    System::getSingleton ().injectMousePosition (worldPos.fX,
-						 worldPos.fY);
+    System::getSingleton ().injectMousePosition (mousePos.fX, mousePos.fY);
 }
 
 void ScrollGUICEGUI::InputMouseDown ()
@@ -69,11 +86,7 @@ void ScrollGUICEGUI::InputMouseDown ()
     orxVECTOR mousePos;
     orxMouse_GetPosition (&mousePos);
 
-    orxVECTOR worldPos;
-    orxRender_GetWorldPosition (&mousePos, &worldPos);
-
-    System::getSingleton ().injectMousePosition (worldPos.fX,
-						 worldPos.fY);
+    System::getSingleton ().injectMousePosition (mousePos.fX, mousePos.fY);
     System::getSingleton ().injectMouseButtonDown (CEGUI::LeftButton);
 }
 
@@ -82,11 +95,7 @@ void ScrollGUICEGUI::InputMouseUp ()
     orxVECTOR mousePos;
     orxMouse_GetPosition (&mousePos);
 
-    orxVECTOR worldPos;
-    orxRender_GetWorldPosition (&mousePos, &worldPos);
-
-    System::getSingleton ().injectMousePosition (worldPos.fX,
-						 worldPos.fY);
+    System::getSingleton ().injectMousePosition (mousePos.fX, mousePos.fY);
     System::getSingleton ().injectMouseButtonUp (CEGUI::LeftButton);
 }
 
@@ -231,3 +240,5 @@ void ScrollGUICEGUI::CEGUIScrollObject::DrawGrid ()
 	orxDisplay_DrawLine (&start, &end, gridColor);
     }
 }
+
+// vim: tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab

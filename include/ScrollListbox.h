@@ -30,3 +30,5 @@ protected:
 };
 
 #endif  // SCROLL_LISTBOX_H_
+
+// vim: tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab

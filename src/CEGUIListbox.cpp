@@ -51,3 +51,5 @@ bool CEGUIListbox::OnMouseClick (const CEGUI::EventArgs &e)
 
     return true;
 }
+
+// vim: tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab
