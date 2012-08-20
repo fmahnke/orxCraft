@@ -51,15 +51,34 @@ solution "orxCraft"
     links {"CEGUIBase", "CEGUIOpenGLRenderer"}
 
     configuration "Linux*"
-    linkoptions {"-Wl,-rpath=./", "-Wl,-rpath=" .. orxlib_path,
-                 "-Wl,-rpath=" .. ceguilib_path}
-	postbuildcommands {"ln -sfn ../data ../../bin/data",
-			   "ln -sfn ../cegui ../../bin/cegui",
-			   "cp ../../data/orxCraftd.ini ../../bin"}
+      linkoptions {"-Wl,-rpath=./", "-Wl,-rpath=" .. orxlib_path,
+		   "-Wl,-rpath=" .. ceguilib_path}
+      postbuildcommands {"ln -sfn ../data ../../bin/data",
+			 "ln -sfn ../cegui ../../bin/cegui",
+			 "cp ../../data/orxCraftd.ini ../../bin"}
 
     configuration "Linux64 Embedded Dynamic Debug"
-	targetname ("orxCraftd")
-	links {"orxd"}
+      targetname ("orxCraftd")
+      links {"orxd"}
+
+    configuration "Linux64 Embedded Dynamic Profile"
+      links {"orx"}
 
     configuration "Linux64 Embedded Dynamic Release"
-	links {"orx"}
+      links {"orx"}
+
+    -- Workaround a bug in premake codelite generator that does not properly
+    -- escape configuration names.
+    -- TODO Test if this is still required for premake 4.4 or mercurial HEAD.
+    if _ACTION == "codelite" then
+      configuration "Linux64 Embedded Dynamic Debug"
+	objdir ("../obj/Linux64EmbeddedDynamicDebug")
+
+      configuration "Linux64 Embedded Dynamic Profile"
+	objdir ("../obj/Linux64EmbeddedDynamicProfile")
+
+      configuration "Linux64 Embedded Dynamic Release"
+	objdir ("../obj/Linux64EmbeddedDynamicRelease")
+    end
+
+-- vim: tabstop=8 shiftwidth=2 softtabstop=4 noexpandtab
