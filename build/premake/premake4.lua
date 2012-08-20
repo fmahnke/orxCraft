@@ -42,7 +42,7 @@ solution "orxCraft"
 
     includedirs {"../include", orx_path .. "/include", scroll_path,
                  cegui_path .. "/include/CEGUI"}
-    files {"../src/**.cpp"}
+    files {"../src/**.cpp", "../include/**.h"}
 
     excludes {"../src/CEGUICheckbox.cpp"}
 
@@ -54,17 +54,19 @@ solution "orxCraft"
       linkoptions {"-Wl,-rpath=./", "-Wl,-rpath=" .. orxlib_path,
 		   "-Wl,-rpath=" .. ceguilib_path}
       postbuildcommands {"ln -sfn ../data ../../bin/data",
-			 "ln -sfn ../cegui ../../bin/cegui",
-			 "cp ../../data/orxCraftd.ini ../../bin"}
+			 "ln -sfn ../cegui ../../bin/cegui"}
 
     configuration "Linux64 Embedded Dynamic Debug"
       targetname ("orxCraftd")
+      postbuildcommands {"ln -sfn ../data/orxCraftd.ini ../../bin"}
       links {"orxd"}
 
     configuration "Linux64 Embedded Dynamic Profile"
+      postbuildcommands {"ln -sfn ../data/orxCraft.ini ../../bin"}
       links {"orx"}
 
     configuration "Linux64 Embedded Dynamic Release"
+      postbuildcommands {"ln -sfn ../data/orxCraft.ini ../../bin"}
       links {"orx"}
 
     -- Workaround a bug in premake codelite generator that does not properly
@@ -72,13 +74,13 @@ solution "orxCraft"
     -- TODO Test if this is still required for premake 4.4 or mercurial HEAD.
     if _ACTION == "codelite" then
       configuration "Linux64 Embedded Dynamic Debug"
-	objdir ("../obj/Linux64EmbeddedDynamicDebug")
+	objdir ("obj/Linux64EmbeddedDynamicDebug")
 
       configuration "Linux64 Embedded Dynamic Profile"
-	objdir ("../obj/Linux64EmbeddedDynamicProfile")
+	objdir ("obj/Linux64EmbeddedDynamicProfile")
 
       configuration "Linux64 Embedded Dynamic Release"
-	objdir ("../obj/Linux64EmbeddedDynamicRelease")
+	objdir ("obj/Linux64EmbeddedDynamicRelease")
     end
 
 -- vim: tabstop=8 shiftwidth=2 softtabstop=4 noexpandtab
