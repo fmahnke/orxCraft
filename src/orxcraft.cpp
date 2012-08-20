@@ -129,6 +129,7 @@ void OrxCraft::Update (const orxCLOCK_INFO &_rstInfo)
     {
 	// Save project
 	SaveEditorConfig();
+	AddActionDisplay(inputSave);
     }
 
     orxVECTOR mousePos;
@@ -307,6 +308,33 @@ orxSTATUS orxFASTCALL OrxCraft::ProcessParams(orxU32 _u32ParamCount, const orxST
   {
     // Updates result
     eResult = orxSTATUS_FAILURE;
+  }
+
+  // Done!
+  return eResult;
+}
+
+orxSTATUS OrxCraft::AddActionDisplay(const orxSTRING _zAction) const
+{
+  orxSTATUS eResult = orxSTATUS_FAILURE;
+
+  // Has valid action
+  if(_zAction)
+  {
+    orxOBJECT *pstActionText;
+
+    // Creates action test
+    pstActionText = orxObject_CreateFromConfig(uiActionText);
+
+    // Valid?
+    if(pstActionText)
+    {
+      // Updates its content
+      orxObject_SetTextString(pstActionText, _zAction);
+
+      // Updates result
+      eResult = orxSTATUS_SUCCESS;
+    }
   }
 
   // Done!

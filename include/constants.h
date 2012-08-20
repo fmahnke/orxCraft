@@ -13,9 +13,12 @@ static const orxSTRING projectParamLongDesc = "Opens specified Project ini file.
 // Scroll Object
 static const orxSTRING scrollGUIName  = "ScrollGUI";
 
+// UI elements
+static const orxSTRING uiActionText   = "ActionText";
+
 // Windows
 static const orxSTRING fxSlotWindowName = "FXSlotWindow";
-static const orxSTRING infoWindowName = "InfoWindow";
+static const orxSTRING infoWindowName   = "InfoWindow";
 static const orxSTRING objectEditorName = "ObjectEditor";
 
 // Inputs

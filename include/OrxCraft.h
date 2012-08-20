@@ -65,8 +65,10 @@ private:
     void OnMouseDown ();
     void OnMouseUp ();
     void OnKeyPress (const orxSTRING key);
-    static orxSTATUS orxFASTCALL EventHandler (const orxEVENT *_pstEvent);
 
+    orxSTATUS AddActionDisplay(const orxSTRING _zAction) const;
+
+    static orxSTATUS orxFASTCALL EventHandler (const orxEVENT *_pstEvent);
     static orxBOOL orxFASTCALL SaveConfigFunction
 	(const orxSTRING _zSectionName,
          const orxSTRING _zKeyName,
