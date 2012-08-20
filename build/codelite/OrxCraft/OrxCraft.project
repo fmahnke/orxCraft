@@ -40,9 +40,10 @@
     <File Name="../../../include/ScrollListbox.h"/>
     <File Name="../../../include/ScrollPushButton.h"/>
     <File Name="../../../include/ScrollWidget.h"/>
-    <File Name="../../../include/OrxCraft.h"/>
     <File Name="../../../include/CEDialogManager.h"/>
     <File Name="../../../include/DialogManager.h"/>
+    <File Name="../../../include/constants.h"/>
+    <File Name="../../../include/orxCraft.h"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>
