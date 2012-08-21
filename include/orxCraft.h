@@ -74,8 +74,8 @@ private:
 	 orxBOOL _bUseEncryption);
 
     ScrollGUICEGUI	    *m_gui;
-
     DialogManager	    *m_dialogManager;
+
     /// Currently loaded config objects
     vector<const orxSTRING> m_objectList;
     /// Currently loaded config graphics

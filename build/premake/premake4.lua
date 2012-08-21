@@ -18,10 +18,10 @@ solution "orxCraft"
 
   configuration "*Profile"
     defines {"__orxPROFILER__"}
-    flags {"NoRTTI"}
+    flags {"NoRTTI", "Optimize"}
 
   configuration "*Release"
-    flags {"NoRTTI"}
+    flags {"NoRTTI", "Optimize"}
 
   location (PATH)
 
@@ -51,6 +51,7 @@ solution "orxCraft"
     links {"CEGUIBase", "CEGUIOpenGLRenderer"}
 
     configuration "Linux*"
+      buildoptions { "-Wno-unused-function" }
       linkoptions {"-Wl,-rpath=./", "-Wl,-rpath=" .. orxlib_path,
 		   "-Wl,-rpath=" .. ceguilib_path}
       postbuildcommands {"ln -sfn ../data ../../bin/data",
