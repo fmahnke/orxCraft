@@ -18,16 +18,23 @@
 
 #include "constants.h"
 
+#include <string>
+
+using namespace std;
+
 // Widgets
 static const orxSTRING infoWindow = "O-InfoWindow";
 static const orxSTRING scrollGUI  = "ScrollGUI";
 static const orxSTRING objectEditor = "ObjectEditor";
 
-orxSTRING OrxCraft::m_projectFileName = NULL;
+string OrxCraft::m_projectFileName;
 
 OrxCraft::OrxCraft () :
-    m_dialogManager   (NULL),
-    m_gui             (NULL)
+    m_dialogManager     (NULL),
+    m_gui               (NULL),
+    m_localTime         (0),
+    m_autoSaveTimeStamp (0),
+    m_autoSaveInterval  (0)
 {
 }
 
@@ -66,6 +73,7 @@ orxSTATUS OrxCraft::Init ()
     // Load things we want to edit from config
     InitConfig ();
     SetupConfig ();
+    UserSettings ();
 
     // Create instance of dialog manager
     m_dialogManager = new CEDialogManager ();
@@ -116,6 +124,8 @@ void OrxCraft::BindObjects ()
 
 void OrxCraft::Update (const orxCLOCK_INFO &_rstInfo)
 {
+    orxSTATUS eResult;
+
     // Want to update the objects' state?
     if (m_dirty)
     {
@@ -124,12 +134,31 @@ void OrxCraft::Update (const orxCLOCK_INFO &_rstInfo)
 	SetupConfig ();
     }
 
+    // Updates local time
+    m_localTime += _rstInfo.fDT;
+
+    // Uses autosave?
+    if(m_autoSaveInterval > orxFLOAT_0)
+    {
+	// Is it time?
+	if(m_localTime >= m_autoSaveTimeStamp + m_autoSaveInterval)
+	{
+	    // Saves backup
+	    SaveBackup();
+
+	    // Updates time stamp
+	    m_autoSaveTimeStamp = m_localTime;
+	}
+    }
+
     // Save?
     if(orxInput_IsActive(inputSave) && orxInput_HasNewStatus(inputSave))
     {
 	// Save project
-	SaveEditorConfig();
-	AddActionDisplay(inputSave);
+	eResult = SaveEditorConfig();
+	// Successful?
+	if(eResult != orxSTATUS_FAILURE)
+	    AddActionDisplay(uiStringSave);
     }
 
     orxVECTOR mousePos;
@@ -156,7 +185,7 @@ void OrxCraft::NeedObjectUpdate ()
 
 void OrxCraft::InitConfig ()
 {
-    orxConfig_Load (m_projectFileName);
+    orxConfig_Load (m_projectFileName.c_str());
 }
 
 void OrxCraft::SetupConfig ()
@@ -210,9 +239,19 @@ void OrxCraft::SetupConfig ()
     }
 }
 
-void OrxCraft::SaveEditorConfig ()
+void OrxCraft::UserSettings ()
 {
-    orxConfig_Save (m_projectFileName, false, &SaveConfigFunction);
+    orxConfig_PushSection(sectionUserSettings);
+    m_autoSaveInterval = orxConfig_GetFloat("AutoSaveInterval");
+    m_autoSaveTimeStamp = m_autoSaveInterval;
+    orxConfig_PopSection();
+}
+
+orxSTATUS OrxCraft::SaveEditorConfig () const
+{
+    orxSTATUS eResult;
+    eResult = orxConfig_Save (m_projectFileName.c_str(), false, &SaveConfigFunction);
+    return eResult;
 }
 
 void OrxCraft::OnMouseDown ()
@@ -286,6 +325,36 @@ orxBOOL orxFASTCALL OrxCraft::SaveConfigFunction
     }
 
     return saveIt;
+}
+
+orxSTATUS OrxCraft::SaveBackup() const
+{
+  orxSTATUS eResult;
+  string saveName;
+  string backupName;
+
+  // Gets current map name
+  saveName = m_projectFileName;
+  backupName = saveName + ".swp";
+
+  // Sets backup name
+  m_projectFileName = backupName;
+
+  // Saves backup
+  eResult = SaveEditorConfig();
+
+  // Successful?
+  if(eResult != orxSTATUS_FAILURE)
+  {
+    // Adds action display
+    AddActionDisplay(uiStringAutoSave);
+  }
+
+  // Restores map name
+  m_projectFileName = saveName;
+
+  // Done!
+  return eResult;
 }
 
 orxSTATUS orxFASTCALL OrxCraft::ProcessParams(orxU32 _u32ParamCount, const orxSTRING _azParams[])

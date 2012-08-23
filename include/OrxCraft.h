@@ -16,6 +16,7 @@
 #include "Scroll.h"
 
 #include <vector>
+#include <string>
 
 class DialogManager;
 
@@ -44,7 +45,7 @@ public:
     //! Setup loaded config section lists and create objects
     void SetupConfig ();
     //! Save the editor configuration to a file
-    void SaveEditorConfig ();
+    orxSTATUS SaveEditorConfig () const;
 
     /** 
      *  Indicate properties have been changed and objects need to be updated
@@ -61,11 +62,14 @@ private:
 
     /** Load config file for editing */
     void InitConfig ();
+    /** Load from config user settings */
+    void UserSettings ();
 
     void OnMouseDown ();
     void OnMouseUp ();
     void OnKeyPress (const orxSTRING key);
-
+    
+    orxSTATUS SaveBackup() const;
     orxSTATUS AddActionDisplay(const orxSTRING _zAction) const;
 
     static orxSTATUS orxFASTCALL EventHandler (const orxEVENT *_pstEvent);
@@ -89,7 +93,10 @@ private:
     vector<const orxSTRING> m_fxSlotList;
 
     bool m_dirty;
-    static orxSTRING m_projectFileName;
+    orxFLOAT m_localTime;
+    orxFLOAT m_autoSaveTimeStamp;
+    orxFLOAT m_autoSaveInterval;
+    static std::string m_projectFileName;
 };
 
 #endif // ORXCRAFT_H
