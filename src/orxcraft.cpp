@@ -32,6 +32,9 @@ string OrxCraft::m_projectFileName;
 OrxCraft::OrxCraft () :
     m_dialogManager     (NULL),
     m_gui               (NULL),
+    m_dirty             (false),
+    m_dirty_save        (false),
+    m_dirty_autosave    (false),
     m_localTime         (0),
     m_autoSaveTimeStamp (0),
     m_autoSaveInterval  (0)
@@ -143,10 +146,23 @@ void OrxCraft::Update (const orxCLOCK_INFO &_rstInfo)
 	// Is it time?
 	if(m_localTime >= m_autoSaveTimeStamp + m_autoSaveInterval)
 	{
-	    // Saves backup
-	    SaveBackup();
+	    // Are there changes to save?
+	    if(m_dirty_autosave) {
+		// Saves backup
+		eResult = SaveBackup();
+		// Successful?
+		if(eResult != orxSTATUS_FAILURE)
+		{
+		    // Adds action display
+		    AddActionDisplay(uiStringAutoSave);
+		    m_dirty_autosave = false;
+		}
+	    }
 
 	    // Updates time stamp
+	    // Do it even if there were no changes otherwise autosave will be
+	    // triggered immediatly after a change was made instead in fixed
+	    // intervals.
 	    m_autoSaveTimeStamp = m_localTime;
 	}
     }
@@ -157,8 +173,10 @@ void OrxCraft::Update (const orxCLOCK_INFO &_rstInfo)
 	// Save project
 	eResult = SaveEditorConfig();
 	// Successful?
-	if(eResult != orxSTATUS_FAILURE)
+	if(eResult != orxSTATUS_FAILURE) {
 	    AddActionDisplay(uiStringSave);
+	    m_dirty_save = false;
+	}
     }
 
     orxVECTOR mousePos;
@@ -181,6 +199,8 @@ void OrxCraft::Update (const orxCLOCK_INFO &_rstInfo)
 void OrxCraft::NeedObjectUpdate ()
 {
     m_dirty = true;
+    m_dirty_save = true;
+    m_dirty_autosave = true;
 }
 
 void OrxCraft::InitConfig ()
@@ -342,13 +362,6 @@ orxSTATUS OrxCraft::SaveBackup() const
 
   // Saves backup
   eResult = SaveEditorConfig();
-
-  // Successful?
-  if(eResult != orxSTATUS_FAILURE)
-  {
-    // Adds action display
-    AddActionDisplay(uiStringAutoSave);
-  }
 
   // Restores map name
   m_projectFileName = saveName;

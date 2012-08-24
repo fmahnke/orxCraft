@@ -93,6 +93,8 @@ private:
     vector<const orxSTRING> m_fxSlotList;
 
     bool m_dirty;
+    bool m_dirty_save;
+    bool m_dirty_autosave;
     orxFLOAT m_localTime;
     orxFLOAT m_autoSaveTimeStamp;
     orxFLOAT m_autoSaveInterval;
