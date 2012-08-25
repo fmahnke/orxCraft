@@ -76,7 +76,7 @@ orxSTATUS OrxCraft::Init ()
     // Load things we want to edit from config
     InitConfig ();
     SetupConfig ();
-    UserSettings ();
+    LoadUserSettings ();
 
     // Create instance of dialog manager
     m_dialogManager = new CEDialogManager ();
@@ -87,8 +87,8 @@ orxSTATUS OrxCraft::Init ()
 
     CreateObject (infoWindow);
 
+    // Init object editor
     m_dialogManager->MakeDialog ("ObjectEditor");
-
     // Init FX slot editor
     m_dialogManager->MakeDialog ("FXSlotEditor");
 
@@ -171,7 +171,7 @@ void OrxCraft::Update (const orxCLOCK_INFO &_rstInfo)
     if(orxInput_IsActive(inputSave) && orxInput_HasNewStatus(inputSave))
     {
 	// Save project
-	eResult = SaveEditorConfig();
+	eResult = SaveProject();
 	// Successful?
 	if(eResult != orxSTATUS_FAILURE) {
 	    AddActionDisplay(uiStringSave);
@@ -259,18 +259,28 @@ void OrxCraft::SetupConfig ()
     }
 }
 
-void OrxCraft::UserSettings ()
+void OrxCraft::LoadUserSettings ()
 {
-    orxConfig_PushSection(sectionUserSettings);
+    // Get UserSettings section
+    orxConfig_PushSection(userSettingsSection);
+    // AutoSave interval
     m_autoSaveInterval = orxConfig_GetFloat("AutoSaveInterval");
     m_autoSaveTimeStamp = m_autoSaveInterval;
+    // Cleanup
     orxConfig_PopSection();
 }
 
 orxSTATUS OrxCraft::SaveEditorConfig () const
 {
     orxSTATUS eResult;
-    eResult = orxConfig_Save (m_projectFileName.c_str(), false, &SaveConfigFunction);
+    eResult = orxConfig_Save (userSettingsFile, false, &SaveConfigFilter);
+    return eResult;
+}
+
+orxSTATUS OrxCraft::SaveProject () const
+{
+    orxSTATUS eResult;
+    eResult = orxConfig_Save (m_projectFileName.c_str(), false, &SaveProjectFilter);
     return eResult;
 }
 
@@ -326,7 +336,7 @@ orxSTATUS orxFASTCALL OrxCraft::EventHandler(const orxEVENT *_pstEvent)
     return result;
 }
 
-orxBOOL orxFASTCALL OrxCraft::SaveConfigFunction
+orxBOOL orxFASTCALL OrxCraft::SaveConfigFilter
     (const orxSTRING _zSectionName,
      const orxSTRING _zKeyName,
      const orxSTRING _zFileName,
@@ -334,8 +344,28 @@ orxBOOL orxFASTCALL OrxCraft::SaveConfigFunction
 {
     orxBOOL saveIt = orxFALSE;
 
+    // Save only UserSettings section
+    if (orxString_Compare(_zSectionName, userSettingsSection) == 0)
+    {
+	saveIt = orxTRUE;
+    }
+
+    return saveIt;
+}
+
+orxBOOL orxFASTCALL OrxCraft::SaveProjectFilter
+    (const orxSTRING _zSectionName,
+     const orxSTRING _zKeyName,
+     const orxSTRING _zFileName,
+     orxBOOL _bUseEncryption)
+{
+    orxBOOL saveIt = orxFALSE;
+
+    // All objects that do not have OrxCraftSection key are part of the project
+    // data.
+    // TODO filterout the RT* objects whatever they are.
     orxConfig_PushSection (_zSectionName);
-    orxBOOL isOrxCraftSection = orxConfig_GetBool ("OrxCraftSection");
+    orxBOOL isOrxCraftSection = orxConfig_GetBool (orxCraftSectionName);
     orxConfig_PopSection ();
 
     // NOT one of our editor's sections?
@@ -361,7 +391,7 @@ orxSTATUS OrxCraft::SaveBackup() const
   m_projectFileName = backupName;
 
   // Saves backup
-  eResult = SaveEditorConfig();
+  eResult = SaveProject();
 
   // Restores map name
   m_projectFileName = saveName;
@@ -380,7 +410,7 @@ orxSTATUS orxFASTCALL OrxCraft::ProcessParams(orxU32 _u32ParamCount, const orxST
 	   orxString_Compare(_azParams[0], projectParamShort) == 0)
 	  )
   {
-    // Stores map's name
+    // Stores projects file name
     m_projectFileName = orxString_Duplicate(_azParams[1]);
 
     // Updates result

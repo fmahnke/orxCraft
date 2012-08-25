@@ -9,7 +9,9 @@ static const orxSTRING projectParamLongName = "project";
 static const orxSTRING projectParamLong = "--project";
 static const orxSTRING projectParamShortDesc = "Project file to open.";
 static const orxSTRING projectParamLongDesc = "Opens specified Project ini file. Allows to create/remove/edit Orx objects contained in the project.";
-const orxCHAR sectionUserSettings[] = "UserSettings";
+const orxCHAR userSettingsFile[]    = "~/.orxcraft.rc";
+const orxCHAR userSettingsSection[] = "UserSettings";
+const orxCHAR orxCraftSectionName[] = "OrxCraftSection";
 
 // Scroll Object
 static const orxSTRING scrollGUIName  = "ScrollGUI";
