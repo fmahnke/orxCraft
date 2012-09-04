@@ -411,7 +411,7 @@ orxSTATUS orxFASTCALL OrxCraft::ProcessParams(orxU32 _u32ParamCount, const orxST
 	  )
   {
     // Stores projects file name
-    m_projectFileName = orxString_Duplicate(_azParams[1]);
+    m_projectFileName = _azParams[1];
 
     // Updates result
     eResult = orxSTATUS_SUCCESS;
