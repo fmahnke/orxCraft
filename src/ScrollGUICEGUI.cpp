@@ -251,15 +251,15 @@ void ScrollGUICEGUI::CEGUIScrollObject::DrawGrid ()
 
     for (int i = 1; i <= columns; i++)
     {
-	orxVECTOR start = { (float) i * gridRes, 0, 0};
-	orxVECTOR end   = { (float) i * gridRes, frustumHeight, 0};
+	orxVECTOR start = { {(float) i * gridRes}, {0}, {0}};
+	orxVECTOR end   = { {(float) i * gridRes}, {frustumHeight}, {0}};
 	orxDisplay_DrawLine (&start, &end, gridColor);
     }
 
     for (int i = 1; i <= rows; i++)
     {
-	orxVECTOR start = {0, (float) i * gridRes, 0};
-	orxVECTOR end   = {frustumWidth, (float) i * gridRes, 0};
+	orxVECTOR start = {{0}, {(float) i * gridRes}, {0}};
+	orxVECTOR end   = {{frustumWidth}, {(float) i * gridRes}, {0}};
 	orxDisplay_DrawLine (&start, &end, gridColor);
     }
 }

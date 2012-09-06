@@ -43,12 +43,10 @@
 
 // Widgets
 static const orxSTRING infoWindow = "O-InfoWindow";
-static const orxSTRING scrollGUI  = "ScrollGUI";
-static const orxSTRING objectEditor = "ObjectEditor";
 
 OrxCraft::OrxCraft () :
-    m_dialogManager (NULL),
-    m_gui           (NULL)
+    m_gui           (NULL),
+    m_dialogManager (NULL)
 {
 }
 
@@ -252,6 +250,8 @@ orxSTATUS orxFASTCALL OrxCraft::EventHandler(const orxEVENT *_pstEvent)
 	    case orxINPUT_TYPE_MOUSE_BUTTON:
 		OrxCraft::GetInstance ().OnMouseDown ();
 		break;
+	    default:
+	    	break;
 	    }
 	}
 	if(_pstEvent->eID == orxINPUT_EVENT_OFF)

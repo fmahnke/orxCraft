@@ -1,57 +1,14 @@
-solution "orxCraft"
+-- Setup orxCraft dependancies.
+-- Modify the lines below to match your enviroment.
 
-  PATH = _ACTION
+-- Path to orx
+ORX_DIR = "../../orx"
 
-  configurations {"Linux64 Embedded Dynamic Debug",
-                  "Linux64 Embedded Dynamic Profile",
-                  "Linux64 Embedded Dynamic Release"}
+-- Path to Scroll
+SCROLL_DIR = "../../scroll"
 
-  flags {"EnableSSE2", "FloatFast","ExtraWarnings",
-         "NoManifest", "NoPCH", "StaticRuntime"}
+-- Path to CEGUI
+CEGUI_DIR = "../../CEGUI-v0-7"
 
-  configuration "*Debug"
-    defines {"__orxDEBUG__"}
-    flags {"Symbols"}
+include "premake"
 
-  configuration "*Profile"
-    defines {"__orxPROFILER__"}
-    flags {"NoRTTI"}
-
-  configuration "*Release"
-    flags {"NoRTTI"}
-
-  location (PATH)
-
-  project "orxCraft"
-
-    language "C++"
-    kind "ConsoleApp"
-
-    linkoptions {"-Wl,-rpath ./"}
-
-    targetdir ("../bin")
-
-    orx_path = "../../orx/code"
-    scroll_path = "../../scroll/include/Scroll"
-
-    includedirs {"../include", orx_path .. "/include", scroll_path,
-                 "/usr/include/CEGUI"}
-    files {"../src/**.cpp"}
-
-    excludes {"../src/CEGUICheckbox.cpp"}
-
-    libdirs {orx_path .. "/lib/dynamic"}
-
-    links {"CEGUIBase", "CEGUIOpenGLRenderer"}
-
-    configuration "Linux*"
-	postbuildcommands {"ln -sfn ../data ../../bin/data",
-			   "ln -sfn ../cegui ../../bin/cegui",
-			   "cp ../../data/orxCraftd.ini ../../bin"}
-
-    configuration "Linux64 Embedded Dynamic Debug"
-	targetname ("orxCraftd")
-	links {"orxd"}
-
-    configuration "Linux64 Embedded Dynamic Release"
-	links {"orx"}

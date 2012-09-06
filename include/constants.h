@@ -25,24 +25,24 @@
 #define CONSTANTS_H
 
 // Settings
-static orxFLOAT coarseUnit = 5.0;
-static const orxSTRING configFileName = "data/sampleconfig.ini";
+const orxFLOAT coarseUnit = 5.0;
+const orxCHAR configFileName[]   = "data/sampleconfig.ini";
 
 // Scroll Object
-static const orxSTRING scrollGUIName  = "ScrollGUI";
+const orxCHAR scrollGUIName[]    = "ScrollGUI";
 
 // Windows
-static const orxSTRING fxSlotWindowName = "FXSlotWindow";
-static const orxSTRING infoWindowName = "InfoWindow";
-static const orxSTRING objectEditorName = "ObjectEditor";
+const orxCHAR fxSlotWindowName[] = "FXSlotWindow";
+const orxCHAR infoWindowName[]   = "InfoWindow";
+const orxCHAR objectEditorName[] = "ObjectEditor";
 
 // Inputs
-static const orxSTRING inputQuit       = "Quit";
-static const orxSTRING inputLeftMB     = "LeftClick";
-static const orxSTRING inputLeftArrow  = "LeftArrow";
-static const orxSTRING inputRightArrow = "RightArrow";
-static const orxSTRING inputUpArrow    = "UpArrow";
-static const orxSTRING inputDownArrow  = "DownArrow";
+const orxCHAR inputQuit[]        = "Quit";
+const orxCHAR inputLeftMB[]      = "LeftClick";
+const orxCHAR inputLeftArrow[]   = "LeftArrow";
+const orxCHAR inputRightArrow[]  = "RightArrow";
+const orxCHAR inputUpArrow[]     = "UpArrow";
+const orxCHAR inputDownArrow[]   = "DownArrow";
 
 #endif	// CONSTANTS_H
 

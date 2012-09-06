@@ -248,7 +248,7 @@ void FXSlotEditorWindow::OnTextAccepted (const orxSTRING widgetName)
 	orxString_ToFloat (m_fxsStartValue0->GetText (), &XFloat, orxNULL);
 	orxString_ToFloat (m_fxsStartValue1->GetText (), &YFloat, orxNULL);
 	orxString_ToFloat (m_fxsStartValue2->GetText (), &ZFloat, orxNULL);
-	orxVECTOR startValue = { XFloat, YFloat, ZFloat };
+	orxVECTOR startValue = { {XFloat}, {YFloat}, {ZFloat} };
 	orxConfig_SetVector ("StartValue", &startValue);
     }
     else if (orxString_Compare (widgetName, "FXSlotEndValue") > 0) 
@@ -259,7 +259,7 @@ void FXSlotEditorWindow::OnTextAccepted (const orxSTRING widgetName)
 	orxString_ToFloat (m_fxsEndValue0->GetText (), &XFloat, orxNULL);
 	orxString_ToFloat (m_fxsEndValue1->GetText (), &YFloat, orxNULL);
 	orxString_ToFloat (m_fxsEndValue2->GetText (), &ZFloat, orxNULL);
-	orxVECTOR endValue = { XFloat, YFloat, ZFloat };
+	orxVECTOR endValue = { {XFloat}, {YFloat}, {ZFloat} };
 	orxConfig_SetVector ("EndValue", &endValue);
     }
     else if (orxString_Compare (widgetName, "FXSlotPhase") == 0)

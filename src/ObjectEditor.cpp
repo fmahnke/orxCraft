@@ -210,11 +210,13 @@ void ObjectEditor::UpdateFields () const
 	const orxSTRING aS = orx_config_util::ListToString ("AnimationSet");
 	m_objAnimSet->SetText (aS);
 	// AutoScroll
-	const orxSTRING aSc = orx_config_util::ListToString ("AutoScroll");
-	orxASSERT (false);
+	vector<const orxSTRING> aSc;
+	orx_config_util::GetListIntoVector ("AutoScroll", aSc);
+	m_objAutoScroll->Fill(aSc);
 	// BlendMode
-	const orxSTRING bl = orx_config_util::ListToString ("BlendMode");
-	orxASSERT (false);
+	vector<const orxSTRING> bl;
+	orx_config_util::GetListIntoVector ("BlendMode", bl);
+	m_objBlendMode->Fill(bl);
 	// Body
 	const orxSTRING body = orx_config_util::ListToString ("Body");
 	m_objBody->SetText (body);
@@ -374,7 +376,7 @@ void ObjectEditor::OnTextAccepted (const orxSTRING widgetName)
 	orxString_ToFloat (m_objColorR->GetText (), &newRFloat, orxNULL);
 	orxString_ToFloat (m_objColorG->GetText (), &newGFloat, orxNULL);
 	orxString_ToFloat (m_objColorB->GetText (), &newBFloat, orxNULL);
-	orxVECTOR newColor = { newRFloat, newGFloat, newBFloat };
+	orxVECTOR newColor = { {newRFloat}, {newGFloat}, {newBFloat} };
 	orxConfig_SetVector ("Color", &newColor);
     }
     else if (orxString_Compare (widgetName, "ObjDepthScale") == 0)
@@ -417,7 +419,7 @@ void ObjectEditor::OnTextAccepted (const orxSTRING widgetName)
 	orxString_ToFloat (m_objPosX->GetText (), &newXFloat, orxNULL);
 	orxString_ToFloat (m_objPosY->GetText (), &newYFloat, orxNULL);
 	orxString_ToFloat (m_objPosZ->GetText (), &newZFloat, orxNULL);
-	orxVECTOR newPosition = { newXFloat, newYFloat, newZFloat };
+	orxVECTOR newPosition = { {newXFloat}, {newYFloat}, {newZFloat} };
 	orxConfig_SetVector ("Position", &newPosition);
     }
     else if (orxString_SearchString (widgetName, "ObjRepeat") > 0)
@@ -428,7 +430,7 @@ void ObjectEditor::OnTextAccepted (const orxSTRING widgetName)
 	orxString_ToFloat (m_objRepeatX->GetText (), &XFloat, orxNULL);
 	orxString_ToFloat (m_objRepeatY->GetText (), &YFloat, orxNULL);
 	orxString_ToFloat (m_objRepeatZ->GetText (), &ZFloat, orxNULL);
-	orxVECTOR repeat = { XFloat, YFloat, ZFloat };
+	orxVECTOR repeat = { {XFloat}, {YFloat}, {ZFloat} };
 	orxConfig_SetVector ("Repeat", &repeat);
     }
     else if (orxString_Compare (widgetName, "ObjRotation") == 0)
@@ -444,7 +446,7 @@ void ObjectEditor::OnTextAccepted (const orxSTRING widgetName)
 	orxString_ToFloat (m_objSpeedX->GetText (), &newXFloat, orxNULL);
 	orxString_ToFloat (m_objSpeedY->GetText (), &newYFloat, orxNULL);
 	orxString_ToFloat (m_objSpeedZ->GetText (), &newZFloat, orxNULL);
-	orxVECTOR newSpeed = { newXFloat, newYFloat, newZFloat };
+	orxVECTOR newSpeed = { {newXFloat}, {newYFloat}, {newZFloat} };
 	orxConfig_SetVector ("Speed", &newSpeed);
     }
     else if (orxString_SearchString (widgetName, "ObjScale") > 0)
@@ -455,7 +457,7 @@ void ObjectEditor::OnTextAccepted (const orxSTRING widgetName)
 	orxString_ToFloat (m_objScaleX->GetText (), &XFloat, orxNULL);
 	orxString_ToFloat (m_objScaleY->GetText (), &YFloat, orxNULL);
 	orxString_ToFloat (m_objScaleZ->GetText (), &ZFloat, orxNULL);
-	orxVECTOR scale = { XFloat, YFloat, ZFloat };
+	orxVECTOR scale = { {XFloat}, {YFloat}, {ZFloat} };
 	orxConfig_SetVector ("Scale", &scale);
     }
     else if (orxString_Compare (widgetName, "ObjShaderList") == 0)
@@ -470,7 +472,7 @@ void ObjectEditor::OnTextAccepted (const orxSTRING widgetName)
     {
 	orxASSERT (false);
     }
-   
+
     orxConfig_PopSection ();
 
     // Update object in editor
