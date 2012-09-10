@@ -210,7 +210,6 @@
                 <Property Name="MaxEditTextLength" Value="1073741823" />
             </Window>
             <Window Type="TaharezLook/Combobox" Name="ObjGraphic" >
-                <Property Name="MaxTextLength" Value="1073741823" />
                 <Property Name="UnifiedAreaRect" Value="{{0.0,60},{0.0,40},{0.0,150},{0.0,110}}" />
                 <Property Name="TextParsingEnabled" Value="False" />
                 <Property Name="ReadOnly" Value="True" />

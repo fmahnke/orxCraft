@@ -26,18 +26,34 @@
 
 // Settings
 const orxFLOAT coarseUnit = 5.0;
-const orxCHAR configFileName[]   = "data/sampleconfig.ini";
+static const orxSTRING projectParamShortName = "p";
+static const orxSTRING projectParamShort = "-p";
+static const orxSTRING projectParamLongName = "project";
+static const orxSTRING projectParamLong = "--project";
+static const orxSTRING projectParamShortDesc = "Project file to open.";
+static const orxSTRING projectParamLongDesc = "Opens specified Project ini file. Allows to create/remove/edit Orx objects contained in the project.";
+const orxCHAR userSettingsFile[]    = "~/.orxcraft.rc";
+const orxCHAR userSettingsSection[] = "UserSettings";
+const orxCHAR orxCraftSectionName[] = "OrxCraftSection";
 
 // Scroll Object
 const orxCHAR scrollGUIName[]    = "ScrollGUI";
+
+// UI elements
+static const orxSTRING uiActionText   = "ActionText";
 
 // Windows
 const orxCHAR fxSlotWindowName[] = "FXSlotWindow";
 const orxCHAR infoWindowName[]   = "InfoWindow";
 const orxCHAR objectEditorName[] = "ObjectEditor";
 
+// UI strings
+static const orxSTRING uiStringSave     = "Save";
+static const orxSTRING uiStringAutoSave = "Auto Save";
+
 // Inputs
 const orxCHAR inputQuit[]        = "Quit";
+const orxCHAR inputSave[]        = "Save";
 const orxCHAR inputLeftMB[]      = "LeftClick";
 const orxCHAR inputLeftArrow[]   = "LeftArrow";
 const orxCHAR inputRightArrow[]  = "RightArrow";
