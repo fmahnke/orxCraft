@@ -52,7 +52,7 @@ public:
     //! Save the orxCraft user configuration to a file.
     orxSTATUS SaveEditorConfig () const;
     //! Save the currently open project to disk.
-    orxSTATUS SaveProject() const;
+    orxSTATUS SaveProject () const;
 
     //! Indicate properties have been changed and objects need to be updated
     //! to reflect that change.
@@ -85,47 +85,44 @@ private:
     
     //! Auto save current project state to a project.ini.swp files.
     orxSTATUS SaveBackup() const;
-    //TODO AddActionDisplay should be in a GUI class
+    //! @todo AddActionDisplay should be in a GUI class
     //! Display a visual notification of an action on screen.
-    orxSTATUS AddActionDisplay(
-    	    const orxSTRING _zAction //!< [in] String to display.
-    	    ) const;
+    //! @param[in] action String to display
+    orxSTATUS AddActionDisplay (const orxSTRING action) const;
 
     //! Handler for orx events.
     static orxSTATUS orxFASTCALL EventHandler (const orxEVENT *_pstEvent);
     //! Filter out user settings to save.
-    static orxBOOL orxFASTCALL SaveConfigFilter
-	(const orxSTRING _zSectionName,
-	 const orxSTRING _zKeyName,
-	 const orxSTRING _zFileName,
-	 orxBOOL _bUseEncryption);
+    static orxBOOL orxFASTCALL SaveConfigFilter	(const orxSTRING sectionName,
+						 const orxSTRING keyName,
+						 const orxSTRING fileName,
+						 orxBOOL useEncryption);
     //! Filter out project contents to save.
-    static orxBOOL orxFASTCALL SaveProjectFilter
-	(const orxSTRING _zSectionName,
-	 const orxSTRING _zKeyName,
-	 const orxSTRING _zFileName,
-	 orxBOOL _bUseEncryption);
+    static orxBOOL orxFASTCALL SaveProjectFilter (const orxSTRING sectionName,
+						  const orxSTRING keyName,
+						  const orxSTRING fileName,
+						  orxBOOL useEncryption);
     //! Process command line parameters.
-    static orxSTATUS orxFASTCALL ProcessParams(
-	    orxU32 _u32ParamCount, const orxSTRING _azParams[]);
+    static orxSTATUS orxFASTCALL ProcessParams(orxU32 paramCount,
+					       const orxSTRING params[]);
 
     //! Windowed part of the GUI.
     ScrollGUICEGUI	    *m_gui;
     //! Dialog factory object.
     DialogManager	    *m_dialogManager;
-    /// Currently loaded config objects.
+    //! Currently loaded config objects.
     vector<const orxSTRING> m_objectList;
-    /// Currently loaded config graphics.
+    //! Currently loaded config graphics.
     vector<const orxSTRING> m_graphicList;
-    /// Currently loaded FXSlots.
+    //! Currently loaded FXSlots.
     vector<const orxSTRING> m_fxSlotList;
 
     //! Modified project flag: reload object.
     bool m_dirty;
     //! Modified project flag: requires save upon exit.
-    bool m_dirty_save;
+    bool m_dirtySave;
     //! Modified project flag: used for auto save suppresion.
-    bool m_dirty_autosave;
+    bool m_dirtyAutosave;
     //! Editor execution time.
     orxFLOAT m_localTime;
     //! Last auto save time stamp.

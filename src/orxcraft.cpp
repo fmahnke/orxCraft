@@ -33,8 +33,8 @@ OrxCraft::OrxCraft () :
     m_dialogManager     (NULL),
     m_gui               (NULL),
     m_dirty             (false),
-    m_dirty_save        (false),
-    m_dirty_autosave    (false),
+    m_dirtySave        (false),
+    m_dirtyAutosave    (false),
     m_localTime         (0),
     m_autoSaveTimeStamp (0),
     m_autoSaveInterval  (0)
@@ -141,41 +141,45 @@ void OrxCraft::Update (const orxCLOCK_INFO &_rstInfo)
     m_localTime += _rstInfo.fDT;
 
     // Uses autosave?
-    if(m_autoSaveInterval > orxFLOAT_0)
+    if (m_autoSaveInterval > orxFLOAT_0)
     {
 	// Is it time?
-	if(m_localTime >= m_autoSaveTimeStamp + m_autoSaveInterval)
+	if (m_localTime >= m_autoSaveTimeStamp + m_autoSaveInterval)
 	{
 	    // Are there changes to save?
-	    if(m_dirty_autosave) {
+	    if (m_dirtyAutosave)
+	    {
 		// Saves backup
-		eResult = SaveBackup();
+		eResult = SaveBackup ();
 		// Successful?
-		if(eResult != orxSTATUS_FAILURE)
+		if (eResult != orxSTATUS_FAILURE)
 		{
 		    // Adds action display
-		    AddActionDisplay(uiStringAutoSave);
-		    m_dirty_autosave = false;
+		    AddActionDisplay (uiStringAutoSave);
+		    m_dirtyAutosave = false;
 		}
 	    }
 
-	    // Updates time stamp
-	    // Do it even if there were no changes otherwise autosave will be
-	    // triggered immediatly after a change was made instead in fixed
-	    // intervals.
+	    /*
+	     * Updates time stamp
+	     * Do it even if there were no changes otherwise autosave will be
+	     * triggered immediatly after a change was made instead in fixed
+	     * intervals.
+	     */
 	    m_autoSaveTimeStamp = m_localTime;
 	}
     }
 
     // Save?
-    if(orxInput_IsActive(inputSave) && orxInput_HasNewStatus(inputSave))
+    if (orxInput_IsActive (inputSave) && orxInput_HasNewStatus (inputSave))
     {
 	// Save project
-	eResult = SaveProject();
+	eResult = SaveProject ();
 	// Successful?
-	if(eResult != orxSTATUS_FAILURE) {
-	    AddActionDisplay(uiStringSave);
-	    m_dirty_save = false;
+	if (eResult != orxSTATUS_FAILURE)
+	{
+	    AddActionDisplay (uiStringSave);
+	    m_dirtySave = false;
 	}
     }
 
@@ -186,10 +190,13 @@ void OrxCraft::Update (const orxCLOCK_INFO &_rstInfo)
     orxRender_GetWorldPosition (&mousePos, &worldPos);
 
     // GUI windows are on top of Orx objects. Check if mouse is inside of a window.
-    CEGUI::System::getSingleton ().injectMousePosition (mousePos.fX, mousePos.fY);
-    CEGUI::Window *window = CEGUI::System::getSingleton ().getWindowContainingMouse ();
+    CEGUI::System::getSingleton ().injectMousePosition (mousePos.fX,
+							mousePos.fY);
+    CEGUI::Window *window =
+	CEGUI::System::getSingleton ().getWindowContainingMouse ();
     // Root window covers whole viewport but it is invisible.
-    if(window != NULL && orxString_Compare(window->getName().c_str(), "root") != 0)
+    if (window != NULL &&
+	orxString_Compare (window->getName().c_str(), "root") != 0)
     {
 	// Pass input to GUI
 	m_gui->InputMouseMove ();
@@ -199,8 +206,8 @@ void OrxCraft::Update (const orxCLOCK_INFO &_rstInfo)
 void OrxCraft::NeedObjectUpdate ()
 {
     m_dirty = true;
-    m_dirty_save = true;
-    m_dirty_autosave = true;
+    m_dirtySave = true;
+    m_dirtyAutosave = true;
 }
 
 void OrxCraft::InitConfig ()
@@ -262,12 +269,12 @@ void OrxCraft::SetupConfig ()
 void OrxCraft::LoadUserSettings ()
 {
     // Get UserSettings section
-    orxConfig_PushSection(userSettingsSection);
+    orxConfig_PushSection (userSettingsSection);
     // AutoSave interval
-    m_autoSaveInterval = orxConfig_GetFloat("AutoSaveInterval");
+    m_autoSaveInterval = orxConfig_GetFloat ("AutoSaveInterval");
     m_autoSaveTimeStamp = m_autoSaveInterval;
     // Cleanup
-    orxConfig_PopSection();
+    orxConfig_PopSection ();
 }
 
 orxSTATUS OrxCraft::SaveEditorConfig () const
@@ -299,7 +306,7 @@ void OrxCraft::OnKeyPress (const orxSTRING key)
     m_gui->InputKeyPress (key);
 }
 
-orxSTATUS orxFASTCALL OrxCraft::EventHandler(const orxEVENT *_pstEvent)
+orxSTATUS orxFASTCALL OrxCraft::EventHandler (const orxEVENT *_pstEvent)
 {
     orxSTATUS result = orxSTATUS_SUCCESS;
 
@@ -336,16 +343,15 @@ orxSTATUS orxFASTCALL OrxCraft::EventHandler(const orxEVENT *_pstEvent)
     return result;
 }
 
-orxBOOL orxFASTCALL OrxCraft::SaveConfigFilter
-    (const orxSTRING _zSectionName,
-     const orxSTRING _zKeyName,
-     const orxSTRING _zFileName,
-     orxBOOL _bUseEncryption)
+orxBOOL orxFASTCALL OrxCraft::SaveConfigFilter (const orxSTRING sectionName,
+					        const orxSTRING keyName,
+						const orxSTRING fileName,
+						orxBOOL useEncryption)
 {
     orxBOOL saveIt = orxFALSE;
 
     // Save only UserSettings section
-    if (orxString_Compare(_zSectionName, userSettingsSection) == 0)
+    if (orxString_Compare (sectionName, userSettingsSection) == 0)
     {
 	saveIt = orxTRUE;
     }
@@ -353,23 +359,24 @@ orxBOOL orxFASTCALL OrxCraft::SaveConfigFilter
     return saveIt;
 }
 
-orxBOOL orxFASTCALL OrxCraft::SaveProjectFilter
-    (const orxSTRING _zSectionName,
-     const orxSTRING _zKeyName,
-     const orxSTRING _zFileName,
-     orxBOOL _bUseEncryption)
+orxBOOL orxFASTCALL OrxCraft::SaveProjectFilter (const orxSTRING sectionName,
+						 const orxSTRING keyName,
+						 const orxSTRING fileName,
+						 orxBOOL useEncryption)
 {
     orxBOOL saveIt = orxFALSE;
 
-    // All objects that do not have OrxCraftSection key are part of the project
-    // data.
-    // TODO filterout the RT* objects whatever they are.
-    orxConfig_PushSection (_zSectionName);
+    /*
+     *  All objects that do not have OrxCraftSection key are part of the project
+     *  data and will be saved.
+     */
+    //! @todo filterout the RT* objects whatever they are.
+    orxConfig_PushSection (sectionName);
     orxBOOL isOrxCraftSection = orxConfig_GetBool (orxCraftSectionName);
     orxConfig_PopSection ();
 
     // NOT one of our editor's sections?
-    if (!isOrxCraftSection)
+    if (! isOrxCraftSection)
     {
 	saveIt = orxTRUE;
     }
@@ -377,89 +384,89 @@ orxBOOL orxFASTCALL OrxCraft::SaveProjectFilter
     return saveIt;
 }
 
-orxSTATUS OrxCraft::SaveBackup() const
+orxSTATUS OrxCraft::SaveBackup () const
 {
-  orxSTATUS eResult;
-  string saveName;
-  string backupName;
+    orxSTATUS eResult;
+    string saveName;
+    string backupName;
 
-  // Gets current map name
-  saveName = m_projectFileName;
-  backupName = saveName + ".swp";
+    // Gets current map name
+    saveName = m_projectFileName;
+    backupName = saveName + ".swp";
 
-  // Sets backup name
-  m_projectFileName = backupName;
+    // Sets backup name
+    m_projectFileName = backupName;
 
-  // Saves backup
-  eResult = SaveProject();
+    // Saves backup
+    eResult = SaveProject ();
 
-  // Restores map name
-  m_projectFileName = saveName;
+    // Restores map name
+    m_projectFileName = saveName;
 
-  // Done!
-  return eResult;
+    // Done!
+    return eResult;
 }
 
-orxSTATUS orxFASTCALL OrxCraft::ProcessParams(orxU32 _u32ParamCount, const orxSTRING _azParams[])
+orxSTATUS orxFASTCALL OrxCraft::ProcessParams (orxU32 paramCount,
+					       const orxSTRING params[])
 {
-  orxSTATUS eResult;
+    orxSTATUS eResult;
 
-  // Has a valid project parameter?
-  if(_u32ParamCount >= 2 &&
-	  (orxString_Compare(_azParams[0], projectParamLong) == 0 ||
-	   orxString_Compare(_azParams[0], projectParamShort) == 0)
-	  )
-  {
-    // Stores projects file name
-    m_projectFileName = _azParams[1];
-
-    // Updates result
-    eResult = orxSTATUS_SUCCESS;
-  }
-  else
-  {
-    // Updates result
-    eResult = orxSTATUS_FAILURE;
-  }
-
-  // Done!
-  return eResult;
-}
-
-orxSTATUS OrxCraft::AddActionDisplay(const orxSTRING _zAction) const
-{
-  orxSTATUS eResult = orxSTATUS_FAILURE;
-
-  // Has valid action
-  if(_zAction)
-  {
-    orxOBJECT *pstActionText;
-
-    // Creates action test
-    pstActionText = orxObject_CreateFromConfig(uiActionText);
-
-    // Valid?
-    if(pstActionText)
+    // Has a valid project parameter?
+    if (paramCount >= 2 &&
+     (orxString_Compare (params[0], projectParamLong) == 0 ||
+      orxString_Compare (params[0], projectParamShort) == 0))
     {
-      // Updates its content
-      orxObject_SetTextString(pstActionText, _zAction);
+	// Stores projects file name
+	m_projectFileName = params[1];
 
-      // Updates result
-      eResult = orxSTATUS_SUCCESS;
+	// Updates result
+	eResult = orxSTATUS_SUCCESS;
     }
-  }
+    else
+    {
+	// Updates result
+	eResult = orxSTATUS_FAILURE;
+    }
 
-  // Done!
-  return eResult;
+    // Done!
+    return eResult;
 }
 
-int main(int argc, char **argv)
+orxSTATUS OrxCraft::AddActionDisplay (const orxSTRING action) const
 {
-  // Executes game
-  OrxCraft::GetInstance ().Execute (argc, argv);
+    orxSTATUS eResult = orxSTATUS_FAILURE;
 
-  // Done!
-  return EXIT_SUCCESS;
+    // Has valid action
+    if (action)
+    {
+	orxOBJECT *pstActionText;
+
+	// Creates action test
+	pstActionText = orxObject_CreateFromConfig (uiActionText);
+
+	// Valid?
+	if (pstActionText)
+	{
+	  // Updates its content
+	  orxObject_SetTextString (pstActionText, action);
+
+	  // Updates result
+	  eResult = orxSTATUS_SUCCESS;
+	}
+    }
+
+    // Done!
+    return eResult;
+}
+
+int main (int argc, char **argv)
+{
+    // Executes game
+    OrxCraft::GetInstance ().Execute (argc, argv);
+
+    // Done!
+    return EXIT_SUCCESS;
 }
 
 void OrxCraft::SetSelectedFXSlot (const orxSTRING name)
