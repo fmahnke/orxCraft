@@ -43,8 +43,7 @@
 
 #include <string>
 
-//! @todo Don't use entire namespace
-using namespace std;
+using std::string;
 
 // Widgets
 static const orxSTRING infoWindow = "O-InfoWindow";
@@ -86,14 +85,14 @@ orxSTATUS OrxCraft::Init ()
 
     orxPARAM  stParams;
     // Asks for command line project parameter
-    orxMemory_Zero(&stParams, sizeof(orxPARAM));
+    orxMemory_Zero (&stParams, sizeof(orxPARAM));
     stParams.pfnParser  = OrxCraft::ProcessParams;
     stParams.u32Flags   = orxPARAM_KU32_FLAG_NONE;
     stParams.zShortName = projectParamShortName;
     stParams.zLongName  = projectParamLongName;
     stParams.zShortDesc = projectParamShortDesc;
     stParams.zLongDesc  = projectParamLongDesc;
-    orxParam_Register(&stParams);
+    orxParam_Register (&stParams);
 
     // Load things we want to edit from config
     InitConfig ();
