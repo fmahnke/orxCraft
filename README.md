@@ -11,6 +11,8 @@ Development Schedule
 * Complete editor windows for remainder of Orx structures
 * Integrate OrxCraft with ScrollEd
 
+[Building orxCraft](https://github.com/fmahnke/orxCraft/wiki/Building)
+
 Setup Using CEGUI as the GUI engine
 -----------------------------------
 The following needs to be in the executable directory:
