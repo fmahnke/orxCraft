@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout >
+    <Window Type="DefaultWindow" Name="BrowserRoot" >
+        <Property Name="UnifiedAreaRect" Value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Window Type="TaharezLook/FrameWindow" Name="Browser" >
+	    <Window Type="TaharezLook/TabControl" Name="Frame/TabControl">
+                <Property Name="TabHeight" Value="{0,-1}" />
+                <Property Name="UnifiedMaxSize" Value="{{1,0},{1,0}}" />
+                <Property Name="TabPanePosition" Value="Top" />
+                <Property Name="UnifiedAreaRect" Value="{{0,10},{0,10},{1,-10},{0.9,-10}}" />
+		<Window Type="DefaultGUISheet" Name="AnimationTab">
+		    <Property Name="Text" Value="Animation" />
+		    <Window Type="TaharezLook/Listbox" Name="AnimationList" >
+			<Property Name="UnifiedAreaRect" Value="{{0.03,0},{0.03,0},{0.97,0},{0.97,0}}" />
+		    </Window>
+		</Window>
+		<Window Type="DefaultGUISheet" Name="BodyTab">
+		    <Property Name="Text" Value="Body" />
+		    <Window Type="TaharezLook/Listbox" Name="BodyList" >
+			<Property Name="UnifiedAreaRect" Value="{{0.03,0},{0.03,0},{0.97,0},{0.97,0}}" />
+		    </Window>
+		</Window>
+		<Window Type="DefaultGUISheet" Name="JointTab">
+		    <Property Name="Text" Value="Joint" />
+		    <Window Type="TaharezLook/Listbox" Name="JointList" >
+			<Property Name="UnifiedAreaRect" Value="{{0.03,0},{0.03,0},{0.97,0},{0.97,0}}" />
+		    </Window>
+		</Window>
+		<Window Type="DefaultGUISheet" Name="CameraTab">
+		    <Property Name="Text" Value="Camera" />
+		    <Window Type="TaharezLook/Listbox" Name="CameraList" >
+			<Property Name="UnifiedAreaRect" Value="{{0.03,0},{0.03,0},{0.97,0},{0.97,0}}" />
+		    </Window>
+		</Window>
+		<Window Type="DefaultGUISheet" Name="ClockTab">
+		    <Property Name="Text" Value="Clock" />
+		    <Window Type="TaharezLook/Listbox" Name="ClockList" >
+			<Property Name="UnifiedAreaRect" Value="{{0.03,0},{0.03,0},{0.97,0},{0.97,0}}" />
+		    </Window>
+		</Window>
+		<Window Type="DefaultGUISheet" Name="FXTab">
+		    <Property Name="Text" Value="FX" />
+		    <Window Type="TaharezLook/Listbox" Name="FXList" >
+			<Property Name="UnifiedAreaRect" Value="{{0.03,0},{0.03,0},{0.97,0},{0.97,0}}" />
+		    </Window>
+		</Window>
+		<Window Type="DefaultGUISheet" Name="GraphicTab">
+		    <Property Name="Text" Value="Graphic" />
+		    <Window Type="TaharezLook/Listbox" Name="GraphicList" >
+			<Property Name="UnifiedAreaRect" Value="{{0.03,0},{0.03,0},{0.97,0},{0.97,0}}" />
+		    </Window>
+		</Window>
+		<Window Type="DefaultGUISheet" Name="ObjectTab">
+		    <Property Name="Text" Value="Object" />
+		    <Window Type="TaharezLook/Listbox" Name="ObjectList" >
+			<Property Name="UnifiedAreaRect" Value="{{0.03,0},{0.03,0},{0.97,0},{0.97,0}}" />
+		    </Window>
+		</Window>
+		<Window Type="DefaultGUISheet" Name="ShaderTab">
+		    <Property Name="Text" Value="Shader" />
+		    <Window Type="TaharezLook/Listbox" Name="ShaderList" >
+			<Property Name="UnifiedAreaRect" Value="{{0.03,0},{0.03,0},{0.97,0},{0.97,0}}" />
+		    </Window>
+		</Window>
+		<Window Type="DefaultGUISheet" Name="SoundTab">
+		    <Property Name="Text" Value="Sound" />
+		    <Window Type="TaharezLook/Listbox" Name="SoundList" >
+			<Property Name="UnifiedAreaRect" Value="{{0.03,0},{0.03,0},{0.97,0},{0.97,0}}" />
+		    </Window>
+		</Window>
+		<Window Type="DefaultGUISheet" Name="SpawnerTab">
+		    <Property Name="Text" Value="Spawner" />
+		    <Window Type="TaharezLook/Listbox" Name="SpawnerList" >
+			<Property Name="UnifiedAreaRect" Value="{{0.03,0},{0.03,0},{0.97,0},{0.97,0}}" />
+		    </Window>
+		</Window>
+		<Window Type="DefaultGUISheet" Name="TextTab">
+		    <Property Name="Text" Value="Text" />
+		    <Window Type="TaharezLook/Listbox" Name="TextList" >
+			<Property Name="UnifiedAreaRect" Value="{{0.03,0},{0.03,0},{0.97,0},{0.97,0}}" />
+		    </Window>
+		</Window>
+		<Window Type="DefaultGUISheet" Name="ViewportTab">
+		    <Property Name="Text" Value="Viewport" />
+		    <Window Type="TaharezLook/Listbox" Name="ViewportList" >
+			<Property Name="UnifiedAreaRect" Value="{{0.03,0},{0.03,0},{0.97,0},{0.97,0}}" />
+		    </Window>
+		</Window>
+	    </Window>
+            <Property Name="Text" Value="Browser :))" />
+            <Property Name="Alpha" Value="0.7" />
+            <Property Name="TitlebarFont" Value="DejaVuSans-8" />
+            <Property Name="TitlebarEnabled" Value="True" />
+            <Property Name="UnifiedAreaRect" Value="{{0.6,0},{0.01,0},{0.99,0},{0.5,0}}" />
+	    <!--
+            <Window Type="TaharezLook/Listbox" Name="ObjectSectionList" >
+                <Property Name="Text" Value="List Box" />
+                <Property Name="UnifiedAreaRect" Value="{{0.0571739,0},{0.0347221,0},{0.957174,0},{0.45,0}}" />
+            </Window>
+            <Window Type="TaharezLook/Listbox" Name="FXSlotSectionList" >
+                <Property Name="UnifiedAreaRect" Value="{{0.06,0},{0.5,0},{0.957174,0},{0.815652,0}}" />
+            </Window>
+	    -->
+            <Window Type="TaharezLook/Button" Name="SaveConfig" >
+                <Property Name="Text" Value="Save" />
+                <Property Name="UnifiedAreaRect" Value="{{0.06,0},{0.893299,0},{0.46,0},{0.98,0}}" />
+            </Window>
+            <Window Type="TaharezLook/Button" Name="LoadConfig" >
+                <Property Name="Text" Value="Load" />
+                <Property Name="UnifiedAreaRect" Value="{{0.5,0},{0.898453,0},{0.9,0},{0.98,0}}" />
+            </Window>
+        </Window>
+    </Window>
+</GUILayout>

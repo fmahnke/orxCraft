@@ -88,7 +88,8 @@ void ScrollGUICEGUI::CEGUIScrollObject::OnCreate ()
     SchemeManager::getSingleton().create("TaharezLook.scheme");
 
     WindowManager &winManager = WindowManager::getSingleton ();
-    Window* myRoot = winManager.loadWindowLayout ("Main.layout");
+    //! @todo Create this window with the dialog manager instead.
+    Window* myRoot = winManager.loadWindowLayout ("Browser.layout");
     System::getSingleton().setGUISheet( myRoot );
 }
 
