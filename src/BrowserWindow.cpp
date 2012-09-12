@@ -29,9 +29,33 @@
  */
 #include "BrowserWindow.h"
 #include "orxCraft.h"
+#include "ScrollListbox.h"
+
+BrowserWindow::BrowserWindow () :
+    m_objectsList (NULL),
+    m_fxList (NULL),
+    m_graphicList (NULL)
+{
+}
 
 void BrowserWindow::Init (const orxSTRING widgetName)
 {
+    m_objectsList = FindListbox ("ObjectList");
+    m_fxList = FindListbox ("FXList");
+
+    SetupFields ();
+}
+
+void BrowserWindow::SetupFields ()
+{
+    vector<const orxSTRING> propList =
+	OrxCraft::GetInstance ().GetObjectList ();
+
+    //m_objectsList->Fill (propList);
+
+    propList = OrxCraft::GetInstance ().GetGraphicList ();
+
+    //m_graphicList->Fill (propList);
 }
 
 const orxSTRING BrowserWindow::GetName ()

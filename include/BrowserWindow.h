@@ -30,15 +30,29 @@
 #ifndef __BROWSERWINDOW_H__
 #define __BROWSERWINDOW_H__
 
+class ScrollListbox;
+
 #include "ScrollFrameWindow.h"
 
 class BrowserWindow : public ScrollFrameWindow
 {
 public:
+    //! C-tor
+    BrowserWindow ();
+
     virtual void Init (const orxSTRING widgetName);
+
+    //! Initialize control items
+    void SetupFields ();
+
     virtual const orxSTRING GetName ();
     virtual void OnMouseClick   (const orxSTRING widgetName);
     virtual void OnTextAccepted (const orxSTRING widgetName);
+
+private:
+    ScrollListbox *m_objectsList;
+    ScrollListbox *m_fxList;
+    ScrollListbox *m_graphicList;
 };
 
 #endif	// __BROWSERWINDOW_H__
