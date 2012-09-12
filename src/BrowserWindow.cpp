@@ -22,25 +22,42 @@
  */
 
 /**
- * @file InfoWindow.h
+ * @file BrowserWindow.cpp
  * @date 2012-05-04
  * @author fritz@fritzmahnke.com
  *
  */
-#ifndef __INFOWINDOW_H__
-#define __INFOWINDOW_H__
+#include "BrowserWindow.h"
+#include "orxCraft.h"
 
-#include "ScrollFrameWindow.h"
-
-class InfoWindow : public ScrollFrameWindow
+void BrowserWindow::Init (const orxSTRING widgetName)
 {
-public:
-    virtual void Init (const orxSTRING widgetName);
-    virtual const orxSTRING GetName ();
-    virtual void OnMouseClick   (const orxSTRING widgetName);
-    virtual void OnTextAccepted (const orxSTRING widgetName);
-};
+}
 
-#endif	// __INFOWINDOW_H__
+const orxSTRING BrowserWindow::GetName ()
+{
+    return "Browser";
+}
+
+void BrowserWindow::OnMouseClick (const orxSTRING widgetName)
+{
+    if (orxString_ICompare (widgetName, "ObjectSectionList") == 0)
+    {
+	//const orxSTRING itemName = m_widgetManager->GetSelectedItem (widgetName);
+    }
+    else if (orxString_ICompare (widgetName, "FXSlotSectionList") == 0)
+    {
+	//const orxSTRING itemName = m_widgetManager->GetSelectedItem (widgetName);
+    }
+    else if (orxString_ICompare (widgetName, "SaveConfig") == 0)
+    {
+	OrxCraft::GetInstance ().SaveEditorConfig ();
+    }
+}
+
+void BrowserWindow::OnTextAccepted (const orxSTRING widgetName)
+{
+    orxASSERT (false);
+}
 
 // vim: tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab

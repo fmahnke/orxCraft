@@ -32,7 +32,7 @@
 #include "orxCraft.h"
 #include "ObjectEditor.h"
 #include "FXSlotEditorWindow.h"
-#include "InfoWindow.h"
+#include "BrowserWindow.h"
 
 #include "constants.h"
 
@@ -66,31 +66,31 @@ void ScrollGUICEGUI::CEGUIScrollObject::OnCreate ()
     // All CEGUI data files are stored in data/cegui subdirectory relative to OrxCraft executable
     DefaultResourceProvider* rp = 
 	static_cast<DefaultResourceProvider*>(System::getSingleton().getResourceProvider());
-    rp->setResourceGroupDirectory("schemes", "./cegui/schemes/");
-    rp->setResourceGroupDirectory("imagesets", "./cegui/imagesets/");
-    rp->setResourceGroupDirectory("fonts", "./cegui/fonts/");
-    rp->setResourceGroupDirectory("layouts", "./cegui/layouts/");
-    rp->setResourceGroupDirectory("looknfeels", "./cegui/looknfeel/");
-    rp->setResourceGroupDirectory("lua_scripts", "./cegui/lua_scripts/");
-    rp->setResourceGroupDirectory("schemas", "./cegui/xml_schemas/");
+    rp->setResourceGroupDirectory ("schemes", "./cegui/schemes/");
+    rp->setResourceGroupDirectory ("imagesets", "./cegui/imagesets/");
+    rp->setResourceGroupDirectory ("fonts", "./cegui/fonts/");
+    rp->setResourceGroupDirectory ("layouts", "./cegui/layouts/");
+    rp->setResourceGroupDirectory ("looknfeels", "./cegui/looknfeel/");
+    rp->setResourceGroupDirectory ("lua_scripts", "./cegui/lua_scripts/");
+    rp->setResourceGroupDirectory ("schemas", "./cegui/xml_schemas/");
     // Set the default resource groups to be used
-    Imageset::setDefaultResourceGroup("imagesets");
-    Font::setDefaultResourceGroup("fonts");
-    Scheme::setDefaultResourceGroup("schemes");
-    WidgetLookManager::setDefaultResourceGroup("looknfeels");
-    WindowManager::setDefaultResourceGroup("layouts");
-    ScriptModule::setDefaultResourceGroup("lua_scripts");
+    Imageset::setDefaultResourceGroup ("imagesets");
+    Font::setDefaultResourceGroup ("fonts");
+    Scheme::setDefaultResourceGroup ("schemes");
+    WidgetLookManager::setDefaultResourceGroup ("looknfeels");
+    WindowManager::setDefaultResourceGroup ("layouts");
+    ScriptModule::setDefaultResourceGroup ("lua_scripts");
     // Setup default group for validation schemas
-    XMLParser* parser = System::getSingleton().getXMLParser();
-    if (parser->isPropertyPresent("SchemaDefaultResourceGroup"))
-	parser->setProperty("SchemaDefaultResourceGroup", "schemas");
+    XMLParser* parser = System::getSingleton ().getXMLParser ();
+    if (parser->isPropertyPresent ("SchemaDefaultResourceGroup"))
+	parser->setProperty ("SchemaDefaultResourceGroup", "schemas");
 
-    SchemeManager::getSingleton().create("TaharezLook.scheme");
+    SchemeManager::getSingleton ().create ("TaharezLook.scheme");
 
-    WindowManager &winManager = WindowManager::getSingleton ();
-    //! @todo Create this window with the dialog manager instead.
-    Window* myRoot = winManager.loadWindowLayout ("Browser.layout");
-    System::getSingleton().setGUISheet( myRoot );
+    // Create initial default window and assign it to the GUI sheet
+    CEGUI::Window *root = CEGUI::WindowManager::getSingleton ().createWindow (
+	    "DefaultWindow", "_MasterRoot");
+    CEGUI::System::getSingleton ().setGUISheet (root);
 }
 
 void ScrollGUICEGUI::CEGUIScrollObject::OnDelete ()

@@ -40,6 +40,7 @@
 // Dialogs
 #include "ObjectEditor.h"
 #include "FXSlotEditorWindow.h"
+#include "BrowserWindow.h"
 
 #include "CEGUICombobox.h"
 #include "CEGUIEditbox.h"
@@ -54,24 +55,34 @@ void CEDialogManager::MakeDialog (const orxSTRING dialogName)
 
     CEGUI::Window *windowRoot = NULL;
 
+    CEGUI::WindowManager *CEWinManager = &CEGUI::WindowManager::getSingleton ();
+
     if (orxString_Compare (dialogName, "ObjectEditor") == 0)
     {
 	dialog = new ObjectEditor ();
-	windowRoot = CEGUI::WindowManager::getSingleton().loadWindowLayout(
+	windowRoot = CEWinManager->loadWindowLayout (
 	    "ObjectEditor.layout");
     }
     else if (orxString_Compare (dialogName, "FXSlotEditor") == 0)
     {
 	dialog = new FXSlotEditorWindow ();
-	windowRoot = CEGUI::WindowManager::getSingleton().loadWindowLayout(
+	windowRoot = CEWinManager->loadWindowLayout (
 	    "FXSlotEditor.layout");
+    }
+    else if (orxString_Compare (dialogName, "Browser") == 0)
+    {
+	dialog = new BrowserWindow ();
+	windowRoot = CEWinManager->loadWindowLayout (
+	    "Browser.layout");
     }
     else
     {
 	orxASSERT (false);
     }
 
+
     CEGUI::Window *rootWindow = CEGUI::System::getSingleton ().getGUISheet ();
+
     CEGUI::Window* window = windowRoot->getChildAtIdx (0); 
     rootWindow->addChildWindow (window);   
     

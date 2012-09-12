@@ -31,7 +31,7 @@
 #include "orxCraft.h"
 #undef  __SCROLL_IMPL__
 
-#include "InfoWindow.h"
+#include "BrowserWindow.h"
 #include "ObjectEditor.h"
 #include "FXSlotEditorWindow.h"
 
@@ -45,9 +45,6 @@
 
 //! @todo Don't use entire namespace
 using namespace std;
-
-// Widgets
-static const orxSTRING infoWindow = "O-InfoWindow";
 
 string OrxCraft::m_projectFileName;
 
@@ -107,12 +104,12 @@ orxSTATUS OrxCraft::Init ()
     m_gui = new ScrollGUICEGUI ();
     m_gui->Init ();
 
-    CreateObject (infoWindow);
-
     // Init object editor
     m_dialogManager->MakeDialog ("ObjectEditor");
     // Init FX slot editor
     m_dialogManager->MakeDialog ("FXSlotEditor");
+    // Init Browser
+    m_dialogManager->MakeDialog ("Browser");
 
     orxEvent_AddHandler (orxEVENT_TYPE_INPUT, EventHandler);
 
