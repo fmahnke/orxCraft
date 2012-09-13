@@ -40,8 +40,9 @@ BrowserWindow::BrowserWindow () :
 
 void BrowserWindow::Init (const orxSTRING widgetName)
 {
-    m_objectsList = FindListbox ("ObjectList");
-    m_fxList = FindListbox ("FXList");
+    m_objectsList = FindListbox ("BroObjectList");
+    m_fxList = FindListbox ("BroFXList");
+    m_graphicList = FindListbox ("BroGraphicList");
 
     SetupFields ();
 }
@@ -51,11 +52,11 @@ void BrowserWindow::SetupFields ()
     vector<const orxSTRING> propList =
 	OrxCraft::GetInstance ().GetObjectList ();
 
-    //m_objectsList->Fill (propList);
+    m_objectsList->Fill (propList);
 
     propList = OrxCraft::GetInstance ().GetGraphicList ();
 
-    //m_graphicList->Fill (propList);
+    m_graphicList->Fill (propList);
 }
 
 const orxSTRING BrowserWindow::GetName ()
