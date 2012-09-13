@@ -58,6 +58,17 @@ void CEGUIPushButton::Init (const orxSTRING widgetName)
     strcpy (m_widgetName, widgetName);
 }
 
+void CEGUIPushButton::Init (Window* widget)
+{
+    PushButton *pushbutton = reinterpret_cast<PushButton *> (widget);
+    pushbutton->subscribeEvent (PushButton::EventClicked,
+	Event::Subscriber (&CEGUIPushButton::OnClicked, this));
+
+    m_cePushButton = pushbutton;
+    m_widgetName = new char[strlen (widget->getName().c_str()) + 1];
+    strcpy (m_widgetName, widget->getName().c_str());
+}
+
 void CEGUIPushButton::SetText (const orxSTRING text)
 {
     orxASSERT (text != orxNULL);

@@ -5,7 +5,7 @@
     <WorkspaceConfiguration Name="Linux Debug" Selected="yes">
       <Project Name="OrxCraft" ConfigName="Linux Debug"/>
     </WorkspaceConfiguration>
-    <WorkspaceConfiguration Name="Linux Release" Selected="no">
+    <WorkspaceConfiguration Name="Linux Release" Selected="yes">
       <Project Name="OrxCraft" ConfigName="Linux Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>

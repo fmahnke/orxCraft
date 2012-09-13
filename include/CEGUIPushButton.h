@@ -42,6 +42,7 @@ class CEGUIPushButton : public ScrollPushButton
 public:
     explicit CEGUIPushButton (ScrollFrameWindow *dialog);
     virtual void Init (const orxSTRING widgetName);
+    virtual void Init (CEGUI::Window* widget);
 
     virtual void SetText (const orxSTRING text);
 

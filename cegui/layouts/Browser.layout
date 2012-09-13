@@ -4,84 +4,84 @@
     <Window Type="DefaultWindow" Name="BrowserRoot" >
         <Property Name="UnifiedAreaRect" Value="{{0,0},{0,0},{1,0},{1,0}}" />
         <Window Type="TaharezLook/FrameWindow" Name="Browser" >
-	    <Window Type="TaharezLook/TabControl" Name="Frame/TabControl">
+	    <Window Type="TaharezLook/TabControl" Name="BrowserTabControl">
                 <Property Name="TabHeight" Value="{0,-1}" />
                 <Property Name="UnifiedMaxSize" Value="{{1,0},{1,0}}" />
                 <Property Name="TabPanePosition" Value="Top" />
                 <Property Name="UnifiedAreaRect" Value="{{0,10},{0,10},{1,-10},{0.9,-10}}" />
-		<Window Type="DefaultGUISheet" Name="AnimationTab">
+		<Window Type="DefaultGUISheet" Name="BroAnimationTab">
 		    <Property Name="Text" Value="Animation" />
 		    <Window Type="TaharezLook/Listbox" Name="AnimationList" >
 			<Property Name="UnifiedAreaRect" Value="{{0.03,0},{0.03,0},{0.97,0},{0.97,0}}" />
 		    </Window>
 		</Window>
-		<Window Type="DefaultGUISheet" Name="BodyTab">
+		<Window Type="DefaultGUISheet" Name="BroBodyTab">
 		    <Property Name="Text" Value="Body" />
 		    <Window Type="TaharezLook/Listbox" Name="BodyList" >
 			<Property Name="UnifiedAreaRect" Value="{{0.03,0},{0.03,0},{0.97,0},{0.97,0}}" />
 		    </Window>
 		</Window>
-		<Window Type="DefaultGUISheet" Name="JointTab">
+		<Window Type="DefaultGUISheet" Name="BroJointTab">
 		    <Property Name="Text" Value="Joint" />
 		    <Window Type="TaharezLook/Listbox" Name="JointList" >
 			<Property Name="UnifiedAreaRect" Value="{{0.03,0},{0.03,0},{0.97,0},{0.97,0}}" />
 		    </Window>
 		</Window>
-		<Window Type="DefaultGUISheet" Name="CameraTab">
+		<Window Type="DefaultGUISheet" Name="BroCameraTab">
 		    <Property Name="Text" Value="Camera" />
 		    <Window Type="TaharezLook/Listbox" Name="CameraList" >
 			<Property Name="UnifiedAreaRect" Value="{{0.03,0},{0.03,0},{0.97,0},{0.97,0}}" />
 		    </Window>
 		</Window>
-		<Window Type="DefaultGUISheet" Name="ClockTab">
+		<Window Type="DefaultGUISheet" Name="BroClockTab">
 		    <Property Name="Text" Value="Clock" />
 		    <Window Type="TaharezLook/Listbox" Name="ClockList" >
 			<Property Name="UnifiedAreaRect" Value="{{0.03,0},{0.03,0},{0.97,0},{0.97,0}}" />
 		    </Window>
 		</Window>
-		<Window Type="DefaultGUISheet" Name="FXTab">
+		<Window Type="DefaultGUISheet" Name="BroFXTab">
 		    <Property Name="Text" Value="FX" />
 		    <Window Type="TaharezLook/Listbox" Name="FXList" >
 			<Property Name="UnifiedAreaRect" Value="{{0.03,0},{0.03,0},{0.97,0},{0.97,0}}" />
 		    </Window>
 		</Window>
-		<Window Type="DefaultGUISheet" Name="GraphicTab">
+		<Window Type="DefaultGUISheet" Name="BroGraphicTab">
 		    <Property Name="Text" Value="Graphic" />
 		    <Window Type="TaharezLook/Listbox" Name="GraphicList" >
 			<Property Name="UnifiedAreaRect" Value="{{0.03,0},{0.03,0},{0.97,0},{0.97,0}}" />
 		    </Window>
 		</Window>
-		<Window Type="DefaultGUISheet" Name="ObjectTab">
+		<Window Type="DefaultGUISheet" Name="BroObjectTab">
 		    <Property Name="Text" Value="Object" />
 		    <Window Type="TaharezLook/Listbox" Name="ObjectList" >
 			<Property Name="UnifiedAreaRect" Value="{{0.03,0},{0.03,0},{0.97,0},{0.97,0}}" />
 		    </Window>
 		</Window>
-		<Window Type="DefaultGUISheet" Name="ShaderTab">
+		<Window Type="DefaultGUISheet" Name="BroShaderTab">
 		    <Property Name="Text" Value="Shader" />
 		    <Window Type="TaharezLook/Listbox" Name="ShaderList" >
 			<Property Name="UnifiedAreaRect" Value="{{0.03,0},{0.03,0},{0.97,0},{0.97,0}}" />
 		    </Window>
 		</Window>
-		<Window Type="DefaultGUISheet" Name="SoundTab">
+		<Window Type="DefaultGUISheet" Name="BroSoundTab">
 		    <Property Name="Text" Value="Sound" />
 		    <Window Type="TaharezLook/Listbox" Name="SoundList" >
 			<Property Name="UnifiedAreaRect" Value="{{0.03,0},{0.03,0},{0.97,0},{0.97,0}}" />
 		    </Window>
 		</Window>
-		<Window Type="DefaultGUISheet" Name="SpawnerTab">
+		<Window Type="DefaultGUISheet" Name="BroSpawnerTab">
 		    <Property Name="Text" Value="Spawner" />
 		    <Window Type="TaharezLook/Listbox" Name="SpawnerList" >
 			<Property Name="UnifiedAreaRect" Value="{{0.03,0},{0.03,0},{0.97,0},{0.97,0}}" />
 		    </Window>
 		</Window>
-		<Window Type="DefaultGUISheet" Name="TextTab">
+		<Window Type="DefaultGUISheet" Name="BroTextTab">
 		    <Property Name="Text" Value="Text" />
 		    <Window Type="TaharezLook/Listbox" Name="TextList" >
 			<Property Name="UnifiedAreaRect" Value="{{0.03,0},{0.03,0},{0.97,0},{0.97,0}}" />
 		    </Window>
 		</Window>
-		<Window Type="DefaultGUISheet" Name="ViewportTab">
+		<Window Type="DefaultGUISheet" Name="BroViewportTab">
 		    <Property Name="Text" Value="Viewport" />
 		    <Window Type="TaharezLook/Listbox" Name="ViewportList" >
 			<Property Name="UnifiedAreaRect" Value="{{0.03,0},{0.03,0},{0.97,0},{0.97,0}}" />

@@ -45,6 +45,7 @@ public:
     explicit CEGUICombobox (ScrollFrameWindow *dialog);
     /** Initialize the Combobox */
     virtual void Init (const orxSTRING widgetName);
+    virtual void Init (CEGUI::Window* widget);
     /** Fill the box with a list */
     virtual void Fill (const vector<const orxSTRING> &listItems);
 

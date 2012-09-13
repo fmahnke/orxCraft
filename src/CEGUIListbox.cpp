@@ -57,6 +57,17 @@ void CEGUIListbox::Init (const orxSTRING widgetName)
     strcpy (m_widgetName, widgetName);
 }
 
+void CEGUIListbox::Init (Window* widget)
+{
+    Listbox *listbox = reinterpret_cast<Listbox *> (widget);
+    listbox->subscribeEvent (Window::EventMouseClick,
+	Event::Subscriber (&CEGUIListbox::OnMouseClick, this));
+
+    m_ceListbox = listbox;
+    m_widgetName = new char[strlen (widget->getName().c_str()) + 1];
+    strcpy (m_widgetName, widget->getName().c_str());
+}
+
 void CEGUIListbox::Fill (const vector<const orxSTRING> &listItems)
 {
     for (unsigned int i = 0; i < listItems.size (); i++)

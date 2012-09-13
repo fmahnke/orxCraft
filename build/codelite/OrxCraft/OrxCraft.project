@@ -159,4 +159,26 @@
       </Completion>
     </Configuration>
   </Settings>
+  <VirtualDirectory Name="cegui">
+    <VirtualDirectory Name="fonts">
+      <File Name="../../../cegui/fonts/DejaVuSans-10.font"/>
+      <File Name="../../../cegui/fonts/DejaVuSans-8.font"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="imagesets">
+      <File Name="../../../cegui/imagesets/TaharezLook.imageset"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="layouts">
+      <File Name="../../../cegui/layouts/FXSlotEditor.layout"/>
+      <File Name="../../../cegui/layouts/Main.layout"/>
+      <File Name="../../../cegui/layouts/ObjectEditor.layout"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="looknfeel">
+      <File Name="../../../cegui/looknfeel/TaharezLook.looknfeel"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="schemes">
+      <File Name="../../../cegui/schemes/TaharezLook.scheme"/>
+      <File Name="../../../cegui/schemes/TaharezLookWidgetAliases.scheme"/>
+      <File Name="../../../cegui/schemes/TaharezLookWidgets.scheme"/>
+    </VirtualDirectory>
+  </VirtualDirectory>
 </CodeLite_Project>

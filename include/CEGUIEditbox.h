@@ -42,6 +42,7 @@ class CEGUIEditbox : public ScrollEditbox
 public:
     explicit CEGUIEditbox (ScrollFrameWindow *dialog);
     virtual void Init (const orxSTRING widgetName);
+    virtual void Init (CEGUI::Window* widget);
 
     virtual const orxSTRING GetText ();
     virtual void SetText (const orxSTRING text);
