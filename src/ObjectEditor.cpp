@@ -1,3 +1,26 @@
+/*
+ *  Copyright (c) 2012 The orxCraft Project
+ *
+ *  This software is provided 'as-is', without any express or implied
+ *  warranty. In no event will the authors be held liable for any damages
+ *  arising from the use of this software.
+ *
+ *  Permission is granted to anyone to use this software for any purpose,
+ *  including commercial applications, and to alter it and redistribute it
+ *  freely, subject to the following restrictions:
+ *
+ *     1. The origin of this software must not be misrepresented; you must not
+ *     claim that you wrote the original software. If you use this software
+ *     in a product, an acknowledgment in the product documentation would be
+ *     appreciated but is not required.
+ *  
+ *     2. Altered source versions must be plainly marked as such, and must not be
+ *     misrepresented as being the original software.
+ *  
+ *     3. This notice may not be removed or altered from any source
+ *     distribution.
+ */
+
 /**
  * @file ObjectEditor.cpp
  * @date 2012-05-04
@@ -5,7 +28,7 @@
  *
  */
 #include "ObjectEditor.h"
-#include "OrxCraft.h"
+#include "orxCraft.h"
 #include "orx_config_util.h"
 
 #include "ScrollCombobox.h"
@@ -353,7 +376,7 @@ void ObjectEditor::OnTextAccepted (const orxSTRING widgetName)
 	orxString_ToFloat (m_objColorR->GetText (), &newRFloat, orxNULL);
 	orxString_ToFloat (m_objColorG->GetText (), &newGFloat, orxNULL);
 	orxString_ToFloat (m_objColorB->GetText (), &newBFloat, orxNULL);
-	orxVECTOR newColor = { newRFloat, newGFloat, newBFloat };
+	orxVECTOR newColor = { {newRFloat}, {newGFloat}, {newBFloat} };
 	orxConfig_SetVector ("Color", &newColor);
     }
     else if (orxString_Compare (widgetName, "ObjDepthScale") == 0)
@@ -396,7 +419,7 @@ void ObjectEditor::OnTextAccepted (const orxSTRING widgetName)
 	orxString_ToFloat (m_objPosX->GetText (), &newXFloat, orxNULL);
 	orxString_ToFloat (m_objPosY->GetText (), &newYFloat, orxNULL);
 	orxString_ToFloat (m_objPosZ->GetText (), &newZFloat, orxNULL);
-	orxVECTOR newPosition = { newXFloat, newYFloat, newZFloat };
+	orxVECTOR newPosition = { {newXFloat}, {newYFloat}, {newZFloat} };
 	orxConfig_SetVector ("Position", &newPosition);
     }
     else if (orxString_SearchString (widgetName, "ObjRepeat") > 0)
@@ -407,7 +430,7 @@ void ObjectEditor::OnTextAccepted (const orxSTRING widgetName)
 	orxString_ToFloat (m_objRepeatX->GetText (), &XFloat, orxNULL);
 	orxString_ToFloat (m_objRepeatY->GetText (), &YFloat, orxNULL);
 	orxString_ToFloat (m_objRepeatZ->GetText (), &ZFloat, orxNULL);
-	orxVECTOR repeat = { XFloat, YFloat, ZFloat };
+	orxVECTOR repeat = { {XFloat}, {YFloat}, {ZFloat} };
 	orxConfig_SetVector ("Repeat", &repeat);
     }
     else if (orxString_Compare (widgetName, "ObjRotation") == 0)
@@ -423,7 +446,7 @@ void ObjectEditor::OnTextAccepted (const orxSTRING widgetName)
 	orxString_ToFloat (m_objSpeedX->GetText (), &newXFloat, orxNULL);
 	orxString_ToFloat (m_objSpeedY->GetText (), &newYFloat, orxNULL);
 	orxString_ToFloat (m_objSpeedZ->GetText (), &newZFloat, orxNULL);
-	orxVECTOR newSpeed = { newXFloat, newYFloat, newZFloat };
+	orxVECTOR newSpeed = { {newXFloat}, {newYFloat}, {newZFloat} };
 	orxConfig_SetVector ("Speed", &newSpeed);
     }
     else if (orxString_SearchString (widgetName, "ObjScale") > 0)
@@ -434,7 +457,7 @@ void ObjectEditor::OnTextAccepted (const orxSTRING widgetName)
 	orxString_ToFloat (m_objScaleX->GetText (), &XFloat, orxNULL);
 	orxString_ToFloat (m_objScaleY->GetText (), &YFloat, orxNULL);
 	orxString_ToFloat (m_objScaleZ->GetText (), &ZFloat, orxNULL);
-	orxVECTOR scale = { XFloat, YFloat, ZFloat };
+	orxVECTOR scale = { {XFloat}, {YFloat}, {ZFloat} };
 	orxConfig_SetVector ("Scale", &scale);
     }
     else if (orxString_Compare (widgetName, "ObjShaderList") == 0)

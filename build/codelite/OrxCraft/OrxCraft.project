@@ -40,15 +40,16 @@
     <File Name="../../../include/ScrollListbox.h"/>
     <File Name="../../../include/ScrollPushButton.h"/>
     <File Name="../../../include/ScrollWidget.h"/>
-    <File Name="../../../include/OrxCraft.h"/>
     <File Name="../../../include/CEDialogManager.h"/>
     <File Name="../../../include/DialogManager.h"/>
+    <File Name="../../../include/constants.h"/>
+    <File Name="../../../include/orxCraft.h"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>
       <Compiler Options="-I../../../include" C_Options="-I../../../include">
         <IncludePath Value="."/>
-        <IncludePath Value="$(CEGUI_DIR)/cegui/include"/>
+        <IncludePath Value="$(CEGUI_DIR)/include/CEGUI"/>
         <IncludePath Value="$(SCROLL_DIR)/include/Scroll/"/>
         <IncludePath Value="$(ORX_DIR)/code/include"/>
       </Compiler>
@@ -123,8 +124,6 @@
       <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="../../LinuxRelease" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
       <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
         <![CDATA[
-      
-      
       
       ]]>
       </Environment>

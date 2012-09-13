@@ -1,0 +1,14 @@
+-- Setup orxCraft dependancies.
+-- Modify the lines below to match your enviroment.
+
+-- Path to orx
+ORX_DIR = "../../orx"
+
+-- Path to Scroll
+SCROLL_DIR = "../../scroll"
+
+-- Path to CEGUI
+CEGUI_DIR = "../../CEGUI-v0-7"
+
+include "premake"
+
