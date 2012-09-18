@@ -9,205 +9,205 @@
             <Property Name="TitlebarFont" Value="DejaVuSans-8" />
             <Property Name="TitlebarEnabled" Value="True" />
             <Property Name="UnifiedAreaRect" Value="{{0.00117189,0},{0.00963542,0},{0.530469,0},{0.863801,0}}" />
+            <Window Type="TaharezLook/StaticText" Name="LabelFXSlotConfigName" >
+                <Property Name="Text" Value="Name" />
+                <Property Name="HorzExtent" Value="32" />
+                <Property Name="VertExtent" Value="12.4227" />
+                <Property Name="UnifiedAreaRect" Value="{{0,15},{0,15},{0.2,0},{0,40}}" />
+            </Window>
             <Window Type="TaharezLook/StaticText" Name="LabelType" >
                 <Property Name="Text" Value="Type" />
                 <Property Name="HorzExtent" Value="26" />
                 <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.0549815,0},{0.029573,0},{0.118634,0},{0.0768293,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0,15},{0,45},{0,105},{0,70}}" />
             </Window>
             <Window Type="TaharezLook/StaticText" Name="LabelCurve" >
                 <Property Name="Text" >Curve
 </Property>
                 <Property Name="HorzExtent" Value="31" />
                 <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.0549815,0},{0.079573,0},{0.118634,0},{0.126829,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0,15},{0,75},{0,105},{0,100}}" />
             </Window>
             <Window Type="TaharezLook/StaticText" Name="LabelStartTime" >
                 <Property Name="Text" >StartTime
 </Property>
                 <Property Name="HorzExtent" Value="53" />
                 <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.0549815,0},{0.129573,0},{0.17583,0},{0.176829,0}}" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="LabelEndTime" >
-                <Property Name="Text" Value="EndTime" />
-                <Property Name="HorzExtent" Value="48" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.347047,0},{0.128049,0},{0.456826,0},{0.175305,0}}" />
-            </Window>
-            <Window Type="TaharezLook/Editbox" Name="FXSlotEndTime" >
-                <Property Name="Text" Value="999.99" />
-                <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0,250},{0,85},{0,310},{0,105}}" />
-                <Property Name="TextParsingEnabled" Value="False" />
+                <Property Name="UnifiedAreaRect" Value="{{0,15},{0,105},{0,105},{0,130}}" />
             </Window>
             <Window Type="TaharezLook/StaticText" Name="LabelStartValue" >
                 <Property Name="Text" Value="StartValue" />
                 <Property Name="HorzExtent" Value="56" />
                 <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.0549815,0},{0.179268,0},{0.19059,0},{0.226524,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0,15},{0,135},{0,105},{0,160}}" />
             </Window>
             <Window Type="TaharezLook/StaticText" Name="LabelEndValue" >
                 <Property Name="Text" Value="EndValue" />
                 <Property Name="HorzExtent" Value="51" />
                 <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.0549815,0},{0.233841,0},{0.177675,0},{0.281097,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0,15},{0,165},{0,105},{0,190}}" />
+            </Window>
+            <Window Type="TaharezLook/StaticText" Name="LabelEndTime" >
+                <Property Name="Text" Value="EndTime" />
+                <Property Name="HorzExtent" Value="48" />
+                <Property Name="VertExtent" Value="12.4227" />
+                <Property Name="UnifiedAreaRect" Value="{{0,175},{0,105},{0,230},{0,130}}" />
+            </Window>
+            <Window Type="TaharezLook/Editbox" Name="FXSlotEndTime" >
+                <Property Name="Text" Value="999.99" />
+                <Property Name="MaxTextLength" Value="1073741823" />
+                <Property Name="UnifiedAreaRect" Value="{{0,235},{0,105},{0,290},{0,130}}" />
+                <Property Name="TextParsingEnabled" Value="False" />
             </Window>
             <Window Type="TaharezLook/StaticText" Name="LabelPhase" >
                 <Property Name="Text" Value="Phase" />
                 <Property Name="HorzExtent" Value="31" />
                 <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.0549815,0},{0.270121,0},{0.118634,0},{0.317377,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0,175},{0,195},{0,230},{0,220}}" />
             </Window>
             <Window Type="TaharezLook/StaticText" Name="LabelPeriod" >
                 <Property Name="Text" Value="Period" />
                 <Property Name="HorzExtent" Value="32" />
                 <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.347047,0},{0.277743,0},{0.4107,0},{0.324999,0}}" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="LabelAbsolute" >
-                <Property Name="Text" Value="Absolute" />
-                <Property Name="HorzExtent" Value="45" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.0568265,0},{0.339633,0},{0.155535,0},{0.386889,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0,15},{0,195},{0,105},{0,220}}" />
             </Window>
             <Window Type="TaharezLook/StaticText" Name="LabelAcceleration" >
                 <Property Name="Text" Value="Acceleration" />
                 <Property Name="HorzExtent" Value="65" />
                 <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.347047,0},{0.342682,0},{0.499261,0},{0.389938,0}}" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="LabelAmplification" >
-                <Property Name="Text" Value="Amplification" />
-                <Property Name="HorzExtent" Value="71" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.0568265,0},{0.390853,0},{0.210885,0},{0.438109,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0,15},{0,255},{0,105},{0,280}}" />
             </Window>
             <Window Type="TaharezLook/StaticText" Name="LabelPow" >
                 <Property Name="Text" Value="Pow" />
                 <Property Name="HorzExtent" Value="21" />
                 <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.347047,0},{0.390853,0},{0.4107,0},{0.438109,0}}" />
+		<Property Name="UnifiedAreaRect" Value="{{0,175},{0,225},{0,230},{0,250}}" />
+            </Window>
+            <Window Type="TaharezLook/StaticText" Name="LabelAbsolute" >
+                <Property Name="Text" Value="Absolute" />
+                <Property Name="HorzExtent" Value="45" />
+                <Property Name="VertExtent" Value="12.4227" />
+                <Property Name="UnifiedAreaRect" Value="{{0,15},{0,345},{0,105},{0,370}}" />
+            </Window>
+            <Window Type="TaharezLook/StaticText" Name="LabelAmplification" >
+                <Property Name="Text" Value="Amplification" />
+                <Property Name="HorzExtent" Value="71" />
+                <Property Name="VertExtent" Value="12.4227" />
+                <Property Name="UnifiedAreaRect" Value="{{0,15},{0,225},{0,105},{0,250}}" />
             </Window>
             <Window Type="TaharezLook/StaticText" Name="LabelUseRotation" >
                 <Property Name="Text" Value="UseRotation" />
                 <Property Name="HorzExtent" Value="63" />
                 <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.0568265,0},{0.434451,0},{0.185055,0},{0.481707,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0,15},{0,285},{0,105},{0,310}}" />
             </Window>
             <Window Type="TaharezLook/StaticText" Name="LabelUseScale" >
                 <Property Name="Text" Value="UseScale" />
                 <Property Name="HorzExtent" Value="48" />
                 <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.0568265,0},{0.475304,0},{0.170295,0},{0.522561,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0,15},{0,315},{0,105},{0,340}}" />
+            </Window>
+            <Window Type="TaharezLook/Combobox" Name="FXSlotConfigName" >
+                <Property Name="ReadOnly" Value="True" />
+                <Property Name="MaxEditTextLength" Value="1073741823" />
+                <Property Name="UnifiedAreaRect" Value="{{0,115},{0,15},{0,225},{0,200}}" />
             </Window>
             <Window Type="TaharezLook/Combobox" Name="FXSlotType" >
-				<Property Name="ReadOnly" Value="True" />
-                <Property Name="UnifiedAreaRect" Value="{{0.20369,0},{0.0368901,0},{0.365129,0},{0.1902437,0}}" />
+		<Property Name="ReadOnly" Value="True" />
+                <Property Name="UnifiedAreaRect" Value="{{0,115},{0,45},{0,225},{0,230}}" />
                 <Property Name="MaxEditTextLength" Value="1073741823" />
             </Window>
             <Window Type="TaharezLook/Combobox" Name="FXSlotCurve" >
-				<Property Name="ReadOnly" Value="True" />
-                <Property Name="UnifiedAreaRect" Value="{{0.20369,0},{0.0823169,0},{0.365129,0},{0.0823169,100}}" />
+		<Property Name="ReadOnly" Value="True" />
+                <Property Name="UnifiedAreaRect" Value="{{0,115},{0,75},{0,225},{0,260}}" />
                 <Property Name="MaxEditTextLength" Value="1073741823" />
             </Window>
             <Window Type="TaharezLook/Editbox" Name="FXSlotStartTime" >
                 <Property Name="Text" Value="999.99" />
                 <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.20369,0},{0.134756,0},{0.32969,0},{0.168756,0}}" />
+		<Property Name="UnifiedAreaRect" Value="{{0,115},{0,105},{0,170},{0,130}}" />
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
             <Window Type="TaharezLook/Editbox" Name="FXSlotStartValue0" >
                 <Property Name="Text" Value="999.99" />
                 <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.20369,0},{0.184756,0},{0.32969,0},{0.218756,0}}" />
+		<Property Name="UnifiedAreaRect" Value="{{0,115},{0,135},{0,170},{0,160}}" />-->
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
             <Window Type="TaharezLook/Editbox" Name="FXSlotStartValue1" >
                 <Property Name="Text" Value="999.99" />
                 <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.336163,0},{0.184756,0},{0.462162,0},{0.218756,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0,175},{0,135},{0,230},{0,160}}" />
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
             <Window Type="TaharezLook/Editbox" Name="FXSlotStartValue2" >
                 <Property Name="Text" Value="999.99" />
                 <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.478414,0},{0.184756,0},{0.604414,0},{0.218756,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0,235},{0,135},{0,290},{0,160}}" />
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
             <Window Type="TaharezLook/Editbox" Name="FXSlotEndValue0" >
                 <Property Name="Text" Value="999.99" />
                 <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.20369,0},{0.234756,0},{0.32969,0},{0.268756,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0,115},{0,165},{0,170},{0,190}}" />
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
             <Window Type="TaharezLook/Editbox" Name="FXSlotEndValue1" >
                 <Property Name="Text" Value="999.99" />
                 <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.338008,0},{0.234756,0},{0.464008,0},{0.268756,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0,175},{0,165},{0,230},{0,190}}" />
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
             <Window Type="TaharezLook/Editbox" Name="FXSlotEndValue2" >
                 <Property Name="Text" Value="999.99" />
                 <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.478414,0},{0.234756,0},{0.604414,0},{0.268756,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0,235},{0,165},{0,290},{0,190}}" />
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
             <Window Type="TaharezLook/Editbox" Name="FXSlotPhase" >
                 <Property Name="Text" Value="999.99" />
                 <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.20369,0},{0.284756,0},{0.329691,0},{0.318756,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0,235},{0,195},{0,290},{0,220}}" />
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
             <Window Type="TaharezLook/Editbox" Name="FXSlotPeriod" >
                 <Property Name="Text" Value="999.99" />
                 <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.489299,0},{0.284451,0},{0.6153,0},{0.318451,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0,115},{0,195},{0,170},{0,220}}" />
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
             <Window Type="TaharezLook/Checkbox" Name="FXSlotAbsolute" >
-				<Property Name="ReadOnly" Value="True" />
-                <Property Name="UnifiedAreaRect" Value="{{0.20369,0},{0.302683,0},{0.313469,0},{0.302683,65}}" />
+		<Property Name="ReadOnly" Value="True" />
+                <Property Name="UnifiedAreaRect" Value="{{0.20369,0},{0,345},{0.313469,0},{0,370}}" />
                 <Property Name="MaxEditTextLength" Value="1073741823" />
             </Window>
             <Window Type="TaharezLook/Editbox" Name="FXSlotAcceleration" >
                 <Property Name="Text" Value="999.99" />
                 <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.489299,0},{0.342683,0},{0.615299,0},{0.376683,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0,115},{0,255},{0,170},{0,280}}" />
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
             <Window Type="TaharezLook/Editbox" Name="FXSlotAmplification" >
                 <Property Name="Text" Value="999.99" />
                 <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.20369,0},{0.396951,0},{0.32969,0},{0.430951,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0,115},{0,225},{0,170},{0,250}}" />
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
             <Window Type="TaharezLook/Editbox" Name="FXSlotPow" >
                 <Property Name="Text" Value="999.99" />
                 <Property Name="MaxTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.489299,0},{0.396951,0},{0.615299,0},{0.430951,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0,235},{0,225},{0,290},{0,250}}" />
                 <Property Name="TextParsingEnabled" Value="False" />
             </Window>
             <Window Type="TaharezLook/Combobox" Name="FXSlotUseRotation" >
-				<Property Name="ReadOnly" Value="True" />
+		<Property Name="ReadOnly" Value="True" />
                 <Property Name="UnifiedAreaRect" Value="{{0.20369,0},{0.441464,0},{0.313468,0},{0.441464,65}}" />
                 <Property Name="MaxEditTextLength" Value="1073741823" />
             </Window>
             <Window Type="TaharezLook/Combobox" Name="FXSlotUseScale" >
-				<Property Name="ReadOnly" Value="True" />
+		<Property Name="ReadOnly" Value="True" />
                 <Property Name="UnifiedAreaRect" Value="{{0.20369,0},{0.485366,0},{0.313468,0},{0.485366,65}}" />
                 <Property Name="MaxEditTextLength" Value="1073741823" />
-            </Window>
-            <Window Type="TaharezLook/StaticText" Name="LabelFXSlotConfigName" >
-                <Property Name="Text" Value="Name" />
-                <Property Name="HorzExtent" Value="32" />
-                <Property Name="VertExtent" Value="12.4227" />
-                <Property Name="UnifiedAreaRect" Value="{{0.0549815,0},{-0.00579297,0},{0.118634,0},{0.0414634,0}}" />
-            </Window>
-            <Window Type="TaharezLook/Combobox" Name="FXSlotConfigName" >
-                <Property Name="ReadOnly" Value="True" />
-                <Property Name="MaxEditTextLength" Value="1073741823" />
-                <Property Name="UnifiedAreaRect" Value="{{0.20369,0},{0.00487774,0},{0.32969,0},{0,200}}" />
             </Window>
         </Window>
     </Window>
